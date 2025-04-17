@@ -48,5 +48,6 @@ export const {
   task: taskService,
   folder: folderService,
   workspace: workspaceService,
-  timeTracking: timeTrackingService
+  timeTracking: timeTrackingService,
+  document: documentService
 } = clickUpServices;

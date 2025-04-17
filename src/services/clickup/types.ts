@@ -572,4 +572,125 @@ export interface WorkspaceTasksResponse {
  */
 export interface ExtendedTaskFilters extends TaskFilters {
   detail_level?: 'summary' | 'detailed';
+}
+
+/**
+ * Options for listing documents
+ */
+export interface ListDocumentsOptions {
+  /** Filter by document ID */
+  id?: string;
+  /** Filter by creator user ID */
+  creator?: number;
+  /** Include deleted documents */
+  deleted?: boolean;
+  /** Include archived documents */
+  archived?: boolean;
+  /** Filter by parent container ID (space, folder, or list) */
+  parent_id?: string;
+  /** Filter by parent container type (space, folder, list) */
+  parent_type?: 'space' | 'folder' | 'list';
+  /** Maximum number of documents to return */
+  limit?: number;
+  /** Cursor for pagination */
+  next_cursor?: string;
+}
+
+/**
+ * Document object as returned by the ClickUp API
+ */
+export interface ClickUpDocument {
+  id: string;
+  date_created: number;
+  date_updated: number;
+  name: string;
+  parent: {
+    id: string;
+    type: number;
+  };
+  public: boolean;
+  workspace_id: number;
+  creator: number;
+  deleted: boolean;
+  type: number;
+}
+
+/**
+ * ClickUp parent container types
+ */
+export enum ClickUpParentType {
+  Space = 4,
+  Folder = 5,
+  List = 6,
+  All = 7,
+  Workspace = 12
+}
+
+/**
+ * Data for creating a document
+ */
+export interface CreateDocumentData {
+  name: string;
+  parent?: {
+    id: string;
+    type: ClickUpParentType;
+  };
+  visibility?: 'PUBLIC' | 'PRIVATE';
+  create_page?: boolean;
+}
+
+export interface ListDocumentsOptions {
+  parent_id?: string;
+  deleted?: boolean;
+}
+
+export interface ClickUpDocumentResponse {
+  docs: ClickUpDocument[];
+}
+
+export interface ClickUpDocumentPage {
+  id: string;
+  name: string;
+  content?: string;
+  sub_title?: string;
+  parent_id?: string;
+  parent_page_id?: string | null;
+  children?: ClickUpDocumentPage[];
+}
+
+export interface DocumentPagesResponse {
+  pages: ClickUpDocumentPage[];
+}
+
+export interface DocumentPageListingOptions {
+  max_page_depth?: number;
+}
+
+/**
+ * Data for creating a document page
+ */
+export interface CreateDocumentPageData {
+  content?: string;
+  sub_title?: string;
+  name: string;
+  parent_page_id?: string;
+}
+
+/**
+ * Data for updating a document page
+ */
+export interface UpdateDocumentPageData {
+  name?: string;
+  sub_title?: string;
+  content?: string;
+  content_format?: 'text/md' | 'text/plain';
+  content_edit_mode?: 'replace' | 'append' | 'prepend';
+}
+
+/**
+ * Options for retrieving document pages (query parameters)
+ */
+export interface DocumentPagesOptions {
+  content_format?: 'text/md' | 'text/html';
+  pageIds: string[];
 } 

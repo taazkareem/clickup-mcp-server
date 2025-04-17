@@ -76,6 +76,15 @@ import {
   addTagToTaskTool, handleAddTagToTask,
   removeTagFromTaskTool, handleRemoveTagFromTask
 } from "./tools/tag.js";
+import {
+  createDocumentTool, handleCreateDocument,
+  getDocumentTool, handleGetDocument,
+  listDocumentsTool, handleListDocuments,
+  listDocumentPagesTool, handleListDocumentPages,
+  getDocumentPagesTool, handleGetDocumentPages,
+  createDocumentPageTool, handleCreateDocumentPage,
+  updateDocumentPageTool, handleUpdateDocumentPage
+} from "./tools/documents.js";
 import { Logger } from "./logger.js";
 import { clickUpServices } from "./services/shared.js";
 
@@ -142,7 +151,14 @@ export function configureServer() {
         deleteFolderTool,
         getSpaceTagsTool,
         addTagToTaskTool,
-        removeTagFromTaskTool
+        removeTagFromTaskTool,
+        createDocumentTool,
+        getDocumentTool,
+        listDocumentsTool,
+        listDocumentPagesTool,
+        getDocumentPagesTool,
+        createDocumentPageTool,
+        updateDocumentPageTool
       ]
     };
   });
@@ -155,8 +171,8 @@ export function configureServer() {
 
   // Register CallTool handler with proper logging
   logger.info("Registering tool handlers", {
-    toolCount: 37,
-    categories: ["workspace", "task", "time-tracking", "list", "folder", "tag"]
+    toolCount: 40,
+    categories: ["workspace", "task", "time-tracking", "list", "folder", "tag", "document"]
   });
   
   server.setRequestHandler(CallToolRequestSchema, async (req) => {
@@ -236,6 +252,20 @@ export function configureServer() {
           return handleDeleteTimeEntry(params);
         case "get_current_time_entry":
           return handleGetCurrentTimeEntry(params);
+        case "create_document":
+          return handleCreateDocument(params);
+        case "get_document":
+          return handleGetDocument(params);
+        case "list_documents":
+          return handleListDocuments(params);
+        case "list_document_pages":
+          return handleListDocumentPages(params);
+        case "get_document_pages":
+          return handleGetDocumentPages(params);
+        case "create_document_page":
+          return handleCreateDocumentPage(params);
+        case "update_document_page":
+          return handleUpdateDocumentPage(params);
         default:
           logger.error(`Unknown tool requested: ${name}`);
           const error = new Error(`Unknown tool: ${name}`);
