@@ -7,6 +7,10 @@
  * The required environment variables (CLICKUP_API_KEY and CLICKUP_TEAM_ID) are passed 
  * securely to this file when running the hosted server at smithery.ai. Optionally, 
  * they can be parsed via command line arguments when running the server locally.
+ * 
+ * The document module is optional and can be passed via command line arguments.
+ * The default value is 'false' (string), which means the document module will be disabled if
+ * no parameter is passed. Pass it as 'true' (string) to enable it.
  */
 
 // Parse any command line environment arguments
@@ -17,6 +21,7 @@ for (let i = 0; i < args.length; i++) {
     const [key, value] = args[i + 1].split('=');
     if (key === 'CLICKUP_API_KEY') envArgs.clickupApiKey = value;
     if (key === 'CLICKUP_TEAM_ID') envArgs.clickupTeamId = value;
+    if (key === 'DOCUMENT_MODEL') envArgs.documentModule = value;
     if (key === 'LOG_LEVEL') envArgs.logLevel = value;
     i++;
   }
@@ -52,6 +57,7 @@ interface Config {
   clickupApiKey: string;
   clickupTeamId: string;
   enableSponsorMessage: boolean;
+  documentModule: string;
   logLevel: LogLevel;
 }
 
@@ -60,7 +66,8 @@ const configuration: Config = {
   clickupApiKey: envArgs.clickupApiKey || process.env.CLICKUP_API_KEY || '',
   clickupTeamId: envArgs.clickupTeamId || process.env.CLICKUP_TEAM_ID || '',
   enableSponsorMessage: process.env.ENABLE_SPONSOR_MESSAGE !== 'false',
-  logLevel: parseLogLevel(envArgs.logLevel || process.env.LOG_LEVEL)
+  documentModule: envArgs.documentModule || process.env.DOCUMENT_MODULE || 'false',
+  logLevel: parseLogLevel(envArgs.logLevel || process.env.LOG_LEVEL),
 };
 
 // Don't log to console as it interferes with JSON-RPC communication

@@ -108,6 +108,22 @@ export const server = new Server(
   }
 );
 
+const documentModule = () => {
+  if (config.documentModule === 'true') {
+    return [
+      createDocumentTool,
+      getDocumentTool,
+      listDocumentsTool,
+      listDocumentPagesTool,
+      getDocumentPagesTool,
+      createDocumentPageTool,
+      updateDocumentPageTool,
+    ]
+  } else {
+    return []
+  }
+}
+
 /**
  * Configure the server routes and handlers
  */
@@ -152,13 +168,7 @@ export function configureServer() {
         getSpaceTagsTool,
         addTagToTaskTool,
         removeTagFromTaskTool,
-        createDocumentTool,
-        getDocumentTool,
-        listDocumentsTool,
-        listDocumentPagesTool,
-        getDocumentPagesTool,
-        createDocumentPageTool,
-        updateDocumentPageTool
+        ...documentModule()
       ]
     };
   });
