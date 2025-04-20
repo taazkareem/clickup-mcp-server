@@ -110,7 +110,7 @@ export const listDocumentsTool = {
       },
       parent_type: {
         type: "string",
-        enum: ["space", "folder", "list"],
+        enum: ["TASK", "SPACE", "FOLDER", "LIST", "EVERYTHING", "WORKSPACE"],
         description: "Type of the parent container"
       },
       limit: {
