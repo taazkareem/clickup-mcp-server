@@ -871,7 +871,6 @@ Show me all tags in the "Development" space
   ]
 }
 ```
-
 #### Creating a Tag
 **User Prompt:**
 ```
@@ -967,6 +966,252 @@ Add the "feature" tag to the task "Implement Authentication"
    ```
 
 5. **Supported Color Names**: Basic colors (red, blue, green, etc.) and common variations (dark blue, light green, etc.) are supported.
+
+## Document Management
+
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|-------------------|-------------------|
+| create_document | Create a document | `name`, `parent` (with `id` and `type`), `visibility`, `create_page` | None |
+| get_document | Get document details | `documentId` | None |
+| list_documents | List documents | None | `id`, `creator`, `deleted`, `archived`, `parent_id`, `parent_type`, `limit`, `next_cursor` |
+| list_document_pages | List document pages | `documentId` | `max_page_depth` (-1 for unlimited) |
+| get_document_pages | Get document pages | `documentId`, `pageIds` | `content_format` ('text/md'/'text/html') |
+| create_document_page | Create a document page | `documentId`, `name` | `content`, `sub_title`, `parent_page_id` |
+| update_document_page | Update a document page | `documentId`, `pageId` | `name`, `sub_title`, `content`, `content_format`, `content_edit_mode` |
+
+### Document Parameters
+
+- **Parent Types**:
+  - Space (4)
+  - Folder (5)
+  - List (6)
+  - All (7)
+  - Workspace (12)
+
+- **Visibility Settings**:
+  - PUBLIC: Document is visible to all workspace members
+  - PRIVATE: Document is visible only to specific members
+
+- **Content Formats**:
+  - text/md: Markdown format (default)
+  - text/html: HTML format (for get_document_pages)
+  - text/plain: Plain text format (for update_document_page)
+
+- **Content Edit Modes**:
+  - replace: Replace existing content (default)
+  - append: Add content at the end
+  - prepend: Add content at the beginning
+
+### Best Practices and Limits
+
+1. **Document Creation**:
+   - Choose appropriate parent type based on your organization structure
+   - Use meaningful names that follow your documentation standards
+   - Consider visibility settings carefully for sensitive information
+
+2. **Page Organization**:
+   - Create a clear hierarchy using parent_page_id
+   - Use descriptive titles and subtitles
+   - Keep content modular and well-structured
+
+3. **Performance Considerations**:
+   - Use pagination (limit and next_cursor) when listing documents
+   - Set appropriate max_page_depth when listing pages
+   - Batch page retrievals using get_document_pages with multiple pageIds
+
+4. **API Limits**:
+   - Maximum content size: 2MB per page
+   - Rate limits: 100 requests per minute
+   - Maximum page depth: No hard limit, but recommended to stay under 5 levels
+   - Maximum pages per document: 1000
+
+### Common Use Cases and Examples
+
+#### Creating a Document with Initial Page
+```json
+{
+  "name": "Technical Documentation",
+  "parent": {
+    "id": "123456",
+    "type": 4
+  },
+  "visibility": "PUBLIC",
+  "create_page": true
+}
+```
+
+#### Getting Document Details
+**User Prompt:**
+```
+Get details for the document with id 8cdu22c-13153
+```
+
+**System Response:**
+```json
+{
+  "id": "8cdu22c-13153",
+  "name": "Project Documentation",
+  "parent": {
+    "id": "90130315830",
+    "type": 4
+  },
+  "created": "2025-04-18T20:47:23.611Z",
+  "updated": "2025-04-18T20:47:23.611Z",
+  "creator": 55154194,
+  "public": false,
+  "type": 1,
+  "url": "https://app.clickup.com/..."
+}
+```
+
+#### Listing Documents
+**User Prompt:**
+```
+Show me all documents in the workspace
+```
+
+**System Response:**
+```json
+{
+  "documents": [
+    {
+      "id": "8cdu22c-10153",
+      "name": "First Doc name",''
+      "url": "https://app.clickup.com/...",
+      "parent": {
+        "id": "90131843402",
+        "type": 5
+      },
+      "created": "2024-08-16T19:30:17.853Z",
+      "updated": "2025-04-02T14:07:42.454Z",
+      "creator": 55158625,
+      "public": false,
+      "type": 1
+    },
+    {
+      "id": "8cdu22c-10173",
+      ...
+    },
+  ]
+}
+```
+
+#### Listing Document Pages
+**User Prompt:**
+``` 
+Show me all pages for the document with id 8cdu22c-13153
+```
+
+**System Response:**
+```json
+[
+  {
+    "id": "8cdu22c-11473",
+    "doc_id": "8cdu22c-3747",
+    "workspace_id": 9007073356,
+    "name": "Model"
+  },
+  {
+    "id": "8cdu22c-13013",
+    "doc_id": "8cdu22c-3747",
+    "workspace_id": 9007073356,
+    "name": "Document Example",
+    "pages": [
+      {
+        "id": "8cdu22c-1687",
+        "doc_id": "8cdu22c-3747",
+        "parent_page_id": "8cdu22c-13013",
+        "workspace_id": 9007073356,
+        "name": "Aditional Features",
+        "pages": [
+          {
+            "id": "8cdu22c-1687",
+            "doc_id": "8cdu22c-3747",
+            "parent_page_id": "8cdu22c-13013",
+            "workspace_id": 9007073356,
+            "name": "Aditional Features pt 2",
+          },
+          ...
+        ],
+      }
+    ]
+  }
+]
+```
+
+#### Getting Document Page
+**User Prompt:**
+```
+Get details for the page "Milestones" in the document with id 8cdu22c-13153
+
+Obs: you can also ask for more pages at once
+```
+
+**System Response:**
+```json
+{
+  "pages": [
+    {
+      "id": "8cdu22c-36253",
+      "doc_id": "8cdu22c-13133",
+      "workspace_id": 9007073356,
+      "name": "teste2",
+      "date_created": 1745010444340,
+      "date_updated": 1745010454496,
+      "content": "....#md",
+      "creator_id": 55154194,
+      "deleted": false,
+      "date_edited": 1745010454496,
+      "edited_by": 55154194,
+      "archived": false,
+      "protected": false,
+      "presentation_details": {
+        "show_contributor_header": false
+      }
+    },
+    ....
+  ]
+}
+```
+
+#### Creating Document Page
+**User Prompt:**
+```
+Create a page at the document 8cdu22c-13133 with ...
+or
+Create a subpage for page 8cdu22c-151232 with ...
+```
+
+**System Response:**
+```json
+{
+  "id": "8cdu22c-36273",
+  "doc_id": "8cdu22c-13133",
+  "workspace_id": 9007073356,
+  "name": "📝 Página de Exemplo",
+  "sub_title": "Demonstração de criação de página",
+  "date_created": 1745171083589,
+  "date_updated": 1745171083589,
+  "content": "Md example content",
+  "creator_id": 55154194,
+  "deleted": false,
+  "archived": false,
+  "protected": false
+}
+```
+
+#### Updating / Editing Document Page
+**User Prompt:**
+```
+Edit page 8cdu22c-36293 adding, in the end, another information...
+```
+
+**System Response:**
+```json
+{
+  "message": "Page updated successfully"
+}
+```
 
 ## Workspace Organization
 

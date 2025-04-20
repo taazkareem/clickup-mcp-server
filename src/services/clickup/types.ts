@@ -578,21 +578,13 @@ export interface ExtendedTaskFilters extends TaskFilters {
  * Options for listing documents
  */
 export interface ListDocumentsOptions {
-  /** Filter by document ID */
   id?: string;
-  /** Filter by creator user ID */
   creator?: number;
-  /** Include deleted documents */
   deleted?: boolean;
-  /** Include archived documents */
   archived?: boolean;
-  /** Filter by parent container ID (space, folder, or list) */
   parent_id?: string;
-  /** Filter by parent container type (space, folder, list) */
   parent_type?: 'space' | 'folder' | 'list';
-  /** Maximum number of documents to return */
   limit?: number;
-  /** Cursor for pagination */
   next_cursor?: string;
 }
 
@@ -631,21 +623,17 @@ export enum ClickUpParentType {
  */
 export interface CreateDocumentData {
   name: string;
-  parent?: {
+  parent: {
     id: string;
     type: ClickUpParentType;
   };
-  visibility?: 'PUBLIC' | 'PRIVATE';
-  create_page?: boolean;
-}
-
-export interface ListDocumentsOptions {
-  parent_id?: string;
-  deleted?: boolean;
+  visibility: 'PUBLIC' | 'PRIVATE';
+  create_page: boolean;
 }
 
 export interface ClickUpDocumentResponse {
   docs: ClickUpDocument[];
+  next_cursor?: string;
 }
 
 export interface ClickUpDocumentPage {
@@ -670,10 +658,11 @@ export interface DocumentPageListingOptions {
  * Data for creating a document page
  */
 export interface CreateDocumentPageData {
-  content?: string;
-  sub_title?: string;
   name: string;
+  sub_title?: string;
   parent_page_id?: string;
+  content?: string;
+  content_format?: 'text/md' | 'text/plain';
 }
 
 /**
@@ -692,5 +681,6 @@ export interface UpdateDocumentPageData {
  */
 export interface DocumentPagesOptions {
   content_format?: 'text/md' | 'text/html';
+  max_page_depth?: number;
   pageIds: string[];
 } 

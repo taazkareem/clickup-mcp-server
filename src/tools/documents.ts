@@ -23,7 +23,7 @@ const { document: documentService } = clickUpServices;
  */
 export const createDocumentTool = {
   name: "create_document",
-  description: `Creates a document in a ClickUp space, folder, or list. Requires parent ID/name and document title. Optional: content, status, assignee.`,
+  description: `Creates a document in a ClickUp space, folder, or list. Requires name, parent info, visibility and create_page flag.`,
   inputSchema: {
     type: "object",
     properties: {
@@ -31,21 +31,33 @@ export const createDocumentTool = {
         type: "string",
         description: "Name and Title of the document"
       },
-      parentName: {
-        type: "string",
-        description: "Name of the parent space, folder, or list. Only use if you don't have parentId."
+      parent: {
+        type: "object",
+        properties: {
+          id: {
+            type: "string",
+            description: "ID of the parent container (space, folder, or list)"
+          },
+          type: {
+            type: "number",
+            enum: [4, 5, 6, 7, 12],
+            description: "Type of the parent container (4=space, 5=folder, 6=list, 7=everything, 12=workspace)"
+          }
+        },
+        required: ["id", "type"],
+        description: "Parent container information"
       },
-      parentId: {
+      visibility: {
         type: "string",
-        description: "ID of the parent space, folder, or list where the document will be created"
+        enum: ["PUBLIC", "PRIVATE"],
+        description: "Document visibility setting"
       },
-      parentType: {
-        type: "string",
-        enum: ["space", "folder", "list"],
-        description: "Type of the parent container when using parentName"
-      },
+      create_page: {
+        type: "boolean",
+        description: "Whether to create an initial blank page"
+      }
     },
-    required: ["name", "parentId", "parentType"]
+    required: ["name", "parent", "visibility", "create_page"]
   }
 };
 
@@ -62,16 +74,8 @@ export const getDocumentTool = {
         type: "string",
         description: "ID of the document to retrieve"
       },
-      title: {
-        type: "string",
-        description: "Title of the document to find"
-      },
-      parentId: {
-        type: "string",
-        description: "ID of the parent container to search in when using title"
-      }
     },
-    required: []
+    required: ["documentId"]
   }
 };
 
@@ -84,22 +88,38 @@ export const listDocumentsTool = {
   inputSchema: {
     type: "object",
     properties: {
-      parentId: {
+      id: {
         type: "string",
-        description: "ID of the container to list documents from"
+        description: "Optional document ID to filter by"
       },
-      parentName: {
-        type: "string",
-        description: "Name of the container to list documents from. Only use if you don't have parentId."
+      creator: {
+        type: "number",
+        description: "Optional creator ID to filter by"
       },
-      parentType: {
-        type: "string",
-        enum: ["space", "folder", "list"],
-        description: "Type of the parent container when using parentName"
+      deleted: {
+        type: "boolean",
+        description: "Whether to include deleted documents"
       },
       archived: {
         type: "boolean",
         description: "Whether to include archived documents"
+      },
+      parent_id: {
+        type: "string",
+        description: "ID of the parent container to list documents from"
+      },
+      parent_type: {
+        type: "string",
+        enum: ["space", "folder", "list"],
+        description: "Type of the parent container"
+      },
+      limit: {
+        type: "number",
+        description: "Maximum number of documents to return"
+      },
+      next_cursor: {
+        type: "string",
+        description: "Cursor for pagination"
       }
     },
     required: []
@@ -229,18 +249,18 @@ export const updateDocumentPageTool = {
         description: "New content for the page",
         optional: true
       },
+      content_edit_mode: {
+        type: "string",
+        enum: ["replace", "append", "prepend"],
+        description: "How to update the content. Defaults to replace",
+        optional: true
+      },
       content_format: {
         type: "string",
         enum: ["text/md", "text/plain"],
         description: "Format of the content. Defaults to text/md",
         optional: true
       },
-      content_edit_mode: {
-        type: "string",
-        enum: ["replace", "append", "prepend"],
-        description: "How to update the content. Defaults to replace",
-        optional: true
-      }
     },
     required: ["documentId", "pageId"]
   }
@@ -270,33 +290,18 @@ async function findParentIdByName(name: string, type: 'space' | 'folder' | 'list
  * Handler for the create_document tool
  */
 export async function handleCreateDocument(parameters: any) {
-  const { name, parentId, parentType } = parameters;
+  const { name, parent, visibility, create_page } = parameters;
 
-  if (!parentId || !parentType) {
-    return sponsorService.createErrorResponse('Parent ID and type are required');
-  }
-
-  // Map string type to numeric value
-  const parentTypeMap = {
-    'space': 4,
-    'folder': 5,
-    'list': 6,
-    'everything': 7,
-    'workspace': 12
-  };
-
-  const parentTypeValue = parentTypeMap[parentType.toLowerCase()];
-  if (parentTypeValue === undefined) {
-    return sponsorService.createErrorResponse('Invalid parent type. Must be one of: space, folder, list, everything, workspace');
+  if (!parent || !visibility || !create_page) {
+    return sponsorService.createErrorResponse('Parent, visibility, and create_page are required');
   }
 
   // Prepare document data
   const documentData: CreateDocumentData = {
     name,
-    parent: {
-      id: parentId,
-      type: parentTypeValue
-    }
+    parent,
+    visibility,
+    create_page
   };
 
   try {
@@ -359,23 +364,30 @@ export async function handleGetDocument(parameters: any) {
  * Handler for the list_documents tool
  */
 export async function handleListDocuments(parameters: any) {
-  const { parentId, parentName, parentType, archived } = parameters;
-
-  let targetParentId = parentId;
-
-  // If no parentId but parentName is provided, look up the parent ID
-  if (!targetParentId && parentName && parentType) {
-    targetParentId = await findParentIdByName(parentName, parentType);
-    if (!targetParentId) {
-      throw new Error(`Parent container "${parentName}" not found`);
-    }
-  }
+  const { 
+    id,
+    creator,
+    deleted,
+    archived,
+    parent_id,
+    parent_type,
+    limit,
+    next_cursor
+  } = parameters;
 
   try {
-    // List documents with options
+    // Prepare options object with all possible parameters
     const options: any = {};
-    if (targetParentId) options.parent_id = targetParentId;
-    if (archived !== undefined) options.deleted = archived;
+    
+    // Add each parameter to options only if it's defined
+    if (id !== undefined) options.id = id;
+    if (creator !== undefined) options.creator = creator;
+    if (deleted !== undefined) options.deleted = deleted;
+    if (archived !== undefined) options.archived = archived;
+    if (parent_id !== undefined) options.parent_id = parent_id;
+    if (parent_type !== undefined) options.parent_type = parent_type;
+    if (limit !== undefined) options.limit = limit;
+    if (next_cursor !== undefined) options.next_cursor = next_cursor;
 
     const response = await documentService.listDocuments(options);
     
@@ -403,6 +415,7 @@ export async function handleListDocuments(parameters: any) {
     return sponsorService.createResponse({
       documents,
       count: documents.length,
+      next_cursor: response.next_cursor,
       message: `Found ${documents.length} document(s)`
     }, true);
   } catch (error: any) {
@@ -441,10 +454,12 @@ export async function handleGetDocumentPages(params: any) {
   }
 
   try {
-    const options: DocumentPagesOptions = {
-      content_format: content_format || 'text/md',
-      pageIds
-    };
+    const options: Partial<DocumentPagesOptions> = {};
+    
+    // Adiciona content_format nas options se fornecido
+    if (content_format) {
+      options.content_format = content_format;
+    }
 
     const pages = await clickUpServices.document.getDocumentPages(documentId, pageIds, options);
     return sponsorService.createResponse(pages);
@@ -509,13 +524,7 @@ export async function handleUpdateDocumentPage(parameters: any) {
     const page = await clickUpServices.document.updatePage(documentId, pageId, updateData);
 
     return sponsorService.createResponse({
-      id: page.id,
-      name: page.name,
-      sub_title: page.sub_title,
-      content: page.content,
-      parent_id: page.parent_id,
-      parent_page_id: page.parent_page_id,
-      message: `Page "${page.name}" updated successfully`
+      message: `Page updated successfully`
     }, true);
   } catch (error: any) {
     return sponsorService.createErrorResponse(
