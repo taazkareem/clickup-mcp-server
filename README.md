@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/taazkareem-clickup-mcp-server-badge.png)](https://mseep.ai/app/taazkareem-clickup-mcp-server)
+
 <img src="assets/images/clickup_mcp_server_social_image.png" alt="ClickUp MCP Server" width="100%">
 
 ![Total Supporters](https://img.shields.io/badge/🏆%20Total%20Supporters-4-gold)
