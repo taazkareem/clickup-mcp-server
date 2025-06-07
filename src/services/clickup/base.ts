@@ -98,8 +98,8 @@ function safeJsonParse(data: any, fallback: any = undefined): any {
  * Base ClickUp service class that handles common functionality
  */
 export class BaseClickUpService {
-  protected readonly apiKey: string;
-  protected readonly teamId: string;
+  protected apiKey: string;
+  protected teamId: string;
   protected readonly client: AxiosInstance;
   protected readonly logger: Logger;
   
@@ -113,11 +113,11 @@ export class BaseClickUpService {
 
   /**
    * Creates an instance of BaseClickUpService.
-   * @param apiKey - ClickUp API key for authentication
-   * @param teamId - ClickUp team ID for targeting the correct workspace
+   * @param apiKey - ClickUp API key for authentication (defaults to empty for security)
+   * @param teamId - ClickUp team ID for targeting the correct workspace (defaults to empty for security)
    * @param baseUrl - Optional custom base URL for the ClickUp API
    */
-  constructor(apiKey: string, teamId: string, baseUrl: string = 'https://api.clickup.com/api/v2') {
+  constructor(apiKey: string = '', teamId: string = '', baseUrl: string = 'https://api.clickup.com/api/v2') {
     this.apiKey = apiKey;
     this.teamId = teamId;
     this.requestSpacing = this.defaultRequestSpacing;
@@ -127,12 +127,17 @@ export class BaseClickUpService {
     this.logger = new Logger(`ClickUp:${className}`);
 
     // Configure the Axios client with default settings
+    // Only set Authorization header if apiKey is provided
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json'
+    };
+    if (apiKey) {
+      headers['Authorization'] = apiKey;
+    }
+
     this.client = axios.create({
       baseURL: baseUrl,
-      headers: {
-        'Authorization': apiKey,
-        'Content-Type': 'application/json'
-      },
+      headers,
       timeout: this.timeout,
       transformResponse: [
         // Add custom response transformer to handle both JSON and text responses
@@ -384,6 +389,13 @@ export class BaseClickUpService {
    * @returns Promise that resolves with the result of the API request
    */
   protected async makeRequest<T>(fn: () => Promise<T>): Promise<T> {
+    // Validate that credentials are set before making any API requests
+    if (!this.apiKey || !this.teamId) {
+      throw new ClickUpServiceError(
+        'API credentials not configured. Please call updateCredentials() with valid API key and team ID before making requests.',
+        ErrorCode.UNAUTHORIZED
+      );
+    }
     // If we're being rate limited, queue the request rather than executing immediately
     if (this.processingQueue) {
       const queuePosition = this.requestQueue.length + 1;
@@ -490,6 +502,26 @@ export class BaseClickUpService {
    */
   getTeamId(): string {
     return this.teamId;
+  }
+
+  /**
+   * Updates the credentials for this service instance
+   * This allows changing API key and team ID dynamically per request
+   * @param apiKey - New ClickUp API key for authentication
+   * @param teamId - New ClickUp team ID for targeting the correct workspace
+   */
+  updateCredentials(apiKey: string, teamId: string): void {
+    if (!apiKey || typeof apiKey !== 'string') {
+      throw new Error('API key must be a non-empty string');
+    }
+    if (!teamId || typeof teamId !== 'string') {
+      throw new Error('Team ID must be a non-empty string');
+    }
+
+    this.apiKey = apiKey;
+    this.teamId = teamId;
+    
+    this.client.defaults.headers['Authorization'] = apiKey;
   }
 
   /**

@@ -59,9 +59,10 @@ Additionally, you can use the `DISABLED_TOOLS` environment variable or `--env DI
 
 Please disable tools you don't need if you are having issues with the number of tools or any context limitations
 
-## Running with SSE Support
+## Running with HTTP and SSE Transport Support
 
-Server can be run in SSE (Server-Sent Events) mode by setting the following environment variables:
+The server supports both modern **Streamable HTTP** transport and legacy **SSE (Server-Sent Events)** transport for backwards compatibility.
+
 
 ```json
 {
@@ -83,9 +84,15 @@ Server can be run in SSE (Server-Sent Events) mode by setting the following envi
 }
 ```
 
-Or via command line:
+**Endpoints:**
+- **Primary**: `http://127.0.0.1:3231/mcp` (Streamable HTTP)
+- **Legacy**: `http://127.0.0.1:3231/sse` (SSE for backwards compatibility)
 
-`npx -y @taazkareem/clickup-mcp-server@latest --env CLICKUP_API_KEY=your-api-key --env CLICKUP_TEAM_ID=your-team-id --env ENABLE_SSE=true --env PORT=8000`
+### Command Line Usage
+
+```bash
+npx -y @taazkareem/clickup-mcp-server@latest --env CLICKUP_API_KEY=your-api-key --env CLICKUP_TEAM_ID=your-team-id --env ENABLE_SSE=true --env PORT=8000
+```
 
 ## Docker-compose example 
 ```yaml

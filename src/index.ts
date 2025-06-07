@@ -31,6 +31,7 @@ import config from './config.js';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { startSSEServer } from './sse_server.js';
+import { startOAuthServer } from './server_oauth.js';
 
 // Get directory name for module paths
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -75,9 +76,14 @@ async function startStdioServer() {
  */
 async function main() {
   try {
-    if (config.enableSSE) {
+    if (config.enableOAuth) {
+      info('Starting ClickUp MCP Server in OAuth mode');
+      startOAuthServer();
+    } else if (config.enableSSE) {
+      info('Starting ClickUp MCP Server in SSE mode');
       startSSEServer();
     } else {
+      info('Starting ClickUp MCP Server in STDIO mode');
       await startStdioServer();
     }
   } catch (err) {

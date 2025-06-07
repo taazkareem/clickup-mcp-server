@@ -13,6 +13,9 @@
  * no parameter is passed. Pass it as 'true' (string) to enable it.
  */
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 // Parse any command line environment arguments
 const args = process.argv.slice(2);
 const envArgs: { [key: string]: string } = {};
@@ -28,6 +31,7 @@ for (let i = 0; i < args.length; i++) {
     if (key === 'DISABLED_TOOLS') envArgs.disabledTools = value;
     if (key === 'DISABLED_COMMANDS') envArgs.disabledTools = value; // Backward compatibility
     if (key === 'ENABLE_SSE') envArgs.enableSSE = value;
+    if (key === 'ENABLE_OAUTH') envArgs.enableOAuth = value;
     if (key === 'PORT') envArgs.port = value;
     i++;
   }
@@ -72,6 +76,7 @@ interface Config {
   logLevel: LogLevel;
   disabledTools: string[];
   enableSSE: boolean;
+  enableOAuth: boolean;
   port?: string;
 }
 
@@ -93,19 +98,22 @@ const configuration: Config = {
       .map(cmd => cmd.trim())
       .filter(cmd => cmd !== '') || [],
   enableSSE: envArgs.enableSSE === 'true' || process.env.ENABLE_SSE === 'true' || false,
+  enableOAuth: envArgs.enableOAuth === 'true' || process.env.ENABLE_OAUTH === 'true' || false,
   port: envArgs.port || process.env.PORT || '3231',
 };
 
 // Don't log to console as it interferes with JSON-RPC communication
 
-// Validate only the required variables are present
-const requiredVars = ['clickupApiKey', 'clickupTeamId'];
-const missingEnvVars = requiredVars
-  .filter(key => !configuration[key as keyof Config])
-  .map(key => key);
+// Validate only the required variables are present (skip validation for OAuth mode)
+if (!configuration.enableOAuth) {
+  const requiredVars = ['clickupApiKey', 'clickupTeamId'];
+  const missingEnvVars = requiredVars
+    .filter(key => !configuration[key as keyof Config])
+    .map(key => key);
 
-if (missingEnvVars.length > 0) {
-  throw new Error(`Missing required environment variables: ${missingEnvVars.join(', ')}`);
+  if (missingEnvVars.length > 0) {
+    throw new Error(`Missing required environment variables: ${missingEnvVars.join(', ')}`);
+  }
 }
 
 export default configuration;

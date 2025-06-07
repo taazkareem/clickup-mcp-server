@@ -1,11 +1,13 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { isInitializeRequest } from '@modelcontextprotocol/sdk/types.js';
 import express from 'express';
 import { z } from 'zod';
 import configuration from './config.js';
+import { Logger } from './logger.js';
+
+// Import all tool handlers
 import {
   createDocumentPageTool,
   createDocumentTool,
@@ -96,15 +98,136 @@ import {
 } from './tools/tag.js';
 import { handleGetWorkspaceHierarchy } from './tools/workspace.js';
 
-const server = new McpServer({
-  name: 'clickup-mcp-server',
-  version: '0.7.2',
-});
+const logger = new Logger('OAuthServer');
 
-const app = express();
-app.use(express.json());
+/**
+ * Extract OAuth credentials from request headers
+ */
+function extractOAuthCredentials(req: express.Request): { accessToken: string; teamId: string } {
+  const accessToken = req.headers['authorization'] as string;
+  const teamId = req.headers['x-clickup-team-id'] as string;
 
-server.tool(
+  if (!accessToken) {
+    throw new Error('Missing required header: Authorization');
+  }
+  if (!teamId) {
+    throw new Error('Missing required header: x-clickup-team-id');
+  }
+
+  return { accessToken, teamId };
+}
+
+/**
+ * Enhanced transport that tracks OAuth credentials per session
+ */
+class OAuthStreamableHTTPServerTransport extends StreamableHTTPServerTransport {
+  private _credentials: { accessToken: string; teamId: string } | null = null;
+
+  setCredentials(accessToken: string, teamId: string) {
+    this._credentials = { accessToken, teamId };
+  }
+
+  getCredentials(): { accessToken: string; teamId: string } {
+    if (!this._credentials) {
+      throw new Error('OAuth credentials not set for this transport');
+    }
+    return this._credentials;
+  }
+}
+
+export function startOAuthServer() {
+  const server = new McpServer({
+    name: 'clickup-mcp-server-oauth',
+    version: '0.7.2',
+  });
+
+  const app = express();
+  app.use(express.json());
+
+  // Store transports per session
+  const transports: Record<string, OAuthStreamableHTTPServerTransport> = {};
+
+  // CORS middleware
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, mcp-session-id, Authorization, x-clickup-team-id');
+    
+    if (req.method === 'OPTIONS') {
+      res.sendStatus(200);
+      return;
+    }
+    
+    next();
+  });
+
+  // Request queue for sequential processing
+  interface QueuedRequest {
+    req: express.Request;
+    res: express.Response;
+    handler: (req: express.Request, res: express.Response, body?: any) => Promise<void>;
+    body?: any;
+  }
+
+  const requestQueue: QueuedRequest[] = [];
+  let isProcessing = false;
+
+  const processNextRequest = async (): Promise<void> => {
+    if (isProcessing || requestQueue.length === 0) {
+      return;
+    }
+
+    isProcessing = true;
+    const queuedRequest = requestQueue.shift()!;
+    
+    try {
+      logger.info('Processing queued request', { 
+        method: queuedRequest.req.method,
+        url: queuedRequest.req.url,
+        queueLength: requestQueue.length 
+      });
+      
+      await queuedRequest.handler(queuedRequest.req, queuedRequest.res, queuedRequest.body);
+    } catch (error) {
+      logger.error('Error processing queued request', { 
+        error: error.message, 
+        method: queuedRequest.req.method,
+        url: queuedRequest.req.url 
+      });
+      
+      // Ensure response is sent if not already sent
+      if (!queuedRequest.res.headersSent) {
+        queuedRequest.res.status(500).json({
+          jsonrpc: '2.0',
+          error: {
+            code: -32603,
+            message: 'Internal server error',
+          },
+          id: null,
+        });
+      }
+    } finally {
+      isProcessing = false;
+      // Process next request if any
+      setImmediate(() => processNextRequest());
+    }
+  };
+
+  const queueRequest = (req: express.Request, res: express.Response, handler: (req: express.Request, res: express.Response, body?: any) => Promise<void>, body?: any): void => {
+    requestQueue.push({ req, res, handler, body });
+    logger.info('Request queued', { 
+      method: req.method, 
+      url: req.url, 
+      queueLength: requestQueue.length 
+    });
+    processNextRequest();
+  };
+
+  // Note: Since we can't access the request object directly in tool handlers,
+  // we'll use a different approach where we override the shared services 
+  // during request processing at the transport level
+
+  server.tool(
   'get_workspace_hierarchy',
   'Get Workspace Hierarchy',
   {},
@@ -1121,31 +1244,68 @@ server.tool(
   }
 );
 
-export function startSSEServer() {
-  const transports = {
-    streamable: {} as Record<string, StreamableHTTPServerTransport>,
-    sse: {} as Record<string, SSEServerTransport>,
+  // Enhanced request handler that manages OAuth credentials
+  const handleOAuthRequest = async (transport: OAuthStreamableHTTPServerTransport, req: express.Request, res: express.Response, body: any) => {
+    try {
+      // Extract OAuth credentials from request
+      const { accessToken, teamId } = extractOAuthCredentials(req);
+      
+      // Get the shared services and update credentials dynamically
+      const sharedModule = await import('./services/shared.js');
+      const services = sharedModule.clickUpServices;
+      
+      try {
+        // Update all services with new credentials for this request
+        services.workspace.updateCredentials(accessToken, teamId);
+        services.task.updateCredentials(accessToken, teamId);
+        services.list.updateCredentials(accessToken, teamId);
+        services.folder.updateCredentials(accessToken, teamId);
+        services.tag.updateCredentials(accessToken, teamId);
+        services.timeTracking.updateCredentials(accessToken, teamId);
+        services.document.updateCredentials(accessToken, teamId);
+        
+        // Process the request with updated credentials
+        await transport.handleRequest(req, res, body);
+      } finally {
+        // Clear credentials after request for security (reset to empty)
+        services.workspace.updateCredentials('', '');
+        services.task.updateCredentials('', '');
+        services.list.updateCredentials('', '');
+        services.folder.updateCredentials('', '');
+        services.tag.updateCredentials('', '');
+        services.timeTracking.updateCredentials('', '');
+        services.document.updateCredentials('', '');
+      }
+    } catch (error) {
+      logger.error('Error in OAuth request handler', { error: error.message, stack: error.stack });
+      throw error;
+    }
   };
 
-  // Streamable HTTP endpoint - handles POST requests for client-to-server communication
-  app.post('/mcp', async (req, res) => {
+  // Handler for POST requests
+  const handlePostRequest = async (req: express.Request, res: express.Response, body?: any): Promise<void> => {
     try {
+      // Validate OAuth credentials first
+      extractOAuthCredentials(req);
+      
       const sessionId = req.headers['mcp-session-id'] as string | undefined;
-      let transport: StreamableHTTPServerTransport;
+      let transport: OAuthStreamableHTTPServerTransport;
 
-      if (sessionId && transports.streamable[sessionId]) {
-        transport = transports.streamable[sessionId];
-      } else if (!sessionId && isInitializeRequest(req.body)) {
-        transport = new StreamableHTTPServerTransport({
-          sessionIdGenerator: () => `session_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`,
+      if (sessionId && transports[sessionId]) {
+        transport = transports[sessionId];
+      } else if (!sessionId && isInitializeRequest(body || req.body)) {
+        transport = new OAuthStreamableHTTPServerTransport({
+          sessionIdGenerator: () => `oauth_session_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`,
           onsessioninitialized: (sessionId) => {
-            transports.streamable[sessionId] = transport;
+            transports[sessionId] = transport;
+            logger.info('OAuth session initialized', { sessionId });
           }
         });
 
         transport.onclose = () => {
           if (transport.sessionId) {
-            delete transports.streamable[transport.sessionId];
+            delete transports[transport.sessionId];
+            logger.info('OAuth session closed', { sessionId: transport.sessionId });
           }
         };
 
@@ -1162,69 +1322,78 @@ export function startSSEServer() {
         return;
       }
 
-      await transport.handleRequest(req, res, req.body);
+      // Use the enhanced OAuth request handler
+      await handleOAuthRequest(transport, req, res, body || req.body);
     } catch (error) {
-      console.error('Error handling MCP request:', error);
+      logger.error('Error handling OAuth MCP request', { error: error.message, stack: error.stack });
       if (!res.headersSent) {
-        res.status(500).json({
-          jsonrpc: '2.0',
-          error: {
-            code: -32603,
-            message: 'Internal server error',
-          },
-          id: null,
-        });
+        if (error.message.includes('Missing required header')) {
+          res.status(401).json({
+            jsonrpc: '2.0',
+            error: {
+              code: -32000,
+              message: `Unauthorized: ${error.message}`,
+            },
+            id: null,
+          });
+        } else {
+          res.status(500).json({
+            jsonrpc: '2.0',
+            error: {
+              code: -32603,
+              message: 'Internal server error',
+            },
+            id: null,
+          });
+        }
       }
     }
-  });
-
-  const handleSessionRequest = async (req: express.Request, res: express.Response) => {
-    const sessionId = req.headers['mcp-session-id'] as string | undefined;
-    if (!sessionId || !transports.streamable[sessionId]) {
-      res.status(400).send('Invalid or missing session ID');
-      return;
-    }
-    
-    const transport = transports.streamable[sessionId];
-    await transport.handleRequest(req, res);
   };
 
-  app.get('/mcp', handleSessionRequest);
-
-  app.delete('/mcp', handleSessionRequest);
-
-  // Legacy SSE endpoints (for backwards compatibility)
-  app.get('/sse', async (req, res) => {
-    const transport = new SSEServerTransport('/messages', res);
-    transports.sse[transport.sessionId] = transport;
-
-    console.log(
-      `New SSE connection established with sessionId: ${transport.sessionId}`
-    );
-
-    res.on('close', () => {
-      delete transports.sse[transport.sessionId];
-    });
-
-    await server.connect(transport);
+  // Streamable HTTP endpoint - handles POST requests for client-to-server communication
+  app.post('/mcp', (req, res) => {
+    queueRequest(req, res, handlePostRequest, req.body);
   });
 
-  app.post('/messages', async (req, res) => {
-    const sessionId = req.query.sessionId as string;
-    const transport = transports.sse[sessionId];
-    if (transport) {
-      await transport.handlePostMessage(req, res, req.body);
-    } else {
-      res.status(400).send('No transport found for sessionId');
+  const handleSessionRequest = async (req: express.Request, res: express.Response): Promise<void> => {
+    try {
+      extractOAuthCredentials(req);
+      
+      const sessionId = req.headers['mcp-session-id'] as string | undefined;
+      if (!sessionId || !transports[sessionId]) {
+        res.status(400).send('Invalid or missing session ID');
+        return;
+      }
+      
+      const transport = transports[sessionId];
+      await handleOAuthRequest(transport, req, res, undefined);
+    } catch (error) {
+      logger.error('Error in OAuth session request', { error: error.message });
+      if (!res.headersSent) {
+        if (error.message.includes('Missing required header')) {
+          res.status(401).send('Unauthorized: ' + error.message);
+        } else {
+            console.log(error);
+          res.status(500).send('Internal server error');
+        }
+      }
     }
+  };
+
+  app.get('/mcp', (req, res) => {
+    queueRequest(req, res, handleSessionRequest);
+  });
+  
+  app.delete('/mcp', (req, res) => {
+    queueRequest(req, res, handleSessionRequest);
   });
 
   const PORT = Number(configuration.port ?? '3231');
   
-  // Bind to localhost only for security
-  app.listen(PORT, () => {
-    console.log(`Server started on http://127.0.0.1:${PORT}`);
-    console.log(`Streamable HTTP endpoint: http://127.0.0.1:${PORT}/mcp`);
-    console.log(`Legacy SSE endpoint: http://127.0.0.1:${PORT}/sse`);
+  // Bind to all interfaces when running in Docker container
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`OAuth server started on http://0.0.0.0:${PORT}`);
+    console.log(`OAuth HTTP endpoint: http://0.0.0.0:${PORT}/mcp`);
+    console.log('Required headers: Authorization, x-clickup-team-id');
   });
-}
+} 
