@@ -295,13 +295,22 @@ export class TaskServiceCore extends BaseClickUpService {
     this.logOperation('getSubtasks', { taskId });
     
     try {
+      // First, get the parent task to find its list
+      const parentTask = await this.getTask(taskId);
+      
+      // Then query for tasks in that list with this task as parent
       return await this.makeRequest(async () => {
-        const response = await this.client.get<ClickUpTask>(
-          `/task/${taskId}`
+        const params = new URLSearchParams({
+          parent: taskId,
+          subtasks: 'true',
+          include_closed: 'true'
+        });
+        
+        const response = await this.client.get<{ tasks: ClickUpTask[] }>(
+          `/list/${parentTask.list.id}/task?${params.toString()}`
         );
         
-        // Return subtasks if present, otherwise empty array
-        return response.data.subtasks || [];
+        return response.data.tasks || [];
       });
     } catch (error) {
       throw this.handleError(error, `Failed to get subtasks for task ${taskId}`);
