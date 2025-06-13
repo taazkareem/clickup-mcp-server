@@ -651,22 +651,16 @@ export async function getSubtasksHandler(params) {
   const { taskId, taskName, listName } = params;
   
   try {
-    // Validate that at least one identifier is provided
-    if (!taskId && !taskName) {
-      throw new Error("Either taskId or taskName must be provided");
-    }
+    // Use the centralized findTask function to locate the parent task
+    const result = await findTask({
+      taskId,
+      taskName,
+      listName,
+      includeSubtasks: false // We'll get subtasks separately
+    });
     
-    let parentTaskId = taskId;
-    
-    // If taskName is provided instead of taskId, resolve it
-    if (!taskId && taskName) {
-      // Use the existing getTaskHandler logic to find the task
-      const result = await getTaskHandler(params);
-      parentTaskId = result.id;
-    }
-    
-    // Get subtasks using the improved method
-    const subtasks = await taskService.getSubtasks(parentTaskId);
+    // Get subtasks using the parent task ID
+    const subtasks = await taskService.getSubtasks(result.task.id);
     
     return subtasks;
   } catch (error) {
