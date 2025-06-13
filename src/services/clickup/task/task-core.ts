@@ -310,7 +310,20 @@ export class TaskServiceCore extends BaseClickUpService {
           `/list/${parentTask.list.id}/task?${params.toString()}`
         );
         
-        return response.data.tasks || [];
+        // Filter results to ensure parent field matches the requested taskId
+        const tasks = response.data.tasks || [];
+        const filteredTasks = tasks.filter(task => task.parent === taskId);
+        
+        // Log if filtering was needed (for debugging)
+        if (tasks.length !== filteredTasks.length) {
+          this.logger.debug('Filtered out tasks with incorrect parent', {
+            taskId,
+            originalCount: tasks.length,
+            filteredCount: filteredTasks.length
+          });
+        }
+        
+        return filteredTasks;
       });
     } catch (error) {
       throw this.handleError(error, `Failed to get subtasks for task ${taskId}`);
