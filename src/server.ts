@@ -21,9 +21,11 @@ import {
   moveTaskTool,
   duplicateTaskTool,
   getTaskTool,
+  getTasksTool,
   deleteTaskTool,
   getTaskCommentsTool,
   createTaskCommentTool,
+  getSubtasksTool,
   createBulkTasksTool,
   updateBulkTasksTool,
   moveBulkTasksTool,
@@ -44,6 +46,7 @@ import {
   handleDeleteTask,
   handleGetTaskComments,
   handleCreateTaskComment,
+  handleGetSubtasks,
   handleCreateBulkTasks,
   handleUpdateBulkTasks,
   handleMoveBulkTasks,
@@ -145,12 +148,14 @@ export function configureServer() {
         workspaceHierarchyTool,
         createTaskTool,
         getTaskTool,
+        getTasksTool,
         updateTaskTool,
         moveTaskTool,
         duplicateTaskTool,
         deleteTaskTool,
         getTaskCommentsTool,
         createTaskCommentTool,
+        getSubtasksTool,
         attachTaskFileTool,
         createBulkTasksTool,
         updateBulkTasksTool,
@@ -227,12 +232,16 @@ export function configureServer() {
           return handleDuplicateTask(params);
         case "get_task":
           return handleGetTask(params);
+        case "get_tasks":
+          return handleGetTasks(params);
         case "delete_task":
           return handleDeleteTask(params);
         case "get_task_comments":
           return handleGetTaskComments(params);
         case "create_task_comment":
           return handleCreateTaskComment(params);
+        case "get_subtasks":
+          return handleGetSubtasks(params);
         case "attach_task_file":
           return handleAttachTaskFile(params);
         case "create_bulk_tasks":

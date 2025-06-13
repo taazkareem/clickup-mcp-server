@@ -645,6 +645,39 @@ export async function getTaskCommentsHandler(params) {
 }
 
 /**
+ * Handler for getting subtasks of a task
+ */
+export async function getSubtasksHandler(params) {
+  const { taskId, taskName, listName } = params;
+  
+  try {
+    // Validate that at least one identifier is provided
+    if (!taskId && !taskName) {
+      throw new Error("Either taskId or taskName must be provided");
+    }
+    
+    let parentTaskId = taskId;
+    
+    // If taskName is provided instead of taskId, resolve it
+    if (!taskId && taskName) {
+      // Use the existing getTaskHandler logic to find the task
+      const result = await getTaskHandler(params);
+      parentTaskId = result.id;
+    }
+    
+    // Get subtasks using the improved method
+    const subtasks = await taskService.getSubtasks(parentTaskId);
+    
+    return subtasks;
+  } catch (error) {
+    if (error.message.includes('not found')) {
+      throw new Error(`Parent task not found. Please check the task ID or name and try again.`);
+    }
+    throw error;
+  }
+}
+
+/**
  * Handler for creating a task comment
  */
 export async function createTaskCommentHandler(params) {

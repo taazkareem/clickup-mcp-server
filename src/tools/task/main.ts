@@ -20,7 +20,8 @@ import {
   duplicateTaskTool,
   deleteTaskTool,
   getTaskCommentsTool,
-  createTaskCommentTool
+  createTaskCommentTool,
+  getSubtasksTool
 } from './single-operations.js';
 
 import {
@@ -55,6 +56,7 @@ import {
   deleteTaskHandler,
   getTaskCommentsHandler,
   createTaskCommentHandler,
+  getSubtasksHandler,
   createBulkTasksHandler,
   updateBulkTasksHandler,
   moveBulkTasksHandler,
@@ -131,6 +133,10 @@ export const handleCreateTaskComment = createHandlerWrapper(createTaskCommentHan
     id: `generated-${Date.now()}`,
     comment_text: typeof comment === 'string' ? comment : "Comment text unavailable"
   }
+}));
+export const handleGetSubtasks = createHandlerWrapper(getSubtasksHandler, (subtasks: any[]) => ({
+  subtasks,
+  count: subtasks.length
 }));
 
 //=============================================================================
@@ -220,6 +226,10 @@ export const tools = [
   { 
     definition: createTaskCommentTool, 
     handler: createTaskCommentHandler
+  },
+  { 
+    definition: getSubtasksTool, 
+    handler: getSubtasksHandler
   },
   { 
     definition: deleteTaskTool, 

@@ -477,6 +477,31 @@ export const createTaskCommentTool = {
 };
 
 /**
+ * Tool definition for retrieving subtasks of a task
+ */
+export const getSubtasksTool = {
+  name: "get_subtasks",
+  description: `Retrieves all subtasks of a parent task. Works with both task IDs and task names. Returns an array of subtask details including their status, assignees, and other properties.`,
+  inputSchema: {
+    type: "object",
+    properties: {
+      taskId: {
+        type: "string",
+        description: "ID of the parent task (preferred). Works with both regular task IDs (9 characters) and custom IDs with uppercase prefixes (like 'DEV-1234')."
+      },
+      taskName: {
+        type: "string",
+        description: "Name of the parent task. Can be used alone for a global search, or with listName for faster lookup."
+      },
+      listName: {
+        type: "string",
+        description: "Name of list containing the parent task. Optional but recommended when using taskName."
+      }
+    }
+  }
+};
+
+/**
  * Tool definition for deleting a task
  */
 export const deleteTaskTool = {
