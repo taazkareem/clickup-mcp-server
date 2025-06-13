@@ -646,11 +646,20 @@ export async function getTaskCommentsHandler(params) {
 
 /**
  * Handler for getting subtasks of a task
+ * 
+ * @param params - Parameters for finding the parent task
+ * @param params.taskId - ID of the parent task (preferred)
+ * @param params.taskName - Name of the parent task (alternative to taskId)
+ * @param params.listName - Optional list name to narrow down task search
+ * @returns Array of subtask objects with full task details
+ * @throws Error if parent task is not found or if neither taskId nor taskName is provided
  */
 export async function getSubtasksHandler(params) {
   const { taskId, taskName, listName } = params;
   
   try {
+    logger.debug('Getting subtasks', { taskId, taskName, listName });
+    
     // Use the centralized findTask function to locate the parent task
     const result = await findTask({
       taskId,
@@ -659,15 +668,33 @@ export async function getSubtasksHandler(params) {
       includeSubtasks: false // We'll get subtasks separately
     });
     
-    // Get subtasks using the parent task ID
-    const subtasks = await taskService.getSubtasks(result.task.id);
+    const parentTaskId = result.task.id;
+    logger.debug(`Found parent task: ${parentTaskId}`);
     
+    // Get subtasks using the parent task ID
+    const subtasks = await taskService.getSubtasks(parentTaskId);
+    
+    logger.info(`Retrieved ${subtasks.length} subtasks for task ${parentTaskId}`);
     return subtasks;
   } catch (error) {
-    if (error.message.includes('not found')) {
-      throw new Error(`Parent task not found. Please check the task ID or name and try again.`);
+    // Provide more specific error messages based on the error type
+    if (error.message.includes('No valid task identification')) {
+      throw new Error('Either taskId or taskName must be provided');
     }
-    throw error;
+    
+    if (error.message.includes('not found')) {
+      if (taskName && listName) {
+        throw new Error(`Task "${taskName}" not found in list "${listName}". Please check the task name and list name.`);
+      } else if (taskName) {
+        throw new Error(`Task "${taskName}" not found. Please specify a list name or check the task name.`);
+      } else {
+        throw new Error(`Task with ID "${taskId}" not found. Please check the task ID.`);
+      }
+    }
+    
+    // Log unexpected errors for debugging
+    logger.error('Failed to get subtasks', error);
+    throw new Error(`Failed to get subtasks: ${error.message}`);
   }
 }
 
