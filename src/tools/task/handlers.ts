@@ -702,9 +702,9 @@ export async function getTaskCommentsHandler(params) {
  * Handler for creating a task comment
  */
 export async function createTaskCommentHandler(params) {
-  // Validate required parameters
-  if (!params.commentText) {
-    throw new Error('Comment text is required');
+  // Validate required parameters - either commentText or formattedComment must be provided
+  if (!params.commentText && !params.formattedComment) {
+    throw new Error('Either commentText or formattedComment is required');
   }
 
   try {
@@ -713,13 +713,14 @@ export async function createTaskCommentHandler(params) {
 
     // Extract other parameters with defaults
     const {
-      commentText,
+      commentText = '',
+      formattedComment,
       notifyAll = false,
       assignee = null
     } = params;
 
     // Create the comment
-    return await taskService.createTaskComment(taskId, commentText, notifyAll, assignee);
+    return await taskService.createTaskComment(taskId, commentText, notifyAll, assignee, formattedComment);
   } catch (error) {
     // If this is a task lookup error, provide more helpful message
     if (error.message?.includes('not found') || error.message?.includes('identify task')) {
