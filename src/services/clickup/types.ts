@@ -347,6 +347,46 @@ export interface BulkCreateTasksData {
 }
 
 /**
+ * Comment formatting attributes (matches ClickUp API)
+ */
+export interface CommentAttributes {
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  strikethrough?: boolean;
+  code?: boolean;
+  color?: string;
+  background_color?: string;
+  link?: string; // For hyperlinks - URL goes here
+}
+
+/**
+ * Comment list item for formatted comments
+ */
+export interface CommentListItem {
+  text: string;
+  attributes?: CommentAttributes;
+  checked?: boolean; // For checklist items
+}
+
+/**
+ * Comment block types for formatted comments (matches ClickUp API exactly)
+ */
+export type CommentBlock = 
+  | { text: string; attributes?: CommentAttributes } // Text with optional formatting/links
+  | { type: 'tag'; user: { id: number } } // User mentions (@mentions)
+  | { type: 'emoji'; unicode: string } // Emojis
+  | { type: 'code_block'; language?: string; text: string } // Code blocks
+  | { type: 'bulleted_list'; items: CommentListItem[] } // Bulleted lists
+  | { type: 'numbered_list'; items: CommentListItem[] } // Numbered lists
+  | { type: 'checklist'; items: CommentListItem[] }; // Checklists
+
+/**
+ * Formatted comment structure for API requests
+ */
+export type FormattedComment = CommentBlock[];
+
+/**
  * Comment object as returned by the ClickUp API
  */
 export interface ClickUpComment {
