@@ -10,7 +10,7 @@
  */
 
 import { TaskServiceAttachments } from './task-attachments.js';
-import { ClickUpComment } from '../types.js';
+import { ClickUpComment, FormattedComment } from '../types.js';
 
 /**
  * Comments functionality for the TaskService
@@ -52,28 +52,37 @@ export class TaskServiceComments extends TaskServiceAttachments {
    * Create a comment on a task
    * 
    * @param taskId ID of the task to comment on
-   * @param commentText Text content of the comment
+   * @param commentText Text content of the comment (used when formattedComment is not provided)
    * @param notifyAll Whether to notify all assignees
    * @param assignee Optional user ID to assign the comment to
+   * @param formattedComment Optional formatted comment structure (takes precedence over commentText)
    * @returns The created comment
    */
   async createTaskComment(
     taskId: string, 
     commentText: string, 
     notifyAll: boolean = false,
-    assignee?: number | null
+    assignee?: number | null,
+    formattedComment?: FormattedComment
   ): Promise<ClickUpComment> {
-    this.logOperation('createTaskComment', { taskId, commentText, notifyAll, assignee });
+    this.logOperation('createTaskComment', { taskId, commentText, notifyAll, assignee, formattedComment });
     
     try {
       const payload: {
-        comment_text: string;
+        comment_text?: string;
+        comment?: FormattedComment;
         notify_all: boolean;
         assignee?: number;
       } = {
-        comment_text: commentText,
         notify_all: notifyAll
       };
+      
+      // Use formatted comment if provided, otherwise fall back to plain text
+      if (formattedComment && formattedComment.length > 0) {
+        payload.comment = formattedComment;
+      } else {
+        payload.comment_text = commentText;
+      }
       
       if (assignee) {
         payload.assignee = assignee;
