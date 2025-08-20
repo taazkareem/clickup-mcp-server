@@ -389,6 +389,7 @@ export interface ClickUpComment {
     };
   };
   attachments?: ClickUpCommentAttachment[];
+  replies?: ClickUpComment[]; // Threaded replies to the comment
 }
 
 /**

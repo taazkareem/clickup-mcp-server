@@ -20,6 +20,7 @@ import {
   duplicateTaskTool,
   deleteTaskTool,
   getTaskCommentsTool,
+  getTaskCommentsWithRepliesTool,
   createTaskCommentTool
 } from './single-operations.js';
 
@@ -54,6 +55,7 @@ import {
   duplicateTaskHandler,
   deleteTaskHandler,
   getTaskCommentsHandler,
+  getTaskCommentsWithRepliesHandler,
   createTaskCommentHandler,
   createBulkTasksHandler,
   updateBulkTasksHandler,
@@ -121,6 +123,10 @@ export const handleDeleteTask = createHandlerWrapper(deleteTaskHandler, () => ({
   message: "Task deleted successfully"
 }));
 export const handleGetTaskComments = createHandlerWrapper(getTaskCommentsHandler, (comments) => ({
+  comments,
+  count: comments.length
+}));
+export const handleGetTaskCommentsWithReplies = createHandlerWrapper(getTaskCommentsWithRepliesHandler, (comments) => ({
   comments,
   count: comments.length
 }));
@@ -216,6 +222,10 @@ export const tools = [
   { 
     definition: getTaskCommentsTool, 
     handler: getTaskCommentsHandler
+  },
+  { 
+    definition: getTaskCommentsWithRepliesTool, 
+    handler: getTaskCommentsWithRepliesHandler
   },
   { 
     definition: createTaskCommentTool, 

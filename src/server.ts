@@ -23,6 +23,7 @@ import {
   getTaskTool,
   deleteTaskTool,
   getTaskCommentsTool,
+  getTaskCommentsWithRepliesTool,
   createTaskCommentTool,
   createBulkTasksTool,
   updateBulkTasksTool,
@@ -43,6 +44,7 @@ import {
   handleGetTasks,
   handleDeleteTask,
   handleGetTaskComments,
+  handleGetTaskCommentsWithReplies,
   handleCreateTaskComment,
   handleCreateBulkTasks,
   handleUpdateBulkTasks,
@@ -176,6 +178,7 @@ export function configureServer() {
         duplicateTaskTool,
         deleteTaskTool,
         getTaskCommentsTool,
+        getTaskCommentsWithRepliesTool,
         createTaskCommentTool,
         attachTaskFileTool,
         createBulkTasksTool,
@@ -217,7 +220,7 @@ export function configureServer() {
 
   // Register CallTool handler with proper logging
   logger.info("Registering tool handlers", {
-    toolCount: 36,
+    toolCount: 37,
     categories: ["workspace", "task", "time-tracking", "list", "folder", "tag", "member", "document"]
   });
 
@@ -260,6 +263,8 @@ export function configureServer() {
           return handleDeleteTask(params);
         case "get_task_comments":
           return handleGetTaskComments(params);
+        case "get_task_comments_with_replies":
+          return handleGetTaskCommentsWithReplies(params);
         case "create_task_comment":
           return handleCreateTaskComment(params);
         case "attach_task_file":
