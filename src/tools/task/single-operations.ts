@@ -443,7 +443,7 @@ export const getTaskCommentsTool = {
  */
 export const createTaskCommentTool = {
   name: "create_task_comment",
-  description: `Creates task comment. Use taskId (preferred) or taskName + listName. Required: commentText. Optional: notifyAll to notify assignees, assignee to assign comment.`,
+  description: `Creates task comment with optional formatting. Use taskId (preferred) or taskName + listName. Required: commentText OR formattedComment. Optional: notifyAll to notify assignees, assignee to assign comment.`,
   inputSchema: {
     type: "object",
     properties: {
@@ -461,7 +461,162 @@ export const createTaskCommentTool = {
       },
       commentText: {
         type: "string",
-        description: "REQUIRED: Text content of the comment to create."
+        description: "Plain text content of the comment. Required if formattedComment is not provided."
+      },
+      formattedComment: {
+        type: "array",
+        description: "Formatted comment with rich text support. Array of comment blocks supporting text styling, lists, links, mentions, etc. Takes precedence over commentText when provided.",
+        items: {
+          type: "object",
+          oneOf: [
+            {
+              description: "Text block with optional formatting and links",
+              properties: {
+                text: {
+                  type: "string",
+                  description: "Text content"
+                },
+                attributes: {
+                  type: "object",
+                  properties: {
+                    bold: { type: "boolean" },
+                    italic: { type: "boolean" },
+                    underline: { type: "boolean" },
+                    strikethrough: { type: "boolean" },
+                    code: { type: "boolean" },
+                    color: { type: "string" },
+                    background_color: { type: "string" },
+                    link: { type: "string", description: "URL for hyperlinks" }
+                  },
+                  description: "Text formatting attributes. Use 'link' for hyperlinks."
+                }
+              },
+              required: ["text"]
+            },
+            {
+              description: "User mention (@mention)",
+              properties: {
+                type: { type: "string", enum: ["tag"] },
+                user: {
+                  type: "object",
+                  properties: {
+                    id: { type: "number", description: "ClickUp user ID" }
+                  },
+                  required: ["id"]
+                }
+              },
+              required: ["type", "user"]
+            },
+            {
+              description: "Emoji",
+              properties: {
+                type: { type: "string", enum: ["emoji"] },
+                unicode: { type: "string", description: "Unicode hex value" }
+              },
+              required: ["type", "unicode"]
+            },
+            {
+              description: "Code block",
+              properties: {
+                type: { type: "string", enum: ["code_block"] },
+                text: { type: "string", description: "Code content" },
+                language: { type: "string", description: "Programming language (optional)" }
+              },
+              required: ["type", "text"]
+            },
+            {
+              description: "Bulleted list",
+              properties: {
+                type: { type: "string", enum: ["bulleted_list"] },
+                items: {
+                  type: "array",
+                  items: {
+                    type: "object",
+                    properties: {
+                      text: { type: "string" },
+                      attributes: {
+                        type: "object",
+                        properties: {
+                          bold: { type: "boolean" },
+                          italic: { type: "boolean" },
+                          underline: { type: "boolean" },
+                          strikethrough: { type: "boolean" },
+                          code: { type: "boolean" },
+                          color: { type: "string" },
+                          background_color: { type: "string" },
+                          link: { type: "string" }
+                        }
+                      }
+                    },
+                    required: ["text"]
+                  }
+                }
+              },
+              required: ["type", "items"]
+            },
+            {
+              description: "Numbered list",
+              properties: {
+                type: { type: "string", enum: ["numbered_list"] },
+                items: {
+                  type: "array",
+                  items: {
+                    type: "object",
+                    properties: {
+                      text: { type: "string" },
+                      attributes: {
+                        type: "object",
+                        properties: {
+                          bold: { type: "boolean" },
+                          italic: { type: "boolean" },
+                          underline: { type: "boolean" },
+                          strikethrough: { type: "boolean" },
+                          code: { type: "boolean" },
+                          color: { type: "string" },
+                          background_color: { type: "string" },
+                          link: { type: "string" }
+                        }
+                      }
+                    },
+                    required: ["text"]
+                  }
+                }
+              },
+              required: ["type", "items"]
+            },
+            {
+              description: "Checklist",
+              properties: {
+                type: { type: "string", enum: ["checklist"] },
+                items: {
+                  type: "array",
+                  items: {
+                    type: "object",
+                    properties: {
+                      text: { type: "string" },
+                      checked: { type: "boolean", description: "Whether item is checked" },
+                      attributes: {
+                        type: "object",
+                        properties: {
+                          bold: { type: "boolean" },
+                          italic: { type: "boolean" },
+                          underline: { type: "boolean" },
+                          strikethrough: { type: "boolean" },
+                          code: { type: "boolean" },
+                          color: { type: "string" },
+                          background_color: { type: "string" },
+                          link: { type: "string" }
+                        }
+                      }
+                    },
+                    required: ["text"]
+                  }
+                }
+              },
+              required: ["type", "items"]
+            }
+          ]
+        }
       },
       notifyAll: {
         type: "boolean",
@@ -472,7 +627,7 @@ export const createTaskCommentTool = {
         description: "Optional user ID to assign the comment to."
       }
     },
-    required: ["commentText"]
+    required: []
   }
 };
 
