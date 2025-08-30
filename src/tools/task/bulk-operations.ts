@@ -143,6 +143,7 @@ export const createBulkTasksTool = {
                     description: "ID of the custom field"
                   },
                   value: {
+                    type: "string",
                     description: "Value for the custom field. Type depends on the field type."
                   }
                 },
@@ -245,6 +246,7 @@ export const updateBulkTasksTool = {
                     description: "ID of the custom field"
                   },
                   value: {
+                    type: "string",
                     description: "Value for the custom field. Type depends on the field type."
                   }
                 },
