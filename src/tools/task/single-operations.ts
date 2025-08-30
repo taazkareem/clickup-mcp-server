@@ -439,6 +439,31 @@ export const getTaskCommentsTool = {
 };
 
 /**
+ * Tool definition for retrieving task comments with threaded replies
+ */
+export const getTaskCommentsWithRepliesTool = {
+  name: "get_task_comments_with_replies",
+  description: `Gets task comments along with their threaded replies. Use taskId (preferred) or taskName + optional listName. Task names may not be unique across lists.`,
+  inputSchema: {
+    type: "object",
+    properties: {
+      taskId: {
+        type: "string",
+        description: "ID of task to retrieve comments and replies for (preferred). Automatically detects and handles both regular task IDs (9 characters) and custom IDs (like 'DEV-1234', 'PROJ-456')."
+      },
+      taskName: {
+        type: "string",
+        description: "Name of task to retrieve comments and replies for. Warning: Task names may not be unique."
+      },
+      listName: {
+        type: "string",
+        description: "Name of list containing the task. Helps find the right task when using taskName."
+      }
+    }
+  }
+};
+
+/**
  * Tool definition for creating a comment on a task
  */
 export const createTaskCommentTool = {

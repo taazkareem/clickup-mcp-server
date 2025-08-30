@@ -699,6 +699,14 @@ export async function getTaskCommentsHandler(params) {
 }
 
 /**
+ * Handler for getting task comments with threaded replies
+ */
+export async function getTaskCommentsWithRepliesHandler(params) {
+  const taskId = await getTaskId(params.taskId, params.taskName, params.listName);
+  return await taskService.getTaskCommentsWithReplies(taskId);
+}
+
+/**
  * Handler for creating a task comment
  */
 export async function createTaskCommentHandler(params) {

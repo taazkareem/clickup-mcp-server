@@ -58,6 +58,55 @@ export class TaskServiceComments {
   }
 
   /**
+   * Get all comments for a task along with their threaded replies
+   * 
+   * @param taskId ID of the task to get comments and replies for
+   * @returns Array of task comments with threaded replies included
+   */
+  async getTaskCommentsWithReplies(taskId: string): Promise<ClickUpComment[]> {
+    (this.core as any).logOperation('getTaskCommentsWithReplies', { taskId });
+
+    try {
+      // First get all task comments
+      const comments = await this.getTaskComments(taskId);
+      
+      // For each comment, try to fetch replies
+      const commentsWithReplies = await Promise.all(
+        comments.map(async (comment) => {
+          try {
+            // Try to fetch replies for each comment
+            const replies = await (this.core as any).makeRequest(async () => {
+              const response = await (this.core as any).client.get(
+                `/comment/${comment.id}/reply`
+              );
+              return response.data.comments || [];
+            });
+            
+            // Only add replies if there are any
+            if (replies.length > 0) {
+              return {
+                ...comment,
+                replies: replies
+              };
+            }
+          } catch (replyError) {
+            // If fetching replies fails, it might mean there are no replies
+            // or the user doesn't have permission to view them
+            // In either case, we'll just return the comment as is
+          }
+          
+          // Return comment as is
+          return comment;
+        })
+      );
+
+      return commentsWithReplies;
+    } catch (error) {
+      throw (this.core as any).handleError(error, 'Failed to get task comments with replies');
+    }
+  }
+
+  /**
    * Create a comment on a task
    * 
    * @param taskId ID of the task to comment on

@@ -120,6 +120,10 @@ export class TaskService extends TaskServiceCore {
     return this.comments.getTaskComments(taskId, start, startId);
   }
 
+  async getTaskCommentsWithReplies(taskId: string): Promise<ClickUpComment[]> {
+    return this.comments.getTaskCommentsWithReplies(taskId);
+  }
+
   async createTaskComment(taskId: string, commentText: string, notifyAll?: boolean, assignee?: number): Promise<ClickUpComment> {
     return this.comments.createTaskComment(taskId, commentText, notifyAll, assignee);
   }
