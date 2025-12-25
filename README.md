@@ -2,14 +2,14 @@
 
 ![ClickUp MCP Server Premium Image](header_image.png)
 
-> **⚠️ Status Update: This project has moved to a Premium (Sponsorware) model.**
+> **Status Update: This project has moved to a Sponsorware model.**
+> **🔒 Premium Version** - Requires license key from [Polar.sh](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW)
+
+[![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
 
 
-
-### Trusted by 460+ Developers
-
-![ClickUp MCP Server Stats](assets/images/stars-screenshot.png)
-*Snapshot of the repository activity prior to the premium migration.*
+### ⭐️ Trusted by 460+ Developers (from previous public repo)
 
 Thank you for your interest in the ClickUp MCP Server. Due to the high volume of traffic and the resources required to maintain, update, and support this integration, the source code is now exclusively available to supporters.
 
@@ -30,7 +30,7 @@ We use **Polar.sh** to handle payments and deliver your license key immediately.
 
 ## ⚡ Super Simple Setup
 
-After purchasing, just add **one environment variable** to your MCP config:
+After purchasing, just add **one extra environment variable** to your MCP config:
 
 ```json
 {
@@ -68,7 +68,7 @@ Immediately after purchase on Polar, you'll receive your license key. Just add i
 Building and maintaining reliable MCP integrations requires significant time. Moving to a paid model allows this to be treated as a supported product rather than a hobby.
 
 **I am already using an old version. Will it stop working?**
-If you have already cloned the code locally, your copy will continue to work. However, you will not receive any new updates unless you purchase a license.
+If you have already cloned a previous version locally, your copy will continue to work. However, you will not receive any new updates and fixes unless you purchase a license.
 
 **Is it a one-time payment or subscription?**
 Check the Polar.sh page for current pricing options.
