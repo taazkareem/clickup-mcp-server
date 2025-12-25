@@ -1,6 +1,6 @@
 # ClickUp MCP Server
 
-![ClickUp MCP Server Premium Image](https://res.cloudinary.com/diw0rilu8/image/upload/v1766632692/Gemini_Generated_Image_zii3a3zii3a3zii3_onyty0.png)
+![ClickUp MCP Server Premium Image](header_image.png)
 
 > **⚠️ Status Update: This project has moved to a Premium (Sponsorware) model.**
 
