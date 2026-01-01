@@ -1,0 +1,31 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+dockerfile: Dockerfile
+
+
+startCommand:
+  type: http
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - clickupMcpLicenseKey
+      - clickupApiKey
+      - clickupTeamId
+    properties:
+      clickupMcpLicenseKey:
+        type: string
+        description: Your ClickUp MCP License Key from Polar.sh.
+        isSecret: true
+      clickupApiKey:
+        type: string
+        description: Your ClickUp API key.
+        isSecret: true
+      clickupTeamId:
+        type: string
+        description: Your ClickUp Team ID.
+        isSecret: false
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'node', args: ['build/index.js'], env: { CLICKUP_MCP_LICENSE_KEY: config.clickupMcpLicenseKey, CLICKUP_API_KEY: config.clickupApiKey, CLICKUP_TEAM_ID: config.clickupTeamId, ENABLE_SSE: 'true', PORT: '8080', HOST: '0.0.0.0' } })
