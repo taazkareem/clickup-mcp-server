@@ -1,6 +1,7 @@
 # ClickUp MCP Server
 
-![ClickUp MCP Server Premium Image](assets/images/header_image.png)
+![ClickUp MCP Server Premium Image]([assets/images/header_image.png](https://github.com/<user>/<repo>/blob/main/assets/images/header_image.png
+))
 
 **A Model Context Protocol (MCP) server for integrating ClickUp with AI applications like Claude Desktop, Gemini CLI, n8n, Cursor IDE, and custom AI agents.** This server enables seamless interaction with ClickUp tasks, spaces, lists, documents, files, folders, and chat channels through a standardized protocol, using natural language. 
 
