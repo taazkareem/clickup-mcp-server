@@ -10,6 +10,8 @@
 *A high-performance Model Context Protocol (MCP) server for managing tasks, tags, lists, folders, files, docs, time, and chat using natural language.*
 <hr>
 
+⭐️ 460+ Stars (from previous public repo) - Industry-Standard ClickUp MCP Integration
+
 ## 💎 Premium Access
 
 **This project operates on a Sponsorware model.** To ensure dedicated maintenance, rapid API updates, and priority support, the source code and latest builds are exclusively available to supporters.
