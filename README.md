@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
 
-**Connect ClickUp to AI Agents including Claude Desktop, Cursor, n8n, and Gemini.**
+**Connect ClickUp to AI Agents including Claude Desktop, Cursor IDE, n8n, and Gemini CLI.**
 *A high-performance Model Context Protocol (MCP) server for managing tasks, tags, lists, folders, files, docs, time, and chat using natural language.*
 
 ⭐️ 460+ Stars (from previous public repo) - Industry-Standard ClickUp MCP Integration
@@ -30,7 +30,7 @@
 ### 1. Prerequisites
 *   **Node.js v18.0.0+**
 *   **License Key:** [Purchase here](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5)
-*   **ClickUp Credentials:** API Key & Team ID (see [Configuration](#-configuration))
+*   **ClickUp Credentials:** API Key & Team ID
 
 ### 2. Configure MCP Client
 Add the following to your `claude_desktop_config.json` or similar MCP settings file:
@@ -56,13 +56,13 @@ Add the following to your `claude_desktop_config.json` or similar MCP settings f
 ```
 
 ### 3. Restart
-Restart your MCP Client (e.g., Claude Desktop). The server will validate your license and start automatically.
+Restart your MCP Host (e.g., Cursor IDE). The server will validate your license and start automatically.
 
 ---
 
 ## ✨ Features
 
-Integrate ClickUp seamlessly with **Claude**, **Cursor IDE**, **n8n**, and **Gemini**.
+Integrate ClickUp seamlessly with Natural Language for customized workflows
 
 *   **📝 Task Management:** Create, update, move, duplicate, and link tasks. Supports bulk operations and natural language dates.
 *   **⏱️ Time Tracking:** Start/stop timers, view entries, and manage billable time.
