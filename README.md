@@ -9,7 +9,7 @@
 **Connect ClickUp to AI Agents including Claude Desktop, Cursor IDE, n8n, and Gemini CLI.**
 *A high-performance Model Context Protocol (MCP) server for managing tasks, tags, lists, folders, files, docs, time, and chat using natural language.*
 
-> **Status Update:** Latest (v0.12.4): Added Markdown Description support for the `get_task` tool to improve High-Fidelity Context.
+> **Status Update:** Latest (v0.12.4) update adds Markdown Description support for the `get_task` tool to intelligently improve High-Fidelity Context.
 
 ⭐️ 460+ Stars (from previous public repo) - Industry-Standard ClickUp MCP Integration
 <hr>
