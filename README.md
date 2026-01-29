@@ -47,10 +47,9 @@ Add the following to your `claude_desktop_config.json` or similar MCP settings f
         "@taazkareem/clickup-mcp-server@latest"
       ],
       "env": {
-        "CLICKUP_MCP_LICENSE_KEY": "your-license-key-here",
         "CLICKUP_API_KEY": "your-clickup-api-key",
         "CLICKUP_TEAM_ID": "your-team-id",
-        "DOCUMENT_SUPPORT": "true"
+        "CLICKUP_MCP_LICENSE_KEY": "your-license-key-here"
       }
     }
   }
