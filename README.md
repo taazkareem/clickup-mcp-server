@@ -104,11 +104,18 @@ Integrate ClickUp seamlessly with Natural Language for customized workflows
     *   The first number is your Team ID.
     *   *Note: ClickUp API calls this `team_id`, but it actually represents your Workspace ID.*
 
-### Tool Filtering (Optional)
-Reduce context noise by limiting available tools. Add this to your `env` configuration:
+### Advanced Configuration
 
+#### Filter Available Tools
+Reduce context noise by limiting available tools in your `env`:
 ```json
 "ENABLED_TOOLS": "create_task,get_task,update_task,get_workspace_hierarchy"
+```
+
+#### Enable Document Support (Beta)
+Enable creation and management of ClickUp Docs:
+```json
+"DOCUMENT_SUPPORT": "true"
 ```
 
 ---
