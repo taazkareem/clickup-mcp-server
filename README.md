@@ -48,7 +48,8 @@ Add the following to your `claude_desktop_config.json` or similar MCP settings f
       "command": "npx",
       "args": [
         "-y",
-        "@taazkareem/clickup-mcp-server@latest"
+        "--package", "@taazkareem/clickup-mcp-server@latest",
+        "clickup-mcp-server"
       ],
       "env": {
         "CLICKUP_API_KEY": "your-clickup-api-key",
