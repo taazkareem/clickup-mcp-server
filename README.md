@@ -9,8 +9,7 @@
 **Connect ClickUp to AI Agents including Claude Desktop, Cursor IDE, n8n, and Gemini CLI.**
 *A high-performance Model Context Protocol (MCP) server for managing tasks, tags, lists, folders, files, docs, time, and chat using natural language.*
 
-> **Status Update:** Latest (v0.12.5) update fixes Markdown Description support for the `get_task` tool to intelligently improve High-Fidelity Context.
-
+> **Status Update:** v0.12.6: Submit feature requests, bug reports, and questions for the MCP Server's future development directly from your AI conversation.
 ⭐️ 460+ Stars (from previous public repo) - Industry-Standard ClickUp MCP Integration
 <hr>
 
@@ -34,8 +33,8 @@
 *   **License Key:** [Purchase here](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5)
 *   **ClickUp Credentials:** API Key & Team ID
 
-### 2. Configure MCP Client
-Add the following to your `claude_desktop_config.json` or similar MCP settings file:
+### 2. Local Configuration
+Add the following to your `claude_desktop_config.json` or similar MCP settings file to run locally via `npx`:
 
 ```json
 {
@@ -57,7 +56,25 @@ Add the following to your `claude_desktop_config.json` or similar MCP settings f
 }
 ```
 
-### 3. Restart
+### 3. Hosted / Remote Usage
+ -or- For zero-setup usage without local Node.js requirements, use the hosted version:
+
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "serverUrl": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": {
+        "X-ClickUp-Key": "your-clickup-api-key",
+        "X-ClickUp-Team-Id": "your-team-id",
+        "X-License-Key": "your-license-key-here"
+      }
+    }
+  }
+}
+```
+
+### 4. Restart
 Restart your MCP Host (e.g., Cursor IDE). The server will validate your license and start automatically.
 
 ---
