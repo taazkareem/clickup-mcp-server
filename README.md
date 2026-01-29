@@ -10,6 +10,7 @@
 *A high-performance Model Context Protocol (MCP) server for managing tasks, tags, lists, folders, files, docs, time, and chat using natural language.*
 
 > **Status Update:** v0.12.6: Submit feature requests, bug reports, and questions for the MCP Server's future development directly from your AI conversation.
+
 ⭐️ 460+ Stars (from previous public repo) - Industry-Standard ClickUp MCP Integration
 <hr>
 
@@ -22,7 +23,7 @@
 | :--- | :--- |
 | • Perfect for ongoing projects<br>• Cancel anytime | • Pay once, use forever<br>• Best value for agencies |
 
-> **Instant Access:** Licenses are delivered immediately via **Polar.sh**. Setup takes < 2 minutes.
+ **Instant Access:** Licenses are delivered immediately via **Polar.sh**. Setup takes < 2 minutes.
 
 ---
 
