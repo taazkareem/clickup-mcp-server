@@ -11,20 +11,22 @@
 
 > **Status Update:** v0.12.6: Submit feature requests, bug reports, and questions for the MCP Server's future development directly from your AI conversation.
 
-⭐️ 460+ Stars (from previous public repo) - Industry-Standard ClickUp MCP Integration
+⭐️ **Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads. The industry-standard ClickUp integration for AI.
 <hr>
 
 
 <a name="premium-access"></a>
 ## 💎 Premium Access
 
-**This project operates on a Sponsorware model.** To ensure dedicated maintenance, rapid API updates, and priority support, the source code and latest builds are exclusively available to supporters.
+**Stop building ClickUp integrations from scratch.** This high-performance MCP server is maintained daily to ensure compatibility with the latest AI agents and ClickUp API changes. A license grants **full access to all 50+ tools, priority bug fixes, and enterprise-grade feature development.**
 
-| **[Monthly Subscription ($9)](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW)** | **[Lifetime Access ($59)](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5)** |
+| [**Monthly Subscription ($9)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW) | [**Lifetime Access ($59)**](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5) |
 | :--- | :--- |
-| • Perfect for ongoing projects<br>• Cancel anytime | • Pay once, use forever<br>• Best value for agencies |
+| • Perfect for ongoing projects<br>• Cancel anytime | • One-time payment<br>• Best value for agencies |
 
- **Instant Access:** Licenses are delivered immediately via **Polar.sh**. Setup takes < 2 minutes.
+**⚡️ Instant Delivery:** Your license key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
+
+---
 
 ---
 
