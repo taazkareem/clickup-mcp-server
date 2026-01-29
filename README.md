@@ -15,6 +15,7 @@
 <hr>
 
 
+<a name="premium-access"></a>
 ## 💎 Premium Access
 
 **This project operates on a Sponsorware model.** To ensure dedicated maintenance, rapid API updates, and priority support, the source code and latest builds are exclusively available to supporters.
