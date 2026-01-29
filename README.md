@@ -27,6 +27,7 @@
 
 ---
 
+<a name="quick-start"></a>
 ## 🚀 Quick Start
 
 ### 1. Prerequisites
@@ -120,6 +121,7 @@ Enable creation and management of ClickUp Docs:
 
 ---
 
+<a name="available-tools"></a>
 ## 🛠️ Available Tools
 
 <details>
@@ -204,7 +206,8 @@ Premium users get priority support. Please [open an issue](https://github.com/Ta
 
 Originally developed as open source and refined during a consultancy with ClickUp, this project is now independently maintained.
 
-This software makes use of third-party APIs and may reference trademarks or brands owned by third parties. The use of such APIs or references does not imply any affiliation with or endorsement by the respective companies. All trademarks and brand names are the property of their respective owners.
+This software makes use of third-party APIs and may reference trademarks or brands owned by third parties. The use of such APIs or references does not imply any affiliation with or endorsement by the respective companies. All trademarks and brand names are the property of their respective owners. This project is an independent work and is not officially associated with or sponsored by any third-party company mentioned.
+
 <div align="center">
   <sub>Created by <a href="https://github.com/taazkareem">taazkareem</a></sub>
 </div>
