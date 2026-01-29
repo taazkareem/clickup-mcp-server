@@ -31,8 +31,8 @@
 
 ### 1. Prerequisites
 *   **Node.js v18.0.0+**
-*   **License Key:** [Purchase here](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5)
 *   **ClickUp Credentials:** API Key & Team ID
+*   **License Key:** [Purchase here](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5)
 
 ### 2. Local Configuration
 Add the following to your `claude_desktop_config.json` or similar MCP settings file to run locally via `npx`:
