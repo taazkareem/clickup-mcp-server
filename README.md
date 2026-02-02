@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
 
-** Author of the Official and Unofficial ClickUp MCP Server. Connect ClickUp to AI Agents including Claude Desktop, Cursor IDE, n8n, and Gemini CLI.**
+** Author of the Official and Unofficial ClickUp MCP Server. Properly Connect ClickUp to AI Agents including Claude Desktop, Cursor IDE, n8n, and Gemini CLI.**
 *A high-performance Model Context Protocol (MCP) server for managing tasks, tags, lists, folders, files, docs, time, and chat using natural language.*
 
 > **Status Update:** v0.12.7: Fixed a license validation race condition which resolved issues for CLI-based one-shot integrations (mcporter, etc.)
@@ -18,9 +18,9 @@
 <a name="premium-access"></a>
 ## 💎 Premium Access
 
-**Stop building ClickUp integrations from scratch.** This high-performance MCP server is maintained daily to ensure compatibility with the latest AI agents and ClickUp API changes. A license grants **full access to all 50+ tools, priority bug fixes, and enterprise-grade feature development.**
+**This project operates on a Sponsorware model.** This high-performance MCP server is maintained daily to ensure compatibility with the latest AI agents and ClickUp API changes. A license grants **full access to all 50+ tools, priority bug fixes, and enterprise-grade feature development.**
 
-| [**Monthly Subscription ($9)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW) | [**Lifetime Access ($59)**](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5) |
+| [**Monthly Subscription ($9)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Lifetime Access ($59)**](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5?utm_source=github&utm_medium=readme) |
 | :--- | :--- |
 | • Perfect for ongoing projects<br>• Cancel anytime | • One-time payment<br>• Best value for agencies |
 
@@ -36,7 +36,7 @@
 ### 1. Prerequisites
 *   **Node.js v18.0.0+**
 *   **ClickUp Credentials:** API Key & Team ID
-*   **License Key:** [Purchase here](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5)
+*   **License Key:** [Purchase here](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5?utm_source=github&utm_medium=readme)
 
 ### 2. Local Configuration
 Add the following to your `claude_desktop_config.json` or similar MCP settings file to run locally via `npx`:
