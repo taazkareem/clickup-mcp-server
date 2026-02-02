@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
 
-**Connect ClickUp to AI Agents including Claude Desktop, Cursor IDE, n8n, and Gemini CLI.**
+** Author of the Official and Unofficial ClickUp MCP Server. Connect ClickUp to AI Agents including Claude Desktop, Cursor IDE, n8n, and Gemini CLI.**
 *A high-performance Model Context Protocol (MCP) server for managing tasks, tags, lists, folders, files, docs, time, and chat using natural language.*
 
 > **Status Update:** v0.12.7: Fixed a license validation race condition which resolved issues for CLI-based one-shot integrations (mcporter, etc.)
