@@ -9,7 +9,7 @@
 **Properly Connect ClickUp to AI Agents** including Claude Desktop, Cursor IDE, n8n, Gemini CLI, and more.
 *A high-performance Model Context Protocol (MCP) server for managing tasks, tags, lists, folders, files, docs, time, chat, and managing workflows using natural language.*
 
-> **Status Update:** v0.12.7: Fixed a license validation race condition which resolved issues for CLI-based one-shot integrations (mcporter, etc.)
+> **Status Update:** v0.12.7: Fixed a license validation race condition which resolved issues for CLI-based one-shot integrations (mcporter, etc.) and unified the hosted/local architectures.
 
 ⭐️ **Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads. The industry-standard ClickUp integration for AI.
 <hr>
@@ -72,7 +72,8 @@ Add the following to your `claude_desktop_config.json` or similar MCP settings f
       "headers": {
         "X-ClickUp-Key": "your-clickup-api-key",
         "X-ClickUp-Team-Id": "your-team-id",
-        "X-License-Key": "your-license-key-here"
+        "X-License-Key": "your-license-key-here",
+        "X-Enabled-Tools": "get_workspace_hierarchy,create_task,get_task,update_task,get_workspace_tasks"
       }
     }
   }
