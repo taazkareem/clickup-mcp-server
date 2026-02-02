@@ -61,7 +61,7 @@ Add the following to your `claude_desktop_config.json` or similar MCP settings f
 }
 ```
 
-### 3. Hosted / Remote Usage
+### 3. Hosted / Remote Usage (Beta releases)
  -or- For zero-setup usage without local Node.js requirements, use the hosted version:
 
 ```json
