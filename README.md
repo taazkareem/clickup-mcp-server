@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
 
-**Properly Connect ClickUp to AI Agents** including Claude Desktop, Cursor IDE, n8n, Gemini CLI, and more.
+**Properly Connect ClickUp to AI Agents** including Claude Desktop, Antigravity, Gemini CLI, Claude Code, Codex, OpenCode, n8n, OpenClaw,Roo Code, Windsurf, Cursor IDE, and more.
 *A high-performance Model Context Protocol (MCP) server for managing tasks, tags, lists, folders, files, docs, time, chat, and managing workflows using natural language.*
 
 > **Status Update:** v0.12.9: New improvements including full @mention support for chat messages and comments, and full markdown support in chat messages, automatic rich text conversion for comments.
@@ -14,6 +14,65 @@
 ⭐️ **Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads. The industry-standard ClickUp integration for AI.
 <hr>
 
+
+## 🔥 Features
+
+*   **📝 Task Management:** Create, update, move, duplicate, and link related tasks. Supports bulk operations, natural language dates, full markdown, and @mentions.
+*   **🔍 Intelligent Search:** Find tasks workspace-wide with fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—just say the task name, no IDs needed.
+*   **⏱️ Time Tracking:** Start/stop timers in natural language, view entries, and manage billable time.
+*   **📄 Manage Documents:** Create, read, and append to ClickUp Documents in the correct location. Supports full markdown.
+*   **💬 Chat & Collaboration:** Send and retrieve messages in chat channels and task comments with automatic rich-text conversion and @mention support. 
+*   **🌳 Workspace Control:** Navigate spaces, folders, and lists. Manage task tags and member assignments
+*   **🧠 Smart Defaults:** Fuzzy matching for statuses (`todo` → `to-do`), members, spaces, folders, and lists. Session-isolated caching for fast, secure multi-tenant operation.
+
+---
+
+<a name="available-tools"></a>
+## 🛠️ Available Tools
+
+<details>
+<summary><strong>👇 Click to view all 50+ available tools</strong></summary>
+
+| Category | Tool | Description |
+| :--- | :--- | :--- |
+| **Workspace** | `get_workspace_hierarchy` | Get workspace structure |
+| | `get_workspace_members` | Get all workspace members |
+| | `find_member_by_name` | Find member by name or email |
+| **Tasks** | `create_task` | Create a task |
+| | `create_bulk_tasks` | Create multiple tasks |
+| | `update_task` | Modify task |
+| | `update_bulk_tasks` | Update multiple tasks |
+| | `get_tasks` | Get tasks from list |
+| | `get_task` | Get single task details |
+| | `get_workspace_tasks` | Get tasks with filtering |
+| | `delete_task` | Remove task |
+| | `move_task` | Move task to new list |
+| | `duplicate_task` | Copy task |
+| | `add_task_link` | Link two tasks together |
+| **Comments** | `get_task_comments` | Get comments on a task |
+| | `create_task_comment` | Add a comment to a task |
+| | `attach_task_file` | Attach file to a task |
+| **Lists/Folders** | `create_list` | Create list in space/folder |
+| | `create_folder` | Create folder |
+| | `get_folder` | Get folder details |
+| | `update_folder` | Update folder properties |
+| **Tags** | `get_space_tags` | Get space tags |
+| | `create_space_tag` | Create tag |
+| | `add_tag_to_task` | Add tag to task |
+| **Time** | `start_time_tracking` | Start time tracking |
+| | `stop_time_tracking` | Stop current time tracking |
+| | `get_task_time_entries` | Get time entries for a task |
+| **Docs** | `create_document` | Create a document |
+| | `get_document` | Get a document |
+| | `list_documents` | List documents |
+| **Chat** | `create_chat_channel` | Create a chat channel |
+| | `create_chat_message` | Send a message to a channel |
+| | `get_chat_messages` | Get message history |
+
+*See [full documentation](docs/user-guide.md) for parameters and advanced usage.*
+</details>
+
+---
 
 <a name="premium-access"></a>
 ## 💎 Premium Access
@@ -85,18 +144,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your license 
 
 ---
 
-## ✨ Features
 
-Integrate ClickUp seamlessly with Natural Language for customized workflows
-
-*   **📝 Task Management:** Create, update, move, duplicate, and link tasks. Supports bulk operations and natural language dates.
-*   **⏱️ Time Tracking:** Start/stop timers, view entries, and manage billable time.
-*   **📄 Docs & Knowledge:** Create, read, and append to ClickUp Documents. Full workspace hierarchy traversal.
-*   **💬 Chat & Collaboration:** Send messages to channels, read history, and manage comments with Markdown support.
-*   **🌳 Workspace Control:** Navigate spaces, folders, and lists. Manage tags and member assignments.
-*   **🧠 Intelligent Normalization:** Automatically maps fuzzy status names (e.g., `todo` vs `to-do`) and remembers session context to resolve "it" or "that task" using a private, session-isolated cache.
-
----
 
 ## ⚙️ Configuration
 
@@ -114,9 +162,13 @@ Integrate ClickUp seamlessly with Natural Language for customized workflows
 ### Advanced Configuration
 
 #### Filter Available Tools
-Reduce context noise by limiting available tools in your `env`:
+💡 Pro Tip! Reduce context noise by limiting available tools in your `env` arguments:
 ```json
-"ENABLED_TOOLS": "create_task,get_task,update_task,get_workspace_hierarchy"
+"ENABLED_TOOLS": "get_workspace_hierarchy,create_task,get_task,update_task"
+```
+-or- the hosted version `headers`:
+```json
+"X-Enabled-Tools": "get_workspace_hierarchy,create_task,get_task,update_task"
 ```
 
 #### Enable Document Support (Beta)
@@ -124,53 +176,6 @@ Enable creation and management of ClickUp Docs:
 ```json
 "DOCUMENT_SUPPORT": "true"
 ```
-
----
-
-<a name="available-tools"></a>
-## 🛠️ Available Tools
-
-<details>
-<summary><strong>👇 Click to view all 50+ available tools</strong></summary>
-
-| Category | Tool | Description |
-| :--- | :--- | :--- |
-| **Workspace** | `get_workspace_hierarchy` | Get workspace structure |
-| | `get_workspace_members` | Get all workspace members |
-| | `find_member_by_name` | Find member by name or email |
-| **Tasks** | `create_task` | Create a task |
-| | `create_bulk_tasks` | Create multiple tasks |
-| | `update_task` | Modify task |
-| | `update_bulk_tasks` | Update multiple tasks |
-| | `get_tasks` | Get tasks from list |
-| | `get_task` | Get single task details |
-| | `get_workspace_tasks` | Get tasks with filtering |
-| | `delete_task` | Remove task |
-| | `move_task` | Move task to new list |
-| | `duplicate_task` | Copy task |
-| | `add_task_link` | Link two tasks together |
-| **Comments** | `get_task_comments` | Get comments on a task |
-| | `create_task_comment` | Add a comment to a task |
-| | `attach_task_file` | Attach file to a task |
-| **Lists/Folders** | `create_list` | Create list in space/folder |
-| | `create_folder` | Create folder |
-| | `get_folder` | Get folder details |
-| | `update_folder` | Update folder properties |
-| **Tags** | `get_space_tags` | Get space tags |
-| | `create_space_tag` | Create tag |
-| | `add_tag_to_task` | Add tag to task |
-| **Time** | `start_time_tracking` | Start time tracking |
-| | `stop_time_tracking` | Stop current time tracking |
-| | `get_task_time_entries` | Get time entries for a task |
-| **Docs** | `create_document` | Create a document |
-| | `get_document` | Get a document |
-| | `list_documents` | List documents |
-| **Chat** | `create_chat_channel` | Create a chat channel |
-| | `create_chat_message` | Send a message to a channel |
-| | `get_chat_messages` | Get message history |
-
-*See [full documentation](docs/user-guide.md) for parameters and advanced usage.*
-</details>
 
 ---
 
