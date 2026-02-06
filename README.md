@@ -9,7 +9,7 @@
 **Properly Connect ClickUp to AI Agents** including Claude Desktop, Antigravity, Gemini CLI, Claude Code, Codex, OpenCode, n8n, OpenClaw,Roo Code, Windsurf, Cursor IDE, and more.
 *A high-performance Model Context Protocol (MCP) server for managing tasks, tags, lists, folders, files, docs, time, chat, and workflows using natural language.*
 
-> **Status Update:** v0.12.9: New improvements including full @mention support for chat messages and comments, and full markdown support in chat messages, automatic rich text conversion for comments.
+> **Status Update:** v0.12.10: New improvements including full @mention support for chat messages and comments, and full markdown support in chat messages, automatic rich text conversion for comments. Fixed Anthropic API Schema Compatibility (Issue #5).
 
 ⭐️ **Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads. The industry-standard ClickUp integration for AI.
 <hr>
