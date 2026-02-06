@@ -1,4 +1,4 @@
-# ClickUp MCP Server
+# ClickUp MCP Server - Premium
 ![ClickUp MCP Server Premium Image](https://raw.githubusercontent.com/taazkareem/clickup-mcp-server/main/assets/images/header_image.png)
 
 [![npm version](https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
