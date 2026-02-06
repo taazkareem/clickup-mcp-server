@@ -17,12 +17,12 @@
 
 ## 🔥 Features
 
-*   **📝 Task Management:** Create, update, move, duplicate, and link related tasks. Supports bulk operations, natural language dates, full markdown, and @mentions.
+*   **📝 Task Management:** Create, update, move, duplicate, and link dependencies. Supports bulk operations, natural language dates, full markdown, @mentions, and file attachments.
 *   **🔍 Intelligent Search:** Find tasks workspace-wide with fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—just say the task name, no IDs needed.
 *   **⏱️ Time Tracking:** Start/stop timers in natural language, view entries, and manage billable time.
 *   **📄 Manage Documents:** Create, read, and append to ClickUp Documents in the correct location. Supports full markdown.
 *   **💬 Chat & Collaboration:** Send and retrieve messages in chat channels and task comments with automatic rich-text conversion and @mention support. 
-*   **🌳 Workspace Control:** Navigate spaces, folders, and lists. Manage task tags and member assignments
+*   **🌳 Workspace Control:** Create, navigate, and manage spaces, folders, lists, and tags.
 *   **🧠 Smart Defaults:** Fuzzy matching for statuses (`todo` → `to-do`), members, spaces, folders, and lists. Session-isolated caching for fast, secure multi-tenant operation.
 
 ---
@@ -38,36 +38,57 @@
 | **Workspace** | `get_workspace_hierarchy` | Get workspace structure |
 | | `get_workspace_members` | Get all workspace members |
 | | `find_member_by_name` | Find member by name or email |
+| | `resolve_assignees` | Resolve names/emails to user IDs |
 | **Tasks** | `create_task` | Create a task |
-| | `create_bulk_tasks` | Create multiple tasks |
-| | `update_task` | Modify task |
-| | `update_bulk_tasks` | Update multiple tasks |
-| | `get_tasks` | Get tasks from list |
 | | `get_task` | Get single task details |
-| | `get_workspace_tasks` | Get tasks with filtering |
-| | `delete_task` | Remove task |
+| | `update_task` | Modify task properties |
 | | `move_task` | Move task to new list |
 | | `duplicate_task` | Copy task |
-| | `add_task_link` | Link two tasks together |
-| **Comments** | `get_task_comments` | Get comments on a task |
+| | `delete_task` | Remove task |
+| | `create_bulk_tasks` | Create multiple tasks |
+| | `update_bulk_tasks` | Update multiple tasks |
+| | `move_bulk_tasks` | Move multiple tasks |
+| | `delete_bulk_tasks` | Delete multiple tasks |
+| | `get_workspace_tasks` | Search tasks with filtering |
+| | `get_task_comments` | Get comments on a task |
 | | `create_task_comment` | Add a comment to a task |
 | | `attach_task_file` | Attach file to a task |
-| **Lists/Folders** | `create_list` | Create list in space/folder |
-| | `create_folder` | Create folder |
+| | `add_task_link` | Link two tasks together |
+| | `get_task_links` | Get task dependencies |
+| | `delete_task_link` | Remove task dependency |
+| **Lists** | `create_list` | Create list in space |
+| | `create_list_in_folder` | Create list in folder |
+| | `get_list` | Get list details |
+| | `update_list` | Update list properties |
+| | `delete_list` | Delete a list |
+| **Folders** | `create_folder` | Create folder |
 | | `get_folder` | Get folder details |
 | | `update_folder` | Update folder properties |
+| | `delete_folder` | Delete a folder |
 | **Tags** | `get_space_tags` | Get space tags |
 | | `create_space_tag` | Create tag |
+| | `update_space_tag` | Update tag properties |
+| | `delete_space_tag` | Delete a tag |
 | | `add_tag_to_task` | Add tag to task |
-| **Time** | `start_time_tracking` | Start time tracking |
+| | `remove_tag_from_task` | Remove tag from task |
+| **Time Tracking** | `get_task_time_entries` | Get time entries for a task |
+| | `start_time_tracking` | Start time tracking |
 | | `stop_time_tracking` | Stop current time tracking |
-| | `get_task_time_entries` | Get time entries for a task |
+| | `add_time_entry` | Add manual time entry |
+| | `delete_time_entry` | Delete time entry |
+| | `get_current_time_entry` | Get running timer |
 | **Docs** | `create_document` | Create a document |
 | | `get_document` | Get a document |
 | | `list_documents` | List documents |
+| | `list_document_pages` | List pages in a document |
+| | `get_document_pages` | Get page content |
+| | `create_document_page` | Add page to document |
+| | `update_document_page` | Update page content |
 | **Chat** | `create_chat_channel` | Create a chat channel |
+| | `get_chat_channels` | List chat channels |
 | | `create_chat_message` | Send a message to a channel |
 | | `get_chat_messages` | Get message history |
+| **Feedback** | `submit_feedback` | Submit feedback or bug reports |
 
 *See [full documentation](docs/user-guide.md) for parameters and advanced usage.*
 </details>
@@ -105,11 +126,10 @@ Add the following to your `claude_desktop_config.json` or similar MCP settings f
   "mcpServers": {
     "ClickUp": {
       "command": "npx",
-      "args": [
-        "-y",
-        "--package", "@taazkareem/clickup-mcp-server@latest",
-        "clickup-mcp-server"
-      ],
+			"args": [
+				"-y",
+				"@taazkareem/clickup-mcp-server@latest"
+			],
       "env": {
         "CLICKUP_API_KEY": "your-clickup-api-key",
         "CLICKUP_TEAM_ID": "your-team-id",
@@ -132,7 +152,6 @@ Add the following to your `claude_desktop_config.json` or similar MCP settings f
         "X-ClickUp-Key": "your-clickup-api-key",
         "X-ClickUp-Team-Id": "your-team-id",
         "X-License-Key": "your-license-key-here",
-        "X-Enabled-Tools": "get_workspace_hierarchy,create_task,get_task,update_task,get_workspace_tasks"
       }
     }
   }
@@ -168,7 +187,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your license 
 ```
 -or- the hosted version `headers`:
 ```json
-"X-Enabled-Tools": "get_workspace_hierarchy,create_task,get_task,update_task"
+"X-Enabled-Tools": "find_member_by_name, create_chat_channel, create_chat_message, get_chat_messages, submit_feedback"
 ```
 
 #### Enable Document Support (Beta)
