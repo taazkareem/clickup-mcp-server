@@ -17,7 +17,7 @@
 
 ## 🔥 Features
 
-*   **📝 Task Management:** Create, read, update, move, delete, duplicate, and link tasks. Supports bulk operations, natural language dates, full markdown, @mentions, and file attachments.
+*   **📝 Task Management:** Create, update, move, duplicate, and link dependencies. Supports bulk operations, natural language dates, full markdown, @mentions, and file attachments.
 *   **🔍 Intelligent Search:** Find tasks workspace-wide with fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—just say the task name, no IDs needed.
 *   **⏱️ Time Tracking:** Start/stop timers in natural language, view entries, and manage billable time.
 *   **📄 Manage Documents:** Create, read, and append to ClickUp Documents in the correct location. Supports full markdown.
@@ -212,10 +212,23 @@ This server supports  **STDIO, HTTP Streamable, and SSE (Server-Sent Events)** f
 }
 ```
 
-**n8n Setup:**
-1.  Set `ENABLE_SSE` to "true" and run the server.
-2.  In n8n, add an **"MCP AI Tool"** node.
-3.  Set Transport to `SSE` and URL to `http://localhost:3231/sse`.
+**n8n Setup - Remote Server (Recommended):**
+1.  In n8n, add an **"MCP Client"** node.
+2.  Set Connection Type to `HTTP Streamable`.
+3.  Select Authentication Type `Multiple Headers Auth` and rename it to `ClickUp`.
+4.  Add custom headers:
+    - `X-ClickUp-Key: <your ClickUp API key>`
+    - `X-ClickUp-Team-Id: <your Team ID>`
+    - `X-License-Key: <your license key>`
+5.  Set URL to `https://clickup-mcp.taazkareem.com/mcp`
+
+**n8n Docker Setup (Alternative):**
+
+Run the server with Docker:
+```bash
+docker run -d -p 3231:3231 ghcr.io/taazkareem/clickup-mcp-server:latest
+```
+In n8n, use `http://host.docker.internal:3231/mcp` as the URL.
 
 ---
 
