@@ -17,7 +17,7 @@
 
 ## 🔥 Features
 
-*   **📝 Task Management:** Create, update, move, duplicate, and link dependencies. Supports bulk operations, natural language dates, full markdown, @mentions, and file attachments.
+*   **📝 Task Management:** Create, read, update, move, delete, duplicate, and link tasks. Supports bulk operations, natural language dates, full markdown, @mentions, and file attachments.
 *   **🔍 Intelligent Search:** Find tasks workspace-wide with fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—just say the task name, no IDs needed.
 *   **⏱️ Time Tracking:** Start/stop timers in natural language, view entries, and manage billable time.
 *   **📄 Manage Documents:** Create, read, and append to ClickUp Documents in the correct location. Supports full markdown.
