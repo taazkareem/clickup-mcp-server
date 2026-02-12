@@ -202,16 +202,6 @@ Enable creation and management of ClickUp Docs:
 
 This server supports  **STDIO, HTTP Streamable, and SSE (Server-Sent Events)** for legacy integrations.
 
-**Configuration:**
-```json
-{
-  "env": {
-    "ENABLE_SSE": "true",
-    "PORT": "3231"
-  }
-}
-```
-
 **n8n Setup - Remote Server (Recommended):**
 1.  In n8n, add an **"MCP Client"** node.
 2.  Set Connection Type to `HTTP Streamable`.
