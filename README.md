@@ -25,7 +25,7 @@
 *   **📄 Manage Documents:** Create, read, and append to ClickUp Documents in the correct location. Supports full markdown.
 *   **💬 Chat & Collaboration:** Send and retrieve messages in chat channels and task comments with automatic rich-text conversion and @mention support. 
 *   **🌳 Workspace Control:** Create, navigate, and manage spaces, folders, lists, and tags. With OAuth login, select multiple Workspaces and switch between them mid-conversation. 
-*   **🧠 Smart Defaults:** Fuzzy matching for statuses (`todo` → `to-do`), members, spaces, folders, and lists. Session-isolated caching for fast, secure multi-tenant operation.
+*   **🧠 Smart Defaults:** Fuzzy matching for statuses (`todo` ↔ `to-do`), members, spaces, folders, and lists. Session-isolated caching for fast, secure multi-tenant operation.
 
 ---
 
