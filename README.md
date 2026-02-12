@@ -7,9 +7,10 @@
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
 
 **Properly Connect ClickUp to AI Agents** including Claude Desktop, Antigravity, Gemini CLI, Claude Code, Codex, OpenCode, n8n, OpenClaw, Roo Code, Windsurf, Cursor IDE, and more.
+
 *A high-performance Model Context Protocol (MCP) server for managing tasks, comments, tags, lists, folders, files, docs, time, chat, and workflows using natural language.*
 
-> **Status Update:** v0.12.10: New improvements including full @mention support for chat messages and comments, and full markdown support in chat messages, automatic rich text conversion for comments. Fixed Anthropic API Schema Compatibility (Issue #5).
+> **Status Update:** v0.12.10: New improvements including full @mention support for chat messages and comments, and full markdown support in chat messages, automatic rich text conversion for comments. Fixed Anthropic API Schema Compatibility (Issue #5). 
 
 ⭐️ **Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads. The industry-standard ClickUp integration for AI.
 <hr>
@@ -17,12 +18,13 @@
 
 ## 🔥 Features
 
+*   **📝 Hybrid Authentication :** MCP spec compliant OAuth 2.1 with advanced security hardening, backwards compatible with ClickUp API Key and Team ID for env variables/headers. (Remote version only)
 *   **📝 Task Management:** Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, natural language dates, full markdown, @mentions, and file attachments.
 *   **🔍 Intelligent Search:** Find tasks workspace-wide with fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—just say the task name, no IDs needed.
 *   **⏱️ Time Tracking:** Start/stop timers in natural language, view entries, and manage billable time.
 *   **📄 Manage Documents:** Create, read, and append to ClickUp Documents in the correct location. Supports full markdown.
 *   **💬 Chat & Collaboration:** Send and retrieve messages in chat channels and task comments with automatic rich-text conversion and @mention support. 
-*   **🌳 Workspace Control:** Create, navigate, and manage spaces, folders, lists, and tags.
+*   **🌳 Workspace Control:** Create, navigate, and manage spaces, folders, lists, and tags. With OAuth login, select multiple Workspaces and switch between them mid-conversation. 
 *   **🧠 Smart Defaults:** Fuzzy matching for statuses (`todo` → `to-do`), members, spaces, folders, and lists. Session-isolated caching for fast, secure multi-tenant operation.
 
 ---
@@ -140,7 +142,7 @@ Add the following to your `claude_desktop_config.json` or similar MCP settings f
 }
 ```
 
-### 3. Hosted / Remote Usage (Beta releases)
+### 3. Hosted / Remote Usage
  -or- For zero-setup usage without local Node.js requirements, use the hosted version:
 
 ```json
@@ -149,9 +151,7 @@ Add the following to your `claude_desktop_config.json` or similar MCP settings f
     "ClickUp": {
       "serverUrl": "https://clickup-mcp.taazkareem.com/mcp",
       "headers": {
-        "X-ClickUp-Key": "your-clickup-api-key",
-        "X-ClickUp-Team-Id": "your-team-id",
-        "X-License-Key": "your-license-key-here",
+        "X-License-Key": "your-mcp-licese-key-here",
       }
     }
   }
