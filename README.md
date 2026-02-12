@@ -18,7 +18,7 @@
 
 ## 🔥 Features
 
-*   **📝 Hybrid Authentication :** MCP spec compliant OAuth 2.1 with advanced security hardening, backwards compatible with ClickUp API Key and Team ID for env variables/headers. (Remote version only)
+*   **🔐 Hybrid Authentication :** MCP spec compliant OAuth 2.1 with advanced security hardening, backwards compatible with ClickUp API Key and Team ID for env variables/headers. (Remote version only)
 *   **📝 Task Management:** Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, natural language dates, full markdown, @mentions, and file attachments.
 *   **🔍 Intelligent Search:** Find tasks workspace-wide with fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—just say the task name, no IDs needed.
 *   **⏱️ Time Tracking:** Start/stop timers in natural language, view entries, and manage billable time.
