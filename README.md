@@ -11,6 +11,8 @@
 
 </div>
 
+---
+
 **Properly Connect ClickUp to AI Agents and Agentic Workflows**
 
 *A high-performance Model Context Protocol (MCP) server for managing tasks, comments, tags, lists, folders, files, docs, chat, and time using natural language.*
@@ -19,34 +21,15 @@
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
-- [Features](#-features)
-- [Premium Access](#-premium-access)
-- [Quick Start & Installation](#-quick-start--installation)
-    <br>
-    &nbsp;&nbsp;[<img src="./assets/logos/cursor-white.svg" height="18" align="center"> Cursor](#cursor-setup) •
-    [<img src="./assets/logos/windsurf-white.svg" height="18" align="center"> Windsurf](#windsurf-setup) •
-    [<img src="./assets/logos/visual-studio-code.svg" height="18" align="center"> VS Code](#vscode-setup) •
-    [<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="18" align="center" style="border-radius: 4px;"> Roo Code](#roocode-setup) •
-    [<img src="./assets/logos/claude.svg" height="18" align="center"> Claude](#claude-desktop-setup) •
-    [<img src="https://cdn.simpleicons.org/anthropic/D97757" height="18" align="center"> Claude Code](#claude-code-setup) •
-    [<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="18" align="center"> n8n](#n8n-setup) •
-    [<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="18" align="center"> Gemini](#gemini-setup) •
-    [<img src="./assets/logos/antigravity.svg" height="18" align="center"> Antigravity](#antigravity-setup) •
-    [<img src="./assets/logos/openai-icon.svg" height="18" align="center"> Codex](#codex-setup) •
-    [<img src="./assets/logos/openai-icon.svg" height="18" align="center"> ChatGPT](#chatgpt-setup) •
-    [<img src="./assets/logos/augment-code.svg" height="18" align="center"> Augment](#augment-setup) •
-    [<img src="./assets/logos/augment-code.svg" height="18" align="center"> Auggie](#auggierun-setup) •
-    [<img src="./assets/logos/lobster.svg" height="18" align="center"> OpenClaw](#openclaw-setup) •
-    [Other](#other-setup)
-- [Available Tools](#️-available-tools)
-- [Advanced Configuration](#️-advanced-configuration)
-- [FAQ](#-faq)
+| Navigation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | More Info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Quick Start & Installation |
+| :--- | :--- | :--- |
+| **•&nbsp;[Features](#features)**<br>**•&nbsp;[Premium&nbsp;Access](#premium-access)**<br>**•&nbsp;[Available&nbsp;Tools](#available-tools)** | **•&nbsp;[Advanced&nbsp;Config](#advanced-configuration)**<br>**•&nbsp;[FAQ](#faq)**<br>**•&nbsp;[Disclaimer](#disclaimer)** | [<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;">&nbsp;Cursor](#cursor-setup) &nbsp; [<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;">&nbsp;Windsurf](#windsurf-setup) &nbsp; [<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;">&nbsp;VS&nbsp;Code](#vscode-setup) &nbsp; [<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;">&nbsp;Roo&nbsp;Code](#roocode-setup) &nbsp; [<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;">&nbsp;Claude&nbsp;Desktop](#claude-desktop-setup) &nbsp; [<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;">&nbsp;Claude&nbsp;Code](#claude-code-setup) &nbsp; [<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;">&nbsp;n8n](#n8n-setup) &nbsp; [<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;">&nbsp;Gemini&nbsp;CLI](#gemini-setup) &nbsp; [<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;">&nbsp;Antigravity](#antigravity-setup) &nbsp; [<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;">&nbsp;Codex](#codex-setup) &nbsp; [<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;">&nbsp;GPT](#chatgpt-setup) &nbsp; [<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;">&nbsp;Augment](#augment-setup) &nbsp; [<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;">&nbsp;Auggie](#auggierun-setup) &nbsp; [<img src="./assets/logos/lobster.svg" height="16" style="vertical-align: middle;">&nbsp;OpenClaw](#openclaw-setup) &nbsp; [Other](#other-setup) |
 
 ---
 
-## ✨ Features
+## Features
 
 | | |
 | :--- | :--- |
@@ -57,19 +40,19 @@
 
 ---
 
-## 💎 Premium Access
+## Premium Access
 
 **This project operates on a Sponsorware model.** A license grants **full access to all 54+ premium tools** with any of the following plans:
 
 | [**Monthly Plan ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ($69/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ($129)**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
-| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • Most Popular ($5.75/mo)<br>• 3 device activations<br>• Priority bug fixes | • **Best Value** (One-time)<br>• 3 device activations<br>• Lifetime stability |
+| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • Most Popular ($5.75/mo)<br>• 3 device activations<br>• Priority bug fixes | • **Best Value** (One-time payment)<br>• 3 device activations<br>• Lifetime stability |
 
 **⚡️ Instant Delivery:** Your License Key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
 
 ---
 
-## 🚀 Quick Start & Installation
+## Quick Start & Installation
 
 ### 1. Prerequisites
 *   **License Key:** 💳 <a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme" target="_blank" rel="noopener noreferrer">**Purchase here**</a>
@@ -110,7 +93,7 @@
 }
 ```
 
-**Option B: Local (NPM)**
+**Option B: Local (stdio)**
 ```json
 {
   "mcpServers": {
@@ -149,7 +132,7 @@
 }
 ```
 
-**Option B: Local (NPM)**
+**Option B: Local (stdio)**
 ```json
 {
   "mcpServers": {
@@ -190,7 +173,7 @@
 }
 ```
 
-**Option B: Local (NPM)**
+**Option B: Local (stdio)**
 ```json
 {
   "mcpServers": {
@@ -229,7 +212,7 @@
 }
 ```
 
-**Option B: Local (NPM)**
+**Option B: Local (stdio)**
 ```json
 {
   "mcpServers": {
@@ -357,7 +340,7 @@ url = "https://clickup-mcp.taazkareem.com/mcp"
 http_headers = { "X-License-Key" = "your-license-key" }
 ```
 
-**Option B: Local (NPM / stdio)**
+**Option B: Local (stdio)**
 ```toml
 [mcp_servers.ClickUp]
 command = "npx"
@@ -395,7 +378,7 @@ env = {
 
 <a name="augment-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="https://www.augmentcode.com/favicon-32x32.png" height="22" align="center" style="filter: invert(1);"> <strong>Augment Code</strong></summary>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Augment Code</strong></summary>
 <br>
 
 **Configuration Path:** `<project-root>/.augment/settings.json`
@@ -415,7 +398,7 @@ env = {
 
 <a name="auggierun-setup"></a>
 <details>
-<summary><img src="https://www.augmentcode.com/favicon-32x32.png" height="22" align="center" style="filter: invert(1);"> <strong>Auggie CLI</strong></summary>
+<summary><img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Auggie CLI</strong></summary>
 <br>
 
 Run this command in your terminal:
@@ -433,7 +416,7 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 OpenClaw integrates MCP servers through **mcporter**, a bridge that handles both HTTP and stdio connections.
 
 **1. Prerequisites:**
-- Install mcporter: `npm i -g mcporter` (unless already bundled)
+- Install mcporter: `npm i -g mcporter`
 - Enable the skill in OpenClaw `config.json`:
   ```json
   {"skills": {"allowBundled": ["mcporter"]}}
@@ -448,7 +431,7 @@ mcporter config add ClickUp \
   --headers '{"X-License-Key": "your-license-key"}'
 ```
 
-**Option B: Local (NPM / stdio)**
+**Option B: Local (stdio)**
 ```bash
 mcporter config add ClickUp \
   --command "npx" \
@@ -495,7 +478,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 
 ---
 
-## 🛠️ Available Tools
+## Available Tools
 
 <details>
 <summary><strong>👇 Click to view all 54 available tools</strong></summary>
@@ -562,7 +545,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 
 ---
 
-## ⚙️ Advanced Configuration
+## Advanced Configuration
 
 ### Filter Available Tools
 💡 **Pro Tip!** Reduce context noise for the AI by limiting available tools.
@@ -585,7 +568,7 @@ Enable creation and management of ClickUp Docs:
 
 ---
 
-## ❓ FAQ
+## FAQ
 
 **Why isn't this free anymore?**
 Building reliable MCP integrations requires significant maintenance. Moving to a paid model allows us to support this as a product rather than a hobby, ensuring compatibility with API changes.
@@ -598,7 +581,7 @@ Premium users get priority support. Please <a href="https://github.com/TaazKaree
 
 ---
 
-## ⚖️ Disclaimer
+## Disclaimer
 
 Originally developed as open source and refined during a consultancy with ClickUp, this project is now independently maintained.
 
