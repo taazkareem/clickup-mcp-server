@@ -21,38 +21,78 @@
 
 ---
 
-## Table of Contents
+## 📖 Table of Contents
 
-| Navigation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | More Info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Quick Start & Installation |
+| Navigation &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | More&nbsp;Info &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Quick&nbsp;Start&nbsp;&&nbsp;Installation |
 | :--- | :--- | :--- |
-| **•&nbsp;[Features](#features)**<br>**•&nbsp;[Premium&nbsp;Access](#premium-access)**<br>**•&nbsp;[Available&nbsp;Tools](#available-tools)** | **•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)**<br>**•&nbsp;[FAQ](#faq)**<br>**•&nbsp;[Disclaimer](#disclaimer)** | <table border="0" style="border: none; border-collapse: collapse; width: 680px;"> <tr style="border: none;"> <td width="150" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="130" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td width="150" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> <td width="110" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> GPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/lobster.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[Other](#other-setup)</td> </tr> </table> |
+| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools) | •&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 680px;"> <tr style="border: none;"> <td width="150" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="130" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td width="150" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> <td width="110" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> GPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/lobster.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[Other](#other-setup)</td> </tr> </table> |
 
 ---
 
-## Features
+## <a name="features"></a>✨ Features
 
-| | |
-| :--- | :--- |
-| **🔐 Hybrid Authentication**<br>MCP spec compliant OAuth 2.1 with advanced security hardening. Backwards compatible with API Key/Team ID. | **🔍 Intelligent Search**<br>Fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—no IDs needed. |
-| **📝 Task Management**<br>Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, natural language dates, full markdown descriptions. | **⏱️ Time Tracking**<br>Start/stop timers, view entries, and manage billable time via natural language. |
-| **📄 Document Management**<br>Create, read, and append to ClickUp Docs (supports full markdown). | **💬 Chat & Collaboration**<br>Send/retrieve messages in channels and comments with rich-text conversion and user @mention support. |
-| **🌳 Workspace Control**<br>Create and navigate spaces, folders, lists, and tags. Switch workspaces mid-conversation. | **🧠 Smart Defaults**<br>Session-isolated caching for fast, secure multi-tenant operation. |
+<table border="0" style="width: 100%; border-collapse: collapse;">
+  <tr style="border: none;">
+    <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
+      <strong>🔐 Hybrid Authentication</strong><br>
+      MCP spec compliant OAuth 2.1 with advanced security hardening. Backwards compatible with API Key/Team ID.
+    </td>
+    <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
+      <strong>🔍 Intelligent Search</strong><br>
+      Fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—no IDs needed.
+    </td>
+  </tr>
+  <tr style="border: none;">
+    <td style="vertical-align: top; border: none; padding-bottom: 20px;">
+      <strong>📝 Task Management</strong><br>
+      Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, natural language dates, full markdown descriptions.
+    </td>
+    <td style="vertical-align: top; border: none; padding-bottom: 20px;">
+      <strong>⏱️ Time Tracking</strong><br>
+      Start/stop timers, view entries, and manage billable time via natural language.
+    </td>
+  </tr>
+  <tr style="border: none;">
+    <td style="vertical-align: top; border: none; padding-bottom: 20px;">
+      <strong>📄 Document Management</strong><br>
+      Create, read, and append to ClickUp Docs (supports full markdown).
+    </td>
+    <td style="vertical-align: top; border: none; padding-bottom: 20px;">
+      <strong>💬 Chat & Collaboration</strong><br>
+      Send/retrieve messages in channels and comments with rich-text conversion and user @mention support.
+    </td>
+  </tr>
+  <tr style="border: none;">
+    <td style="vertical-align: top; border: none;">
+      <strong>🌳 Workspace Control</strong><br>
+      Create and navigate spaces, folders, lists, and tags. Switch workspaces mid-conversation.
+    </td>
+    <td style="vertical-align: top; border: none;">
+      <strong>🧠 Smart Defaults</strong><br>
+      Session-isolated caching for fast, secure multi-tenant operation.
+    </td>
+  </tr>
+</table>
 
 ---
 
-## Premium Access
+## <a name="premium-access"></a>💎 Premium Access
 
+<div align="center">
+  
 **This project operates on a Sponsorware model.** A license grants **full access to all 54+ premium tools** with any of the following plans:
 
 | [**Monthly Plan ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ($69/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ($129)**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
-| :--- | :--- | :--- |
+| :---: | :---: | :---: |
 | • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • Most Popular ($5.75/mo)<br>• 3 device activations<br>• Priority bug fixes | • **Best Value** (One-time payment)<br>• 3 device activations<br>• Lifetime stability |
 
 **⚡️ Instant Delivery:** Your License Key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
 
+</div>
+
 ---
 
-## Quick Start & Installation
+## 🚀 Quick Start & Installation
 
 ### 1. Prerequisites
 *   **License Key:** 💳 <a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme" target="_blank" rel="noopener noreferrer">**Purchase here**</a>
@@ -478,7 +518,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 
 ---
 
-## Available Tools
+## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
 <summary><strong>👇 Click to view all 54 available tools</strong></summary>
@@ -545,7 +585,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 
 ---
 
-## Advanced Configuration
+## <a name="advanced-configuration"></a>⚙️ Advanced Configuration
 
 ### Filter Available Tools
 💡 **Pro Tip!** Reduce context noise for the AI by limiting available tools.
@@ -568,7 +608,7 @@ Enable creation and management of ClickUp Docs:
 
 ---
 
-## FAQ
+## <a name="faq"></a>❓ FAQ
 
 **Why isn't this free anymore?**
 Building reliable MCP integrations requires significant maintenance. Moving to a paid model allows us to support this as a product rather than a hobby, ensuring compatibility with API changes.
@@ -581,7 +621,7 @@ Premium users get priority support. Please <a href="https://github.com/TaazKaree
 
 ---
 
-## Disclaimer
+## <a name="disclaimer"></a>⚖️ Disclaimer
 
 Originally developed as open source and refined during a consultancy with ClickUp, this project is now independently maintained.
 
