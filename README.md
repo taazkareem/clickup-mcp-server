@@ -1,39 +1,504 @@
 # ClickUp MCP Server - Premium
+
 ![ClickUp MCP Server Premium Image](https://raw.githubusercontent.com/taazkareem/clickup-mcp-server/main/assets/images/header_image.png)
 
-[![npm version](https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
-[![npm downloads](https://img.shields.io/npm/dm/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
+<div align="center">
+
+<a href="https://www.npmjs.com/package/@taazkareem/clickup-mcp-server" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg" alt="npm version"></a>
+<a href="https://www.npmjs.com/package/@taazkareem/clickup-mcp-server" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/dm/@taazkareem/clickup-mcp-server.svg" alt="npm downloads"></a>
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
-[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
+<a href="https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintained"></a>
 
-**Properly Connect ClickUp to AI Agents** including Claude Desktop, Antigravity, Gemini CLI, Claude Code, Codex, OpenCode, n8n, OpenClaw, Roo Code, Windsurf, Cursor IDE, and more.
+</div>
 
-*A high-performance Model Context Protocol (MCP) server for managing tasks, comments, tags, lists, folders, files, docs, time, chat, and workflows using natural language.*
+**Properly Connect ClickUp to AI Agents and Agentic Workflows**
 
-> **Status Update:** v0.12.10: New improvements including full @mention support for chat messages and comments, and full markdown support in chat messages, automatic rich text conversion for comments. Fixed Anthropic API Schema Compatibility (Issue #5). 
+*A high-performance Model Context Protocol (MCP) server for managing tasks, comments, tags, lists, folders, files, docs, chat, and time using natural language.*
 
-⭐️ **Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads. The industry-standard ClickUp integration for AI.
-<hr>
-
-
-## 🔥 Features
-
-*   **🔐 Hybrid Authentication :** MCP spec compliant OAuth 2.1 with advanced security hardening, backwards compatible with ClickUp API Key and Team ID for env variables/headers. (Remote version only)
-*   **📝 Task Management:** Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, natural language dates, full markdown, @mentions, and file attachments.
-*   **🔍 Intelligent Search:** Find tasks workspace-wide with fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—just say the task name, no IDs needed.
-*   **⏱️ Time Tracking:** Start/stop timers in natural language, view entries, and manage billable time.
-*   **📄 Manage Documents:** Create, read, and append to ClickUp Documents in the correct location. Supports full markdown.
-*   **💬 Chat & Collaboration:** Send and retrieve messages in chat channels and task comments with automatic rich-text conversion and @mention support. 
-*   **🌳 Workspace Control:** Create, navigate, and manage spaces, folders, lists, and tags. With OAuth login, select multiple Workspaces and switch between them mid-conversation. 
-*   **🧠 Smart Defaults:** Fuzzy matching for statuses (`todo` ↔ `to-do`), members, spaces, folders, and lists. Session-isolated caching for fast, secure multi-tenant operation.
+**⭐️ Proven Performance:** 460+ Stars & thousands of weekly NPM downloads. The industry-standard ClickUp integration for AI.
 
 ---
 
-<a name="available-tools"></a>
+## 📚 Table of Contents
+
+- [Features](#-features)
+- [Premium Access](#-premium-access)
+- [Quick Start & Installation](#-quick-start--installation)
+    <br>
+    &nbsp;&nbsp;[<img src="./assets/logos/cursor-white.svg" height="18" align="center"> Cursor](#cursor-setup) •
+    [<img src="./assets/logos/windsurf-white.svg" height="18" align="center"> Windsurf](#windsurf-setup) •
+    [<img src="./assets/logos/visual-studio-code.svg" height="18" align="center"> VS Code](#vscode-setup) •
+    [<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="18" align="center" style="border-radius: 4px;"> Roo Code](#roocode-setup) •
+    [<img src="./assets/logos/claude.svg" height="18" align="center"> Claude](#claude-desktop-setup) •
+    [<img src="https://cdn.simpleicons.org/anthropic/D97757" height="18" align="center"> Claude Code](#claude-code-setup) •
+    [<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="18" align="center"> n8n](#n8n-setup) •
+    [<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="18" align="center"> Gemini](#gemini-setup) •
+    [<img src="./assets/logos/antigravity.svg" height="18" align="center"> Antigravity](#antigravity-setup) •
+    [<img src="./assets/logos/openai-icon.svg" height="18" align="center"> Codex](#codex-setup) •
+    [<img src="./assets/logos/openai-icon.svg" height="18" align="center"> ChatGPT](#chatgpt-setup) •
+    [<img src="https://www.augmentcode.com/favicon-32x32.png" height="18" align="center" style="filter: invert(1);"> Augment](#augment-setup) •
+    [<img src="https://www.augmentcode.com/favicon-32x32.png" height="18" align="center" style="filter: invert(1);"> Auggie](#auggierun-setup) •
+    [<img src="./assets/logos/lobster.svg" height="18" align="center"> OpenClaw](#openclaw-setup) •
+    [Other](#other-setup)
+- [Available Tools](#️-available-tools)
+- [Advanced Configuration](#️-advanced-configuration)
+- [FAQ](#-faq)
+
+---
+
+## ✨ Features
+
+| | |
+| :--- | :--- |
+| **🔐 Hybrid Authentication**<br>MCP spec compliant OAuth 2.1 with advanced security hardening. Backwards compatible with API Key/Team ID. | **🔍 Intelligent Search**<br>Fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—no IDs needed. |
+| **📝 Task Management**<br>Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, natural language dates, full markdown descriptions. | **⏱️ Time Tracking**<br>Start/stop timers, view entries, and manage billable time via natural language. |
+| **📄 Document Management**<br>Create, read, and append to ClickUp Docs (supports full markdown). | **💬 Chat & Collaboration**<br>Send/retrieve messages in channels and comments with rich-text conversion and user @mention support. |
+| **🌳 Workspace Control**<br>Create and navigate spaces, folders, lists, and tags. Switch workspaces mid-conversation. | **🧠 Smart Defaults**<br>Session-isolated caching for fast, secure multi-tenant operation. |
+
+---
+
+## 💎 Premium Access
+
+**This project operates on a Sponsorware model.** A license grants **full access to all 54+ premium tools** with any of the following plans:
+
+| [**Monthly Plan ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ($69/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ($129)**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
+| :--- | :--- | :--- |
+| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • Most Popular ($5.75/mo)<br>• 3 device activations<br>• Priority bug fixes | • **Best Value** (One-time)<br>• 3 device activations<br>• Lifetime stability |
+
+**⚡️ Instant Delivery:** Your License Key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
+
+---
+
+## 🚀 Quick Start & Installation
+
+### 1. Prerequisites
+*   **License Key:** 💳 <a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme" target="_blank" rel="noopener noreferrer">**Purchase here**</a>
+*   **ClickUp Credentials:** API Key & Team ID (Only required if running locally/self-hosted).
+    <details>
+    <summary><strong>How to find your credentials?</strong></summary>
+
+    **ClickUp API Key:**
+    1. Log into ClickUp and go to <a href="https://app.clickup.com/settings/apps" target="_blank" rel="noopener noreferrer">ClickUp Settings → Apps</a>.
+    2. Click **Generate** under "API Token" (or copy your existing one).
+
+    **ClickUp Team ID:**
+    1. Open ClickUp in your browser.
+    2. Look at the URL: `https://app.clickup.com/1234567/v/li/987654321`.
+    3. The first number (`1234567`) directly after `clickup.com/` is your **Team ID** (Workspace ID).
+    </details>
+
+### 2. Choose your Integration
+
+<a name="cursor-setup"></a>
+<details open>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/cursor-white.svg" height="22" align="center"> <strong>Cursor</strong></summary>
+<br>
+
+**Configuration Path:** `<project-root>/.cursor/mcp.json`
+
+**Option A: Cloud / Remote (Easiest)**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "url": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": {
+        "X-License-Key": "your-license-key"
+      }
+    }
+  }
+}
+```
+
+**Option B: Local (NPM)**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "command": "npx",
+      "args": ["-y", "@taazkareem/clickup-mcp-server@latest"],
+      "env": {
+        "CLICKUP_API_KEY": "your-api-key",
+        "CLICKUP_TEAM_ID": "your-team-id",
+        "CLICKUP_MCP_LICENSE_KEY": "your-license-key"
+      }
+    }
+  }
+}
+```
+</details>
+
+<a name="windsurf-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/windsurf-white.svg" height="22" align="center"> <strong>Windsurf</strong></summary>
+<br>
+
+**Configuration Path:** `<project-root>/.codeium/windsurf/mcp_config.json`
+
+**Option A: Cloud / Remote (Easiest)**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "url": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": {
+        "X-License-Key": "your-license-key"
+      }
+    }
+  }
+}
+```
+
+**Option B: Local (NPM)**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "command": "npx",
+      "args": ["-y", "@taazkareem/clickup-mcp-server@latest"],
+      "env": {
+        "CLICKUP_API_KEY": "your-api-key",
+        "CLICKUP_TEAM_ID": "your-team-id",
+        "CLICKUP_MCP_LICENSE_KEY": "your-license-key"
+      }
+    }
+  }
+}
+```
+</details>
+
+<a name="vscode-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/visual-studio-code.svg" height="22" align="center"> <strong>VS Code</strong></summary>
+<br>
+
+**Configuration Paths:**
+- **Global:** `~/Library/Application Support/Code/User/mcp.json`
+- **Local:** `<project-root>/.vscode/mcp.json`
+
+**Option A: Cloud / Remote (Easiest)**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "url": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": {
+        "X-License-Key": "your-license-key"
+      }
+    }
+  }
+}
+```
+
+**Option B: Local (NPM)**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "command": "npx",
+      "args": ["-y", "@taazkareem/clickup-mcp-server@latest"],
+      "env": {
+        "CLICKUP_API_KEY": "your-api-key",
+        "CLICKUP_TEAM_ID": "your-team-id",
+        "CLICKUP_MCP_LICENSE_KEY": "your-license-key"
+      }
+    }
+  }
+}
+```
+</details>
+
+<a name="roocode-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="22" align="center" style="border-radius: 4px;"> <strong>Roo Code</strong></summary>
+<br>
+
+**Configuration Path:** `<project-root>/.roo/mcp.json`
+
+**Option A: Cloud / Remote (Easiest)**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "url": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": {
+        "X-License-Key": "your-license-key"
+      }
+    }
+  }
+}
+```
+
+**Option B: Local (NPM)**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "command": "npx",
+      "args": ["-y", "@taazkareem/clickup-mcp-server@latest"],
+      "env": {
+        "CLICKUP_API_KEY": "your-api-key",
+        "CLICKUP_TEAM_ID": "your-team-id",
+        "CLICKUP_MCP_LICENSE_KEY": "your-license-key"
+      }
+    }
+  }
+}
+```
+</details>
+
+<a name="claude-desktop-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/claude.svg" height="22" align="center"> <strong>Claude Desktop</strong></summary>
+<br>
+
+**Configuration Path:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+**Remote Setup (Requires `mcp-remote` adapter):**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "command": "npx",
+      "args": [
+        "-y", "mcp-remote",
+        "https://clickup-mcp.taazkareem.com/mcp",
+        "--header", "X-License-Key: your-license-key"
+      ]
+    }
+  }
+}
+```
+</details>
+
+<a name="claude-code-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="https://cdn.simpleicons.org/anthropic/D97757" height="22" align="center"> <strong>Claude Code (CLI)</strong></summary>
+<br>
+
+Run this command in your terminal:
+```bash
+claude mcp add --transport http ClickUp https://clickup-mcp.taazkareem.com/mcp \
+  --header "X-License-Key: your-license-key"
+```
+</details>
+
+<a name="n8n-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="22" align="center"> <strong>n8n</strong></summary>
+<br>
+
+**Option A: Cloud / Remote (Recommended)**
+1. In n8n, add an **"MCP Client"** node.
+2. Set Connection Type to `HTTP Streamable`.
+3. Auth Type: `Multiple Headers Auth`.
+4. Header: `X-License-Key` Value: `your-license-key`
+5. URL: `https://clickup-mcp.taazkareem.com/mcp`
+
+**Option B: Self-Hosted Docker**
+Run the container:
+```bash
+docker run -d -p 3231:3231 ghcr.io/taazkareem/clickup-mcp-server:latest
+```
+In n8n, use URL: `http://host.docker.internal:3231/mcp`
+</details>
+
+<a name="gemini-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="22" align="center"> <strong>Gemini CLI</strong></summary>
+<br>
+
+**Configuration Path:** `~/.gemini/settings.json`
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "httpUrl": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": { "X-License-Key": "your-license-key" }
+    }
+  }
+}
+```
+</details>
+
+<a name="antigravity-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/antigravity.svg" height="22" align="center"> <strong>Antigravity</strong></summary>
+<br>
+
+**Configuration Path:** `~/.gemini/antigravity/mcp_config.json`
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "serverUrl": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": { "X-License-Key": "your-license-key" }
+    }
+  }
+}
+```
+</details>
+
+<a name="codex-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>Codex (CLI, Desktop, IDE)</strong></summary>
+<br>
+
+Codex clients (CLI, Desktop App, and VS Code extension) share a single source of truth for configuration.
+
+**Configuration Paths:**
+- **Global:** `~/.codex/config.toml`
+- **Per-Project:** `<project-root>/.codex/config.toml`
+
+**Option A: Cloud / Remote (Easiest)**
+```toml
+[mcp_servers.ClickUp]
+url = "https://clickup-mcp.taazkareem.com/mcp"
+http_headers = { "X-License-Key" = "your-license-key" }
+```
+
+**Option B: Local (NPM / stdio)**
+```toml
+[mcp_servers.ClickUp]
+command = "npx"
+args = ["-y", "@taazkareem/clickup-mcp-server@latest"]
+env = {
+  CLICKUP_API_KEY = "your-api-key",
+  CLICKUP_TEAM_ID = "your-team-id",
+  CLICKUP_MCP_LICENSE_KEY = "your-license-key"
+}
+```
+
+**Quick Tips:**
+- **Codex CLI:** Run `codex mcp list` to verify. Use `codex mcp add ...` as a CLI alternative to editing the file.
+- **VS Code Extension:** Click **⚙ → MCP settings → Open config.toml**.
+- **Desktop App:** Go to **Settings → Integrations & MCP**.
+</details>
+
+<a name="chatgpt-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>ChatGPT (Developer Mode)</strong></summary>
+<br>
+
+*Note: Requires a Business, Enterprise, or Edu workspace with Developer Mode enabled.*
+
+1. **Enable Developer Mode:** Ask your workspace admin to enable this under **Workspace Settings → Permissions & Roles → Connected Data**.
+2. **Connect MCP:** Go to **Settings → Connectors** and toggle **Developer Mode** on.
+3. **Add Custom Connector:**
+   - Click **Add connector** (or "Create custom connector").
+   - Choose **MCP** as the source type.
+4. **Configure:**
+   - **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
+   - **Authentication:** Add HTTP header `X-License-Key: your-license-key`.
+5. **Use:** Start a Developer Mode chat and select your ClickUp connector via **Add sources**.
+</details>
+
+<a name="augment-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="https://www.augmentcode.com/favicon-32x32.png" height="22" align="center" style="filter: invert(1);"> <strong>Augment Code</strong></summary>
+<br>
+
+**Configuration Path:** `<project-root>/.augment/settings.json`
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "url": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": {
+        "X-License-Key": "your-license-key"
+      }
+    }
+  }
+}
+```
+</details>
+
+<a name="auggierun-setup"></a>
+<details>
+<summary><img src="https://www.augmentcode.com/favicon-32x32.png" height="22" align="center" style="filter: invert(1);"> <strong>Auggie CLI</strong></summary>
+<br>
+
+Run this command in your terminal:
+```bash
+auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
+  --header "X-License-Key: your-license-key"
+```
+</details>
+
+<a name="openclaw-setup"></a>
+<details>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/lobster.svg" height="22" align="center"> <strong>OpenClaw (via mcporter)</strong></summary>
+<br>
+
+OpenClaw integrates MCP servers through **mcporter**, a bridge that handles both HTTP and stdio connections.
+
+**1. Prerequisites:**
+- Install mcporter: `npm i -g mcporter`
+- Enable the skill in OpenClaw `config.json`:
+  ```json
+  {"skills": {"allowBundled": ["mcporter"]}}
+  ```
+
+**2. Configuration (via CLI):**
+
+**Option A: Cloud / Remote (Easiest)**
+```bash
+mcporter config add ClickUp \
+  --url "https://clickup-mcp.taazkareem.com/mcp" \
+  --headers '{"X-License-Key": "your-license-key"}'
+```
+
+**Option B: Local (NPM / stdio)**
+```bash
+mcporter config add ClickUp \
+  --command "npx" \
+  --args "-y @taazkareem/clickup-mcp-server@latest" \
+  --env "CLICKUP_MCP_LICENSE_KEY=your-license-key,CLICKUP_API_KEY=your-api-key,CLICKUP_TEAM_ID=your-team-id"
+```
+
+**3. Verify & Run:**
+- List tools: `mcporter list ClickUp --schema`
+- Restart the OpenClaw gateway to auto-detect the new server.
+</details>
+
+<a name="other-setup"></a>
+<details>
+<summary><strong>Other (Custom Agents, etc.)</strong></summary>
+<br>
+
+**Advanced: OpenAI Agents SDK**
+For developers building custom agents.
+
+**Python SDK:**
+```python
+from agents import Agent, Runner
+from agents.mcp import MCPServerStreamableHttp
+
+async with MCPServerStreamableHttp(
+    name="clickup",
+    params={
+        "url": "https://clickup-mcp.taazkareem.com/mcp",
+        "headers": {"X-License-Key": "your-license-key"},
+    },
+) as server:
+    agent = Agent(
+        name="Assistant",
+        instructions="Use the ClickUp MCP tools when helpful.",
+        mcp_servers=[server],
+    )
+    result = await Runner.run(agent, "List my workspaces.")
+```
+</details>
+
+### 3. Restart
+Restart your MCP Host (e.g., Cursor IDE). The server will validate your License Key and start automatically.
+
+---
+
 ## 🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 50+ available tools</strong></summary>
+<summary><strong>👇 Click to view all 54 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -97,128 +562,26 @@
 
 ---
 
-<a name="premium-access"></a>
-## 💎 Premium Access
+## ⚙️ Advanced Configuration
 
-**This project operates on a Sponsorware model.** This high-performance MCP server is maintained daily to ensure compatibility with the latest AI agents and ClickUp API changes. A license grants **full access to all 50+ tools, priority bug fixes, and enterprise-grade feature development.**
+### Filter Available Tools
+💡 **Pro Tip!** Reduce context noise for the AI by limiting available tools.
 
-| [**Monthly Subscription ($9)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Lifetime Access ($59)**](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5?utm_source=github&utm_medium=readme) |
-| :--- | :--- |
-| • Perfect for ongoing projects<br>• Cancel anytime | • One-time payment<br>• Best value for agencies |
-
-**⚡️ Instant Delivery:** Your license key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
-
----
-
----
-
-<a name="quick-start"></a>
-## 🚀 Quick Start
-
-### 1. Prerequisites
-*   **Node.js v18.0.0+**
-*   **ClickUp Credentials:** API Key & Team ID
-*   **License Key:** [Purchase here](https://buy.polar.sh/polar_cl_whcMn4lbBFwZUoWU5p2qDSn0fs23ACC6IwK3e15hXV5?utm_source=github&utm_medium=readme)
-
-### 2. Local Configuration
-Add the following to your `claude_desktop_config.json` or similar MCP settings file to run locally via `npx`:
-
-```json
-{
-  "mcpServers": {
-    "ClickUp": {
-      "command": "npx",
-			"args": [
-				"-y",
-				"@taazkareem/clickup-mcp-server@latest"
-			],
-      "env": {
-        "CLICKUP_API_KEY": "your-clickup-api-key",
-        "CLICKUP_TEAM_ID": "your-team-id",
-        "CLICKUP_MCP_LICENSE_KEY": "your-license-key-here"
-      }
-    }
-  }
-}
-```
-
-### 3. Hosted / Remote Usage
- -or- For zero-setup usage without local Node.js requirements, use the hosted version:
-
-```json
-{
-  "mcpServers": {
-    "ClickUp": {
-      "serverUrl": "https://clickup-mcp.taazkareem.com/mcp",
-      "headers": {
-        "X-License-Key": "your-mcp-licese-key-here",
-      }
-    }
-  }
-}
-```
-
-### 4. Restart
-Restart your MCP Host (e.g., Cursor IDE). The server will validate your license and start automatically.
-
----
-
-
-
-## ⚙️ Configuration
-
-### Finding Your Credentials
-
-1.  **ClickUp API Key:**
-    *   Navigate to [ClickUp Settings → Apps](https://app.clickup.com/settings/apps).
-    *   Generate a token under "API Token".
-2.  **ClickUp Team ID:**
-    *   Open ClickUp in your browser.
-    *   Look at the URL: `https://app.clickup.com/[TEAM_ID]/v/...`
-    *   The first number is your Team ID.
-    *   *Note: ClickUp API calls this `team_id`, but it actually represents your Workspace ID.*
-
-### Advanced Configuration
-
-#### Filter Available Tools
-💡 Pro Tip! Reduce context noise by limiting available tools in your `env` arguments:
+**Local (Environment Variable):**
 ```json
 "ENABLED_TOOLS": "get_workspace_hierarchy,create_task,get_task,update_task"
 ```
--or- the hosted version `headers`:
+
+-or- **Remote (Header):**
 ```json
-"X-Enabled-Tools": "find_member_by_name, create_chat_channel, create_chat_message, get_chat_messages, submit_feedback"
+"X-Enabled-Tools": "find_member_by_name,create_chat_channel,create_chat_message"
 ```
 
-#### Enable Document Support (Beta)
+### Enable Document Support (Beta)
 Enable creation and management of ClickUp Docs:
 ```json
 "DOCUMENT_SUPPORT": "true"
 ```
-
----
-
-## 🔌 Compatibility
-
-This server supports  **STDIO, HTTP Streamable, and SSE (Server-Sent Events)** for legacy integrations.
-
-**n8n Setup - Remote Server (Recommended):**
-1.  In n8n, add an **"MCP Client"** node.
-2.  Set Connection Type to `HTTP Streamable`.
-3.  Select Authentication Type `Multiple Headers Auth` and rename it to `ClickUp`.
-4.  Add custom headers:
-    - `X-ClickUp-Key: <your ClickUp API key>`
-    - `X-ClickUp-Team-Id: <your Team ID>`
-    - `X-License-Key: <your license key>`
-5.  Set URL to `https://clickup-mcp.taazkareem.com/mcp`
-
-**n8n Docker Setup (Alternative):**
-
-Run the server with Docker:
-```bash
-docker run -d -p 3231:3231 ghcr.io/taazkareem/clickup-mcp-server:latest
-```
-In n8n, use `http://host.docker.internal:3231/mcp` as the URL.
 
 ---
 
@@ -231,7 +594,7 @@ Building reliable MCP integrations requires significant maintenance. Moving to a
 Existing local clones will continue to work, but you will not receive updates, bug fixes, or support without a license.
 
 **How do I get support?**
-Premium users get priority support. Please [open an issue](https://github.com/TaazKareem/clickup-mcp-server/issues) in this repository.
+Premium users get priority support. Please <a href="https://github.com/TaazKareem/clickup-mcp-server/issues" target="_blank" rel="noopener noreferrer">open an issue</a> in this repository.
 
 ---
 
@@ -242,5 +605,5 @@ Originally developed as open source and refined during a consultancy with ClickU
 This software makes use of third-party APIs and may reference trademarks or brands owned by third parties. The use of such APIs or references does not imply any affiliation with or endorsement by the respective companies. All trademarks and brand names are the property of their respective owners. This project is an independent work and is not officially associated with or sponsored by any third-party company mentioned.
 
 <div align="center">
-  <sub>Created by <a href="https://github.com/taazkareem">taazkareem</a></sub>
+  <sub>Created by <a href="https://github.com/taazkareem" target="_blank" rel="noopener noreferrer">taazkareem</a></sub>
 </div>
