@@ -36,8 +36,8 @@
     [<img src="./assets/logos/antigravity.svg" height="18" align="center"> Antigravity](#antigravity-setup) •
     [<img src="./assets/logos/openai-icon.svg" height="18" align="center"> Codex](#codex-setup) •
     [<img src="./assets/logos/openai-icon.svg" height="18" align="center"> ChatGPT](#chatgpt-setup) •
-    [<img src="https://www.augmentcode.com/favicon-32x32.png" height="18" align="center" style="filter: invert(1);"> Augment](#augment-setup) •
-    [<img src="https://www.augmentcode.com/favicon-32x32.png" height="18" align="center" style="filter: invert(1);"> Auggie](#auggierun-setup) •
+    [<img src="./assets/logos/augment-code.svg" height="18" align="center"> Augment](#augment-setup) •
+    [<img src="./assets/logos/augment-code.svg" height="18" align="center"> Auggie](#auggierun-setup) •
     [<img src="./assets/logos/lobster.svg" height="18" align="center"> OpenClaw](#openclaw-setup) •
     [Other](#other-setup)
 - [Available Tools](#️-available-tools)
