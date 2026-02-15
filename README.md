@@ -7,6 +7,8 @@
 <a href="https://www.npmjs.com/package/@taazkareem/clickup-mcp-server" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg" alt="npm version"></a>
 <a href="https://www.npmjs.com/package/@taazkareem/clickup-mcp-server" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/dm/@taazkareem/clickup-mcp-server.svg" alt="npm downloads"></a>
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
+<img src="https://img.shields.io/badge/Ranked_Top_3_on_Google-🔥-orange.svg" alt="Top 3 on Google">
+<img src="https://img.shields.io/badge/Trending-MCP_Server-blueviolet.svg" alt="Trending MCP Server">
 <a href="https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintained"></a>
 
 </div>
