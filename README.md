@@ -23,7 +23,7 @@
 
 ---
 
-## 📖 Table of Contents
+## 📚 Table of Contents
 
 | Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Quick&nbsp;Start&nbsp;&&nbsp;Installation |
 | :--- | :--- |
@@ -88,13 +88,15 @@
 
 **⚡️ Instant Delivery:** Your License Key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
 
+<a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Purchase%20License-0069ff?style=for-the-badge&logo=polar&logoColor=white" alt="Purchase License" style="vertical-align: middle;"></a>
+
 ---
 
 ## 🚀 Quick Start & Installation
 
 ### 1. Prerequisites
-*   **License Key:** 💳 <a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme" target="_blank" rel="noopener noreferrer">**Purchase here**</a>
-*   **ClickUp Credentials:** API Key & Team ID (Only required if running locally/self-hosted).
+*   **License Key:** See above 
+*   **ClickUp Credentials:** (Optional) API Key & Team ID
     <details>
     <summary><strong>How to find your credentials?</strong></summary>
 
