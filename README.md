@@ -23,7 +23,7 @@
 
 ---
 
-## 📖 Table of Contents
+## 📚 Table of Contents
 
 | Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Quick&nbsp;Start&nbsp;&&nbsp;Installation |
 | :--- | :--- |
