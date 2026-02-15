@@ -78,17 +78,13 @@
 
 ## <a name="premium-access"></a>💎 Premium Access
 
-<div align="center">
-  
 **This project operates on a Sponsorware model.** A license grants **full access to all 54+ premium tools** with any of the following plans:
 
 | [**Monthly Plan ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ($69/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ($129)**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
-| :---: | :---: | :---: |
+| :--- | :--- | :--- |
 | • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • Most Popular ($5.75/mo)<br>• 3 device activations<br>• Priority bug fixes | • **Best Value** (One-time payment)<br>• 3 device activations<br>• Lifetime stability |
 
 **⚡️ Instant Delivery:** Your License Key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
-
-</div>
 
 ---
 
