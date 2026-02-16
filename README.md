@@ -40,8 +40,8 @@
       MCP spec compliant OAuth 2.1 with advanced security hardening. Backwards compatible with API Key/Team ID.
     </td>
     <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
-      <strong>🔍 Intelligent Search</strong><br>
-      Fuzzy matching across names, statuses, tags, custom fields, and descriptions. Automatic name resolution—no IDs needed.
+      <strong>🔍 Intelligent Search & Resolution</strong><br>
+      Smart tiered, global fuzzy search across task, list, folder, and space names, members/emails, statuses, tags, descriptions, and more. Automatic resolution—no IDs needed.
     </td>
   </tr>
   <tr style="border: none;">
@@ -51,7 +51,7 @@
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>⏱️ Time Tracking</strong><br>
-      Start/stop timers, view entries, and manage billable time via natural language.
+      Start/stop timers, search entries with date ranges, and manage billable time via natural language.
     </td>
   </tr>
   <tr style="border: none;">
@@ -567,7 +567,8 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `delete_space_tag` | Delete a tag |
 | | `add_tag_to_task` | Add tag to task |
 | | `remove_tag_from_task` | Remove tag from task |
-| **Time Tracking** | `get_task_time_entries` | Get time entries for a task |
+| **Time Tracking** | `get_task_time_entries` | Get time entries for a task with date filters |
+| | `get_workspace_time_entries` | Search workspace time entries with date range filtering |
 | | `start_time_tracking` | Start time tracking |
 | | `stop_time_tracking` | Stop current time tracking |
 | | `add_time_entry` | Add manual time entry |
