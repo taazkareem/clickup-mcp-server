@@ -461,7 +461,8 @@ OpenClaw integrates MCP servers through **mcporter**, a bridge that handles both
   {"skills": {"allowBundled": ["mcporter"]}}
   ```
 
-**2. Configuration (via CLI):**
+**2. Configuration Path:**
+`~/.mcporter/mcporter.json`
 
 **Option A: Cloud / Remote (Easiest)**
 ```bash
