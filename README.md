@@ -4,12 +4,12 @@
 
 <div align="center">
 
-<a href="https://www.npmjs.com/package/@taazkareem/clickup-mcp-server" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg" alt="npm version"></a>
-<a href="https://www.npmjs.com/package/@taazkareem/clickup-mcp-server" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/dm/@taazkareem/clickup-mcp-server.svg" alt="npm downloads"></a>
+[![npm version](https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
+[![npm downloads](https://img.shields.io/npm/dm/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
-<img src="https://img.shields.io/badge/Ranked_Top_3_on_Google-🔥-orange.svg" alt="Top 3 on Google">
-<img src="https://img.shields.io/badge/Trending-MCP_Server-blueviolet.svg" alt="Trending MCP Server">
-<a href="https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintained"></a>
+![Top 3 on Google](https://img.shields.io/badge/Ranked_Top_3_on_Google-🔥-orange.svg)
+![Trending MCP Server](https://img.shields.io/badge/Trending-MCP_Server-blueviolet.svg)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
 
 </div>
 
@@ -88,7 +88,7 @@
 
 **⚡️ Instant Delivery:** Your License Key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
 
-<a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Purchase%20License-0069ff?style=for-the-badge&logo=polar&logoColor=white" alt="Purchase License" style="vertical-align: middle;"></a>
+[![Purchase License](https://img.shields.io/badge/Purchase%20License-0069ff?style=for-the-badge&logo=polar&logoColor=white)](https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme)
 
 ---
 
@@ -101,7 +101,7 @@
     <summary><strong>How to find your credentials?</strong></summary>
 
     **ClickUp API Key:**
-    1. Log into ClickUp and go to <a href="https://app.clickup.com/settings/apps" target="_blank" rel="noopener noreferrer">ClickUp Settings → Apps</a>.
+    1. Log into ClickUp and go to [ClickUp Settings → Apps](https://app.clickup.com/settings/apps).
     2. Click **Generate** under "API Token" (or copy your existing one).
 
     **ClickUp Team ID:**
@@ -626,7 +626,7 @@ Existing local clones will continue to work, but you will not receive updates, b
 We welcome new integrations! Please [contact us via email](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request) to have your agent's redirect URI added to our allowlist.
 
 **How do I get support?**
-Premium users get priority support. Please <a href="https://github.com/TaazKareem/clickup-mcp-server/issues" target="_blank" rel="noopener noreferrer">open an issue</a> in this repository.
+Premium users get priority support. Please [open an issue](https://github.com/TaazKareem/clickup-mcp-server/issues) in this repository.
 
 ---
 
@@ -637,5 +637,5 @@ Originally developed as open source and refined during a consultancy with ClickU
 This software makes use of third-party APIs and may reference trademarks or brands owned by third parties. The use of such APIs or references does not imply any affiliation with or endorsement by the respective companies. All trademarks and brand names are the property of their respective owners. This project is an independent work and is not officially associated with or sponsored by any third-party company mentioned.
 
 <div align="center">
-  <sub>Created by <a href="https://github.com/taazkareem" target="_blank" rel="noopener noreferrer">taazkareem</a></sub>
+  <sub>Created by [taazkareem](https://github.com/taazkareem)</sub>
 </div>
