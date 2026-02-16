@@ -527,14 +527,13 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 54 available tools</strong></summary>
+<summary><strong>👇 Click to view all 50+ available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
 | **Workspace** | `get_workspace_hierarchy` | Get workspace structure |
 | | `get_workspace_members` | Get all workspace members |
 | | `find_member_by_name` | Find member by name or email |
-| | `resolve_assignees` | Resolve names/emails to user IDs |
 | **Tasks** | `create_task` | Create a task |
 | | `get_task` | Get single task details |
 | | `update_task` | Modify task properties |
