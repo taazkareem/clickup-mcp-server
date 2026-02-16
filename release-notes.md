@@ -8,7 +8,7 @@
 - **Refined Search Validation**: Fixed edge cases where keyword-only searches could trigger validation errors.
 - **Tasks in Multiple Lists Support**: Added `include_timl` parameter to `get_workspace_tasks`. This allows retrieving tasks that are associated with multiple lists, essential for accurate Sprint and cross-project tracking.
 
-### 🚀 Hierarchical Task Creation
+### 🗂️ Hierarchical Task Creation
 - Added support for recursive subtask creation in both `create_task` and `create_bulk_tasks`.
 - Fixed `create_bulk_tasks` schema to properly allow `parent` fields.
 - Updated `formatTaskData` to explicitly include the `parent` ID in tool responses.
