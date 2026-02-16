@@ -624,7 +624,7 @@ Building reliable MCP integrations requires significant maintenance. Moving to a
 Existing local clones will continue to work, but you will not receive updates, bug fixes, or support without a license.
 
 **How can I add my AI Agent/Platform to the supported list?**
-We welcome new integrations! Please [contact us via email](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request) to have your agent's redirect URI added to our allowlist.
+We welcome new integrations!<br>Please [contact us via email](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request) to have your agent's redirect URI added to our allowlist.
 
 **How do I get support?**
 Premium users get priority support. Please [open an issue](https://github.com/TaazKareem/clickup-mcp-server/issues) in this repository.
