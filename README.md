@@ -456,7 +456,7 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 OpenClaw integrates MCP servers through **mcporter**, a bridge that handles both HTTP and stdio connections.
 
 **1. Prerequisites:**
-- Enable the skill in OpenClaw `openclaw.json`:
+- Enable the skill in OpenClaw `~/.openclaw/openclaw.json`:
   ```json
   {"skills": {"allowBundled": ["mcporter"]}}
   ```
