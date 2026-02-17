@@ -461,8 +461,7 @@ OpenClaw integrates MCP servers through **mcporter**, a bridge that handles both
   {"skills": {"allowBundled": ["mcporter"]}}
   ```
 
-**2. Configuration Path:**
-`~/.mcporter/mcporter.json`
+**2. Configuration (via CLI):**
 
 **Option A: Cloud / Remote (Easiest)**
 ```bash
@@ -540,6 +539,8 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `move_task` | Move task to new list |
 | | `duplicate_task` | Copy task |
 | | `delete_task` | Remove task |
+| | `add_task_to_list` | Associate task with additional list (TIML) |
+| | `remove_task_from_list` | Remove task list association (TIML) |
 | | `create_bulk_tasks` | Create multiple tasks |
 | | `update_bulk_tasks` | Update multiple tasks |
 | | `move_bulk_tasks` | Move multiple tasks |
@@ -555,10 +556,12 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `create_list_in_folder` | Create list in folder |
 | | `get_list` | Get list details |
 | | `update_list` | Update list properties |
+| | `move_list` | Move list to new Space/Folder (High-Integrity Move) |
 | | `delete_list` | Delete a list |
 | **Folders** | `create_folder` | Create folder |
 | | `get_folder` | Get folder details |
 | | `update_folder` | Update folder properties |
+| | `move_folder` | Move folder to new Space (High-Integrity Move) |
 | | `delete_folder` | Delete a folder |
 | **Tags** | `get_space_tags` | Get space tags |
 | | `create_space_tag` | Create tag |
@@ -598,19 +601,97 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 
 **Local (Environment Variable):**
 ```json
-"ENABLED_TOOLS": "get_workspace_hierarchy,create_task,get_task,update_task"
+"ENABLED_TOOLS": "tool_1,tool_2,tool_3"
 ```
 
 -or- **Remote (Header):**
 ```json
-"X-Enabled-Tools": "find_member_by_name,create_chat_channel,create_chat_message"
+"X-Enabled-Tools": "tool_1,tool_2,tool_3"
 ```
 
-### Enable Document Support (Beta)
-Enable creation and management of ClickUp Docs:
+### Preset Configurations
+
+Here are copy-pasteable recommended configurations for common agent personas. You can use these in your `mcp.json` (env) or via HTTP headers. Customization is easy - just add or remove tools you don't need.
+
+<details>
+<summary><strong>📋 Auditor</strong></summary>
+
+Best for agents that need to view data without making any changes.
+
+**HTTP Header:**
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback`
+
+**JSON / Env:**
 ```json
-"DOCUMENT_SUPPORT": "true"
+"env": {
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback"
+}
 ```
+</details>
+
+<details>
+<summary><strong>👷 Task Worker</strong></summary>
+
+Focused on day-to-day task management. Can create/update tasks and track time, but cannot delete tasks or modify structure (Lists/Folders).
+
+**HTTP Header:**
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,create_task,update_task,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,find_member_by_name,submit_feedback`
+
+**JSON / Env:**
+```json
+"env": {
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,create_task,update_task,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,find_member_by_name,submit_feedback"
+}
+```
+</details>
+
+<details>
+<summary><strong>⏱️ Time Specialist</strong></summary>
+
+For agents dedicated to logging time and generating timesheets.
+
+**HTTP Header:**
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,start_time_tracking,stop_time_tracking,add_time_entry,delete_time_entry,submit_feedback`
+
+**JSON / Env:**
+```json
+"env": {
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,start_time_tracking,stop_time_tracking,add_time_entry,delete_time_entry,submit_feedback"
+}
+```
+</details>
+
+<details>
+<summary><strong>📚 Content Manager</strong></summary>
+
+For agents managing documentation and communication.
+
+**HTTP Header:**
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,create_chat_channel,get_chat_channels,create_chat_message,get_chat_messages,submit_feedback`
+
+**JSON / Env:**
+```json
+"env": {
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,create_chat_channel,get_chat_channels,create_chat_message,get_chat_messages,submit_feedback"
+}
+```
+</details>
+
+<details>
+<summary><strong>🛡️ Safe Power User</strong></summary>
+
+Enabled everything **except** destructive tools. This configuration covers **all 58 tools** by default, only blocking the 7 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
+
+**HTTP Header:**
+`X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag`
+
+**JSON / Env:**
+```json
+"env": {
+  "DISABLED_TOOLS": "delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag"
+}
+```
+</details>
 
 ---
 
@@ -621,9 +702,6 @@ Building reliable MCP integrations requires significant maintenance. Moving to a
 
 **I have an old version. Will it stop working?**
 Existing local clones will continue to work, but you will not receive updates, bug fixes, or support without a license.
-
-**How can I add my AI Agent/Platform to the supported list?**
-We welcome new integrations!<br>Please [contact us via email](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request) to have your agent's redirect URI added to our allowlist.
 
 **How do I get support?**
 Premium users get priority support. Please [open an issue](https://github.com/TaazKareem/clickup-mcp-server/issues) in this repository.
