@@ -80,7 +80,7 @@
 
 ## <a name="premium-access"></a>💎 Premium Access
 
-**This project operates on a Sponsorware model.** A license grants **full access to all 54+ premium tools** with any of the following plans:
+**This project operates on a Sponsorware model.** A license grants **full access to all 58+ premium tools** with any of the following plans:
 
 | [**Monthly Plan ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ($69/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ($129)**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
