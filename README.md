@@ -526,7 +526,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 50+ available tools</strong></summary>
+<summary><strong>👇 Click to view all 58 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
