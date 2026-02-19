@@ -438,7 +438,7 @@ env = {
 
 <a name="auggierun-setup"></a>
 <details>
-<summary><img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Auggie CLI</strong></summary>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Auggie CLI</strong></summary>
 <br>
 
 Run this command in your terminal:
