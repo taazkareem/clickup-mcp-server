@@ -82,9 +82,9 @@
 
 **This project operates on a Sponsorware model.** A license grants **full access to all 58+ premium tools** with any of the following plans:
 
-| [**Monthly Plan ― $9/mo**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ― $69/yr**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ― $96.75** w/ Code](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
+| [**Monthly Plan ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ($59/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ($89 w/ code**)](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
-| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • Only $5.75/mo <br>• 3 device activations<br>• Priority bug fixes | • **Best Value** (One-time payment)<br>• 3 device activations<br>• **25% OFF** code: `FEB25` |
+| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • ONLY $4.92/mo <br>• 3 device activations<br>• Priority bug fixes | • **25% OFF** code: `FEB25` <br>• 3 device activations<br>• **Best Value** (One-time payment)|
 
 **⚡️ Instant Delivery:** Your License Key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
 
