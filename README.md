@@ -450,7 +450,7 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 
 <a name="openclaw-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/lobster.svg" height="22" align="center"> <strong>OpenClaw (via mcporter)</strong></summary>
+<summary>&nbsp;&nbsp;<img src="./assets/logos/lobster.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong></summary>
 <br>
 
 **1. Enable** the mcporter skill in `~/.openclaw/openclaw.json`:
@@ -560,12 +560,12 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `create_list_in_folder` | Create list in folder |
 | | `get_list` | Get list details |
 | | `update_list` | Update list properties |
-| | `move_list` | Move list to new Space/Folder (High-Integrity Move) |
+| | `move_list` | Move list to new Space/Folder |
 | | `delete_list` | Delete a list |
 | **Folders** | `create_folder` | Create folder |
 | | `get_folder` | Get folder details |
 | | `update_folder` | Update folder properties |
-| | `move_folder` | Move folder to new Space (High-Integrity Move) |
+| | `move_folder` | Move folder to new Space |
 | | `delete_folder` | Delete a folder |
 | **Tags** | `get_space_tags` | Get space tags |
 | | `create_space_tag` | Create tag |
@@ -573,8 +573,8 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `delete_space_tag` | Delete a tag |
 | | `add_tag_to_task` | Add tag to task |
 | | `remove_tag_from_task` | Remove tag from task |
-| **Time Tracking** | `get_task_time_entries` | Get time entries for a task with date filters |
-| | `get_workspace_time_entries` | Search workspace time entries with date range filtering |
+| **Time Tracking** | `get_task_time_entries` | Get time entries with date filters |
+| | `get_workspace_time_entries` | Search all time entries |
 | | `start_time_tracking` | Start time tracking |
 | | `stop_time_tracking` | Stop current time tracking |
 | | `add_time_entry` | Add manual time entry |
