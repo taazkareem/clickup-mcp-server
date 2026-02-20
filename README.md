@@ -27,7 +27,7 @@
 
 | Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Quick&nbsp;Start&nbsp;&&nbsp;Installation |
 | :--- | :--- |
-| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td st yle="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border:https://axiom.trade/discover?chain=sol none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/lobster.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[Other](#other-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
+| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td st yle="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/lobster.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[Other](#other-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
 
 ---
 
@@ -453,34 +453,38 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 <summary>&nbsp;&nbsp;<img src="./assets/logos/lobster.svg" height="22" align="center"> <strong>OpenClaw (via mcporter)</strong></summary>
 <br>
 
-OpenClaw integrates MCP servers through **mcporter**, a bridge that handles both HTTP and stdio connections.
-
-**1. Prerequisites:**
-- Enable the skill in OpenClaw `~/.openclaw/openclaw.json`:
-  ```json
-  {"skills": {"allowBundled": ["mcporter"]}}
-  ```
-
-**2. Configuration (via CLI):**
-
-**Option A: Cloud / Remote (Easiest)**
-```bash
-mcporter config add ClickUp \
-  --url "https://clickup-mcp.taazkareem.com/mcp" \
-  --headers '{"X-License-Key": "your-license-key"}'
+**1. Enable** the mcporter skill in `~/.openclaw/openclaw.json`:
+```json
+{"skills": {"allowBundled": ["mcporter"]}}
 ```
 
-**Option B: Local (stdio)**
-```bash
-mcporter config add ClickUp \
-  --command "npx" \
-  --args "-y @taazkareem/clickup-mcp-server@latest" \
-  --env "CLICKUP_MCP_LICENSE_KEY=your-license-key,CLICKUP_API_KEY=your-api-key,CLICKUP_TEAM_ID=your-team-id"
+**2. Configure** — add to `~/.mcporter/mcporter.json`:
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "baseUrl": "https://clickup-mcp.taazkareem.com/mcp",
+      "auth": "oauth",
+      "headers": {
+        "X-License-Key": "your-license-key"
+      }
+    }
+  }
+}
 ```
 
-**3. Verify & Run:**
-- List tools: `mcporter list ClickUp --schema`
-- Restart the OpenClaw gateway to auto-detect the new server.
+**3. Authenticate** — run once to authorize via browser (tokens are cached):
+```bash
+mcporter auth ClickUp
+```
+
+**4. Use:**
+```bash
+mcporter call ClickUp.get_workspace_hierarchy team_id=0123456789
+```
+
+> **Tip:** Since mcporter is a one-shot CLI client, if using multiple workspaces, always pass `team_id` to target the correct workspace.
+
 </details>
 
 <a name="other-setup"></a>
