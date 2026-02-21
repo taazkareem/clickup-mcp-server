@@ -1,10 +1,10 @@
 # v0.12.14 Release Notes
 
-### 🚀 Optimization & Performance
+### ⚙️ Optimization & Performance
 - **Faster Workspace Discovery**: Optimized finding folders and lists by checking the hierarchy cache first. This significantly reduces response times for name-based searches, especially in large workspaces.
 - **Shared Service Caching**: Refactored internal architecture to use shared `ListService` instances. This ensures 100% data consistency between task and list operations while reducing memory consumption.
 
-### 🚀 Task Integrity & Multi-List Support
+### 📋 Task Integrity & Multi-List Support
 - **High-Integrity Moves**: The `move_task` tool now uses ClickUp's "Tasks in Multiple Lists" (TIML) feature by default, preserving **Task IDs**, file attachments, comments, and history. 
 - **Explicit Safety Strategy**: Added `allowDestructiveFallback`. If your ClickUp plan doesn't support TIML, the server will now ask for permission instead of performing a destructive move automatically.
 - **New Advanced Tools**: Added `add_task_to_list` and `remove_task_from_list` for specialized project management.
