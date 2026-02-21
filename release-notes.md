@@ -1,20 +1,18 @@
-# v0.12.13 Release Notes
+# v0.12.14 Release Notes
 
-### 🚀 New Features & Improvements
-- **Global Search & Resolution**:
-  - **Smarter Name Searching**: Finding tasks, lists, documents, and folders by name is now significantly more powerful. The server searches globally across your entire workspace without needing to know the specific Space or Folder first. Uses a fast and efficient tiered search strategy.
+### 🚀 Optimization & Performance
+- **Faster Workspace Discovery**: Optimized finding folders and lists by checking the hierarchy cache first. This significantly reduces response times for name-based searches, especially in large workspaces.
+- **Shared Service Caching**: Refactored internal architecture to use shared `ListService` instances. This ensures 100% data consistency between task and list operations while reducing memory consumption.
 
-### ⚡️ Improvements & Bug Fixes
-- **Refined Search Validation**: Fixed edge cases where keyword-only searches could trigger validation errors.
-- **Tasks in Multiple Lists Support**: Added `include_timl` parameter to `get_workspace_tasks`. This allows retrieving tasks that are associated with multiple lists, essential for accurate Sprint and cross-project tracking.
+### 🚀 Task Integrity & Multi-List Support
+- **High-Integrity Moves**: The `move_task` tool now uses ClickUp's "Tasks in Multiple Lists" (TIML) feature by default, preserving **Task IDs**, file attachments, comments, and history. 
+- **Explicit Safety Strategy**: Added `allowDestructiveFallback`. If your ClickUp plan doesn't support TIML, the server will now ask for permission instead of performing a destructive move automatically.
+- **New Advanced Tools**: Added `add_task_to_list` and `remove_task_from_list` for specialized project management.
 
-### 🗂️ Hierarchical Task Creation
-- Added support for recursive subtask creation in both `create_task` and `create_bulk_tasks`.
-- Fixed `create_bulk_tasks` schema to properly allow `parent` fields.
-- Updated `formatTaskData` to explicitly include the `parent` ID in tool responses.
+### 🧠 Context & Structure
+- **Smart Status Awareness**: Updated `get_list` and `get_folder` to return valid workflow statuses, helping AI agents set task states more accurately.
+- **Workspace Reorganization**: New `move_list` and `move_folder` tools allow AI agents to manage your hierarchy with the same data-integrity safeguards as task moves.
 
-### 🐛 Bug Fixes
-- **Workspace Grounding**: Fixed a bug where the LLM lacked workspace context in single-workspace scenarios from OAuth flows.
-
-### ⚠️ Deprecations
-- **resolve_assignees**: This tool has been deprecated and removed. Its functionality is now natively integrated into all task management tools (`create_task`, `update_task`, `create_bulk_tasks`, `create_task_comment`, etc.). You can now pass names directly to the `assignees` parameter in these tools.
+### ⚡️ Improvements
+- **Security Hardening**: Implemented SSRF mitigation with hostname validation for custom API URLs.
+- **Refined Error Handling**: Better detection of plan limitations (403 Forbidden) vs authentication issues (401 Unauthorized).
