@@ -41,27 +41,27 @@
     </td>
     <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>🔍 Intelligent Search & Resolution</strong><br>
-      Smart tiered, global fuzzy search across task, list, folder, and space names, members/emails, statuses, tags, descriptions, and more. Automatic resolution—no IDs needed.
+      Smart tiered, global fuzzy search across task, list, folder, and space names, custom fields, members/emails, statuses, tags, descriptions, and more. Automatic resolution—no IDs needed.
     </td>
   </tr>
   <tr style="border: none;">
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>📝 Task Management</strong><br>
-      Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, natural language dates, full markdown descriptions.
+      Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, nested subtasks, natural language dates, custom task IDs, custom task types, and custom fields.
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>⏱️ Time Tracking</strong><br>
-      Start/stop timers, search entries with date ranges, and manage billable time via natural language.
+      Start/stop timers, log manual entries, and filter time entries across the entire workspace using natural language dates or date ranges.
     </td>
   </tr>
   <tr style="border: none;">
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>📄 Document Management</strong><br>
-      Create, read, and append to ClickUp Docs (supports full markdown).
+      Create, read, and append to ClickUp Docs with full markdown text.
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>💬 Chat & Collaboration</strong><br>
-      Send/retrieve messages in channels and comments with rich-text conversion and user @mention support.
+      Send/retrieve messages in channels and comments with threaded replies, rich-text conversion and user @mention support.
     </td>
   </tr>
   <tr style="border: none;">
