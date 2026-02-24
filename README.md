@@ -27,7 +27,7 @@
 
 | Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Quick&nbsp;Start&nbsp;&&nbsp;Installation |
 | :--- | :--- |
-| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td st yle="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/lobster.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[Other](#other-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
+| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td st yle="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[Other](#other-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
 
 ---
 
@@ -114,7 +114,7 @@
 
 <a name="cursor-setup"></a>
 <details open>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/cursor-white.svg" height="22" align="center"> <strong>Cursor</strong></summary>
+<summary>&nbsp;<img src="./assets/logos/cursor-white.svg" height="22" align="center"> <strong>Cursor</strong></summary>
 <br>
 
 **Configuration Path:** `<project-root>/.cursor/mcp.json`
@@ -153,7 +153,7 @@
 
 <a name="windsurf-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/windsurf-white.svg" height="22" align="center"> <strong>Windsurf</strong></summary>
+<summary>&nbsp;<img src="./assets/logos/windsurf-white.svg" height="22" align="center"> <strong>Windsurf</strong></summary>
 <br>
 
 **Configuration Path:** `<project-root>/.codeium/windsurf/mcp_config.json`
@@ -192,7 +192,7 @@
 
 <a name="vscode-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/visual-studio-code.svg" height="22" align="center"> <strong>VS Code</strong></summary>
+<summary>&nbsp;<img src="./assets/logos/visual-studio-code.svg" height="22" align="center"> <strong>VS Code</strong></summary>
 <br>
 
 **Configuration Paths:**
@@ -233,7 +233,7 @@
 
 <a name="roocode-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="22" align="center" style="border-radius: 4px;"> <strong>Roo Code</strong></summary>
+<summary>&nbsp;<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="22" align="center" style="border-radius: 4px;"> <strong>Roo Code</strong></summary>
 <br>
 
 **Configuration Path:** `<project-root>/.roo/mcp.json`
@@ -272,7 +272,7 @@
 
 <a name="claude-desktop-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/claude.svg" height="22" align="center"> <strong>Claude Desktop</strong></summary>
+<summary>&nbsp;<img src="./assets/logos/claude.svg" height="22" align="center"> <strong>Claude Desktop</strong></summary>
 <br>
 
 **Configuration Path:** `~/Library/Application Support/Claude/claude_desktop_config.json`
@@ -296,7 +296,7 @@
 
 <a name="claude-code-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="https://cdn.simpleicons.org/anthropic/D97757" height="22" align="center"> <strong>Claude Code (CLI)</strong></summary>
+<summary>&nbsp;<img src="https://cdn.simpleicons.org/anthropic/D97757" height="22" align="center"> <strong>Claude Code (CLI)</strong></summary>
 <br>
 
 Run this command in your terminal:
@@ -308,7 +308,7 @@ claude mcp add --transport http ClickUp https://clickup-mcp.taazkareem.com/mcp \
 
 <a name="n8n-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="22" align="center"> <strong>n8n</strong></summary>
+<summary>&nbsp;<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="22" align="center"> <strong>n8n</strong></summary>
 <br>
 
 **Option A: Cloud / Remote (Recommended)**
@@ -328,7 +328,7 @@ In n8n, use URL: `http://host.docker.internal:3231/mcp`
 
 <a name="gemini-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="22" align="center"> <strong>Gemini CLI</strong></summary>
+<summary>&nbsp;<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="22" align="center"> <strong>Gemini CLI</strong></summary>
 <br>
 
 **Configuration Path:** `~/.gemini/settings.json`
@@ -346,7 +346,7 @@ In n8n, use URL: `http://host.docker.internal:3231/mcp`
 
 <a name="antigravity-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/antigravity.svg" height="22" align="center"> <strong>Antigravity</strong></summary>
+<summary>&nbsp;<img src="./assets/logos/antigravity.svg" height="22" align="center"> <strong>Antigravity</strong></summary>
 <br>
 
 **Configuration Path:** `~/.gemini/antigravity/mcp_config.json`
@@ -364,7 +364,7 @@ In n8n, use URL: `http://host.docker.internal:3231/mcp`
 
 <a name="codex-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>Codex (CLI, Desktop, IDE)</strong></summary>
+<summary>&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>Codex (CLI, Desktop, IDE)</strong></summary>
 <br>
 
 Codex clients (CLI, Desktop App, and VS Code extension) share a single source of truth for configuration.
@@ -400,7 +400,7 @@ env = {
 
 <a name="chatgpt-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>ChatGPT (Developer Mode)</strong></summary>
+<summary>&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>ChatGPT (Developer Mode)</strong></summary>
 <br>
 
 *Note: Requires a Business, Enterprise, or Edu workspace with Developer Mode enabled.*
@@ -418,7 +418,7 @@ env = {
 
 <a name="augment-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Augment Code</strong></summary>
+<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Augment Code</strong></summary>
 <br>
 
 **Configuration Path:** `<project-root>/.augment/settings.json`
@@ -438,7 +438,7 @@ env = {
 
 <a name="auggierun-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Auggie CLI</strong></summary>
+<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Auggie CLI</strong></summary>
 <br>
 
 Run this command in your terminal:
@@ -450,7 +450,7 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 
 <a name="openclaw-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<img src="./assets/logos/lobster.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong></summary>
+<summary>&nbsp;<img src="./assets/logos/openclaw-logo.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong></summary>
 <br>
 
 **1. Enable** the mcporter skill in `~/.openclaw/openclaw.json`:
@@ -489,7 +489,7 @@ mcporter call ClickUp.get_workspace_hierarchy team_id=0123456789
 
 <a name="other-setup"></a>
 <details>
-<summary>&nbsp;&nbsp;<strong>Other (Custom Agents, etc.)</strong></summary>
+<summary>&nbsp;<strong>Other (Custom Agents, etc.)</strong></summary>
 <br>
 
 For most MCP-compliant hosts (e.g. Smithery, MCP Inspector, custom GUIs):
