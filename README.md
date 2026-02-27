@@ -459,22 +459,24 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 ```
 
 **2. Configure**
-- **Global:** `~/.mcporter/mcporter.json`
-- **Local:** `<project-root>/config/mcporter.json`
 
-Add the following to your configuration:
-```json
-{
-  "mcpServers": {
-    "ClickUp": {
-      "baseUrl": "https://clickup-mcp.taazkareem.com/mcp",
-      "auth": "oauth",
-      "headers": {
-        "X-License-Key": "your-license-key"
-      }
-    }
-  }
-}
+The fastest way to configure the server is using the `mcporter` CLI. Run one of the following commands in your terminal:
+
+**Option A: Local (Recommended)**
+*Saves to `<project-root>/config/mcporter.json`*
+```bash
+mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp \
+  --auth oauth \
+  --header "X-License-Key=your-license-key"
+```
+
+**Option B: Global**
+*Saves to `~/.mcporter/mcporter.json`*
+```bash
+mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp \
+  --scope home \
+  --auth oauth \
+  --header "X-License-Key=your-license-key"
 ```
 
 **3. Authenticate** — run once to authorize via browser (tokens are cached):
