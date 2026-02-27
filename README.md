@@ -80,7 +80,7 @@
 
 ## <a name="premium-access"></a>💎 Premium Access
 
-**This project operates on a Sponsorware model.** A license grants **full access to all 58+ premium tools** with any of the following plans:
+**This project operates on a Sponsorware model.** A license grants **full access to all 60+ premium tools** with any of the following plans:
 
 | [**Monthly Plan ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ($59/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ($89 w/ code**)](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
@@ -371,7 +371,7 @@ Codex clients (CLI, Desktop App, and VS Code extension) share a single source of
 
 **Configuration Paths:**
 - **Global:** `~/.codex/config.toml`
-- **Per-Project:** `<project-root>/.codex/config.toml`
+- **Local:** `<project-root>/.codex/config.toml`
 
 **Option A: Cloud / Remote (Easiest)**
 ```toml
@@ -458,7 +458,11 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 {"skills": {"allowBundled": ["mcporter"]}}
 ```
 
-**2. Configure** — add to `~/.mcporter/mcporter.json`:
+**2. Configure**
+- **Global:** `~/.mcporter/mcporter.json`
+- **Local:** `<project-root>/config/mcporter.json`
+
+Add the following to your configuration:
 ```json
 {
   "mcpServers": {
@@ -530,7 +534,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 58 available tools</strong></summary>
+<summary><strong>👇 Click to view all 60 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -540,6 +544,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | **Tasks** | `create_task` | Create a task |
 | | `get_task` | Get single task details |
 | | `update_task` | Modify task properties |
+| | `set_task_custom_field` | Set a custom field value |
 | | `move_task` | Move task to new list |
 | | `duplicate_task` | Copy task |
 | | `delete_task` | Remove task |
@@ -549,7 +554,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `update_bulk_tasks` | Update multiple tasks |
 | | `move_bulk_tasks` | Move multiple tasks |
 | | `delete_bulk_tasks` | Delete multiple tasks |
-| | `get_workspace_tasks` | Search tasks with filtering |
+| | `get_workspace_tasks` | Search tasks with Deep Search filtering |
 | | `get_task_comments` | Get comments on a task |
 | | `create_task_comment` | Add a comment to a task |
 | | `attach_task_file` | Attach file to a task |
@@ -562,6 +567,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `update_list` | Update list properties |
 | | `move_list` | Move list to new Space/Folder |
 | | `delete_list` | Delete a list |
+| | `get_list_custom_fields` | Discover field IDs and types in a list |
 | **Folders** | `create_folder` | Create folder |
 | | `get_folder` | Get folder details |
 | | `update_folder` | Update folder properties |
@@ -623,12 +629,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback"
 }
 ```
 </details>
@@ -639,12 +645,12 @@ Best for agents that need to view data without making any changes.
 Focused on day-to-day task management. Can create/update tasks and track time, but cannot delete tasks or modify structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,create_task,update_task,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,find_member_by_name,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,find_member_by_name,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,create_task,update_task,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,find_member_by_name,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,find_member_by_name,submit_feedback"
 }
 ```
 </details>
@@ -671,12 +677,12 @@ For agents dedicated to logging time and generating timesheets.
 For agents managing documentation and communication.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,create_chat_channel,get_chat_channels,create_chat_message,get_chat_messages,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_task_comments,create_task_comment,find_member_by_name,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,create_chat_channel,get_chat_channels,create_chat_message,get_chat_messages,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,create_chat_channel,get_chat_channels,create_chat_message,get_chat_messages,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_task_comments,create_task_comment,find_member_by_name,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,create_chat_channel,get_chat_channels,create_chat_message,get_chat_messages,submit_feedback"
 }
 ```
 </details>
@@ -684,7 +690,7 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>
 
-Enabled everything **except** destructive tools. This configuration covers **all 58 tools** by default, only blocking the 7 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
+Enabled everything **except** destructive tools. This configuration covers **all 60 tools** by default, only blocking the 7 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
 
 **HTTP Header:**
 `X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag`
