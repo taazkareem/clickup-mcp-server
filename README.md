@@ -17,7 +17,7 @@
 
 **Properly Connect ClickUp to AI Agents and Agentic Workflows**
 
-*A high-performance Model Context Protocol (MCP) server for managing tasks, comments, tags, lists, folders, files, docs, chat, and time using natural language.*
+*A high-performance Model Context Protocol (MCP) server for managing workspaces, tasks, comments, tags, lists, folders, files, docs, chat, and time using natural language.*
 
 **⭐️ Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads. <br>The industry-standard ClickUp integration for AI.
 
