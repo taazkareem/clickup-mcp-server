@@ -84,7 +84,7 @@
 
 | [**Monthly Plan ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ($59/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ($89 w/ code**)](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
-| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • ONLY $4.92/mo <br>• 3 device activations<br>• Priority bug fixes | • **25% OFF** code: `FEB25` <br>• 3 device activations<br>• **Best Value** (One-time payment)|
+| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • ONLY $4.92/mo <br>• 3 device activations<br>• Priority bug fixes | • **25% OFF** code: `MAR25` <br>• 3 device activations<br>• **Best Value** (One-time payment)|
 
 **⚡️ Instant Delivery:** Your License Key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
 
