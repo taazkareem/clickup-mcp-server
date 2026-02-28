@@ -17,7 +17,7 @@
 
 **Properly Connect ClickUp to AI Agents and Agentic Workflows**
 
-*A high-performance Model Context Protocol (MCP) server for managing workspaces, tasks, comments, tags, lists, folders, files, docs, chat, and time using natural language.*
+*A high-performance Model Context Protocol (MCP) server for managing tasks, checklists, comments, tags, spaces, lists, folders, files, docs, chat, and time using natural language.*
 
 **⭐️ Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads. <br>The industry-standard ClickUp integration for AI.
 
@@ -47,7 +47,7 @@
   <tr style="border: none;">
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>📝 Task Management</strong><br>
-      Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, nested subtasks, natural language dates, custom task IDs, custom task types, and custom fields.
+      Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, nested subtasks, checklists, natural language dates, custom task IDs, custom task types, and custom fields.
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>⏱️ Time Tracking</strong><br>
@@ -80,7 +80,7 @@
 
 ## <a name="premium-access"></a>💎 Premium Access
 
-**This project operates on a Sponsorware model.** A license grants **full access to all 60+ premium tools** with any of the following plans:
+**This project operates on a Sponsorware model.** A license grants **full access to all 66+ premium tools** with any of the following plans:
 
 | [**Monthly Plan ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ($59/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ($89 w/ code**)](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
@@ -536,7 +536,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 60 available tools</strong></summary>
+<summary><strong>👇 Click to view all 66 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -563,6 +563,12 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `add_task_link` | Link two tasks together |
 | | `get_task_links` | Get task dependencies |
 | | `delete_task_link` | Remove task dependency |
+| **Checklists** | `create_checklist` | Add a checklist to a task |
+| | `edit_checklist` | Rename or reorder a checklist |
+| | `delete_checklist` | Delete a checklist and all its items |
+| | `create_checklist_item` | Add an item to a checklist |
+| | `edit_checklist_item` | Update item (rename, check/uncheck, assign) |
+| | `delete_checklist_item` | Remove an item from a checklist |
 | **Lists** | `create_list` | Create list in space |
 | | `create_list_in_folder` | Create list in folder |
 | | `get_list` | Get list details |
@@ -647,12 +653,12 @@ Best for agents that need to view data without making any changes.
 Focused on day-to-day task management. Can create/update tasks and track time, but cannot delete tasks or modify structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,find_member_by_name,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,find_member_by_name,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,find_member_by_name,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,find_member_by_name,submit_feedback"
 }
 ```
 </details>
@@ -692,15 +698,15 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>
 
-Enabled everything **except** destructive tools. This configuration covers **all 60 tools** by default, only blocking the 7 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
+Enabled everything **except** destructive tools. This configuration covers **all 66 tools** by default, only blocking the 9 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
 
 **HTTP Header:**
-`X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag`
+`X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag,delete_checklist,delete_checklist_item`
 
 **JSON / Env:**
 ```json
 "env": {
-  "DISABLED_TOOLS": "delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag"
+  "DISABLED_TOOLS": "delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag,delete_checklist,delete_checklist_item"
 }
 ```
 </details>
