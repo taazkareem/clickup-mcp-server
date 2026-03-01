@@ -49,6 +49,6 @@ If you discover a security vulnerability, please report it by [opening a GitHub 
 ---
 
 <div align="center">
-  <sub>💳 <a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=security-features">Purchase License</a> · 25% OFF with code <strong>MAR25</strong></sub><br><br>
+  <sub>💳 <a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=security-features">Purchase License</a> · 25% OFF Lifetime with code <strong>MAR25</strong></sub><br>
   <sub>Created by <a href="https://github.com/taazkareem">taazkareem</a></sub>
 </div>
