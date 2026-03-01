@@ -1,4 +1,4 @@
-# 📑 ClickUp MCP Server Documentation
+# 📄 ClickUp MCP Server Documentation
 
 This document provides detailed information about all available tools, their parameters, and usage examples for the ClickUp MCP Server.
 > Updated: 2026-03-01
@@ -118,7 +118,7 @@ Add these requirements:
 - Refresh token flow
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "listName": "Development Tasks",
@@ -136,7 +136,7 @@ Create a task called "Database Migration" that starts tomorrow at 9am and is due
 It should be in the "Backend Tasks" list.
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "listName": "Backend Tasks",
@@ -152,7 +152,7 @@ It should be in the "Backend Tasks" list.
 Change the start date of the "Database Migration" task to next Monday at 8am
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Database Migration",
@@ -166,7 +166,7 @@ Change the start date of the "Database Migration" task to next Monday at 8am
 Show me the comments on the "Bug Fix" task.
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Bug Fix",
@@ -211,7 +211,7 @@ Show me the comments on the "Bug Fix" task.
 Show me the comments on the "Bug Fix" task including replies.
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Bug Fix",
@@ -225,7 +225,7 @@ Show me the comments on the "Bug Fix" task including replies.
 Add a comment to the "Bug Fix" task saying "I've fixed the issue by implementing proper mutex locks."
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "success": true,
@@ -255,7 +255,7 @@ Add a formatted comment to "Bug Fix" with:
 - A code block with the fix
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Bug Fix",
@@ -285,7 +285,7 @@ The `formattedComment` parameter accepts a JSON object following the Quill Delta
 Move the "Bug Fix" task from the "Sprint Backlog" list to "Current Sprint" list
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Bug Fix",
@@ -300,7 +300,7 @@ Move the "Bug Fix" task from the "Sprint Backlog" list to "Current Sprint" list
 Get details for task "Roadmap Planning"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Roadmap Planning"
@@ -313,7 +313,7 @@ Get details for task "Roadmap Planning"
 Get the task details for "Implement Authentication" including its markdown description.
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Implement Authentication",
@@ -378,7 +378,7 @@ Get details for task "Website Update" in list "AI Assistant App"
 Update the "Bug Fix" task status to "Done"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Bug Fix",
@@ -395,7 +395,7 @@ Create these tasks in the "Sprint Backlog" list:
 3. Update documentation (low priority)
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "listName": "Sprint Backlog",
@@ -425,7 +425,7 @@ Create these tasks in the "Project X" list:
 3. Implementation - starts after Design, due in 2 weeks from start
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "listName": "Project X",
@@ -455,7 +455,7 @@ Create these tasks in the "Project X" list:
 Find all tasks with the tags "bug" and "high-priority" across the workspace
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "name": "get_workspace_tasks",
@@ -597,7 +597,8 @@ Example using detailed format:
 
 ##### Best Practices for Workspace Tasks
 
-1. **Use Filters**: At least one filter parameter is required to prevent overly broad queries:
+1. **Use Filters or Search**: At least one filter or search parameter is required to prevent overly broad queries:
+   - `search_query`: Broad, cross-field fuzzy search (matches task name, status, tags, description)
    - `tags`: Filter by tag names
    - `list_ids`: Filter by specific lists
    - `folder_ids`: Filter by folders
@@ -609,6 +610,7 @@ Example using detailed format:
 2. **Pagination**: Use `page`, `order_by`, and `reverse` parameters to navigate through results:
    ```json
    {
+     "search_query": "authentication",
      "list_ids": ["123"],
      "page": 0,
      "order_by": "due_date",
@@ -635,7 +637,7 @@ Update all the following tasks to high priority:
 3. "Set up CI pipeline"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "tasks": [
@@ -667,7 +669,7 @@ Update these tasks to have new start dates:
 3. "Implementation" should start next week
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "tasks": [
@@ -698,7 +700,7 @@ Move all the completed tasks from "In Progress" list to "Done" list:
 2. "Frontend form validation"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "tasks": [
@@ -723,7 +725,7 @@ Delete all these tasks from the "Archived" list:
 2. "Duplicate bug report"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "tasks": [
@@ -745,7 +747,7 @@ Delete all these tasks from the "Archived" list:
 Attach a file to the task "Implement Authentication". The file is at URL "https://example.com/files/specs.pdf"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Implement Authentication",
@@ -759,7 +761,7 @@ Attach a file to the task "Implement Authentication". The file is at URL "https:
 Attach this document to the task with ID 86b4bnnny
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskId": "86b4bnnny",
@@ -774,7 +776,7 @@ Attach this document to the task with ID 86b4bnnny
 Get the "Project Planning" task with all its subtasks
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Project Planning",
@@ -811,7 +813,7 @@ Get the "Project Planning" task with all its subtasks
 Create a subtask under "Project Planning" called "Schedule Team Meeting"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "name": "Schedule Team Meeting",
@@ -826,7 +828,7 @@ Create a subtask under "Project Planning" called "Schedule Team Meeting"
 Convert the "Schedule Team Meeting" task to be a subtask of "Project Planning"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Schedule Team Meeting",
@@ -851,7 +853,7 @@ The server supports linking tasks together to express dependencies or relationsh
 Link task "Backend API implementation" to task "Frontend form validation"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "task": "Backend API implementation",
@@ -865,7 +867,7 @@ Link task "Backend API implementation" to task "Frontend form validation"
 Show me all tasks linked to "Backend API implementation"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "task": "Backend API implementation",
@@ -887,7 +889,7 @@ Show me all tasks linked to "Backend API implementation"
 Remove the link between "Backend API implementation" and "Frontend form validation" (Link ID: 86b4bmmmx)
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "success": true,
@@ -1123,7 +1125,7 @@ Start tracking time on "Fix Login Bug"
 Get details for the "Sprint Backlog" list
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "listName": "Sprint Backlog"
@@ -1136,7 +1138,7 @@ Get details for the "Sprint Backlog" list
 Update the "Sprint Backlog" list to have the description "Current sprint planning items and priorities"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "listName": "Sprint Backlog",
@@ -1162,7 +1164,7 @@ Update the "Sprint Backlog" list to have the description "Current sprint plannin
 Get details for the "Development Projects" folder
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "folderName": "Development Projects"
@@ -1175,7 +1177,7 @@ Get details for the "Development Projects" folder
 Update the "Development Projects" folder to be named "Active Development Projects"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "folderName": "Development Projects",
@@ -1210,7 +1212,7 @@ Update the "Development Projects" folder to be named "Active Development Project
 Show me all tags in the "Development" space
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "spaceName": "Development",
@@ -1234,7 +1236,7 @@ Show me all tags in the "Development" space
 Create a new tag called "priority" in the "Development" space with red background
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "spaceName": "Development",
@@ -1250,7 +1252,7 @@ Create a new tag called "priority" in the "Development" space with red backgroun
 Create a new tag called "important" in the "Development" space using dark blue color
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "spaceName": "Development",
@@ -1265,7 +1267,7 @@ Create a new tag called "important" in the "Development" space using dark blue c
 Update the "priority" tag to have a blue background
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "spaceName": "Development",
@@ -1280,7 +1282,7 @@ Update the "priority" tag to have a blue background
 Change the "priority" tag color to light green
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "spaceName": "Development",
@@ -1295,7 +1297,7 @@ Change the "priority" tag color to light green
 Add the "feature" tag to the task "Implement Authentication"
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "taskName": "Implement Authentication",
@@ -1378,7 +1380,7 @@ Add the "feature" tag to the task "Implement Authentication"
 Get details for the document with id 8cdu22c-13153
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "id": "8cdu22c-13153",
@@ -1402,7 +1404,7 @@ Get details for the document with id 8cdu22c-13153
 Show me all documents in the workspace
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "documents": [
@@ -1434,7 +1436,7 @@ Show me all documents in the workspace
 Show me all pages for the document with id 8cdu22c-13153
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 [
   {
@@ -1479,7 +1481,7 @@ Get details for the page "Milestones" in the document with id 8cdu22c-13153
 Obs: you can also ask for more pages at once
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "pages": [
@@ -1514,7 +1516,7 @@ or
 Create a subpage for page 8cdu22c-151232 with ...
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "id": "8cdu22c-36273",
@@ -1538,7 +1540,7 @@ Create a subpage for page 8cdu22c-151232 with ...
 Edit page 8cdu22c-36293 adding, in the end, another information...
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "message": "Page updated successfully"
@@ -1686,7 +1688,7 @@ The server provides clear error messages for:
 List all chat channels in my workspace.
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "channels": [
@@ -1713,7 +1715,7 @@ Send a message to the "General" channel saying "Hello everyone! The deployment i
 Use bold for "deployment" and italics for "successful".
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "channel_name": "General",
@@ -1727,7 +1729,7 @@ Use bold for "deployment" and italics for "successful".
 Create a new chat channel called "Project Alpha" in the "Engineering" space.
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "name": "Project Alpha",
@@ -1741,7 +1743,7 @@ Create a new chat channel called "Project Alpha" in the "Engineering" space.
 Show me the last messages from the "Development" chat.
 ```
 
-**System Response:**
+**Generated Request:**
 ```json
 {
   "channel_name": "Development"
