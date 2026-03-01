@@ -1,4 +1,4 @@
-# Security
+# 🔐 Security
 
 The ClickUp MCP Server is built with security as a core concern, not an afterthought. Below is a summary of the protections in place for both STDIO (local) and hosted/remote deployments.
 
