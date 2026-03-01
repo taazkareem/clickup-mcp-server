@@ -1604,6 +1604,7 @@ The prompt guides the AI through a 5-step process:
 
 | Variable | Description | Default |
 |----------|-------------|---------|
+| `CLICKUP_MCP_LICENSE_KEY` | Your Polar.sh license key | Required |
 | `CLICKUP_API_KEY` | ClickUp API token | Required (STDIO mode) |
 | `CLICKUP_TEAM_ID` | Default workspace/team ID | Required |
 | `ENABLED_TOOLS` | Comma-separated list of tool names to enable (all others disabled) | All tools enabled |
