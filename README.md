@@ -575,7 +575,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `update_list` | Update list properties |
 | | `move_list` | Move list to new Space/Folder |
 | | `delete_list` | Delete a list |
-| | `get_list_custom_fields` | Discover field IDs and types in a list |
+| | `get_custom_fields` | Get custom field definitions (workspace/space/folder/list scope) |
 | **Folders** | `create_folder` | Create folder |
 | | `get_folder` | Get folder details |
 | | `update_folder` | Update folder properties |
@@ -637,12 +637,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback"
 }
 ```
 </details>
@@ -653,12 +653,12 @@ Best for agents that need to view data without making any changes.
 Focused on day-to-day task management. Can create/update tasks and track time, but cannot delete tasks or modify structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,find_member_by_name,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,find_member_by_name,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_list_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,find_member_by_name,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,find_member_by_name,submit_feedback"
 }
 ```
 </details>
