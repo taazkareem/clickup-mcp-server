@@ -88,13 +88,13 @@ The MCP server automatically detects and handles custom task IDs. You can use ei
 **Examples:**
 ```json
 {
-  "taskId": "DEV-1234"  // Custom ID - automatically detected
+  "taskId": "DEV-1234"  
 }
 ```
 
 ```json
 {
-  "taskId": "86b4bnnny"  // Regular ClickUp ID - 9 characters
+  "taskId": "86b4bnnny"
 }
 ```
 
