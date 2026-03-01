@@ -1,84 +1,57 @@
 # ClickUp MCP Server Documentation
 
 This document provides detailed information about all available tools, their parameters, and usage examples for the ClickUp MCP Server.
+> Updated: 2026-03-01
 
 ## Table of Contents
-- [Server Transport Options](#server-transport-options)
 - [Task Management](#task-management)
+- [Task Checklists](#task-checklists)
+- [Custom Fields](#custom-fields)
+- [Multi-List (TIML)](#multi-list-timl)
+- [Time Tracking](#time-tracking)
 - [List Management](#list-management)
 - [Folder Management](#folder-management)
 - [Tag Management](#tag-management)
-- [Time Tracking](#time-tracking)
 - [Document Management](#document-management)
 - [Chat Management](#chat-management)
+- [Member Management Tools](#member-management-tools)
 - [Workspace Organization](#workspace-organization)
 - [Prompts](#prompts)
-- [Common Parameters](#common-parameters)
+- [Feedback](#feedback)
+- [Configuration](#configuration)
 - [Error Handling](#error-handling)
-- [Member Management Tools](#member-management-tools)
-- [Task Creation with Assignees](#task-creation-and-updates-with-assignees)
-
-## Server Transport Options
-
-The ClickUp MCP Server supports multiple transport mechanisms for communication with clients:
-
-### STDIO Transport (Default)
-The standard transport using stdin/stdout communication. Compatible with most MCP clients including Claude Desktop.
-
-### SSE Transport (Server-Sent Events)
-Enables web-based integrations and real-time communication. Perfect for:
-- **n8n workflow automation**
-- **Web applications**
-- **Custom browser-based clients**
-- **Real-time task monitoring**
-
-#### SSE Configuration
-```json
-{
-  "env": {
-    "ENABLE_SSE": "true",
-    "SSE_PORT": "3000",
-    "ENABLE_STDIO": "true"
-  }
-}
-```
-
-#### SSE Endpoints
-- **`GET /events`** - SSE connection endpoint for receiving server events
-- **`POST /request`** - Send JSON-RPC requests to the server
-- **`GET /health`** - Health check endpoint
-
-For detailed SSE setup instructions, see [SSE Transport Documentation](sse-transport.md).
 
 ## Task Management
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| get_tasks | Retrieve tasks from a list | Either `listId` or `listName` | archived, page, order_by, reverse, subtasks, statuses, include_closed, assignees, due_date_gt/lt |
-| get_task | Get single task details with global lookup | Either `taskId` or `taskName` (list context optional) | `listName` (for disambiguation), `subtasks` |
-| get_task_comments | Retrieve comments for a task | Either `taskId` or `taskName` | `listName`, `start`, `startId`, `include_replies` |
-| create_task_comment | Add a comment to a task | `commentText` OR `formattedComment`, and either `taskId` or (`taskName`+`listName`) | `notifyAll`, `assignee` |
-| attach_task_file | Attach a file to a task | Either `taskId` or `taskName`, and EITHER `file_data` OR `file_url` | `file_name`, `chunk_*` parameters for large files |
-| create_task | Create a new task | `name` and either `listId` or `listName` | description, status, priority (1-4), dueDate, startDate, parent (ID or Name), assignees |
+| get_task | Get single task details with global lookup | `task` (Name or ID) | `listName` (disambiguation), `subtasks`, `include_markdown_description` |
+| get_task_comments | Retrieve comments for a task | `task` (Name or ID) | `listName`, `start`, `startId`, `include_replies` |
+| create_task_comment | Add a comment to a task | `commentText` OR `formattedComment`, and `task` (Name or ID) | `listName`, `notifyAll`, `assignee` |
+| attach_task_file | Attach a file to a task | `taskId` or `taskName`, and EITHER `file_data` OR `file_url` | `file_name`, `listName`, `chunk_*` parameters for large files |
+| create_task | Create a new task | `name` and either `listId` or `listName` | description, status, priority (1-4), dueDate, startDate, parent (ID or Name), assignees, custom_task_type |
 | create_bulk_tasks | Create multiple tasks | `tasks[]` | `listId` or `listName` |
-| update_task | Modify task properties | Either `taskId` or `taskName` | name, description, status, priority, dueDate, startDate, parent (ID or Name) |
+| update_task | Modify task properties | `task` (Name or ID) | name, description, status, priority, dueDate, startDate, parent (ID or Name), assignees, custom_task_type |
 | update_bulk_tasks | Modify multiple tasks | `tasks[]` with task identifiers | Each task can have: name, description, status, priority, dueDate, startDate, etc. |
-| delete_task | Remove a task | `taskId` | `taskName`, `listName` |
+| delete_task | Remove a task | `task` (Name or ID) | `listName` |
 | delete_bulk_tasks | Remove multiple tasks | `tasks[]` with task identifiers | None |
-| move_task | Move task to another list | Either `taskId` or `taskName`, and either `listId` or `listName` | `sourceListName` |
-| move_bulk_tasks | Move multiple tasks | `tasks[]` with task identifiers, and target list | None |
-| duplicate_task | Copy task to another list | Either `taskId` or `taskName`, and either `listId` or `listName` | `sourceListName` |
+| move_task | Move task to another list (high-integrity TIML by default) | `task` (Name or ID) | `listId`, `listName`, `sourceListName`, `allowDestructiveFallback` |
+| move_bulk_tasks | Move multiple tasks | `tasks[]` with task identifiers, and target list | `allowDestructiveFallback` |
+| duplicate_task | Full-fidelity task duplication (copies tags, custom fields, checklists, subtasks; attachments are NOT copied — ClickUp API limitation) | `task` (Name or ID) | `listId`, `listName`, `sourceListName` |
+| set_task_custom_field | Set a custom field value on a task | `task` (Name or ID), `fieldName` (or `fieldId`), `value` | `listName` |
+| add_task_to_list | Add task to an additional list (TIML) | `task` (Name or ID) | `listId`, `listName`, `taskListName` |
+| remove_task_from_list | Remove task from a list without deleting it (TIML) | `task` (Name or ID) | `listId`, `listName`, `taskListName` |
 | get_workspace_tasks | Retrieve tasks across the workspace with enhanced filtering | At least one filter parameter (tags, list_ids, folder_ids, space_ids, statuses, assignees, or date filters) | page, order_by, reverse, detail_level, subtasks |
-| add_task_link | Link two tasks together | Either `taskId` or `taskName`, and either `targetTaskId` or `targetTaskName` | `listName`, `targetListName`, `linksTo` |
-| get_task_links | Get all links for a task | Either `taskId` or `taskName` | `listName` |
-| delete_task_link | Remove a task link | Either `taskId` or `taskName`, and either `linkId` or `targetTaskName` | `listName`, `targetListName` |
+| add_task_link | Link two tasks together | `task` (Name or ID), `targetTask` (Name or ID) | `listName`, `targetListName` |
+| get_task_links | Get all links for a task | `task` (Name or ID) | `listName` |
+| delete_task_link | Remove a task link | `task` (Name or ID), `linkId` (target task Name or ID) | `listName`, `targetListName` |
 
 ### Task Parameters
 
 - **Priority Levels**: 1 (Urgent/Highest) to 4 (Low)
 - **Dates**: Unix timestamps in milliseconds
 - **Status**: Uses list's default if not specified
-- **Description**: Supports both plain text and markdown
+- **Description**: Supports both plain text and markdown. Use `include_markdown_description: true` on `get_task` to retrieve high-fidelity markdown formatting.
 - **Files**: Attach files using base64 encoding or URLs
 - **Subtasks**: 
   - Retrieve subtasks with `subtasks: true` parameter on `get_task` or `get_tasks`
@@ -96,6 +69,11 @@ For detailed SSE setup instructions, see [SSE Transport Documentation](sse-trans
   - Shows context (list, folder, space) for each matching task
   - Prioritizes most recently updated task when multiple matches exist
   - Backward compatible with list-specific lookups
+- **Status Normalization**: Status names use fuzzy matching — e.g., "in progress", "In Progress", and "IN PROGRESS" all resolve correctly
+- **Custom Task Types**: Use `custom_task_type` on `create_task`/`update_task` to set the task type (if your workspace uses custom task types)
+- **@Mention Support**: Use `@username` or `@email` in task comments and chat messages to mention users — they are automatically resolved
+- **Markdown in Comments/Chat**: Comments and chat messages support standard markdown formatting and are automatically converted to ClickUp's rich-text format
+- **High-Integrity Moves (TIML)**: `move_task` uses non-destructive TIML (Tasks in Multiple Lists) by default, preserving the task ID and all history. If TIML is blocked by workspace plan limits, the tool will NOT automatically fall back to a destructive copy-delete move — you must explicitly set `allowDestructiveFallback: true` (with user consent) to allow it. The same pattern applies to `move_list` and `move_folder`
 
 ### Custom Task ID Support
 
@@ -133,7 +111,7 @@ The MCP server automatically detects and handles custom task IDs. You can use ei
 **User Prompt:**
 ```
 Create a new task in the "Development Tasks" list called "Implement Authentication". 
-It should be high priority and due on January 1st, 2024. 
+It should be high priority and due on July 1st, 2026. 
 Add these requirements:
 - OAuth2 support
 - JWT tokens
@@ -328,6 +306,21 @@ Get details for task "Roadmap Planning"
   "taskName": "Roadmap Planning"
 }
 ```
+
+#### Getting Task Details with Markdown
+**User Prompt:**
+```
+Get the task details for "Implement Authentication" including its markdown description.
+```
+
+**System Response:**
+```json
+{
+  "taskName": "Implement Authentication",
+  "include_markdown_description": true
+}
+```
+
 
 **Response for Multiple Matches:**
 ```json
@@ -590,22 +583,13 @@ Example using detailed format:
 }
 ```
 
-#### New Parameters for Enhanced Workspace Tasks
+#### Workspace Task Parameters
 
 | Parameter | Type | Description | Default |
 |-----------|------|-------------|---------|
 | `detail_level` | string | Response format: `"summary"`, `"detailed"`, or `"names"` | `"detailed"` |
 | `subtasks` | boolean | Include subtasks in results (must match filter criteria) | `false` |
-| `list_ids` | array | **Enhanced**: Uses Views API for comprehensive task coverage | - |
-
-**Important Notes**:
-- **`detail_level`**: Controls response format and size
-  - `"summary"`: Lightweight response with essential fields
-  - `"names"`: Ultra-lightweight response with only task IDs and names
-  - `"detailed"`: Complete task data with all fields
-  - Automatically switches to summary if response exceeds 50,000 tokens
-- **`subtasks`**: Subtasks must still match your other filter criteria to appear
-- **`list_ids`**: Now provides enhanced coverage using Views API
+| `list_ids` | array | Filter by specific list IDs | - |
 
 ##### Best Practices for Workspace Tasks
 
@@ -637,44 +621,6 @@ Example using detailed format:
    1. Fetch summaries first for list views
    2. Load details on-demand when viewing specific tasks
    3. Use pagination to load more items as needed
-
-#### Enhanced List Filtering with Views API (Multi-List Tasks)
-
-**NEW FEATURE**: When using `list_ids` parameter, `get_workspace_tasks` now uses ClickUp's Views API for comprehensive task coverage, including tasks in multiple lists.
-
-**Key Benefits**:
-- ✅ Retrieves tasks *associated with* specified lists (not just created in them)
-- ✅ Includes tasks created elsewhere and added to multiple lists
-- ✅ Supports ClickUp's "tasks in multiple lists" feature
-- ✅ Two-tier filtering strategy for optimal performance
-- ✅ Concurrent API calls for multiple lists
-
-**How It Works**:
-1. **Views API Integration**: Calls `/list/{listId}/view` and `/view/{viewId}/task` endpoints
-2. **Server-side Filtering**: Supported filters applied at ClickUp API level
-3. **Client-side Filtering**: Additional filters (tags, folders, spaces) applied after retrieval
-4. **Task Deduplication**: Prevents duplicate results when tasks appear in multiple lists
-
-**Example - Enhanced List Filtering**:
-```json
-{
-  "list_ids": ["901407112060", "901407112061"],
-  "tags": ["cursor agent"],
-  "detail_level": "summary"
-}
-```
-
-**Response includes**:
-- Tasks originally created in the specified lists
-- Tasks created elsewhere but added to the specified lists
-- Tasks appearing through multi-list associations
-- Proper deduplication for tasks in multiple specified lists
-
-**Performance Features**:
-- Concurrent processing of multiple lists
-- Automatic summary format for large responses (>50,000 tokens)
-- Safety limits to prevent infinite pagination
-- Comprehensive error handling with graceful degradation
 
 #### Bulk Updating Tasks
 **User Prompt:**
@@ -818,19 +764,6 @@ Attach this document to the task with ID 86b4bnnny
 }
 ```
 
-#### Handling Different File Types
-The attach_task_file tool supports various file types including:
-- Documents (PDF, DOCX, TXT)
-- Images (PNG, JPG, SVG)
-- Data files (CSV, JSON)
-- And many others
-
-Files can be attached using either:
-1. **Base64 Method**: For small files (using `file_data` parameter)
-2. **URL Method**: For files already available online (using `file_url` parameter)
-3. **Local File Path**: For files on the local filesystem (using `file_url` parameter with an absolute file path)
-4. **Chunked Upload**: For large files (automatically selected for `file_data` > 10MB)
-
 #### Retrieving Tasks with Subtasks
 **User Prompt:**
 ```
@@ -903,8 +836,6 @@ Convert the "Schedule Team Meeting" task to be a subtask of "Project Planning"
 - This is equivalent to the "Convert to subtask" operation in the ClickUp UI
 - Converting a subtask back to a task by setting `parent` to `null` is not supported by the ClickUp API
 
-- Converting a subtask back to a task by setting `parent` to `null` is not supported by the ClickUp API
-
 
 #### Task Relationships (Linking Tasks)
 
@@ -919,9 +850,8 @@ Link task "Backend API implementation" to task "Frontend form validation"
 **System Response:**
 ```json
 {
-  "taskId": "86b4bnnny", 
-  "targetTaskId": "86b4bmmmx",
-  "link_id": "12345678"
+  "task": "Backend API implementation",
+  "targetTask": "Frontend form validation"
 }
 ```
 
@@ -934,7 +864,7 @@ Show me all tasks linked to "Backend API implementation"
 **System Response:**
 ```json
 {
-  "taskId": "86b4bnnny",
+  "task": "Backend API implementation",
   "links": [
     {
       "task_id": "86b4bmmmx",
@@ -960,7 +890,8 @@ Remove the link between "Backend API implementation" and "Frontend form validati
   "message": "Task link deleted successfully"
 }
 ```
-**Note:** The `linkId` parameter corresponds to the Task ID of the linked task (the target task).
+**Note:** Use `task` for the source task and `linkId` for the target task (Name or ID).
+
 #### Natural Language Date Support
 
 The server supports a wide range of natural language date expressions:
@@ -990,6 +921,183 @@ The server supports a wide range of natural language date expressions:
 
 These expressions can be used with both `dueDate` and `startDate` parameters.
 
+## Task Checklists
+
+Checklists allow you to add structured to-do items within a task. Each task can have multiple checklists, and each checklist can have multiple items that can be assigned, nested, and marked as resolved.
+
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|-------------------|-------------------|
+| create_checklist | Add a checklist to a task | `task` (Name or ID), `name` | `listName` |
+| edit_checklist | Rename or reorder a checklist | `checklistId` | `name`, `position` |
+| delete_checklist | Delete a checklist and all its items | `checklistId` | None |
+| create_checklist_item | Add an item to a checklist | `checklistId`, `name` | `assignee` (user ID) |
+| edit_checklist_item | Update a checklist item | `checklistId`, `itemId` | `name`, `resolved`, `assignee`, `parent` (nest under another item) |
+| delete_checklist_item | Remove an item from a checklist | `checklistId`, `itemId` | None |
+
+### Checklist Parameters
+
+- **checklistId**: Obtained from `create_checklist` or from `get_task` response (checklists are included in task details)
+- **itemId**: Obtained from `create_checklist_item` or from `get_task` response
+- **resolved**: `true` = checked/complete, `false` = unchecked
+- **parent**: Set to another checklist item's ID to nest the item; set to `null` to un-nest
+- **assignee**: User ID to assign the item to (use `find_member_by_name` to resolve names to IDs)
+
+### Examples
+
+#### Creating a Checklist with Items
+```
+Add a "Launch Checklist" to the task "Release v2.0" with items: update docs, run tests, deploy
+```
+
+The agent would call:
+1. `create_checklist` with `task: "Release v2.0"`, `name: "Launch Checklist"`
+2. `create_checklist_item` for each item using the returned `checklistId`
+
+#### Marking Items as Complete
+```
+Mark "update docs" as done on the checklist
+```
+
+```json
+{
+  "checklistId": "abc-123",
+  "itemId": "item-456",
+  "resolved": true
+}
+```
+
+## Custom Fields
+
+Custom fields let you store structured metadata on tasks. Use `get_list_custom_fields` to discover available fields, then `set_task_custom_field` to set values.
+
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|-------------------|-------------------|
+| get_list_custom_fields | Get all custom field definitions for a list | Either `listId` or `listName` | None |
+| set_task_custom_field | Set a custom field value on a task | `task` (Name or ID), `fieldName` (or `fieldId`), `value` | `listName` |
+
+### Custom Field Value Types
+
+The `value` parameter type depends on the custom field type:
+- **Text**: String value
+- **Number**: Numeric value
+- **Date**: Unix timestamp in milliseconds
+- **Checkbox**: Boolean (`true`/`false`)
+- **Dropdown**: Option UUID (use `get_list_custom_fields` to find option UUIDs)
+- **Labels**: Array of label UUIDs
+
+### Examples
+
+#### Discovering Custom Fields
+```
+What custom fields are available on the "Sprint Backlog" list?
+```
+
+```json
+{
+  "listName": "Sprint Backlog"
+}
+```
+
+#### Setting a Custom Field
+```
+Set the "Story Points" field to 5 on the task "Implement Login"
+```
+
+```json
+{
+  "task": "Implement Login",
+  "fieldName": "Story Points",
+  "value": 5
+}
+```
+
+## Multi-List (TIML)
+
+Tasks in Multiple Lists (TIML) allows a single task to appear in multiple lists simultaneously. The task retains its original ID and all data (comments, history, custom fields) across all lists.
+
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|-------------------|-------------------|
+| add_task_to_list | Add a task to an additional list | `task` (Name or ID) | `listId`, `listName`, `taskListName` |
+| remove_task_from_list | Remove a task from a specific list (does NOT delete the task) | `task` (Name or ID) | `listId`, `listName`, `taskListName` |
+
+### Important Notes
+
+- A task must remain in at least one list — you cannot remove it from its last list
+- TIML is also used internally by `move_task` for high-integrity moves (add to destination, then remove from source)
+- TIML availability depends on your ClickUp workspace plan
+
+### Examples
+
+#### Adding a Task to Multiple Lists
+```
+Add the task "Shared Component" to the "Frontend" list as well
+```
+
+```json
+{
+  "task": "Shared Component",
+  "listName": "Frontend"
+}
+```
+
+#### Removing a Task from a List
+```
+Remove "Shared Component" from the "Backend" list (keep it in Frontend)
+```
+
+```json
+{
+  "task": "Shared Component",
+  "listName": "Backend"
+}
+```
+
+## Time Tracking
+
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|-------------------|-------------------|
+| get_task_time_entries | Get time entries for a specific task | `task` (Name or ID) | `listName` |
+| get_workspace_time_entries | Get time entries across the workspace with filtering | None (at least one filter recommended) | `startDate`, `endDate`, `taskId`, `taskName`, `listId`, `listName`, `folderId`, `spaceId`, `spaceName`, `assignees`, `assigneeNames` |
+| start_time_tracking | Start a timer on a task | `task` (Name or ID) | `listName`, `description`, `billable`, `tags` |
+| stop_time_tracking | Stop the current running timer | None | `description`, `tags` |
+| add_time_entry | Add a manual time entry | `task` (Name or ID), `start`, `duration` | `listName`, `description`, `end`, `billable`, `tags` |
+| delete_time_entry | Delete a time entry | `timeEntryId` | None |
+| get_current_time_entry | Get the currently running timer | None | None |
+
+### Time Tracking Parameters
+
+- **duration**: Time in milliseconds
+- **startDate/endDate**: Support Unix timestamps and natural language expressions (e.g., "last week", "start of month")
+- **billable**: Boolean flag for billable time
+- **tags**: Array of tag objects for categorizing time entries
+
+### Examples
+
+#### Getting Workspace Time Report
+```
+Show me all time entries from last week for the "Development" space
+```
+
+```json
+{
+  "startDate": "start of last week",
+  "endDate": "end of last week",
+  "spaceName": "Development"
+}
+```
+
+#### Starting a Timer
+```
+Start tracking time on "Fix Login Bug"
+```
+
+```json
+{
+  "task": "Fix Login Bug",
+  "description": "Debugging authentication issue"
+}
+```
+
 ## List Management
 
 | Tool | Description | Required Parameters | Optional Parameters |
@@ -999,12 +1107,8 @@ These expressions can be used with both `dueDate` and `startDate` parameters.
 | get_list | Get list details | Either `listId` or `listName` | None |
 | update_list | Update list properties | Either `listId` or `listName` | name, content, status |
 | delete_list | Delete a list | Either `listId` or `listName` | None |
-
-### List Parameters
-
-- **Content**: Description or purpose of the list
-- **Priority**: Same scale as tasks (1-4)
-- **Status**: Initial status for the list
+| move_list | Move list to a different Space or Folder (high-integrity TIML move) | Either `listId` or `listName` | `destinationFolderId`, `destinationSpaceId`, `allowDestructiveFallback` |
+| get_list_custom_fields | Get all custom field definitions for a list | Either `listId` or `listName` | None |
 
 ### Examples
 
@@ -1043,11 +1147,7 @@ Update the "Sprint Backlog" list to have the description "Current sprint plannin
 | get_folder | Get folder details | Either `folderId` or `folderName` | `spaceId` or `spaceName` (if using `folderName`) |
 | update_folder | Update folder properties | Either `folderId` or `folderName` | name, override_statuses, `spaceId` or `spaceName` (if using `folderName`) |
 | delete_folder | Delete a folder | Either `folderId` or `folderName` | `spaceId` or `spaceName` (if using `folderName`) |
-
-### Folder Parameters
-
-- **override_statuses**: Boolean to determine if folder should use custom statuses
-- **name**: Display name for the folder
+| move_folder | Move folder to a different Space (high-integrity move) | Either `folderId` or `folderName`, and `destinationSpaceId` | `allowDestructiveFallback` |
 
 ### Examples
 
@@ -1217,8 +1317,6 @@ Add the "feature" tag to the task "Implement Authentication"
    }
    ```
 
-5. **Supported Color Names**: Basic colors (red, blue, green, etc.) and common variations (dark blue, light green, etc.) are supported.
-
 ## Document Management
 
 | Tool | Description | Required Parameters | Optional Parameters |
@@ -1254,30 +1352,7 @@ Add the "feature" tag to the task "Implement Authentication"
   - append: Add content at the end
   - prepend: Add content at the beginning
 
-### Best Practices and Limits
-
-1. **Document Creation**:
-   - Choose appropriate parent type based on your organization structure
-   - Use meaningful names that follow your documentation standards
-   - Consider visibility settings carefully for sensitive information
-
-2. **Page Organization**:
-   - Create a clear hierarchy using parent_page_id
-   - Use descriptive titles and subtitles
-   - Keep content modular and well-structured
-
-3. **Performance Considerations**:
-   - Use pagination (limit and next_cursor) when listing documents
-   - Set appropriate max_page_depth when listing pages
-   - Batch page retrievals using get_document_pages with multiple pageIds
-
-4. **API Limits**:
-   - Maximum content size: 2MB per page
-   - Rate limits: 100 requests per minute
-   - Maximum page depth: No hard limit, but recommended to stay under 5 levels
-   - Maximum pages per document: 1000
-
-### Common Use Cases and Examples
+### Examples
 
 #### Creating a Document with Initial Page
 ```json
@@ -1491,25 +1566,67 @@ Edit page 8cdu22c-36293 adding, in the end, another information...
 }
 ```
 
-## Common Parameters
+## Feedback
 
-### Name-based Lookup
-All tools support looking up items by name instead of ID:
-- `listName` instead of `listId`
-- `taskName` instead of `taskId`
-- `spaceName` instead of `spaceId`
-- `folderName` instead of `folderId`
-- `documentName` instead of `documentId`
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|-------------------|-------------------|
+| submit_feedback | Submit bug reports, feature requests, or questions via GitHub | `type` (bug/feature/question), `title`, `description` | `nodeVersion`, `mcpHost`, `operatingSystem`, `additionalContext` |
 
-### Date Formats
-- All dates should be provided as Unix timestamps in milliseconds
-- Example: `1703980800000` for January 1, 2024
+The `submit_feedback` tool generates a pre-filled GitHub issue link that the user can review and submit. The AI agent will proactively suggest this tool when errors occur or when users express frustration with missing features.
 
-### Priority Levels
-1. Urgent/Highest
-2. High
-3. Normal
-4. Low
+## Prompts
+
+The server exposes MCP prompts that guide multi-step workflows.
+
+### organize_workspace
+
+Analyzes your workspace structure and creates an actionable organization plan.
+
+| Argument | Required | Description |
+|----------|----------|-------------|
+| `focus` | No | Limit analysis to a specific area of the workspace |
+| `goals` | No | Describe what you want to achieve (e.g., "simplify navigation", "consolidate projects", "clean up old tasks") |
+
+The prompt guides the AI through a 5-step process:
+1. **Gather Data** — Calls `get_workspace_hierarchy` to map your workspace
+2. **Analyze** — Evaluates against best practices (hierarchy depth, naming consistency, task distribution, etc.)
+3. **Create Plan** — Produces a phased plan: non-destructive changes first, structural moves second, destructive cleanup last (with explicit approval)
+4. **Save Plan** — Creates a ClickUp Doc titled "Workspace Organization Plan — [Date]"
+5. **Execute** — Waits for user approval, then executes phase by phase with progress reporting
+
+## Configuration
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `CLICKUP_API_KEY` | ClickUp API token | Required (STDIO mode) |
+| `CLICKUP_TEAM_ID` | Default workspace/team ID | Required |
+| `ENABLED_TOOLS` | Comma-separated list of tool names to enable (all others disabled) | All tools enabled |
+| `DISABLED_TOOLS` | Comma-separated list of tool names to disable (all others enabled) | None disabled |
+| `DOCUMENT_SUPPORT` | Enable document management tools | `false` |
+
+### Tool Filtering
+
+You can control which tools are exposed to the AI agent using `ENABLED_TOOLS` or `DISABLED_TOOLS` (mutually exclusive — do not use both):
+
+**Allow only specific tools:**
+```json
+{
+  "env": {
+    "ENABLED_TOOLS": "get_task,create_task,update_task,get_workspace_hierarchy"
+  }
+}
+```
+
+**Disable specific tools:**
+```json
+{
+  "env": {
+    "DISABLED_TOOLS": "delete_task,delete_bulk_tasks,delete_list,delete_folder"
+  }
+}
+```
 
 ## Error Handling
 
@@ -1632,105 +1749,4 @@ Show me the last messages from the "Development" chat.
 |------|-------------|-------------------|-------------------|
 | get_workspace_members | Get all members in workspace | None | None |
 | find_member_by_name | Find member by name or email | `nameOrEmail` | None |
-| resolve_assignees | Resolve names/emails to user IDs | `assignees[]` | None |
 
-## get_workspace_members
-
-Returns all members (users) in the ClickUp workspace/team. Useful for resolving assignees by name or email.
-
-### Parameters
-- None
-
-### Response
-```json
-{
-  "members": [
-    {
-      "id": 123,
-      "username": "jdoe",
-      "email": "jdoe@example.com",
-      "full_name": "John Doe",
-      "profile_picture": "https://...",
-      "role": 1,
-      "role_name": "Admin",
-      "initials": "JD",
-      "last_active": "2025-05-17T12:00:00Z"
-    }
-  ]
-}
-```
-
-## find_member_by_name
-
-Finds a member in the ClickUp workspace by name or email. Returns the member object if found, or null if not found.
-
-### Parameters
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| nameOrEmail | string | Name or email of the member to find | Yes |
-
-### Response
-```json
-{
-  "member": {
-    "id": 123,
-    "username": "jdoe",
-    "email": "jdoe@example.com",
-    "full_name": "John Doe",
-    "profile_picture": "https://...",
-    "role": 1,
-    "role_name": "Admin",
-    "initials": "JD",
-    "last_active": "2025-05-17T12:00:00Z"
-  }
-}
-```
-
-## resolve_assignees
-
-Resolves an array of assignee names or emails to ClickUp user IDs. Returns an array of user IDs, or null for any that cannot be resolved.
-
-### Parameters
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| assignees | array | Array of names or emails to resolve | Yes |
-
-### Response
-```json
-{
-  "userIds": [123, 456]
-}
-```
-
-## Task Creation and Updates with Assignees
-
-When creating or updating tasks, you can assign users using the `assignees` parameter. The server automatically resolves user references, accepting an array of:
-- **User IDs** (numeric or string)
-- **Email addresses**
-- **Usernames** or **Full Names**
-
-### Examples
-
-**Creating tasks with assignees:**
-```json
-{
-  "name": "New Task",
-  "description": "This is a new task.",
-  "assignees": ["jdoe@example.com", "Jane Smith"]
-}
-```
-
-**Updating task assignees:**
-```json
-{
-  "taskId": "abc123",
-  "assignees": ["newuser@example.com"]
-}
-```
-*Note: Updating assignees will replace the existing assignees for that task.*
-
-### Important Notes
-- The member management tools help resolve user references when needed.
-- The server automatically converts non-ID values (emails, usernames) to ClickUp user IDs.
-- If a user cannot be found, the assignment will be skipped for that specific user without causing the entire request to fail.
-- You can use `get_workspace_members` or `find_member_by_name` to verify user details before assignment.
