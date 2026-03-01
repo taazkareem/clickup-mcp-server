@@ -1754,3 +1754,8 @@ Show me the last messages from the "Development" chat.
 | get_workspace_members | Get all members in workspace | None | None |
 | find_member_by_name | Find member by name or email | `nameOrEmail` | None |
 
+---
+
+<div align="center">
+  <sub>Created by <a href="https://github.com/taazkareem">taazkareem</a></sub>
+</div>
