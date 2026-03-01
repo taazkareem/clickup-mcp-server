@@ -1,4 +1,4 @@
-# ClickUp MCP Server Documentation
+# 📑 ClickUp MCP Server Documentation
 
 This document provides detailed information about all available tools, their parameters, and usage examples for the ClickUp MCP Server.
 > Updated: 2026-03-01
@@ -48,7 +48,7 @@ This document provides detailed information about all available tools, their par
 
 ### Task Parameters
 
-- **Priority Levels**: 1 (Urgent/Highest) to 4 (Low)
+- **Priority Levels**: 1 (Urgent/Highest) to 4 (Low) — accepts string or number (e.g., `"1"` or `1`)
 - **Dates**: Unix timestamps in milliseconds
 - **Status**: Uses list's default if not specified
 - **Description**: Supports both plain text and markdown. Use `include_markdown_description: true` on `get_task` to retrieve high-fidelity markdown formatting.
@@ -88,13 +88,13 @@ The MCP server automatically detects and handles custom task IDs. You can use ei
 **Examples:**
 ```json
 {
-  "taskId": "DEV-1234"  
+  "taskId": "DEV-1234"  // Custom ID - automatically detected
 }
 ```
 
 ```json
 {
-  "taskId": "86b4bnnny"
+  "taskId": "86b4bnnny"  // Regular ClickUp ID - 9 characters
 }
 ```
 
@@ -1074,6 +1074,7 @@ Remove "Shared Component" from the "Backend" list (keep it in Frontend)
 - **startDate/endDate**: Support Unix timestamps and natural language expressions (e.g., "last week", "start of month")
 - **billable**: Boolean flag for billable time
 - **tags**: Array of tag objects for categorizing time entries
+- **Note**: Manual time entries (`add_time_entry`) are most reliable with simple relative dates (e.g., "today", "yesterday") or Unix timestamps. Specific time-of-day strings may vary in interpretation across tools.
 
 ### Examples
 
@@ -1195,7 +1196,7 @@ Update the "Development Projects" folder to be named "Active Development Project
 
 ### Tag Parameters
 
-- **tagName**: Name of the tag (case-sensitive)
+- **tagName**: Name of the tag (fuzzy-matched; case-insensitive)
 - **tagBg**: Background color in hex format (e.g., "#FF5733")
 - **tagFg**: Foreground (text) color in hex format (e.g., "#FFFFFF")
 - **newTagName**: New name when updating a tag
@@ -1311,7 +1312,7 @@ Add the "feature" tag to the task "Implement Authentication"
    - **Natural Language**: Colors can be specified using natural language (e.g., "blue", "dark red", "light green")
    - When using natural language colors, the system automatically generates appropriate foreground (text) colors for optimal contrast
 
-3. **Case Sensitivity**: Tag names are case-sensitive. "Feature" and "feature" are treated as different tags.
+3. **Tag Name Matching**: ClickUp normalizes all tags to lowercase. The `add_tag_to_task` tool uses fuzzy matching, so "Feature", "feature", and "FEATURE" all resolve correctly. Use lowercase strings for consistency.
 
 4. **Task Tags**: When creating or updating tasks, you can include tags in the task properties:
    ```json
