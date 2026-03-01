@@ -514,7 +514,7 @@ Find all tasks with the tags "bug" and "high-priority" across the workspace
 
 #### Adaptive Response Format in Workspace Tasks
 
-The `get_workspace_tasks` tool offers two response formats to optimize for different use cases:
+The `get_workspace_tasks` tool offers three response formats to optimize for different use cases:
 
 1. **Summary Format** (`detail_level: 'summary'`):
    - Lightweight response with essential task information
@@ -526,6 +526,10 @@ The `get_workspace_tasks` tool offers two response formats to optimize for diffe
    - Complete task information including all fields
    - Best for detailed views and task management
    - Includes: all task data, custom fields, descriptions, comments, etc.
+
+3. **Names Format** (`detail_level: 'names'`):
+   - Ultra-lightweight response with only task IDs and names
+   - Best for quick lookups, autocomplete, or when only task identity is needed
 
 Example using summary format:
 ```json
