@@ -974,12 +974,20 @@ Mark "update docs" as done on the checklist
 
 ## Custom Fields
 
-Custom fields let you store structured metadata on tasks. Use `get_list_custom_fields` to discover available fields, then `set_task_custom_field` to set values.
+Custom fields let you store structured metadata on tasks. Use `get_custom_fields` to discover available fields at any scope (workspace, space, folder, or list), then `set_task_custom_field` to set values. The `set_task_custom_field` tool automatically searches for fields across all scopes (list → folder → space → workspace) so you don't need to know where the field is defined.
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| get_list_custom_fields | Get all custom field definitions for a list | Either `listId` or `listName` | None |
+| get_custom_fields | Get custom field definitions at any scope level | None (defaults to workspace) | `listId`, `listName`, `folderId`, `folderName`, `spaceId`, `spaceName` |
 | set_task_custom_field | Set a custom field value on a task | `task` (Name or ID), `fieldName` (or `fieldId`), `value` | `listName` |
+
+### Scope Resolution
+
+The scope of `get_custom_fields` depends on which parameters are provided (most specific wins):
+- **List**: `listId` or `listName` — fields defined on a specific list
+- **Folder**: `folderId` or `folderName` — fields defined on a folder
+- **Space**: `spaceId` or `spaceName` — fields defined on a space
+- **Workspace**: no params — all workspace-wide fields
 
 ### Custom Field Value Types
 
@@ -988,8 +996,8 @@ The `value` parameter type depends on the custom field type:
 - **Number**: Numeric value
 - **Date**: Unix timestamp in milliseconds
 - **Checkbox**: Boolean (`true`/`false`)
-- **Dropdown**: Option UUID (use `get_list_custom_fields` to find option UUIDs)
-- **Labels**: Array of label UUIDs
+- **Dropdown**: Option name or UUID (names are resolved automatically)
+- **Labels**: Array of label names or UUIDs (names are resolved automatically)
 
 ### Examples
 
@@ -1002,6 +1010,15 @@ What custom fields are available on the "Sprint Backlog" list?
 {
   "listName": "Sprint Backlog"
 }
+```
+
+#### Workspace-Wide Custom Fields
+```
+Show me all custom fields in my workspace
+```
+
+```json
+{}
 ```
 
 #### Setting a Custom Field
@@ -1115,7 +1132,7 @@ Start tracking time on "Fix Login Bug"
 | update_list | Update list properties | Either `listId` or `listName` | name, content, status |
 | delete_list | Delete a list | Either `listId` or `listName` | None |
 | move_list | Move list to a different Space or Folder (high-integrity TIML move) | Either `listId` or `listName` | `destinationFolderId`, `destinationSpaceId`, `allowDestructiveFallback` |
-| get_list_custom_fields | Get all custom field definitions for a list | Either `listId` or `listName` | None |
+| get_custom_fields | Get custom field definitions at any scope level | None (defaults to workspace) | `listId`, `listName`, `folderId`, `folderName`, `spaceId`, `spaceName` |
 
 ### Examples
 
