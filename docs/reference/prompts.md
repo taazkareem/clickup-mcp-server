@@ -1,4 +1,5 @@
-[← Back to Documentation Index](../DOCUMENTATION.md) | [🏚️ Back to README](../../README.md)
+[← Back to Documentation Index](../DOCUMENTATION.md)
+[← Back to README](../../README.md)
 
 # Prompts
 

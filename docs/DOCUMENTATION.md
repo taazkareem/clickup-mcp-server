@@ -1,4 +1,4 @@
-[← Back to Root README](../README.md)
+[← Back to README](../README.md)
 
 # 📄 ClickUp MCP Server Documentation
 
