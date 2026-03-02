@@ -1,3 +1,5 @@
+[← Back to Root README](../README.md)
+
 # 📄 ClickUp MCP Server Documentation
 
 Complete reference for all 66+ tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
