@@ -607,7 +607,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `get_chat_messages` | Get message history |
 | **Feedback** | `submit_feedback` | Submit feedback or bug reports |
 
-*See [full documentation](docs/user-guide.md) for parameters and advanced usage.*
+*See [full documentation](docs/DOCUMENTATION.md) for parameters and advanced usage.*
 </details>
 
 ---

@@ -1,4 +1,4 @@
-[← Back to Documentation Index](../user-guide.md)
+[← Back to Documentation Index](../DOCUMENTATION.md)
 
 # Members & Workspace Organization
 
