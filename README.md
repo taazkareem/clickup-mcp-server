@@ -1,6 +1,6 @@
-# ClickUp MCP Server - Premium
+# ClickUp MCP Server — Premium
 
-![ClickUp MCP Server Premium Image](https://raw.githubusercontent.com/taazkareem/clickup-mcp-server/main/assets/images/header_image.png)
+![ClickUp MCP Server Premium Image](https://raw.githubusercontent.com/taazkareem/clickup-mcp-server/main/assets/images/clickup_mcp_neon_logo_blue.jpg)
 
 <div align="center">
 
@@ -9,7 +9,7 @@
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 ![Top 3 on Google](https://img.shields.io/badge/Ranked_Top_3_on_Google-🔥-orange.svg)
 ![Trending MCP Server](https://img.shields.io/badge/Trending-MCP_Server-blueviolet.svg)
-[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-blue.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
 
 </div>
 
@@ -47,7 +47,7 @@
   <tr style="border: none;">
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>📝 Task Management</strong><br>
-      Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, nested subtasks, checklists, natural language dates, custom task IDs, custom task types, and custom fields.
+      Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, nested subtasks, checklists, natural language dates, custom task IDs, custom task types, custom fields, and task templates.
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>⏱️ Time Tracking</strong><br>
@@ -80,7 +80,7 @@
 
 ## <a name="premium-access"></a>💎 Premium Access
 
-**This project operates on a Sponsorware model.** A license grants **full access to all 66+ premium tools** with any of the following plans:
+**This project operates on a Sponsorware model.** A license grants **full access to all 68+ premium tools** with any of the following plans:
 
 | [**Monthly Plan ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual Subscription ($59/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime Access ($89 w/ code**)](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
@@ -95,20 +95,15 @@
 ## 🚀 Quick Start & Installation
 
 ### 1. Prerequisites
-*   **License Key:** See above 
-*   **ClickUp Credentials:** (Optional) API Key & Team ID
-    <details>
-    <summary><strong>How to find your credentials?</strong></summary>
+* **License Key:** See above
+* **ClickUp API Key** (Optional - not needed for Remote MCP)
+  - Log into ClickUp and go to [ClickUp Settings → Apps](https://app.clickup.com/settings/apps).
+  - Click **Generate** under "API Token" (or copy your existing one).
 
-    **ClickUp API Key:**
-    1. Log into ClickUp and go to [ClickUp Settings → Apps](https://app.clickup.com/settings/apps).
-    2. Click **Generate** under "API Token" (or copy your existing one).
-
-    **ClickUp Team ID:**
-    1. Open ClickUp in your browser.
-    2. Look at the URL: `https://app.clickup.com/1234567/v/li/987654321`.
-    3. The first number (`1234567`) directly after `clickup.com/` is your **Team ID** (Workspace ID).
-    </details>
+* **ClickUp Team ID** (Optional - not needed for Remote MCP)
+  - Open ClickUp in your browser.
+  - Look at the URL: `https://app.clickup.com/1234567/v/li/987654321`.
+  - The first number (`1234567`) directly after `clickup.com/` is your **Team ID** (Workspace ID).
 
 ### 2. Choose your Integration
 
@@ -536,7 +531,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 66 available tools</strong></summary>
+<summary><strong>👇 Click to view all 68 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -605,6 +600,8 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `get_chat_channels` | List chat channels |
 | | `create_chat_message` | Send a message to a channel |
 | | `get_chat_messages` | Get message history |
+| **Task Templates** | `get_task_templates` | List available workspace templates |
+| | `create_task_from_template` | Create a task from a template |
 | **Feedback** | `submit_feedback` | Submit feedback or bug reports |
 
 *See [full documentation](docs/DOCUMENTATION.md) for parameters and advanced usage.*
@@ -637,12 +634,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,get_task_templates,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,get_task_comments,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_task_links,get_space_tags,get_workspace_members,find_member_by_name,get_chat_channels,get_chat_messages,get_document,list_documents,list_document_pages,get_document_pages,get_task_templates,submit_feedback"
 }
 ```
 </details>
@@ -653,12 +650,12 @@ Best for agents that need to view data without making any changes.
 Focused on day-to-day task management. Can create/update tasks and track time, but cannot delete tasks or modify structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,find_member_by_name,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_task_templates,create_task_from_template,find_member_by_name,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,find_member_by_name,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_tasks,get_task,get_list,get_folder,get_custom_fields,create_task,update_task,set_task_custom_field,move_task,duplicate_task,create_task_comment,get_task_comments,attach_task_file,start_time_tracking,stop_time_tracking,add_tag_to_task,remove_tag_from_task,add_task_link,delete_task_link,get_task_links,add_task_to_list,remove_task_from_list,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_task_templates,create_task_from_template,find_member_by_name,submit_feedback"
 }
 ```
 </details>
@@ -698,7 +695,7 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>
 
-Enabled everything **except** destructive tools. This configuration covers **all 66 tools** by default, only blocking the 9 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
+Enabled everything **except** destructive tools. This configuration covers **all 68 tools** by default, only blocking the 9 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
 
 **HTTP Header:**
 `X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag,delete_checklist,delete_checklist_item`
