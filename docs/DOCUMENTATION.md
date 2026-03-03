@@ -20,6 +20,7 @@ Complete reference for all 66+ tools available in the ClickUp MCP Server. Each c
 | Tag Management | 6 | Create/update/delete space tags; add/remove tags on tasks; natural language colors | [tags.md](tools/tags.md) |
 | Document Management | 7 | Create/browse/edit ClickUp Docs and pages; markdown and HTML support | [documents.md](tools/documents.md) |
 | Chat Management | 4 | Send messages, create channels, browse message history | [chat.md](tools/chat.md) |
+| Task Templates | 2 | Get templates and create tasks from templates | [task-templates.md](tools/task-templates.md) |
 | Members & Workspace | 3 | Workspace hierarchy, member lookup, find users by name/email | [members-and-workspace.md](tools/members-and-workspace.md) |
 | Feedback | 1 | Submit bug reports, feature requests, and questions via GitHub | [feedback.md](tools/feedback.md) |
 
