@@ -1,6 +1,6 @@
-# ClickUp MCP Server - Premium
+# ClickUp MCP Server — Premium
 
-![ClickUp MCP Server Premium Image](https://raw.githubusercontent.com/taazkareem/clickup-mcp-server/main/assets/images/header_image.png)
+![ClickUp MCP Server Premium Image](https://raw.githubusercontent.com/taazkareem/clickup-mcp-server/main/assets/images/clickup_mcp_neon_logo_blue.jpg)
 
 <div align="center">
 
@@ -9,7 +9,7 @@
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 ![Top 3 on Google](https://img.shields.io/badge/Ranked_Top_3_on_Google-🔥-orange.svg)
 ![Trending MCP Server](https://img.shields.io/badge/Trending-MCP_Server-blueviolet.svg)
-[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-blue.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
 
 </div>
 
@@ -95,20 +95,15 @@
 ## 🚀 Quick Start & Installation
 
 ### 1. Prerequisites
-*   **License Key:** See above 
-*   **ClickUp Credentials:** (Optional) API Key & Team ID
-    <details>
-    <summary><strong>How to find your credentials?</strong></summary>
+* **License Key:** See above
+* **ClickUp API Key** (Optional)
+  - Log into ClickUp and go to [ClickUp Settings → Apps](https://app.clickup.com/settings/apps).  
+  - Click **Generate** under "API Token" (or copy your existing one).
 
-    **ClickUp API Key:**
-    1. Log into ClickUp and go to [ClickUp Settings → Apps](https://app.clickup.com/settings/apps).
-    2. Click **Generate** under "API Token" (or copy your existing one).
-
-    **ClickUp Team ID:**
-    1. Open ClickUp in your browser.
-    2. Look at the URL: `https://app.clickup.com/1234567/v/li/987654321`.
-    3. The first number (`1234567`) directly after `clickup.com/` is your **Team ID** (Workspace ID).
-    </details>
+* **ClickUp Team ID** (Optional)
+  - Open ClickUp in your browser.  
+  - Look at the URL: `https://app.clickup.com/1234567/v/li/987654321`.  
+  - The first number (`1234567`) directly after `clickup.com/` is your **Team ID** (Workspace ID).
 
 ### 2. Choose your Integration
 
