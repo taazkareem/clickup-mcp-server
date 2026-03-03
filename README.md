@@ -96,11 +96,11 @@
 
 ### 1. Prerequisites
 * **License Key:** See above
-* **ClickUp API Key** (Optional)
+* **ClickUp API Key** (Optional - not needed for Remote MCP)
   - Log into ClickUp and go to [ClickUp Settings → Apps](https://app.clickup.com/settings/apps).  
   - Click **Generate** under "API Token" (or copy your existing one).
 
-* **ClickUp Team ID** (Optional)
+* **ClickUp Team ID** (Optional - not needed for Remote MCP)
   - Open ClickUp in your browser.  
   - Look at the URL: `https://app.clickup.com/1234567/v/li/987654321`.  
   - The first number (`1234567`) directly after `clickup.com/` is your **Team ID** (Workspace ID).
