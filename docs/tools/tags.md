@@ -94,6 +94,11 @@ Create a new tag called "priority" in the "Development" space with red backgroun
 ```json
 {
   "success": true,
+  "data": {
+    "name": "priority",
+    "tag_bg": "#FF0000",
+    "tag_fg": "#FFFFFF"
+  },
   "message": "Tag \"priority\" created successfully."
 }
 ```
@@ -118,6 +123,11 @@ Create a new tag called "important" in the "Development" space using dark blue c
 ```json
 {
   "success": true,
+  "data": {
+    "name": "important",
+    "tag_bg": "#00008B",
+    "tag_fg": "#FFFFFF"
+  },
   "message": "Tag \"important\" created successfully."
 }
 ```
@@ -142,6 +152,11 @@ Update the "priority" tag to have a blue background
 ```json
 {
   "success": true,
+  "data": {
+    "name": "priority",
+    "tag_bg": "#0000FF",
+    "tag_fg": "#FFFFFF"
+  },
   "message": "Tag \"priority\" updated successfully."
 }
 ```
