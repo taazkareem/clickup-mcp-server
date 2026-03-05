@@ -1,14 +1,22 @@
-# v0.12.16 Release Notes
+# v0.13.0 Release Notes
 
-### 🚀 What's New (Beta)
-- **Organize Workspace Prompt**: A new `Prompt` that can analyze your entire workspace, find clutter, and creates a step-by-step cleanup plan for you. Save as a ClickUp Doc or execute directly.
+### 🚨 Breaking Changes
+- **Tool Consolidation**: Six older tools have been removed and replaced by unified equivalents. If you have saved prompts or workflows referencing these tool names, update them:
+  - `get_space_tags`, `create_space_tag`, `update_space_tag`, `delete_space_tag` → **`manage_space_tags`**
+  - `set_task_custom_field`, `get_list_custom_fields` → **`manage_custom_fields`**
 
-### 🐛 Bug Fixes
-- **AI Tool Reliability**: Fixed a critical bug to ensure the server works flawlessly with strict AI clients like the Gemini CLI, Google Cloud Code, and other major platforms by adopting a universal, safe schema standard.
-- **Document Creation**: Addressed an issue where creating new Document pages could occasionally fail. 
+### 🚀 What's New
+- **Task Templates**: Use `get_task_templates` to browse saved templates and `create_task_from_template` to spin up fully-configured tasks from them.
+- **Space Management**: `manage_spaces` gives AI full control over ClickUp Spaces — create, update, delete, and retrieve spaces by name or ID.
+- **Goals & Key Results**: `manage_goals` covers the full lifecycle of Goals and Key Results with 8 actions in a single tool.
+- **View Management**: `manage_views` lets you create, list, and delete views at every level — including workspace-level views.
+- **Custom Field Management**: `manage_custom_fields` replaces two older tools with a unified interface for listing fields and setting values by name (no UUID needed).
+- **Space Tag Management**: `manage_space_tags` consolidates four separate tag tools into one with built-in fuzzy name matching.
 
 ### ⚡️ Improvements
-- **Reduced Token Overhead**: We've optimized the `get_workspace_tasks` tool's schema by removing redundant parameters. This results in faster tool selection by your AI and saves tokens on every single message the AI sends.
-- **Smarter Tagging**: Adding tags to tasks is now much more forgiving! It automatically handles small typos and formatting differences when finding your existing tags.
-- **Clearer Deletion Results**: When you delete multiple tasks at once, you will now see the names of the tasks that were deleted, rather than IDs alone. 
-- **Expanded User Resources**: The [User Guide](https://github.com/taazkareem/clickup-mcp-server/blob/main/docs/user-guide.md) has been substantially updated with clearer examples, parameter references, and best practices to help your AI models get the most out of the server.
+- **Smarter Name Matching**: All new consolidated tools support fuzzy name resolution, making them more forgiving when exact names or IDs aren't available.
+- **Better Observability**: Structured JSON logs now include session context and per-tool performance metrics, improving visibility into production deployments.
+- **Updated Documentation**: Updated the [Documentation](https://github.com/taazkareem/clickup-mcp-server/blob/main/docs/DOCUMENTATION.md) to include the new consolidated tools and provide clearer examples.
+
+### 🐛 Bug Fixes
+- **Composite Tool Actions**: Fixed false-positive destructive-action checks that could block legitimate multi-step operations.
