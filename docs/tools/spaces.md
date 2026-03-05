@@ -4,17 +4,17 @@
 
 # Space Management
 
-Manage ClickUp spaces — list, get, create, update, and delete spaces in your workspace. All operations are consolidated into a single `manage_space` tool using the `action` parameter.
+Manage ClickUp spaces — list, get, create, update, and delete spaces in your workspace. All operations are consolidated into a single `manage_spaces` tool using the `action` parameter.
 
 ## Tool Reference
 
 | Tool | Action | Description | Required Parameters | Optional Parameters |
 |------|--------|-------------|-------------------|-------------------|
-| manage_space | `list` | List all spaces in workspace | `action` | None |
-| manage_space | `get` | Get a single space | `action` and either `spaceId` or `spaceName` | None |
-| manage_space | `create` | Create a new space | `action`, `name` | `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features` |
-| manage_space | `update` | Update a space | `action` and either `spaceId` or `spaceName` | `name`, `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features` |
-| manage_space | `delete` | Delete a space | `action` and either `spaceId` or `spaceName` | None |
+| manage_spaces | `list` | List all spaces in workspace | `action` | None |
+| manage_spaces | `get` | Get a single space | `action` and either `spaceId` or `spaceName` | None |
+| manage_spaces | `create` | Create a new space | `action`, `name` | `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features` |
+| manage_spaces | `update` | Update a space | `action` and either `spaceId` or `spaceName` | `name`, `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features` |
+| manage_spaces | `delete` | Delete a space | `action` and either `spaceId` or `spaceName` | None |
 
 ### Parameters
 

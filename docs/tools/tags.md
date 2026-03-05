@@ -4,7 +4,7 @@
 
 # Tag Management
 
-Create, update, and manage tags within ClickUp spaces and apply them to tasks. Space-level tag CRUD is consolidated into a single `manage_space_tag` tool using the `action` parameter. Task-level tag operations use separate `add_tag_to_task` and `remove_tag_from_task` tools.
+Create, update, and manage tags within ClickUp spaces and apply them to tasks. Space-level tag CRUD is consolidated into a single `manage_space_tags` tool using the `action` parameter. Task-level tag operations use separate `add_tag_to_task` and `remove_tag_from_task` tools.
 
 ## Tool Reference
 
@@ -12,10 +12,10 @@ Create, update, and manage tags within ClickUp spaces and apply them to tasks. S
 
 | Tool | Action | Description | Required Parameters | Optional Parameters |
 |------|--------|-------------|-------------------|-------------------|
-| manage_space_tag | `list` | Get all tags in a space | `action` and either `spaceId` or `spaceName` | None |
-| manage_space_tag | `create` | Create a new tag | `action`, `tagName`, and either `spaceId` or `spaceName` | `tagBg`, `tagFg`, `colorCommand` |
-| manage_space_tag | `update` | Update tag name/colors | `action`, `tagName`, and either `spaceId` or `spaceName` | `newTagName`, `tagBg`, `tagFg`, `colorCommand` |
-| manage_space_tag | `delete` | Delete a tag from space | `action`, `tagName`, and either `spaceId` or `spaceName` | None |
+| manage_space_tags | `list` | Get all tags in a space | `action` and either `spaceId` or `spaceName` | None |
+| manage_space_tags | `create` | Create a new tag | `action`, `tagName`, and either `spaceId` or `spaceName` | `tagBg`, `tagFg`, `colorCommand` |
+| manage_space_tags | `update` | Update tag name/colors | `action`, `tagName`, and either `spaceId` or `spaceName` | `newTagName`, `tagBg`, `tagFg`, `colorCommand` |
+| manage_space_tags | `delete` | Delete a tag from space | `action`, `tagName`, and either `spaceId` or `spaceName` | None |
 
 ### Task Tags
 
@@ -26,7 +26,7 @@ Create, update, and manage tags within ClickUp spaces and apply them to tasks. S
 
 ## Parameters
 
-- **action**: `list`, `create`, `update`, or `delete` (for manage_space_tag)
+- **action**: `list`, `create`, `update`, or `delete` (for manage_space_tags)
 - **tagName**: Name of the tag (fuzzy-matched; case-insensitive)
 - **tagBg**: Background color in hex format (e.g., "#FF5733")
 - **tagFg**: Foreground (text) color in hex format (e.g., "#FFFFFF")
@@ -230,7 +230,7 @@ Remove the "bug" tag from "Implement Auth"
 
 ## Notes
 
-1. **Tag Existence**: Before adding a tag to a task, ensure the tag exists in the space. Use `manage_space_tag` with action `list` to verify, and action `create` to create it if needed.
+1. **Tag Existence**: Before adding a tag to a task, ensure the tag exists in the space. Use `manage_space_tags` with action `list` to verify, and action `create` to create it if needed.
 
 2. **Color Formats**:
    - **Hex Format**: Colors can be provided in hex format (e.g., "#FF5733", "#fff")

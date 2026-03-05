@@ -570,7 +570,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `move_list` | Move list to new Space/Folder |
 | | `delete_list` | Delete a list |
 | **Custom Fields** | `manage_custom_fields` | Manage field definitions and task values (consolidated) |
-| **Spaces** | `manage_space` | List, get, create, update, or delete spaces |
+| **Spaces** | `manage_spaces` | List, get, create, update, or delete spaces |
 | **Goals** | `manage_goals` | List, get, create, update, or delete goals; manage key results |
 | **Views** | `manage_views` | List, get, create, update, or delete views; get tasks from view |
 | **Folders** | `create_folder` | Create folder |
@@ -578,7 +578,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `update_folder` | Update folder properties |
 | | `move_folder` | Move folder to new Space |
 | | `delete_folder` | Delete a folder |
-| **Tags** | `manage_space_tag` | List, create, update, or delete space tags |
+| **Tags** | `manage_space_tags` | List, create, update, or delete space tags |
 | | `add_tag_to_task` | Add tag to task |
 | | `remove_tag_from_task` | Remove tag from task |
 | **Time Tracking** | `get_task_time_entries` | Get time entries with date filters |
@@ -633,12 +633,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes. Includes read access for tasks, structural elements, goals, docs, and chat.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,get_task_links,get_list,manage_custom_fields,manage_space,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,get_chat_channels,get_chat_messages,get_task_templates,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,get_chat_channels,get_chat_messages,get_task_templates,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,get_task_links,get_list,manage_custom_fields,manage_space,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,get_chat_channels,get_chat_messages,get_task_templates,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,get_chat_channels,get_chat_messages,get_task_templates,submit_feedback"
 }
 ```
 </details>
@@ -681,12 +681,12 @@ For agents dedicated to logging time and generating timesheets.
 Workspace building and alignment. Creates spaces, folders, lists, and goals. Handles bulk task operations and templates.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,create_list,create_list_in_folder,get_list,update_list,move_list,delete_list,manage_custom_fields,manage_space,manage_goals,manage_views,create_folder,get_folder,update_folder,move_folder,delete_folder,manage_space_tag,get_task_templates,create_task_from_template,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,create_list,create_list_in_folder,get_list,update_list,move_list,delete_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,create_folder,get_folder,update_folder,move_folder,delete_folder,manage_space_tags,get_task_templates,create_task_from_template,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,create_list,create_list_in_folder,get_list,update_list,move_list,delete_list,manage_custom_fields,manage_space,manage_goals,manage_views,create_folder,get_folder,update_folder,move_folder,delete_folder,manage_space_tag,get_task_templates,create_task_from_template,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,create_list,create_list_in_folder,get_list,update_list,move_list,delete_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,create_folder,get_folder,update_folder,move_folder,delete_folder,manage_space_tags,get_task_templates,create_task_from_template,submit_feedback"
 }
 ```
 </details>
