@@ -1,4 +1,6 @@
-[← Back to Documentation](../DOCUMENTATION.md)
+[← Back to Documentation Index](../DOCUMENTATION.md)
+<br>
+[← Back to README](../../README.md)
 
 # 🎭 Persona Configurations
 
