@@ -2,7 +2,7 @@
 
 # 📄 ClickUp MCP Server Documentation
 
-Complete reference for all 66 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
+Complete reference for all 67 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
 
 > Updated: 2026-03-05
 
@@ -19,6 +19,7 @@ Complete reference for all 66 tools available in the ClickUp MCP Server. Each ca
 | Space Management | 1 | List, get, create, update, and delete spaces (consolidated action-based tool) | [spaces.md](tools/spaces.md) |
 | Folder Management | 5 | Create, update, move, and delete folders within spaces | [folders.md](tools/folders.md) |
 | Tag Management | 3 | Consolidated space tag CRUD (manage_space_tag); add/remove tags on tasks; natural language colors | [tags.md](tools/tags.md) |
+| Goal Management | 1 | List, get, create, update, and delete goals; create, update, and delete key results | [goals.md](tools/goals.md) |
 | Document Management | 7 | Create/browse/edit ClickUp Docs and pages; markdown and HTML support | [documents.md](tools/documents.md) |
 | Chat Management | 4 | Send messages, create channels, browse message history | [chat.md](tools/chat.md) |
 | Task Templates | 2 | Get templates and create tasks from templates | [task-templates.md](tools/task-templates.md) |
@@ -29,6 +30,7 @@ Complete reference for all 66 tools available in the ClickUp MCP Server. Each ca
 
 | Topic | Description | Link |
 |-------|-------------|------|
+| Personas | Pre-packaged configurations to limit AI access to specific toolsets | [personas.md](reference/personas.md) |
 | Configuration | Environment variables, tool filtering (ENABLED_TOOLS / DISABLED_TOOLS) | [configuration.md](reference/configuration.md) |
 | Error Handling | Common error responses, rate limiting behavior | [error-handling.md](reference/error-handling.md) |
 | Prompts | MCP prompts for guided multi-step workflows (e.g., organize_workspace) | [prompts.md](reference/prompts.md) |

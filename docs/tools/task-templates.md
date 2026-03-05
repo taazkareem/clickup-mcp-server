@@ -83,9 +83,3 @@ Create a new bug report task in the "Sprint Backlog" list using the Bug Report t
   }
 }
 ```
-
----
-
-<div align="center">
-  <sub>Created by <a href="https://github.com/taazkareem">taazkareem</a></sub>
-</div>
