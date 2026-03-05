@@ -95,5 +95,5 @@ Remove the data from a custom field on a task.
 ## 🛡️ Security & Constraints
 
 - **Structural Deletion**: The ClickUp API does **not** support deleting field *definitions* (removing the field from the list entirely). This must be done in the ClickUp UI.
-- **Data Protection**: The `remove_value` action is gated by the `delete_list` security flag. If structural deletions are disabled for your persona, this action will be blocked.
+- **Data Protection**: The `remove_value` action is gated by the `delete_task` security flag. If structural deletions are disabled for your persona, this action will be blocked.
 - **Field Resolution**: The tool automatically searches the list → folder → space → workspace hierarchy to find fields by name.
