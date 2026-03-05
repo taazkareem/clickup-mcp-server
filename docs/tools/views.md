@@ -2,7 +2,7 @@
 
 # 🖼️ Views
 
-The `manage_views` tool provides consolidated CRUD for ClickUp views across Workspaces, Spaces, Folders, and Lists — 11 API endpoints in one tool.
+The `manage_views` tool provides consolidated CRUD for ClickUp views across Workspaces, Spaces, Folders, and Lists — 12 API endpoints in one tool.
 
 ## Tool Reference
 
@@ -19,7 +19,7 @@ The `manage_views` tool provides consolidated CRUD for ClickUp views across Work
 | `spaceId` | string | | `list`, `create` | ClickUp space ID |
 | `folderId` | string | | `list`, `create` | ClickUp folder ID |
 | `listId` | string | | `list`, `create` | ClickUp list ID |
-| `teamId` | string | | `list` | ClickUp team ID (for workspace-level views) |
+| `teamId` | string | | `list`, `create` | ClickUp team ID (for workspace-level views) |
 | `name` | string | ✅ for `create` | `create`, `update` | View name |
 | `type` | enum | ✅ for `create` | `create`, `update` | `list`, `board`, `calendar`, `gantt`, `timeline`, `table`, `mind_map`, `workload`, `activity`, `map`. Highly recommended for `update` to ensure correct resource targeting. |
 | `grouping` | object | | `create`, `update` | View grouping settings |
@@ -71,6 +71,17 @@ The `manage_views` tool provides consolidated CRUD for ClickUp views across Work
   "spaceId": "987654321",
   "name": "Team Tasks Board",
   "type": "board"
+}
+```
+
+### Create a new List view on a Workspace (Everything level)
+
+```json
+{
+  "action": "create",
+  "teamId": "12345678",
+  "name": "Global Everything View",
+  "type": "list"
 }
 ```
 
