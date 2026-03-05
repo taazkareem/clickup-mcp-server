@@ -531,7 +531,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 68 available tools</strong></summary>
+<summary><strong>👇 Click to view all 69 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -571,6 +571,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `move_list` | Move list to new Space/Folder |
 | | `delete_list` | Delete a list |
 | | `get_custom_fields` | Get custom field definitions (workspace/space/folder/list scope) |
+| **Spaces** | `manage_space` | List, get, create, update, or delete spaces |
 | **Folders** | `create_folder` | Create folder |
 | | `get_folder` | Get folder details |
 | | `update_folder` | Update folder properties |
@@ -695,7 +696,7 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>
 
-Enabled everything **except** destructive tools. This configuration covers **all 68 tools** by default, only blocking the 9 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
+Enabled everything **except** destructive tools. This configuration covers **all 69 tools** by default, only blocking the 9 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
 
 **HTTP Header:**
 `X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag,delete_checklist,delete_checklist_item`
