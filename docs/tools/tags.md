@@ -4,21 +4,29 @@
 
 # Tag Management
 
-Create, update, and manage tags within ClickUp spaces and apply them to tasks. Supports natural language color commands and fuzzy name matching.
+Create, update, and manage tags within ClickUp spaces and apply them to tasks. Space-level tag CRUD is consolidated into a single `manage_space_tag` tool using the `action` parameter. Task-level tag operations use separate `add_tag_to_task` and `remove_tag_from_task` tools.
 
 ## Tool Reference
 
+### Space Tags (consolidated)
+
+| Tool | Action | Description | Required Parameters | Optional Parameters |
+|------|--------|-------------|-------------------|-------------------|
+| manage_space_tag | `list` | Get all tags in a space | `action` and either `spaceId` or `spaceName` | None |
+| manage_space_tag | `create` | Create a new tag | `action`, `tagName`, and either `spaceId` or `spaceName` | `tagBg`, `tagFg`, `colorCommand` |
+| manage_space_tag | `update` | Update tag name/colors | `action`, `tagName`, and either `spaceId` or `spaceName` | `newTagName`, `tagBg`, `tagFg`, `colorCommand` |
+| manage_space_tag | `delete` | Delete a tag from space | `action`, `tagName`, and either `spaceId` or `spaceName` | None |
+
+### Task Tags
+
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| get_space_tags | Get all tags in a space | Either `spaceId` or `spaceName` | None |
-| create_space_tag | Create a new tag | `tagName` and either `spaceId` or `spaceName` | `tagBg` (hex color), `tagFg` (hex color), `colorCommand` (natural language) |
-| update_space_tag | Update an existing tag | `tagName` and either `spaceId` or `spaceName` | `newTagName`, `tagBg`, `tagFg`, `colorCommand` (natural language) |
-| delete_space_tag | Delete a tag | `tagName` and either `spaceId` or `spaceName` | None |
 | add_tag_to_task | Add tag to a task | `tagName` and either `taskId` or (`taskName` + `listName`) | None |
 | remove_tag_from_task | Remove tag from task | `tagName` and either `taskId` or (`taskName` + `listName`) | None |
 
 ## Parameters
 
+- **action**: `list`, `create`, `update`, or `delete` (for manage_space_tag)
 - **tagName**: Name of the tag (fuzzy-matched; case-insensitive)
 - **tagBg**: Background color in hex format (e.g., "#FF5733")
 - **tagFg**: Foreground (text) color in hex format (e.g., "#FFFFFF")
@@ -27,7 +35,7 @@ Create, update, and manage tags within ClickUp spaces and apply them to tasks. S
 
 ## Examples
 
-### Getting Space Tags
+### Listing Space Tags
 **User Prompt:**
 ```
 Show me all tags in the "Development" space
@@ -36,7 +44,7 @@ Show me all tags in the "Development" space
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
+  "action": "list",
   "spaceName": "Development"
 }
 ```
@@ -60,7 +68,8 @@ Show me all tags in the "Development" space
       "tag_bg": "#28a745",
       "tag_fg": "#FFFFFF"
     }
-  ]
+  ],
+  "count": 3
 }
 ```
 
@@ -73,7 +82,7 @@ Create a new tag called "priority" in the "Development" space with red backgroun
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
+  "action": "create",
   "spaceName": "Development",
   "tagName": "priority",
   "tagBg": "#FF0000",
@@ -85,16 +94,11 @@ Create a new tag called "priority" in the "Development" space with red backgroun
 ```json
 {
   "success": true,
-  "message": "Tag created successfully",
-  "tag": {
-    "name": "priority",
-    "tag_bg": "#FF0000",
-    "tag_fg": "#FFFFFF"
-  }
+  "message": "Tag \"priority\" created successfully."
 }
 ```
 
-### Creating a Tag with Natural Language Color Command
+### Creating a Tag with Natural Language Color
 **User Prompt:**
 ```
 Create a new tag called "important" in the "Development" space using dark blue color
@@ -103,7 +107,7 @@ Create a new tag called "important" in the "Development" space using dark blue c
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
+  "action": "create",
   "spaceName": "Development",
   "tagName": "important",
   "colorCommand": "dark blue color"
@@ -114,12 +118,7 @@ Create a new tag called "important" in the "Development" space using dark blue c
 ```json
 {
   "success": true,
-  "message": "Tag created successfully with generated color",
-  "tag": {
-    "name": "important",
-    "tag_bg": "#00008B",
-    "tag_fg": "#FFFFFF"
-  }
+  "message": "Tag \"important\" created successfully."
 }
 ```
 
@@ -132,7 +131,7 @@ Update the "priority" tag to have a blue background
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
+  "action": "update",
   "spaceName": "Development",
   "tagName": "priority",
   "tagBg": "#0000FF"
@@ -143,28 +142,22 @@ Update the "priority" tag to have a blue background
 ```json
 {
   "success": true,
-  "message": "Tag updated successfully",
-  "tag": {
-    "name": "priority",
-    "tag_bg": "#0000FF",
-    "tag_fg": "#FFFFFF"
-  }
+  "message": "Tag \"priority\" updated successfully."
 }
 ```
 
-### Updating a Tag with Natural Language Color Command
+### Deleting a Space Tag
 **User Prompt:**
 ```
-Change the "priority" tag color to light green
+Delete the "deprecated" tag from "Development"
 ```
 
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
+  "action": "delete",
   "spaceName": "Development",
-  "tagName": "priority",
-  "colorCommand": "light green"
+  "tagName": "deprecated"
 }
 ```
 
@@ -172,12 +165,7 @@ Change the "priority" tag color to light green
 ```json
 {
   "success": true,
-  "message": "Tag updated successfully with generated color",
-  "tag": {
-    "name": "priority",
-    "tag_bg": "#90EE90",
-    "tag_fg": "#000000"
-  }
+  "message": "Tag \"deprecated\" deleted successfully."
 }
 ```
 
@@ -190,7 +178,6 @@ Add the "feature" tag to the task "Implement Authentication"
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
   "taskName": "Implement Authentication",
   "tagName": "feature"
 }
@@ -200,23 +187,7 @@ Add the "feature" tag to the task "Implement Authentication"
 ```json
 {
   "success": true,
-  "message": "Tag added to task successfully",
-  "tag": {
-    "name": "feature",
-    "tag_bg": "#4A90E2",
-    "tag_fg": "#FFFFFF"
-  },
-  "task": {
-    "id": "8b9n2x0q7",
-    "name": "Implement Authentication",
-    "tags": [
-      {
-        "name": "feature",
-        "tag_bg": "#4A90E2",
-        "tag_fg": "#FFFFFF"
-      }
-    ]
-  }
+  "message": "Tag added to task successfully"
 }
 ```
 
@@ -229,7 +200,6 @@ Remove the "bug" tag from "Implement Auth"
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
   "taskName": "Implement Auth",
   "tagName": "bug"
 }
@@ -243,32 +213,9 @@ Remove the "bug" tag from "Implement Auth"
 }
 ```
 
-### Deleting a Space Tag
-**User Prompt:**
-```
-Delete the "deprecated" tag from "Development"
-```
-
-**Generated Request:**
-```json
-{
-  "team_id": "9876543210",
-  "tagName": "deprecated",
-  "spaceName": "Development"
-}
-```
-
-**Tool Response:**
-```json
-{
-  "success": true,
-  "message": "Tag 'deprecated' deleted successfully from space 'Development'"
-}
-```
-
 ## Notes
 
-1. **Tag Existence**: Before adding a tag to a task, ensure the tag exists in the space. Use `get_space_tags` to verify tag existence and `create_space_tag` to create it if needed.
+1. **Tag Existence**: Before adding a tag to a task, ensure the tag exists in the space. Use `manage_space_tag` with action `list` to verify, and action `create` to create it if needed.
 
 2. **Color Formats**:
    - **Hex Format**: Colors can be provided in hex format (e.g., "#FF5733", "#fff")

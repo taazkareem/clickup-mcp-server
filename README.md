@@ -531,7 +531,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 69 available tools</strong></summary>
+<summary><strong>👇 Click to view all 66 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -577,10 +577,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `update_folder` | Update folder properties |
 | | `move_folder` | Move folder to new Space |
 | | `delete_folder` | Delete a folder |
-| **Tags** | `get_space_tags` | Get space tags |
-| | `create_space_tag` | Create tag |
-| | `update_space_tag` | Update tag properties |
-| | `delete_space_tag` | Delete a tag |
+| **Tags** | `manage_space_tag` | List, create, update, or delete space tags |
 | | `add_tag_to_task` | Add tag to task |
 | | `remove_tag_from_task` | Remove tag from task |
 | **Time Tracking** | `get_task_time_entries` | Get time entries with date filters |
@@ -696,7 +693,7 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>
 
-Enabled everything **except** destructive tools. This configuration covers **all 69 tools** by default, only blocking the 9 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
+Enabled everything **except** destructive tools. This configuration covers **all 66 tools** by default, only blocking the 9 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
 
 **HTTP Header:**
 `X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag,delete_checklist,delete_checklist_item`
