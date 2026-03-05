@@ -1,77 +1,99 @@
-[← Back to Documentation Index](../DOCUMENTATION.md)
-<br>
-[← Back to README](../../README.md)
+# 🏷️ Custom Fields Management
 
-# Custom Fields
+The `manage_custom_fields` tool provides a unified interface for managing both custom field **definitions** (schema) and their **values** on specific tasks.
 
-Custom fields let you store structured metadata on tasks. Use `get_custom_fields` to discover available fields at any scope (workspace, space, folder, or list), then `set_task_custom_field` to set values. The `set_task_custom_field` tool automatically searches for fields across all scopes (list → folder → space → workspace) so you don't need to know where the field is defined.
+## Tool: `manage_custom_fields`
 
-## Tool Reference
+Consolidated tool for CRUD operations on custom field definitions and values.
 
-| Tool | Description | Required Parameters | Optional Parameters |
-|------|-------------|-------------------|-------------------|
-| get_custom_fields | Get custom field definitions at any scope level | None (defaults to workspace) | `listId`, `listName`, `folderId`, `folderName`, `spaceId`, `spaceName` |
-| set_task_custom_field | Set a custom field value on a task | `task` (Name or ID), `fieldName` (or `fieldId`), `value` | `listName` |
+### Actions & Parameters
 
-## Scope Resolution
+| Parameter | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `action` | enum | ✅ | `list`, `create`, `set_value`, `remove_value` |
+| `listId` | string | | ClickUp list ID. Required for `create`; optional for `list`. |
+| `listName` | string | | List name (resolved automatically). |
+| `folderId` | string | | Folder ID. Optional for `list`. |
+| `spaceId` | string | | Space ID. Optional for `list`. |
+| `taskId` | string | | ClickUp task ID. Required for `set_value` and `remove_value`. |
+| `fieldId` | string | | UUID of the custom field. Required if `fieldName` is not provided. |
+| `fieldName` | string | | Name of the field (resolved automatically). |
+| `name` | string | | Field name. Required for `create`. |
+| `type` | enum | | Field type for `create` (e.g., `short_text`, `number`, `drop_down`, `date`). |
+| `value` | any | | Value to set for `set_value`. Format depends on field type. |
 
-The scope of `get_custom_fields` depends on which parameters are provided (most specific wins):
-- **List**: `listId` or `listName` — fields defined on a specific list
-- **Folder**: `folderId` or `folderName` — fields defined on a folder
-- **Space**: `spaceId` or `spaceName` — fields defined on a space
-- **Workspace**: no params — all workspace-wide fields
+### Field Types (for `create`)
+Supported types: `short_text`, `number`, `drop_down`, `date`, `checkbox`, `users`, `email`, `url`, `currency`, `text`, `tasks`, `labels`, `phone`, `location`, `rating`, `progress`, `emoji`, `people`.
 
-## Custom Field Value Types
+---
 
-The `value` parameter type depends on the custom field type:
-- **Text**: String value
-- **Number**: Numeric value
-- **Date**: Unix timestamp in milliseconds
-- **Checkbox**: Boolean (`true`/`false`)
-- **Dropdown**: Option name or UUID (names are resolved automatically)
-- **Labels**: Array of label names or UUIDs (names are resolved automatically)
+## Usage Examples
 
-## Examples
+### 1. List Field Definitions
+Retrieve all custom fields available on a specific list.
 
-### Discovering Custom Fields
 **User Prompt:**
-```
-What custom fields are available on the "Sprint Backlog" list?
-```
+> "Show me the custom fields for the 'Development' list."
 
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "listName": "Sprint Backlog"
+  "action": "list",
+  "listName": "Development"
 }
 ```
 
-### Workspace-Wide Custom Fields
+### 2. Create a New Custom Field
+Add a new "Priority Score" number field to a list.
+
 **User Prompt:**
-```
-Show me all custom fields in my workspace
-```
+> "Add a new number field called 'Priority Score' to the 'Feature Requests' list."
 
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210"
+  "action": "create",
+  "listName": "Feature Requests",
+  "name": "Priority Score",
+  "type": "number"
 }
 ```
 
-### Setting a Custom Field
+### 3. Set a Field Value on a Task
+Update a specific task's custom field by name.
+
 **User Prompt:**
-```
-Set the "Story Points" field to 5 on the task "Implement Login"
-```
+> "Set the 'Priority Score' for task 'Fix login bug' to 85."
 
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "task": "Implement Login",
-  "fieldName": "Story Points",
-  "value": 5
+  "action": "set_value",
+  "taskName": "Fix login bug",
+  "fieldName": "Priority Score",
+  "value": 85
 }
 ```
+
+### 4. Clear a Field Value
+Remove the data from a custom field on a task.
+
+**User Prompt:**
+> "Clear the 'Priority Score' for task #86afuk2fg."
+
+**Generated Request:**
+```json
+{
+  "action": "remove_value",
+  "taskId": "86afuk2fg",
+  "fieldName": "Priority Score"
+}
+```
+
+---
+
+## 🛡️ Security & Constraints
+
+- **Structural Deletion**: The ClickUp API does **not** support deleting field *definitions* (removing the field from the list entirely). This must be done in the ClickUp UI.
+- **Data Protection**: The `remove_value` action is gated by the `delete_list` security flag. If structural deletions are disabled for your persona, this action will be blocked.
+- **Field Resolution**: The tool automatically searches the list → folder → space → workspace hierarchy to find fields by name.

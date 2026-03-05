@@ -2,7 +2,7 @@
 
 # 📄 ClickUp MCP Server Documentation
 
-Complete reference for all 68 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
+Complete reference for all 67 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
 
 > Updated: 2026-03-05
 
@@ -12,10 +12,10 @@ Complete reference for all 68 tools available in the ClickUp MCP Server. Each ca
 |----------|-------|-------------|------|
 | Task Management | 20 | Create, update, move, delete, query tasks; bulk ops; subtasks; file attachments; task linking | [tasks.md](tools/tasks.md) |
 | Task Checklists | 6 | Add checklists and checklist items to tasks; assign, nest, and resolve items | [task-checklists.md](tools/task-checklists.md) |
-| Custom Fields | 2 | Discover and set custom field values on tasks (text, number, date, dropdown, labels) | [custom-fields.md](tools/custom-fields.md) |
+| Custom Fields | 1 | Create/List field definitions and set/remove task values (consolidated action-based tool) | [custom-fields.md](tools/custom-fields.md) |
 | Multi-List (TIML) | 2 | Add/remove tasks from multiple lists without duplicating them | [multi-list.md](tools/multi-list.md) |
 | Time Tracking | 7 | Timers, manual entries, time reports, and workspace-wide filtering | [time-tracking.md](tools/time-tracking.md) |
-| List Management | 7 | Create, update, move, and delete lists; get custom fields by list | [lists.md](tools/lists.md) |
+| List Management | 6 | Create, update, move, and delete lists | [lists.md](tools/lists.md) |
 | Space Management | 1 | List, get, create, update, and delete spaces (consolidated action-based tool) | [spaces.md](tools/spaces.md) |
 | Folder Management | 5 | Create, update, move, and delete folders within spaces | [folders.md](tools/folders.md) |
 | Tag Management | 3 | Consolidated space tag CRUD (manage_space_tag); add/remove tags on tasks; natural language colors | [tags.md](tools/tags.md) |

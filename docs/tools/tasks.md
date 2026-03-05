@@ -23,7 +23,6 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 | move_task | Move task to another list (high-integrity TIML by default) | `task` (Name or ID) | `listId`, `listName`, `sourceListName`, `allowDestructiveFallback` |
 | move_bulk_tasks | Move multiple tasks | `tasks[]` with task identifiers, and target list | `allowDestructiveFallback` |
 | duplicate_task | Full-fidelity task duplication (copies tags, custom fields, checklists, subtasks; attachments are NOT copied — ClickUp API limitation) | `task` (Name or ID) | `listId`, `listName`, `sourceListName` |
-| set_task_custom_field | Set a custom field value on a task | `task` (Name or ID), `fieldName` (or `fieldId`), `value` | `listName` |
 | add_task_to_list | Add task to an additional list (TIML) | `task` (Name or ID) | `listId`, `listName`, `taskListName` |
 | remove_task_from_list | Remove task from a list without deleting it (TIML) | `task` (Name or ID) | `listId`, `listName`, `taskListName` |
 | get_workspace_tasks | Retrieve tasks across the workspace with enhanced filtering | At least one filter parameter (tags, list_ids, folder_ids, space_ids, statuses, assignees, or date filters) | page, order_by, reverse, detail_level, subtasks |

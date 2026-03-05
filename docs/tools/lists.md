@@ -16,7 +16,6 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 | update_list | Update list properties | Either `listId` or `listName` | name, content, status |
 | delete_list | Delete a list | Either `listId` or `listName` | None |
 | move_list | Move list to a different Space or Folder (high-integrity TIML move) | Either `listId` or `listName` | `destinationFolderId`, `destinationSpaceId`, `allowDestructiveFallback` |
-| get_custom_fields | Get custom field definitions at any scope level | None (defaults to workspace) | `listId`, `listName`, `folderId`, `folderName`, `spaceId`, `spaceName` |
 
 ## Examples
 
