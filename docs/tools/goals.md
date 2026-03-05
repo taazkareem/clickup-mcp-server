@@ -17,7 +17,7 @@ The `manage_goals` tool provides consolidated CRUD for ClickUp goals and key res
 | `action` | enum | ✅ Always | all | One of the 8 action values |
 | `goalId` | string (UUID) | ✅ | `get`, `update`, `delete`, `create_key_result` | Goal UUID |
 | `keyResultId` | string (UUID) | ✅ | `update_key_result`, `delete_key_result` | Key result UUID |
-| `name` | string | ✅ for create | `create`, `update`, `create_key_result`, `update_key_result` | Goal or key result name |
+| `name` | string | ✅ for `create` & `create_key_result` | `create`, `update`, `create_key_result`, `update_key_result` | Goal or key result name |
 | `description` | string | | `create`, `update` | Goal description |
 | `dueDate` | string | | `create`, `update` | Unix ms timestamp or ISO date (e.g. `"2026-12-31"`) |
 | `color` | string | | `create`, `update` | Hex color code (e.g. `"#6BC950"`) |
