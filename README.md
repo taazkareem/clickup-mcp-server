@@ -37,7 +37,7 @@
   <tr style="border: none;">
     <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>🔐 Hybrid Authentication</strong><br>
-      MCP spec compliant OAuth 2.1 with advanced security hardening. Backwards compatible with API Key/Team ID.
+      MCP spec compliant OAuth 2.1 with advanced security hardening. Backwards compatible with API Key/Team ID. See [Security](docs/security.md).
     </td>
     <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>🔍 Intelligent Search & Resolution</strong><br>

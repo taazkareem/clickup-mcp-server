@@ -35,6 +35,7 @@ Complete reference for all 67 tools available in the ClickUp MCP Server. Each ca
 | Configuration | Environment variables, tool filtering (ENABLED_TOOLS / DISABLED_TOOLS) | [configuration.md](reference/configuration.md) |
 | Error Handling | Common error responses, rate limiting behavior | [error-handling.md](reference/error-handling.md) |
 | Prompts | MCP prompts for guided multi-step workflows (e.g., organize_workspace) | [prompts.md](reference/prompts.md) |
+| Security | Isolation, credential handling, and OAuth protections | [security.md](security.md) |
 
 ---
 
