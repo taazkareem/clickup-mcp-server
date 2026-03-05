@@ -19,7 +19,8 @@
 
 *A high-performance Model Context Protocol (MCP) server for managing tasks, checklists, comments, tags, spaces, lists, folders, files, docs, chat, and time using natural language.*
 
-**⭐️ Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads. <br>The industry-standard ClickUp integration for AI.
+**⭐️ Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads.  
+The industry-standard ClickUp integration for AI.
 
 ---
 
@@ -109,8 +110,7 @@
 
 <a name="cursor-setup"></a>
 <details open>
-<summary>&nbsp;<img src="./assets/logos/cursor-white.svg" height="22" align="center"> <strong>Cursor</strong></summary>
-<br>
+<summary>&nbsp;<img src="./assets/logos/cursor-white.svg" height="22" align="center"> <strong>Cursor</strong></summary>  
 
 **Configuration Path:** `<project-root>/.cursor/mcp.json`
 
@@ -148,8 +148,7 @@
 
 <a name="windsurf-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/windsurf-white.svg" height="22" align="center"> <strong>Windsurf</strong></summary>
-<br>
+<summary>&nbsp;<img src="./assets/logos/windsurf-white.svg" height="22" align="center"> <strong>Windsurf</strong></summary>  
 
 **Configuration Path:** `<project-root>/.codeium/windsurf/mcp_config.json`
 
@@ -187,8 +186,7 @@
 
 <a name="vscode-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/visual-studio-code.svg" height="22" align="center"> <strong>VS Code</strong></summary>
-<br>
+<summary>&nbsp;<img src="./assets/logos/visual-studio-code.svg" height="22" align="center"> <strong>VS Code</strong></summary>  
 
 **Configuration Paths:**
 - **Global:** `~/Library/Application Support/Code/User/mcp.json`
@@ -228,8 +226,7 @@
 
 <a name="roocode-setup"></a>
 <details>
-<summary>&nbsp;<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="22" align="center" style="border-radius: 4px;"> <strong>Roo Code</strong></summary>
-<br>
+<summary>&nbsp;<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="22" align="center" style="border-radius: 4px;"> <strong>Roo Code</strong></summary>  
 
 **Configuration Path:** `<project-root>/.roo/mcp.json`
 
@@ -267,8 +264,7 @@
 
 <a name="claude-desktop-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/claude.svg" height="22" align="center"> <strong>Claude Desktop</strong></summary>
-<br>
+<summary>&nbsp;<img src="./assets/logos/claude.svg" height="22" align="center"> <strong>Claude Desktop</strong></summary>  
 
 **Configuration Path:** `~/Library/Application Support/Claude/claude_desktop_config.json`
 
@@ -291,8 +287,7 @@
 
 <a name="claude-code-setup"></a>
 <details>
-<summary>&nbsp;<img src="https://cdn.simpleicons.org/anthropic/D97757" height="22" align="center"> <strong>Claude Code (CLI)</strong></summary>
-<br>
+<summary>&nbsp;<img src="https://cdn.simpleicons.org/anthropic/D97757" height="22" align="center"> <strong>Claude Code (CLI)</strong></summary>  
 
 Run this command in your terminal:
 ```bash
@@ -303,8 +298,7 @@ claude mcp add --transport http ClickUp https://clickup-mcp.taazkareem.com/mcp \
 
 <a name="n8n-setup"></a>
 <details>
-<summary>&nbsp;<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="22" align="center"> <strong>n8n</strong></summary>
-<br>
+<summary>&nbsp;<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="22" align="center"> <strong>n8n</strong></summary>  
 
 **Option A: Cloud / Remote (Recommended)**
 1. In n8n, add an **"MCP Client"** node.
@@ -323,8 +317,7 @@ In n8n, use URL: `http://host.docker.internal:3231/mcp`
 
 <a name="gemini-setup"></a>
 <details>
-<summary>&nbsp;<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="22" align="center"> <strong>Gemini CLI</strong></summary>
-<br>
+<summary>&nbsp;<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="22" align="center"> <strong>Gemini CLI</strong></summary>  
 
 **Configuration Path:** `~/.gemini/settings.json`
 ```json
@@ -341,8 +334,7 @@ In n8n, use URL: `http://host.docker.internal:3231/mcp`
 
 <a name="antigravity-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/antigravity.svg" height="22" align="center"> <strong>Antigravity</strong></summary>
-<br>
+<summary>&nbsp;<img src="./assets/logos/antigravity.svg" height="22" align="center"> <strong>Antigravity</strong></summary>  
 
 **Configuration Path:** `~/.gemini/antigravity/mcp_config.json`
 ```json
@@ -359,8 +351,7 @@ In n8n, use URL: `http://host.docker.internal:3231/mcp`
 
 <a name="codex-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>Codex (CLI, Desktop, IDE)</strong></summary>
-<br>
+<summary>&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>Codex (CLI, Desktop, IDE)</strong></summary>  
 
 Codex clients (CLI, Desktop App, and VS Code extension) share a single source of truth for configuration.
 
@@ -395,8 +386,7 @@ env = {
 
 <a name="chatgpt-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>ChatGPT (Developer Mode)</strong></summary>
-<br>
+<summary>&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>ChatGPT (Developer Mode)</strong></summary>  
 
 *Note: Requires a Business, Enterprise, or Edu workspace with Developer Mode enabled.*
 
@@ -413,8 +403,7 @@ env = {
 
 <a name="augment-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Augment Code</strong></summary>
-<br>
+<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Augment Code</strong></summary>  
 
 **Configuration Path:** `<project-root>/.augment/settings.json`
 ```json
@@ -433,8 +422,7 @@ env = {
 
 <a name="auggierun-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Auggie CLI</strong></summary>
-<br>
+<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Auggie CLI</strong></summary>  
 
 Run this command in your terminal:
 ```bash
@@ -445,8 +433,7 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 
 <a name="openclaw-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/openclaw-logo.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong></summary>
-<br>
+<summary>&nbsp;<img src="./assets/logos/openclaw-logo.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong></summary>  
 
 **1. Enable** the mcporter skill in `~/.openclaw/openclaw.json`:
 ```json
@@ -490,8 +477,7 @@ mcporter call ClickUp.get_workspace_hierarchy team_id=0123456789
 
 <a name="other-setup"></a>
 <details>
-<summary>&nbsp;<strong>Other (Custom Agents, etc.)</strong></summary>
-<br>
+<summary>&nbsp;<strong>Other (Custom Agents, etc.)</strong></summary>  
 
 For most MCP-compliant hosts (e.g. Smithery, MCP Inspector, custom GUIs):
 *   **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
@@ -531,7 +517,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 67 available tools</strong></summary>
+<summary><strong>👇 Click to view all 67 available tools</strong></summary>  
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -628,7 +614,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 Here are copy-pasteable recommended configurations for common agent personas. You can use these in your `mcp.json` (env) or via HTTP headers. Customization is easy - just add or remove tools you don't need.
 
 <details>
-<summary><strong>📋 Auditor</strong></summary>
+<summary><strong>📋 Auditor</strong></summary>  
 
 Best for agents that need to view data without making any changes. Includes read access for tasks, structural elements, goals, docs, and chat.
 
@@ -644,7 +630,7 @@ Best for agents that need to view data without making any changes. Includes read
 </details>
 
 <details>
-<summary><strong>👷 Task Worker</strong></summary>
+<summary><strong>👷 Task Worker</strong></summary>  
 
 Focused on day-to-day task management. Can create/update/delete tasks, track time, manage checklists, and update goals. Cannot modify workspace structure (Lists/Folders).
 
@@ -660,7 +646,7 @@ Focused on day-to-day task management. Can create/update/delete tasks, track tim
 </details>
 
 <details>
-<summary><strong>⏱️ Time Specialist</strong></summary>
+<summary><strong>⏱️ Time Specialist</strong></summary>  
 
 For agents dedicated to logging time and generating timesheets.
 
@@ -676,7 +662,7 @@ For agents dedicated to logging time and generating timesheets.
 </details>
 
 <details>
-<summary><strong>🏗️ Project Manager</strong></summary>
+<summary><strong>🏗️ Project Manager</strong></summary>  
 
 Workspace building and alignment. Creates spaces, folders, lists, and goals. Handles bulk task operations and templates.
 
@@ -692,7 +678,7 @@ Workspace building and alignment. Creates spaces, folders, lists, and goals. Han
 </details>
 
 <details>
-<summary><strong>📚 Content Manager</strong></summary>
+<summary><strong>📚 Content Manager</strong></summary>  
 
 For agents managing documentation and communication.
 
@@ -708,7 +694,7 @@ For agents managing documentation and communication.
 </details>
 
 <details>
-<summary><strong>🛡️ Safe Power User</strong></summary>
+<summary><strong>🛡️ Safe Power User</strong></summary>  
 
 Enabled everything **except** destructive tools. This configuration covers **all 67 tools** by default, only blocking the 8 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
 

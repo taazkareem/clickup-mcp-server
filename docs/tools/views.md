@@ -1,4 +1,4 @@
-[← Back to Documentation](../DOCUMENTATION.md)
+[← Back to Documentation](../DOCUMENTATION.md)  
 
 # 🖼️ Views
 
