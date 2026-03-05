@@ -701,7 +701,7 @@ Enabled everything **except** destructive tools. This configuration covers **all
 **JSON / Env:**
 ```json
 "env": {
-  "DISABLED_TOOLS": "delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_space_tag,delete_checklist,delete_checklist_item"
+  "DISABLED_TOOLS": "delete_task,delete_bulk_tasks,delete_time_entry,delete_task_link,delete_list,delete_folder,delete_checklist,delete_checklist_item"
 }
 ```
 </details>
