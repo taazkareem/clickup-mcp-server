@@ -10,17 +10,16 @@ Consolidated tool for CRUD operations on custom field definitions and values.
 
 | Parameter | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
-| `action` | enum | ✅ | `list`, `create`, `update`, `set_value`, `remove_value` |
+| `action` | enum | ✅ | `list`, `create`, `set_value`, `remove_value` |
 | `listId` | string | | ClickUp list ID. Required for `create`; optional for `list`. |
 | `listName` | string | | List name (resolved automatically). |
 | `folderId` | string | | Folder ID. Optional for `list`. |
 | `spaceId` | string | | Space ID. Optional for `list`. |
 | `taskId` | string | | ClickUp task ID. Required for `set_value` and `remove_value`. |
-| `fieldId` | string | | UUID of the custom field. Required for `update`; required for `set_value` and `remove_value` if `fieldName` is not provided. |
+| `fieldId` | string | | UUID of the custom field. Required if `fieldName` is not provided. |
 | `fieldName` | string | | Name of the field (resolved automatically). |
-| `name` | string | | Field name. Required for `create`; optional for `update`. |
+| `name` | string | | Field name. Required for `create`. |
 | `type` | enum | | Field type for `create` (e.g., `short_text`, `number`, `drop_down`, `date`). |
-| `typeConfig` | object | | Configuration for field definition (options, etc). Used for `create` and `update`. |
 | `value` | any | | Value to set for `set_value`. Format depends on field type. |
 
 ### Field Types (for `create`)
@@ -60,22 +59,7 @@ Add a new "Priority Score" number field to a list.
 }
 ```
 
-### 3. Update a Custom Field Definition
-Rename an existing custom field.
-
-**User Prompt:**
-> "Rename the custom field with ID 'efff1c1f-eb9c-4152-a09a-ab2e3d53a3b1' to 'Urgency Score'."
-
-**Generated Request:**
-```json
-{
-  "action": "update",
-  "fieldId": "efff1c1f-eb9c-4152-a09a-ab2e3d53a3b1",
-  "name": "Urgency Score"
-}
-```
-
-### 4. Set a Field Value on a Task
+### 3. Set a Field Value on a Task
 Update a specific task's custom field by name.
 
 **User Prompt:**
