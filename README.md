@@ -91,7 +91,7 @@ The industry-standard ClickUp integration for AI.
 
 ## <a name="premium-access"></a>💎 Premium Access
 
-**This project operates on a Sponsorware model.** A license grants **full access to all 69 premium tools** with any of the following plans:
+**This project operates on a Sponsorware model.** A license grants **full access to all 67 premium tools** with any of the following plans:
 
 <div align="center">
 
@@ -601,10 +601,8 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `get_document_pages` | Get page content |
 | | `create_document_page` | Add page to document |
 | | `update_document_page` | Update page content |
-| **Chat** | `create_chat_channel` | Create a chat channel |
-| | `get_chat_channels` | List chat channels |
-| | `create_chat_message` | Send a message to a channel |
-| | `get_chat_messages` | Get message history |
+| **Chat** | `manage_chat_channels` | List, get, create, update, delete channels, get members |
+| | `manage_chat_messages` | Get, create, update, delete messages; threaded replies; reactions |
 | **Task Templates** | `get_task_templates` | List available workspace templates |
 | | `create_task_from_template` | Create a task from a template |
 | **Feedback** | `submit_feedback` | Submit feedback or bug reports |
@@ -639,12 +637,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes. Includes read access for tasks, structural elements, goals, docs, and chat.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,get_chat_channels,get_chat_messages,get_task_templates,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,get_chat_channels,get_chat_messages,get_task_templates,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,submit_feedback"
 }
 ```
 </details>
@@ -703,12 +701,12 @@ Workspace building and alignment. Creates spaces, folders, lists, and goals. Han
 For agents managing documentation and communication.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,create_task_comment,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,create_chat_channel,get_chat_channels,create_chat_message,get_chat_messages,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,create_task_comment,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,manage_chat_channels,manage_chat_messages,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,create_task_comment,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,create_chat_channel,get_chat_channels,create_chat_message,get_chat_messages,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,create_task_comment,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,manage_chat_channels,manage_chat_messages,submit_feedback"
 }
 ```
 </details>
@@ -716,7 +714,7 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>  
 
-Enabled everything **except** destructive tools. This configuration covers **all 69 tools** by default, only blocking the 9 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
+Enabled everything **except** destructive tools. This configuration covers **all 67 tools** by default, only blocking the 9 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
 
 **HTTP Header:**
 `X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency,delete_checklist,delete_checklist_item,delete_list,delete_folder,delete_time_entry`

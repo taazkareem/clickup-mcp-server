@@ -1,24 +1,79 @@
-[← Back to Documentation Index](../DOCUMENTATION.md)  
-[← Back to README](../../README.md)  
+[← Back to Documentation Index](../DOCUMENTATION.md)
+[← Back to README](../../README.md)
 
 # Chat Management
 
-Send messages, create channels, and browse message history in ClickUp Chat. Supports markdown formatting and @mentions.
+Send messages, create channels, and browse message history in ClickUp Chat. Supports markdown formatting, @mentions, reactions, and threaded replies.
 
 ## Tool Reference
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| get_chat_channels | Retrieve all chat channels in the workspace | None | None |
-| create_chat_channel | Create a new chat channel | `name` | `space_id`, `folder_id`, `list_id` |
-| create_chat_message | Send a message to a channel | `comment_text` and either `channel_id` or `channel_name` | `notify_all` |
-| get_chat_messages | Retrieve message history from a channel | Either `channel_id` or `channel_name` | None |
+| manage_chat_channels | Manage chat channels (list, get, create, update, delete, get_members) | `action` | `channel_id`, `channel_name`, `name`, `description`, `topic`, `visibility`, `space_id`, `folder_id`, `list_id`, `cursor`, `limit` |
+| manage_chat_messages | Manage chat messages (get, create, update, delete, get_replies, create_reply, add_reaction, remove_reaction) | `action` | `channel_id`, `channel_name`, `message_id`, `content`, `notify_all`, `resolved`, `reaction`, `cursor`, `limit` |
 
-## Parameters
+## manage_chat_channels
 
-- **Markdown Support**: Messages sent via `create_chat_message` support standard markdown formatting (**bold**, *italic*, etc.).
-- **Channel Resolution**: You can interact with channels by their `channel_name` instead of needing the internal ID. The server will resolve the name to the correct ID automatically.
-- **Privacy**: Channels can be workspace-wide or restricted to specific spaces, folders, or lists.
+### Actions
+
+| Action | Description | Required Params |
+|--------|-------------|-----------------|
+| `list` | List all channels in the workspace | — |
+| `get` | Get a single channel | `channel_id` or `channel_name` |
+| `create` | Create a new channel | `name` |
+| `update` | Update a channel | `channel_id` or `channel_name` |
+| `delete` | Delete a channel | `channel_id` or `channel_name` |
+| `get_members` | Get members of a channel | `channel_id` or `channel_name` |
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `action` | string | Action to perform (required) |
+| `channel_id` | string | Channel ID (preferred for get/update/delete/get_members) |
+| `channel_name` | string | Channel name — auto-resolved to ID |
+| `name` | string | Channel name. Required for create |
+| `description` | string | Channel description. For create or update |
+| `topic` | string | Channel topic. For create or update |
+| `visibility` | string | `PUBLIC` or `PRIVATE`. For create or update |
+| `space_id` | string | Space ID context. For create |
+| `spaceName` | string | Space name (auto-resolved). For create |
+| `folder_id` | string | Folder ID context. For create |
+| `folderName` | string | Folder name (auto-resolved). For create |
+| `list_id` | string | List ID context. For create |
+| `listName` | string | List name (auto-resolved). For create |
+| `cursor` | string | Pagination cursor. For list or get_members |
+| `limit` | number | Max results (up to 100). For list or get_members |
+
+## manage_chat_messages
+
+### Actions
+
+| Action | Description | Required Params |
+|--------|-------------|-----------------|
+| `get` | Get messages from a channel | `channel_id` or `channel_name` |
+| `create` | Send a message to a channel | `content` + `channel_id` or `channel_name` |
+| `update` | Edit a message | `message_id` + `content` or `resolved` |
+| `delete` | Delete a message | `message_id` |
+| `get_replies` | Get threaded replies to a message | `message_id` |
+| `create_reply` | Reply to a message in a thread | `message_id` + `content` |
+| `add_reaction` | Add an emoji reaction to a message | `message_id` + `reaction` |
+| `remove_reaction` | Remove an emoji reaction | `message_id` + `reaction` |
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `action` | string | Action to perform (required) |
+| `channel_id` | string | Channel ID (preferred for get/create) |
+| `channel_name` | string | Channel name — auto-resolved to ID |
+| `message_id` | string | Message ID. Required for update/delete/get_replies/create_reply/add_reaction/remove_reaction |
+| `content` | string | Message text (Markdown supported). Required for create, create_reply, and update |
+| `notify_all` | boolean | Notify all channel members. For create |
+| `resolved` | boolean | Mark message as resolved. For update |
+| `reaction` | string | Lowercase emoji name (e.g. `thumbsup`). Required for add_reaction/remove_reaction |
+| `cursor` | string | Pagination cursor. For get or get_replies |
+| `limit` | number | Max results (up to 100). For get or get_replies |
 
 ## Examples
 
@@ -31,167 +86,147 @@ List all chat channels in my workspace.
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210"
+  "action": "list"
+}
+```
+
+**Tool Response:**
+```json
+[
+  {
+    "id": "8cm397h-433",
+    "name": "General",
+    "type": "CHANNEL",
+    "visibility": "PUBLIC",
+    "workspace_id": "9876543210"
+  },
+  {
+    "id": "8cm397h-452",
+    "name": "Development",
+    "type": "CHANNEL",
+    "visibility": "PUBLIC",
+    "workspace_id": "9876543210"
+  }
+]
+```
+
+### Creating a Channel
+**User Prompt:**
+```
+Create a new private chat channel called "Project Alpha" with the topic "Q2 Launch".
+```
+
+**Generated Request:**
+```json
+{
+  "action": "create",
+  "name": "Project Alpha",
+  "topic": "Q2 Launch",
+  "visibility": "PRIVATE"
 }
 ```
 
 **Tool Response:**
 ```json
 {
-  "channels": [
-    {
-      "id": "8cm397h-433",
-      "name": "General",
-      "type": "CHANNEL",
-      "visibility": "PUBLIC",
-      "created_by": 55154194,
-      "created": 1703980800000
-    },
-    {
-      "id": "8cm397h-452",
-      "name": "Development",
-      "type": "CHANNEL",
-      "visibility": "PUBLIC",
-      "created_by": 55154194,
-      "created": 1703981000000
-    },
-    {
-      "id": "8cm397h-478",
-      "name": "random",
-      "type": "CHANNEL",
-      "visibility": "PUBLIC",
-      "created_by": 55154194,
-      "created": 1703981200000
-    }
-  ]
+  "id": "8cm397h-999",
+  "name": "Project Alpha",
+  "type": "CHANNEL",
+  "visibility": "PRIVATE"
 }
 ```
 
 ### Sending a Message
 **User Prompt:**
 ```
-Send a message to the "General" channel saying "Hello everyone! The deployment is successful."
-Use bold for "deployment" and italics for "successful".
+Send a message to the "General" channel saying "The deployment is successful."
 ```
 
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
+  "action": "create",
   "channel_name": "General",
-  "comment_text": "Hello everyone! The **deployment** is *successful*."
+  "content": "The **deployment** is *successful*."
 }
 ```
 
 **Tool Response:**
 ```json
 {
-  "success": true,
-  "message": "Message sent successfully",
-  "message_data": {
-    "id": "msg_general_001",
-    "text": "Hello everyone! The deployment is successful.",
-    "user": {
-      "id": 1234567,
-      "username": "developer1",
-      "email": "dev1@example.com"
-    },
-    "created_date": "2024-03-16T12:00:00.000Z",
-    "channel": {
-      "id": "channel_general",
-      "name": "General"
-    }
-  }
-}
-```
-
-### Creating a Channel
-**User Prompt:**
-```
-Create a new chat channel called "Project Alpha" in the "Engineering" space.
-```
-
-**Generated Request:**
-```json
-{
-  "team_id": "9876543210",
-  "name": "Project Alpha",
-  "space_id": "90132678315"
-}
-```
-
-**Tool Response:**
-```json
-{
-  "success": true,
-  "message": "Channel created successfully",
-  "channel": {
-    "id": "channel_alpha",
-    "name": "project-alpha",
-    "created_date": "2024-03-16T12:15:00.000Z",
-    "creator": {
-      "id": 1234567,
-      "username": "developer1"
-    },
-    "space_id": "90132678315",
-    "url": "https://app.clickup.com/chat/channel_alpha"
-  }
+  "id": "80140022762565",
+  "content": "The **deployment** is *successful*.",
+  "type": "message",
+  "user_id": "96055451"
 }
 ```
 
 ### Getting Message History
 **User Prompt:**
 ```
-Show me the last messages from the "Development" chat.
+Show me the last messages from the "Development" channel.
 ```
 
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "channel_name": "Development"
+  "action": "get",
+  "channel_name": "Development",
+  "limit": 20
+}
+```
+
+### Replying to a Message
+**User Prompt:**
+```
+Reply to message 80140022762565 saying "Confirmed, looks great!"
+```
+
+**Generated Request:**
+```json
+{
+  "action": "create_reply",
+  "message_id": "80140022762565",
+  "content": "Confirmed, looks great!"
+}
+```
+
+### Adding a Reaction
+**User Prompt:**
+```
+Add a thumbs up reaction to message 80140022762565.
+```
+
+**Generated Request:**
+```json
+{
+  "action": "add_reaction",
+  "message_id": "80140022762565",
+  "reaction": "thumbsup"
+}
+```
+
+### Getting Channel Members
+**User Prompt:**
+```
+Who are the members of the General channel?
+```
+
+**Generated Request:**
+```json
+{
+  "action": "get_members",
+  "channel_name": "General"
 }
 ```
 
 **Tool Response:**
 ```json
-{
-  "messages": [
-    {
-      "id": "msg_dev_001",
-      "text": "The API migration is complete",
-      "user": {
-        "id": 1234567,
-        "username": "developer1",
-        "email": "dev1@example.com"
-      },
-      "created_date": "2024-03-16T10:30:00.000Z"
-    },
-    {
-      "id": "msg_dev_002",
-      "text": "Great! Let's run the integration tests",
-      "user": {
-        "id": 7654321,
-        "username": "qa_engineer",
-        "email": "qa@example.com"
-      },
-      "created_date": "2024-03-16T10:45:00.000Z"
-    },
-    {
-      "id": "msg_dev_003",
-      "text": "All tests passed successfully",
-      "user": {
-        "id": 1234567,
-        "username": "developer1",
-        "email": "dev1@example.com"
-      },
-      "created_date": "2024-03-16T11:15:00.000Z"
-    }
-  ],
-  "count": 3,
-  "channel": {
-    "id": "channel_dev",
-    "name": "Development"
+[
+  {
+    "id": "96055451",
+    "username": "Talib Kareem",
+    "email": "user@example.com"
   }
-}
+]
 ```

@@ -2,7 +2,7 @@
 
 # 📄 ClickUp MCP Server Documentation
 
-Complete reference for all 69 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
+Complete reference for all 67 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
 
 > Updated: 2026-03-05
 
@@ -22,7 +22,7 @@ Complete reference for all 69 tools available in the ClickUp MCP Server. Each ca
 | Goal Management | 1 | List, get, create, update, and delete goals; create, update, and delete key results | [goals.md](tools/goals.md) |
 | Views Management | 1 | Consolidated action-based tool for ClickUp Views across all containers | [views.md](tools/views.md) |
 | Document Management | 7 | Create/browse/edit ClickUp Docs and pages; markdown and HTML support | [documents.md](tools/documents.md) |
-| Chat Management | 4 | Send messages, create channels, browse message history | [chat.md](tools/chat.md) |
+| Chat Management | 2 | Send messages, create channels, browse message history, threaded replies, reactions, member management | [chat.md](tools/chat.md) |
 | Task Templates | 2 | Get templates and create tasks from templates | [task-templates.md](tools/task-templates.md) |
 | Members & Workspace | 3 | Workspace hierarchy, member lookup, find users by name/email | [members-and-workspace.md](tools/members-and-workspace.md) |
 | Feedback | 1 | Submit bug reports, feature requests, and questions via GitHub | [feedback.md](tools/feedback.md) |

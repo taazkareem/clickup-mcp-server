@@ -5,7 +5,7 @@
 
 To help AI agents focus on their specific tasks, you can limit the MCP tools they have access to. We provide pre-packaged preset configurations—or "personas"—that you can apply via the `ENABLED_TOOLS`/`DISABLED_TOOLS` environment variable or `X-Enabled-Tools`/`X-Disabled-Tools` HTTP header.
 
-## Persona Matrix (All 69 Tools)
+## Persona Matrix (All 67 Tools)
 
 | Category & Tool | 📋 Auditor | 👷 Task Worker | ⏱️ Time Specialist | 🏗️ Project Manager | 📚 Content Manager | 🛡️ Safe Power User |
 |:---|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -84,10 +84,8 @@ To help AI agents focus on their specific tasks, you can limit the MCP tools the
 | `create_document_page` | | | | | ✅ | ✅ |
 | `update_document_page` | | | | | ✅ | ✅ |
 | **Chat** | | | | | | |
-| `create_chat_channel` | | | | | ✅ | ✅ |
-| `get_chat_channels` | ✅ | | | | ✅ | ✅ |
-| `create_chat_message` | | | | | ✅ | ✅ |
-| `get_chat_messages` | ✅ | | | | ✅ | ✅ |
+| `manage_chat_channels` | ✅ | | | | ✅ | ✅ |
+| `manage_chat_messages` | ✅ | | | | ✅ | ✅ |
 | **Task Templates** | | | | | | |
 | `get_task_templates` | ✅ | ✅ | | ✅ | | ✅ |
 | `create_task_from_template` | | ✅ | | ✅ | | ✅ |
@@ -98,7 +96,7 @@ To help AI agents focus on their specific tasks, you can limit the MCP tools the
 
 #### 1. 📋 Auditor
 Read-only access across the entire workspace (including goals and docs).
-**Value:** `get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,get_chat_channels,get_chat_messages,get_task_templates,submit_feedback`
+**Value:** `get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,submit_feedback`
 
 #### 2. 👷 Task Worker
 Full task lifecycle management, checklists, time tracking, and tags. No structural changes (spaces/folders/lists) or document editing.
@@ -114,8 +112,8 @@ Workspace building and alignment. Creates spaces, folders, lists, and goals. Han
 
 #### 5. 📚 Content Manager
 Managing text, wikis, and team communications in Docs and Chat.
-**Value:** `get_workspace_hierarchy,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,create_task_comment,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,create_chat_channel,get_chat_channels,create_chat_message,get_chat_messages,submit_feedback`
+**Value:** `get_workspace_hierarchy,find_member_by_name,get_task,get_workspace_tasks,get_task_comments,create_task_comment,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,manage_chat_channels,manage_chat_messages,submit_feedback`
 
 #### 6. 🛡️ Safe Power User
-Has access to 60 out of 69 tools. Only destructive deletion tools are removed. Set using `DISABLED_TOOLS`.
+Has access to 58 out of 67 tools. Only destructive deletion tools are removed. Set using `DISABLED_TOOLS`.
 **Disabled Value:** `delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency,delete_checklist,delete_checklist_item,delete_list,delete_folder,delete_time_entry`
