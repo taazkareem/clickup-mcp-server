@@ -176,6 +176,32 @@ Show me the last messages from the "Development" channel.
 }
 ```
 
+**Tool Response:**
+```json
+[
+  {
+    "id": "80140022762565",
+    "content": "The API migration is complete.",
+    "type": "message",
+    "user_id": "96055451",
+    "date": 1770274975143,
+    "parent_channel": "8cm397h-452",
+    "resolved": false,
+    "replies_count": 2
+  },
+  {
+    "id": "80140022762104",
+    "content": "All tests passed successfully.",
+    "type": "message",
+    "user_id": "96055451",
+    "date": 1770274352530,
+    "parent_channel": "8cm397h-452",
+    "resolved": false,
+    "replies_count": 0
+  }
+]
+```
+
 ### Replying to a Message
 **User Prompt:**
 ```
