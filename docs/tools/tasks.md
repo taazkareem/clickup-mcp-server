@@ -28,6 +28,8 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 | add_task_link | Link two tasks together | `task` (Name or ID), `targetTask` (Name or ID) | `listName`, `targetListName` |
 | get_task_links | Get all links for a task | `task` (Name or ID) | `listName` |
 | delete_task_link | Remove a task link | `task` (Name or ID), `linkId` (target task Name or ID) | `listName`, `targetListName` |
+| add_task_dependency | Add a blocking dependency between tasks | `task` (Name or ID), and exactly one of `depends_on` or `dependency_of` | `listName`, `depends_on_list`, `dependency_of_list` |
+| delete_task_dependency | Remove a blocking dependency between tasks | `task` (Name or ID), and exactly one of `depends_on` or `dependency_of` | `listName`, `depends_on_list`, `dependency_of_list` |
 
 ## Parameters
 
@@ -1539,6 +1541,123 @@ Remove the link between "API Migration" and "Database Upgrade"
 ```
 
 **Note:** Use `task` for the source task and `linkId` for the target task (Name or ID).
+
+---
+
+### Task Dependencies
+
+Task dependencies model **blocking relationships** between tasks — e.g., "Task B cannot start until Task A is done." This is distinct from task links, which are generic associations with no directional blocking semantics.
+
+There are two directions for a dependency:
+- **`depends_on`** — the `task` is blocked BY another task (the other task must finish first).
+- **`dependency_of`** — the `task` is blocking another task (the other task cannot start until `task` finishes).
+
+Provide exactly one of `depends_on` or `dependency_of` per call, not both.
+
+#### add_task_dependency Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `task` | string | Yes | Task name or ID to set the dependency on. |
+| `listName` | string | No | List name for resolving `task` by name. |
+| `depends_on` | string | No | Task name or ID that `task` depends on (task is blocked BY this). Provide this OR `dependency_of`, not both. |
+| `depends_on_list` | string | No | List name for resolving `depends_on` task by name. |
+| `dependency_of` | string | No | Task name or ID that depends on `task` (task is blocking THIS). Provide this OR `depends_on`, not both. |
+| `dependency_of_list` | string | No | List name for resolving `dependency_of` task by name. |
+
+#### delete_task_dependency Parameters
+
+Same parameters as `add_task_dependency` — provide the `task` and the same `depends_on` or `dependency_of` value that matches the existing dependency to remove.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `task` | string | Yes | Task name or ID to remove the dependency from. |
+| `listName` | string | No | List name for resolving `task` by name. |
+| `depends_on` | string | No | Task name or ID of the blocking task to remove (task was blocked BY this). |
+| `depends_on_list` | string | No | List name for resolving `depends_on` task by name. |
+| `dependency_of` | string | No | Task name or ID that was blocked by `task` to remove. |
+| `dependency_of_list` | string | No | List name for resolving `dependency_of` task by name. |
+
+### Adding a Task Dependency
+**User Prompt:**
+```
+Make "Deploy to Production" depend on "Run Integration Tests" — it can't start until tests pass.
+```
+
+**Generated Request:**
+```json
+{
+  "team_id": "9876543210",
+  "task": "Deploy to Production",
+  "depends_on": "Run Integration Tests"
+}
+```
+
+**Tool Response:**
+```json
+{
+  "success": true,
+  "message": "Task dependency added successfully",
+  "dependency": {
+    "task_id": "task_deploy",
+    "depends_on": "task_tests",
+    "type": "depends_on"
+  }
+}
+```
+
+### Adding a Dependency (blocking direction)
+**User Prompt:**
+```
+Mark "Run Integration Tests" as blocking "Deploy to Production"
+```
+
+**Generated Request:**
+```json
+{
+  "team_id": "9876543210",
+  "task": "Run Integration Tests",
+  "dependency_of": "Deploy to Production"
+}
+```
+
+**Tool Response:**
+```json
+{
+  "success": true,
+  "message": "Task dependency added successfully",
+  "dependency": {
+    "task_id": "task_tests",
+    "dependency_of": "task_deploy",
+    "type": "dependency_of"
+  }
+}
+```
+
+### Removing a Task Dependency
+**User Prompt:**
+```
+Remove the dependency between "Deploy to Production" and "Run Integration Tests"
+```
+
+**Generated Request:**
+```json
+{
+  "team_id": "9876543210",
+  "task": "Deploy to Production",
+  "depends_on": "Run Integration Tests"
+}
+```
+
+**Tool Response:**
+```json
+{
+  "success": true,
+  "message": "Task dependency removed successfully"
+}
+```
+
+---
 
 ### Deleting a Task
 **User Prompt:**
