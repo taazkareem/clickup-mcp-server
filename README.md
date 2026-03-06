@@ -62,7 +62,7 @@ The industry-standard ClickUp integration for AI.
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>💬 Chat & Collaboration</strong><br>
-      Send/retrieve messages in channels and comments with threaded replies, rich-text conversion and user @mention support.
+      Create and manage channels (including DMs and channels scoped to a space, folder, or list), send messages with threaded replies, add/remove reactions, get tagged users, manage members and followers, with rich text and @mention support.
     </td>
   </tr>
   <tr style="border: none;">
@@ -601,8 +601,8 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `get_document_pages` | Get page content |
 | | `create_document_page` | Add page to document |
 | | `update_document_page` | Update page content |
-| **Chat** | `manage_chat_channels` | List, get, create, update, delete channels, get members |
-| | `manage_chat_messages` | Get, create, update, delete messages; threaded replies; reactions |
+| **Chat** | `manage_chat_channels` | List, get, create, update, delete channels; get members/followers; create DMs |
+| | `manage_chat_messages` | Get, create, update, delete messages; threaded replies; reactions; tagged users |
 | **Task Templates** | `get_task_templates` | List available workspace templates |
 | | `create_task_from_template` | Create a task from a template |
 | **Feedback** | `submit_feedback` | Submit feedback or bug reports |
