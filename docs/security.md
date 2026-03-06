@@ -1,10 +1,13 @@
+[← Back to Documentation Index](DOCUMENTATION.md)  
+[← Back to README](../README.md)  
+
 # 🔐 Security
 
 The ClickUp MCP Server is built with security as a core concern, not an afterthought. Below is a summary of the protections in place for both STDIO (local) and hosted/remote deployments.
 
 ## Credential Handling
 
-- **API keys are never stored or logged.** Your `CLICKUP_API_KEY` (or OAuth token) is held only in memory for the duration of the session and never written to disk or any external service.
+- **Sensitive data is never stored or logged.** Your `CLICKUP_API_KEY` (or OAuth token) is held only in memory for the duration of the session and never written to disk or any external service.
 - **No third-party credential exposure.** All ClickUp API calls are made directly from the server to ClickUp — your credentials never pass through any intermediary.
 
 ## Tenant Isolation (Hosted/Remote Mode)
@@ -41,6 +44,12 @@ You can limit which tools the AI agent is allowed to use, following the principl
 - `DISABLED_TOOLS` — blacklist specific tools; all others remain available
 
 Disabled tools are completely absent from the AI's tool list — the LLM never sees them and cannot select them. A secondary call-time check also blocks any attempt to invoke a disabled tool directly.
+
+## Logging & Privacy
+
+- **Zero Content Logging** — Your ClickUp data is **never** logged.
+- **Anonymous Auditing** — Every session uses a unique, randomized ID to maintain an audit trail without tracking your personal identity.
+- **Protocol Isolation** — Logs are strictly separated from your communication stream to ensure they never impact connection speed or reliability.
 
 ## Responsible Disclosure
 
