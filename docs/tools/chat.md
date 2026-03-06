@@ -68,7 +68,7 @@ Send messages, create channels, and browse message history in ClickUp Chat. Supp
 | `channel_id` | string | Channel ID (preferred for get/create) |
 | `channel_name` | string | Channel name — auto-resolved to ID |
 | `message_id` | string | Message ID. Required for update/delete/get_replies/create_reply/add_reaction/remove_reaction |
-| `content` | string | Message text (Markdown supported). Required for create, create_reply, and update |
+| `content` | string | Message text (Markdown supported). Required for create and create_reply. For update, required only when modifying message text (omit if only changing resolved status) |
 | `notify_all` | boolean | Notify all channel members. For create |
 | `resolved` | boolean | Mark message as resolved. For update |
 | `reaction` | string | Lowercase emoji name (e.g. `thumbsup`). Required for add_reaction/remove_reaction |
