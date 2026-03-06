@@ -38,7 +38,7 @@ The industry-standard ClickUp integration for AI.
   <tr style="border: none;">
     <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>🔐 Hybrid Authentication</strong><br>
-      MCP spec compliant OAuth 2.1 with advanced security hardening. Backwards compatible with API Key/Team ID. See [Security](docs/security.md).
+      MCP spec compliant OAuth 2.1 with advanced security hardening and session-isolated caching for fast, secure multi-tenant operation. Backwards compatible with API Key/Team ID. See [Security](docs/security.md).
     </td>
     <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>🔍 Intelligent Search & Resolution</strong><br>
@@ -58,7 +58,7 @@ The industry-standard ClickUp integration for AI.
   <tr style="border: none;">
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>📄 Document Management</strong><br>
-      Create, read, and append to ClickUp Docs with full markdown text.
+      Create, read, and append to ClickUp Docs with full markdown text. Manage pages within documents for structured, long-form content.
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>💬 Chat & Collaboration</strong><br>
@@ -66,13 +66,23 @@ The industry-standard ClickUp integration for AI.
     </td>
   </tr>
   <tr style="border: none;">
+    <td style="vertical-align: top; border: none; padding-bottom: 20px;">
+      <strong>🎯 Goals & Key Results</strong><br>
+      Create and manage Goals with full lifecycle support—create, update, delete, and archive. Define and track nested Key Results to measure OKR progress across the workspace.
+    </td>
+    <td style="vertical-align: top; border: none; padding-bottom: 20px;">
+      <strong>📋 Views</strong><br>
+      Create, list, update, and delete views at any level of the workspace hierarchy—space, folder, or list. Fetch tasks scoped to a specific view for focused filtering.
+    </td>
+  </tr>
+  <tr style="border: none;">
     <td style="vertical-align: top; border: none;">
-      <strong>🌳 Workspace Control</strong><br>
-      Create and navigate spaces, folders, lists, and tags. Switch workspaces mid-conversation.
+      <strong>🗂️ Task Templates</strong><br>
+      Browse available task templates and instantly create tasks from them. Streamlines repeatable workflows without manual setup each time.
     </td>
     <td style="vertical-align: top; border: none;">
-      <strong>🧠 Smart Defaults</strong><br>
-      Session-isolated caching for fast, secure multi-tenant operation.
+      <strong>🌳 Workspace Control</strong><br>
+      Full CRUD for spaces, folders, lists, and tags across the entire workspace hierarchy. Switch workspaces mid-conversation without reconfiguration.
     </td>
   </tr>
 </table>
