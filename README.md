@@ -1,16 +1,17 @@
-<div align="center">
-  <h1>ClickUp MCP Server — Premium</h1>
+<h1 align="center">ClickUp MCP Server — Premium</h1>
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/taazkareem/clickup-mcp-server/main/assets/images/clickup_mcp_neon_logo_blue.jpg" alt="ClickUp MCP Server Premium Logo" width="100%">
+</p>
 
-  <br><br>
-
-  [![npm version](https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
-  [![npm downloads](https://img.shields.io/npm/dm/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
-  [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
-  ![Top 3 on Google](https://img.shields.io/badge/Ranked_Top_3_on_Google-🔥-orange.svg)
-  ![Trending MCP Server](https://img.shields.io/badge/Trending-MCP_Server-blueviolet.svg)
-  [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-blue.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
-</div>
+<p align="center">
+  <a href="https://www.npmjs.com/package/@taazkareem/clickup-mcp-server"><img src="https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/@taazkareem/clickup-mcp-server"><img src="https://img.shields.io/npm/dm/@taazkareem/clickup-mcp-server.svg" alt="npm downloads"></a>
+  <img src="https://img.shields.io/badge/License-Proprietary-red.svg" alt="License">
+  <img src="https://img.shields.io/badge/Ranked_Top_3_on_Google-🔥-orange.svg" alt="Top 3 on Google">
+  <img src="https://img.shields.io/badge/Trending-MCP_Server-blueviolet.svg" alt="Trending MCP Server">
+  <a href="https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-blue.svg" alt="Maintained"></a>
+</p>
 
 ---
 
