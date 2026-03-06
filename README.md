@@ -1,16 +1,15 @@
-# ClickUp MCP Server — Premium
-
-![ClickUp MCP Server Premium Image](https://raw.githubusercontent.com/taazkareem/clickup-mcp-server/main/assets/images/clickup_mcp_neon_logo_blue.jpg)
-
 <div align="center">
+  <h1>ClickUp MCP Server — Premium</h1>
+  <img src="https://raw.githubusercontent.com/taazkareem/clickup-mcp-server/main/assets/images/clickup_mcp_neon_logo_blue.jpg" alt="ClickUp MCP Server Premium Logo" width="100%">
 
-[![npm version](https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
-[![npm downloads](https://img.shields.io/npm/dm/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
-[![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
-![Top 3 on Google](https://img.shields.io/badge/Ranked_Top_3_on_Google-🔥-orange.svg)
-![Trending MCP Server](https://img.shields.io/badge/Trending-MCP_Server-blueviolet.svg)
-[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-blue.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
+  <br><br>
 
+  [![npm version](https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
+  [![npm downloads](https://img.shields.io/npm/dm/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
+  [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
+  ![Top 3 on Google](https://img.shields.io/badge/Ranked_Top_3_on_Google-🔥-orange.svg)
+  ![Trending MCP Server](https://img.shields.io/badge/Trending-MCP_Server-blueviolet.svg)
+  [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-blue.svg)](https://github.com/TaazKareem/clickup-mcp-server/graphs/commit-activity)
 </div>
 
 ---
@@ -93,17 +92,25 @@ The industry-standard ClickUp integration for AI.
 
 **This project operates on a Sponsorware model.** A license grants **full access to all 67 premium tools** with any of the following plans:
 
+<div align="center">
+
 | [**Monthly ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual ($59/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime ($89 w/ code**)](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
 | • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • ONLY $4.92/mo <br>• 3 device activations<br>• Priority bug fixes | • **25% OFF** code: `MAR25` <br>• 3 device activations<br>• **Best Value** (One-time payment)|
 
+<br>
+
 **⚡️ Instant Delivery:** Your License Key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
+
+<br>
 
 [![Purchase License](https://img.shields.io/badge/Purchase%20License-0069ff?style=for-the-badge&logo=polar&logoColor=white)](https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme)
 
+</div>
+
 ---
 
-## 🚀 Quick Start & Installation
+## 🚀 Quick Start
 
 ### 1. Prerequisites
 * **License Key:** See above
@@ -116,7 +123,7 @@ The industry-standard ClickUp integration for AI.
   - Look at the URL: `https://app.clickup.com/1234567/v/li/987654321`.
   - The first number (`1234567`) directly after `clickup.com/` is your **Team ID** (Workspace ID).
 
-### 2. Choose your Integration
+### 2. Choose your MCP Host & Transport
 
 <a name="cursor-setup"></a>
 <details open>
@@ -124,7 +131,7 @@ The industry-standard ClickUp integration for AI.
 
 **Configuration Path:** `<project-root>/.cursor/mcp.json`
 
-**Option A: Cloud / Remote (Easiest)**
+**Option A: Remote / Streamable HTTP (Easiest)**
 ```json
 {
   "mcpServers": {
@@ -138,7 +145,7 @@ The industry-standard ClickUp integration for AI.
 }
 ```
 
-**Option B: Local (stdio)**
+**Option B: Local / STDIO**
 ```json
 {
   "mcpServers": {
@@ -162,7 +169,7 @@ The industry-standard ClickUp integration for AI.
 
 **Configuration Path:** `<project-root>/.codeium/windsurf/mcp_config.json`
 
-**Option A: Cloud / Remote (Easiest)**
+**Option A: Remote / Streamable HTTP (Easiest)**
 ```json
 {
   "mcpServers": {
@@ -176,7 +183,7 @@ The industry-standard ClickUp integration for AI.
 }
 ```
 
-**Option B: Local (stdio)**
+**Option B: Local / STDIO**
 ```json
 {
   "mcpServers": {
@@ -202,7 +209,7 @@ The industry-standard ClickUp integration for AI.
 - **Global:** `~/Library/Application Support/Code/User/mcp.json`
 - **Local:** `<project-root>/.vscode/mcp.json`
 
-**Option A: Cloud / Remote (Easiest)**
+**Option A: Remote / Streamable HTTP (Easiest)**
 ```json
 {
   "mcpServers": {
@@ -216,7 +223,7 @@ The industry-standard ClickUp integration for AI.
 }
 ```
 
-**Option B: Local (stdio)**
+**Option B: Local / STDIO**
 ```json
 {
   "mcpServers": {
@@ -240,7 +247,7 @@ The industry-standard ClickUp integration for AI.
 
 **Configuration Path:** `<project-root>/.roo/mcp.json`
 
-**Option A: Cloud / Remote (Easiest)**
+**Option A: Remote / Streamable HTTP (Easiest)**
 ```json
 {
   "mcpServers": {
@@ -254,7 +261,7 @@ The industry-standard ClickUp integration for AI.
 }
 ```
 
-**Option B: Local (stdio)**
+**Option B: Local / STDIO**
 ```json
 {
   "mcpServers": {
@@ -310,9 +317,9 @@ claude mcp add --transport http ClickUp https://clickup-mcp.taazkareem.com/mcp \
 <details>
 <summary>&nbsp;<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="22" align="center"> <strong>n8n</strong></summary>  
 
-**Option A: Cloud / Remote (Recommended)**
+**Option A: Remote / Streamable HTTP (Recommended)**
 1. In n8n, add an **"MCP Client"** node.
-2. Set Connection Type to `HTTP Streamable`.
+2. Set Connection Type to `Streamable HTTP`.
 3. Auth Type: `Multiple Headers Auth`.
 4. Header: `X-License-Key` Value: `your-license-key`
 5. URL: `https://clickup-mcp.taazkareem.com/mcp`
@@ -369,14 +376,14 @@ Codex clients (CLI, Desktop App, and VS Code extension) share a single source of
 - **Global:** `~/.codex/config.toml`
 - **Local:** `<project-root>/.codex/config.toml`
 
-**Option A: Cloud / Remote (Easiest)**
+**Option A: Remote / Streamable HTTP (Easiest)**
 ```toml
 [mcp_servers.ClickUp]
 url = "https://clickup-mcp.taazkareem.com/mcp"
 http_headers = { "X-License-Key" = "your-license-key" }
 ```
 
-**Option B: Local (stdio)**
+**Option B: Local / STDIO**
 ```toml
 [mcp_servers.ClickUp]
 command = "npx"
