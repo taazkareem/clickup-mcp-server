@@ -61,8 +61,8 @@ The industry-standard ClickUp integration for AI.
       Create, read, and append to ClickUp Docs with full markdown text. Manage pages within documents for structured, long-form content.
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
-      <strong>💬 Chat & Collaboration</strong><br>
-      Create and manage channels (including DMs and channels scoped to a space, folder, or list), send messages with threaded replies, add/remove reactions, get tagged users, manage members and followers, with rich text and @mention support.
+      <strong>💬 Comments & Chat</strong><br>
+      Post, edit, resolve, and reply to comments on tasks, lists, and views. Create and manage chat channels (including DMs), send messages with threaded replies, reactions, and follower management. Both support rich text and @mentions.
     </td>
   </tr>
   <tr style="border: none;">
