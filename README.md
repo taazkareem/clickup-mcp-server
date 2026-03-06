@@ -2,6 +2,8 @@
   <h1>ClickUp MCP Server — Premium</h1>
   <img src="https://raw.githubusercontent.com/taazkareem/clickup-mcp-server/main/assets/images/clickup_mcp_neon_logo_blue.jpg" alt="ClickUp MCP Server Premium Logo" width="100%">
 
+  <br><br>
+
   [![npm version](https://img.shields.io/npm/v/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
   [![npm downloads](https://img.shields.io/npm/dm/@taazkareem/clickup-mcp-server.svg)](https://www.npmjs.com/package/@taazkareem/clickup-mcp-server)
   [![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
