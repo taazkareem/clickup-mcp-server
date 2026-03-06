@@ -10,7 +10,7 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
 | get_task | Get single task details with global lookup | `task` (Name or ID) | `listName` (disambiguation), `subtasks`, `include_markdown_description` |
-| manage_task_comments | Full comment lifecycle: get, create, update, delete, get_replies, create_reply | `action` + action-specific params (see below) | varies by action |
+| manage_comments | Full comment lifecycle on tasks, lists, or views: get, create, update, delete, get_replies, create_reply | `action` + action-specific params (see below) | `context_type` (default: `task`), varies by action |
 | attach_task_file | Attach a file to a task | `taskId` or `taskName`, and EITHER `file_data` OR `file_url` | `file_name`, `listName`, `chunk_*` parameters for large files |
 | create_task | Create a new task | `name` and either `listId` or `listName` | description, status, priority (1-4), dueDate, startDate, parent (ID or Name), assignees, custom_task_type |
 | create_bulk_tasks | Create multiple tasks | `tasks[]` | `listId` or `listName` |
@@ -30,27 +30,35 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 | add_task_dependency | Add a blocking dependency between tasks | `task` (Name or ID), and exactly one of `depends_on` or `dependency_of` | `listName`, `depends_on_list`, `dependency_of_list` |
 | delete_task_dependency | Remove a blocking dependency between tasks | `task` (Name or ID), and exactly one of `depends_on` or `dependency_of` | `listName`, `depends_on_list`, `dependency_of_list` |
 
-## manage_task_comments Actions
+## manage_comments Actions
 
-| Action | Description | Required Params | Optional Params |
-|--------|-------------|-----------------|-----------------|
-| `get` | List all comments on a task | `task` | `listName`, `start`, `startId`, `include_replies` |
-| `create` | Add a comment to a task | `task`, `commentText` or `formattedComment` | `listName`, `notifyAll`, `assignee` |
-| `update` | Edit comment text or resolve/unresolve | `comment_id`, at least one of: `commentText`, `formattedComment`, `resolved` | — |
-| `delete` | Permanently delete a comment | `comment_id` | — |
-| `get_replies` | Get threaded replies for a comment | `comment_id` | — |
-| `create_reply` | Reply to a comment thread | `comment_id`, `commentText` or `formattedComment` | `notifyAll`, `assignee` |
+| Action | Context | Description | Required Params | Optional Params |
+|--------|---------|-------------|-----------------|-----------------|
+| `get` | `task` | List all comments on a task | `task` | `listName`, `start`, `startId`, `include_replies` |
+| `get` | `list` | List all comments on a list | `list_id` or `list_name` | — |
+| `get` | `view` | List all comments on a view | `view_id` | — |
+| `create` | `task` | Add a comment to a task | `task`, `commentText` or `formattedComment` | `listName`, `notifyAll`, `assignee` |
+| `create` | `list` | Add a comment to a list | `list_id` or `list_name`, `commentText` or `formattedComment` | `notifyAll`, `assignee` |
+| `create` | `view` | Add a comment to a view | `view_id`, `commentText` or `formattedComment` | `notifyAll`, `assignee` |
+| `update` | any | Edit comment text or resolve/unresolve | `comment_id`, at least one of: `commentText`, `formattedComment`, `resolved` | — |
+| `delete` | any | Permanently delete a comment | `comment_id` | — |
+| `get_replies` | any | Get threaded replies for a comment | `comment_id` | — |
+| `create_reply` | any | Reply to a comment thread | `comment_id`, `commentText` or `formattedComment` | `notifyAll`, `assignee` |
 
 **Parameters:**
-- `task` — Task Name (auto-resolved) or Task ID. Required for `get` and `create`.
-- `listName` — Disambiguates tasks when multiple share the same name.
+- `context_type` — `task` (default), `list`, or `view`. Determines where get/create operate. Ignored for update, delete, get_replies, create_reply.
+- `task` — Task Name (auto-resolved) or Task ID. Required for `get`/`create` when `context_type` is `task`.
+- `list_id` — List ID. Required for `get`/`create` when `context_type` is `list`.
+- `list_name` — List name (auto-resolved). Used when `context_type` is `list` and `list_id` is not provided.
+- `view_id` — View ID. Required for `get`/`create` when `context_type` is `view`.
+- `listName` — Disambiguates tasks when multiple share the same name (task context only).
 - `comment_id` — The ClickUp comment ID. Required for `update`, `delete`, `get_replies`, `create_reply`.
 - `commentText` — Plain text / markdown (`**bold**`, `_italic_`, `` `code` ``, `- lists`). Automatically converted to ClickUp rich text.
 - `formattedComment` — Rich text array with text blocks, `{type:'tag', user:{id}}` for @mentions, `{type:'emoji', unicode}` for emoji.
-- `notifyAll` — Boolean. Notify all task assignees (applies to `create`, `create_reply`).
+- `notifyAll` — Boolean. Notify all assignees (applies to `create`, `create_reply`).
 - `assignee` — User ID number to assign the comment to.
 - `resolved` — Boolean. Mark a comment resolved (`true`) or unresolved (`false`). Applies to `update`.
-- `include_replies` — Boolean. Fetch threaded replies inline for each comment. Applies to `get`.
+- `include_replies` — Boolean. Fetch threaded replies inline for each comment. Applies to `get` (task context).
 
 ## Parameters
 

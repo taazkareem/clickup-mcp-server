@@ -555,7 +555,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `move_bulk_tasks` | Move multiple tasks |
 | | `delete_bulk_tasks` | Delete multiple tasks |
 | | `get_workspace_tasks` | Search tasks with Deep Search filtering |
-| | `manage_task_comments` | Get, create, update, delete comments and replies on a task |
+| | `manage_comments` | Get, create, update, delete comments and replies on tasks, lists, or views |
 | | `attach_task_file` | Attach file to a task |
 | | `add_task_link` | Link two tasks together |
 | | `get_task_links` | Get task links |
@@ -636,12 +636,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes. Includes read access for tasks, structural elements, goals, docs, and chat.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,manage_task_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,manage_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,manage_task_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,manage_comments,get_task_links,get_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,get_folder,get_task_time_entries,get_workspace_time_entries,get_current_time_entry,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,submit_feedback"
 }
 ```
 </details>
@@ -652,12 +652,12 @@ Best for agents that need to view data without making any changes. Includes read
 Focused on day-to-day task management. Can create/update/delete tasks, track time, manage checklists, and update goals. Cannot modify workspace structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_task_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_list,manage_goals,manage_views,get_folder,add_tag_to_task,remove_tag_from_task,start_time_tracking,stop_time_tracking,get_task_templates,create_task_from_template,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_list,manage_goals,manage_views,get_folder,add_tag_to_task,remove_tag_from_task,start_time_tracking,stop_time_tracking,get_task_templates,create_task_from_template,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_task_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_list,manage_goals,manage_views,get_folder,add_tag_to_task,remove_tag_from_task,start_time_tracking,stop_time_tracking,get_task_templates,create_task_from_template,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_list,manage_goals,manage_views,get_folder,add_tag_to_task,remove_tag_from_task,start_time_tracking,stop_time_tracking,get_task_templates,create_task_from_template,submit_feedback"
 }
 ```
 </details>
@@ -700,12 +700,12 @@ Workspace building and alignment. Creates spaces, folders, lists, and goals. Han
 For agents managing documentation and communication.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,find_member_by_name,get_task,get_workspace_tasks,manage_task_comments,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,manage_chat_channels,manage_chat_messages,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,find_member_by_name,get_task,get_workspace_tasks,manage_comments,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,manage_chat_channels,manage_chat_messages,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,find_member_by_name,get_task,get_workspace_tasks,manage_task_comments,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,manage_chat_channels,manage_chat_messages,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,find_member_by_name,get_task,get_workspace_tasks,manage_comments,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,manage_chat_channels,manage_chat_messages,submit_feedback"
 }
 ```
 </details>
