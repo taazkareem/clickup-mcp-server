@@ -47,7 +47,7 @@ The industry-standard ClickUp integration for AI.
   <tr style="border: none;">
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>📝 Task Management</strong><br>
-      Create, update, move, delete, duplicate, and link tasks. Supports bulk operations, nested subtasks, checklists, natural language dates, custom task IDs, custom task types, custom fields, and task templates.
+      Create, update, move, delete, duplicate, link, and set dependencies between tasks. Supports bulk operations, nested subtasks, checklists, natural language dates, custom task IDs, custom task types, custom fields, and task templates.
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>⏱️ Time Tracking</strong><br>
@@ -90,7 +90,7 @@ The industry-standard ClickUp integration for AI.
 
 ## <a name="premium-access"></a>💎 Premium Access
 
-**This project operates on a Sponsorware model.** A license grants **full access to all 67 premium tools** with any of the following plans:
+**This project operates on a Sponsorware model.** A license grants **full access to all 69 premium tools** with any of the following plans:
 
 <div align="center">
 
@@ -558,8 +558,10 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `create_task_comment` | Add a comment to a task |
 | | `attach_task_file` | Attach file to a task |
 | | `add_task_link` | Link two tasks together |
-| | `get_task_links` | Get task dependencies |
-| | `delete_task_link` | Remove task dependency |
+| | `get_task_links` | Get task links |
+| | `delete_task_link` | Remove a task link |
+| | `add_task_dependency` | Set a blocking dependency between tasks |
+| | `delete_task_dependency` | Remove a blocking dependency between tasks |
 | **Checklists** | `create_checklist` | Add a checklist to a task |
 | | `edit_checklist` | Rename or reorder a checklist |
 | | `delete_checklist` | Delete a checklist and all its items |
@@ -652,12 +654,12 @@ Best for agents that need to view data without making any changes. Includes read
 Focused on day-to-day task management. Can create/update/delete tasks, track time, manage checklists, and update goals. Cannot modify workspace structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,get_task_comments,create_task_comment,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_list,manage_goals,manage_views,get_folder,add_tag_to_task,remove_tag_from_task,start_time_tracking,stop_time_tracking,get_task_templates,create_task_from_template,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,get_task_comments,create_task_comment,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_list,manage_goals,manage_views,get_folder,add_tag_to_task,remove_tag_from_task,start_time_tracking,stop_time_tracking,get_task_templates,create_task_from_template,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,get_task_comments,create_task_comment,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_list,manage_goals,manage_views,get_folder,add_tag_to_task,remove_tag_from_task,start_time_tracking,stop_time_tracking,get_task_templates,create_task_from_template,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,get_task_comments,create_task_comment,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_list,manage_goals,manage_views,get_folder,add_tag_to_task,remove_tag_from_task,start_time_tracking,stop_time_tracking,get_task_templates,create_task_from_template,submit_feedback"
 }
 ```
 </details>
@@ -684,12 +686,12 @@ For agents dedicated to logging time and generating timesheets.
 Workspace building and alignment. Creates spaces, folders, lists, and goals. Handles bulk task operations and templates.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,create_list,create_list_in_folder,get_list,update_list,move_list,delete_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,create_folder,get_folder,update_folder,move_folder,delete_folder,manage_space_tags,get_task_templates,create_task_from_template,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,create_list,create_list_in_folder,get_list,update_list,move_list,delete_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,create_folder,get_folder,update_folder,move_folder,delete_folder,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,create_list,create_list_in_folder,get_list,update_list,move_list,delete_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,create_folder,get_folder,update_folder,move_folder,delete_folder,manage_space_tags,get_task_templates,create_task_from_template,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,create_list,create_list_in_folder,get_list,update_list,move_list,delete_list,manage_custom_fields,manage_spaces,manage_goals,manage_views,create_folder,get_folder,update_folder,move_folder,delete_folder,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,submit_feedback"
 }
 ```
 </details>
@@ -713,15 +715,15 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>  
 
-Enabled everything **except** destructive tools. This configuration covers **all 67 tools** by default, only blocking the 8 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
+Enabled everything **except** destructive tools. This configuration covers **all 69 tools** by default, only blocking the 9 specific deletion tools listed below. Useful for capable agents that need full access (including Folder/List management) but shouldn't destroy data.
 
 **HTTP Header:**
-`X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_task_link,delete_checklist,delete_checklist_item,delete_list,delete_folder,delete_time_entry`
+`X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency,delete_checklist,delete_checklist_item,delete_list,delete_folder,delete_time_entry`
 
 **JSON / Env:**
 ```json
 "env": {
-  "DISABLED_TOOLS": "delete_task,delete_bulk_tasks,delete_task_link,delete_checklist,delete_checklist_item,delete_list,delete_folder,delete_time_entry"
+  "DISABLED_TOOLS": "delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency,delete_checklist,delete_checklist_item,delete_list,delete_folder,delete_time_entry"
 }
 ```
 </details>
