@@ -1,5 +1,5 @@
-[← Back to Documentation Index](../DOCUMENTATION.md)  
-[← Back to README](../../README.md)  
+[← Back to Documentation Index](../DOCUMENTATION.md)
+[← Back to README](../../README.md)
 
 # List Management
 
@@ -9,12 +9,28 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| create_list | Create a new list | `name` and either `spaceId` or `spaceName` | content, dueDate, priority, assignee |
-| create_list_in_folder | Create list in folder | `name` and either `folderId` or `folderName` | content, status |
-| get_list | Get list details | Either `listId` or `listName` | None |
-| update_list | Update list properties | Either `listId` or `listName` | name, content, status |
-| delete_list | Delete a list | Either `listId` or `listName` | None |
-| move_list | Move list to a different Space or Folder (high-integrity TIML move) | Either `listId` or `listName` | `destinationFolderId`, `destinationSpaceId`, `allowDestructiveFallback` |
+| manage_lists | Manage lists in a space or folder | `action` | see action table below |
+
+### Actions
+
+| Action | Description | Required | Optional |
+|--------|-------------|----------|---------|
+| `create` | Create a list in a space or folder | `name`, and one of: `space_id`/`space_name` (folderless) or `folder_id`/`folder_name` (in folder) | `content`, `due_date`, `priority`, `assignee`, `status`, `team_id` |
+| `get` | Get list details | `list_id` or `list_name` | `team_id` |
+| `get_lists` | Get all folderless lists in a space | `space_id` or `space_name` | `team_id` |
+| `update` | Update list properties | `list_id` or `list_name`, at least one of `name`/`content`/`status` | `team_id` |
+| `delete` | Delete a list | `list_id` or `list_name` | `team_id` |
+| `move` | Move list to a different space or folder (high-integrity) | `list_id` or `list_name`, plus destination `space_id`/`space_name` or `folder_id`/`folder_name` | `allow_destructive_fallback`, `team_id` |
+
+> **Note on move:** Uses a High-Integrity Move — creates a new list at destination, moves all tasks via the ClickUp v3 `home_list` endpoint (preserving task IDs), then deletes the source. The List ID will change.
+
+> **Note on create:** If both `folder_id`/`folder_name` and `space_id`/`space_name` are provided, folder takes precedence and the list is created inside the folder.
+
+## Parameters
+
+- **priority**: `1` = Urgent, `2` = High, `3` = Normal, `4` = Low
+- **due_date**: Unix timestamp in milliseconds
+- **assignee**: User ID (use `find_member_by_name` to resolve names to IDs)
 
 ## Examples
 
@@ -27,8 +43,8 @@ Get details for the "Sprint Backlog" list
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "listName": "Sprint Backlog"
+  "action": "get",
+  "list_name": "Sprint Backlog"
 }
 ```
 
@@ -37,74 +53,37 @@ Get details for the "Sprint Backlog" list
 {
   "id": "list_backlog",
   "name": "Sprint Backlog",
-  "description": "Items planned for the current sprint",
-  "status": [
-    {
-      "status": "To Do",
-      "color": "#ddd",
-      "type": "custom"
-    },
-    {
-      "status": "In Progress",
-      "color": "#f1c975",
-      "type": "custom"
-    },
-    {
-      "status": "Done",
-      "color": "#5dce0f",
-      "type": "custom"
-    }
+  "statuses": [
+    { "status": "To Do", "color": "#ddd" },
+    { "status": "In Progress", "color": "#f1c975" },
+    { "status": "Done", "color": "#5dce0f" }
   ],
-  "task_count": 15,
-  "url": "https://app.clickup.com/l/list_backlog",
-  "folder": {
-    "id": "folder123",
-    "name": "Development"
-  },
-  "space": {
-    "id": "space123",
-    "name": "Engineering"
-  }
+  "space": { "id": "space123", "name": "Engineering" }
 }
 ```
 
-### Updating a List
+### Getting All Lists in a Space
 **User Prompt:**
 ```
-Update the "Sprint Backlog" list to have the description "Current sprint planning items and priorities"
+List all lists in the "Engineering" space
 ```
 
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "listName": "Sprint Backlog",
-  "content": "Current sprint planning items and priorities"
+  "action": "get_lists",
+  "space_name": "Engineering"
 }
 ```
 
 **Tool Response:**
 ```json
 {
-  "id": "list_backlog",
-  "name": "Sprint Backlog",
-  "description": "Current sprint planning items and priorities",
-  "url": "https://app.clickup.com/l/list_backlog",
-  "date_updated": "2024-03-16T11:15:00.000Z",
-  "status": [
-    {
-      "status": "To Do",
-      "color": "#ddd"
-    },
-    {
-      "status": "In Progress",
-      "color": "#f1c975"
-    },
-    {
-      "status": "Done",
-      "color": "#5dce0f"
-    }
-  ]
+  "lists": [
+    { "id": "list1", "name": "Backlog" },
+    { "id": "list2", "name": "Roadmap" }
+  ],
+  "count": 2
 }
 ```
 
@@ -117,9 +96,9 @@ Create a list called "Sprint 42" in the "Engineering" space
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
+  "action": "create",
   "name": "Sprint 42",
-  "spaceName": "Engineering"
+  "space_name": "Engineering"
 }
 ```
 
@@ -128,12 +107,8 @@ Create a list called "Sprint 42" in the "Engineering" space
 {
   "id": "list_sprint42",
   "name": "Sprint 42",
-  "url": "https://app.clickup.com/l/list_sprint42",
-  "date_created": "2024-03-16T12:00:00.000Z",
-  "space": {
-    "id": "space123",
-    "name": "Engineering"
-  }
+  "space": { "id": "space123", "name": "Engineering" },
+  "message": "List \"Sprint 42\" created successfully"
 }
 ```
 
@@ -146,9 +121,9 @@ Create a "Bug Triage" list in the "QA" folder
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
+  "action": "create",
   "name": "Bug Triage",
-  "folderName": "QA"
+  "folder_name": "QA"
 }
 ```
 
@@ -157,16 +132,34 @@ Create a "Bug Triage" list in the "QA" folder
 {
   "id": "list_triage",
   "name": "Bug Triage",
-  "url": "https://app.clickup.com/l/list_triage",
-  "date_created": "2024-03-16T12:10:00.000Z",
-  "folder": {
-    "id": "folder_qa",
-    "name": "QA"
-  },
-  "space": {
-    "id": "space123",
-    "name": "Engineering"
-  }
+  "folder": { "id": "folder_qa", "name": "QA" },
+  "space": { "id": "space123", "name": "Engineering" },
+  "message": "List \"Bug Triage\" created successfully in folder \"QA\""
+}
+```
+
+### Updating a List
+**User Prompt:**
+```
+Update "Sprint Backlog" description to "Current sprint planning items and priorities"
+```
+
+**Generated Request:**
+```json
+{
+  "action": "update",
+  "list_name": "Sprint Backlog",
+  "content": "Current sprint planning items and priorities"
+}
+```
+
+**Tool Response:**
+```json
+{
+  "id": "list_backlog",
+  "name": "Sprint Backlog",
+  "content": "Current sprint planning items and priorities",
+  "message": "List \"Sprint Backlog\" updated successfully"
 }
 ```
 
@@ -179,8 +172,8 @@ Delete the "Archived Items" list
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "listName": "Archived Items"
+  "action": "delete",
+  "list_name": "Archived Items"
 }
 ```
 
@@ -188,7 +181,7 @@ Delete the "Archived Items" list
 ```json
 {
   "success": true,
-  "message": "List 'Archived Items' deleted successfully"
+  "message": "List \"Archived Items\" deleted successfully"
 }
 ```
 
@@ -201,24 +194,18 @@ Move "Sprint 42" to the "Product" space
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "listName": "Sprint 42",
-  "destinationSpaceName": "Product"
+  "action": "move",
+  "list_name": "Sprint 42",
+  "space_name": "Product"
 }
 ```
 
 **Tool Response:**
 ```json
 {
-  "success": true,
-  "message": "List moved successfully",
-  "list": {
-    "id": "list_sprint42",
-    "name": "Sprint 42",
-    "space": {
-      "id": "space_product",
-      "name": "Product"
-    }
-  }
+  "id": "list_sprint42_new",
+  "name": "Sprint 42",
+  "space": { "id": "space_product", "name": "Product" },
+  "message": "List moved successfully to space space_product. New List ID: list_sprint42_new"
 }
 ```

@@ -1,5 +1,5 @@
-[← Back to Documentation Index](../DOCUMENTATION.md)  
-[← Back to README](../../README.md)  
+[← Back to Documentation Index](../DOCUMENTATION.md)
+[← Back to README](../../README.md)
 
 # Task Checklists
 
@@ -9,17 +9,24 @@ Checklists allow you to add structured to-do items within a task. Each task can 
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| create_checklist | Add a checklist to a task | `task` (Name or ID), `name` | `listName` |
-| edit_checklist | Rename or reorder a checklist | `checklistId` | `name`, `position` |
-| delete_checklist | Delete a checklist and all its items | `checklistId` | None |
-| create_checklist_item | Add an item to a checklist | `checklistId`, `name` | `assignee` (user ID) |
-| edit_checklist_item | Update a checklist item | `checklistId`, `itemId` | `name`, `resolved`, `assignee`, `parent` (nest under another item) |
-| delete_checklist_item | Remove an item from a checklist | `checklistId`, `itemId` | None |
+| manage_checklists | Manage task checklists and items | `action` | see action table below |
+
+### Actions
+
+| Action | Description | Required | Optional |
+|--------|-------------|----------|---------|
+| `create_checklist` | Add a checklist to a task | `task_id`, `name` | `team_id` |
+| `edit_checklist` | Rename or reorder a checklist | `checklist_id`, `name` or `position` | `team_id` |
+| `delete_checklist` | Delete a checklist and all items | `checklist_id` | `team_id` |
+| `create_item` | Add an item to a checklist | `checklist_id`, `name` | `assignee`, `team_id` |
+| `edit_item` | Update a checklist item | `checklist_id`, `checklist_item_id` | `name`, `resolved`, `assignee`, `parent`, `team_id` |
+| `delete_item` | Remove an item from a checklist | `checklist_id`, `checklist_item_id` | `team_id` |
 
 ## Parameters
 
-- **checklistId**: Obtained from `create_checklist` or from `get_task` response (checklists are included in task details)
-- **itemId**: Obtained from `create_checklist_item` or from `get_task` response
+- **task_id**: Task ID. Obtain from `get_task` or task URL.
+- **checklist_id**: Obtained from `create_checklist` or from `get_task` response (checklists are included in task details)
+- **checklist_item_id**: Obtained from `create_item` or from `get_task` response
 - **resolved**: `true` = checked/complete, `false` = unchecked
 - **parent**: Set to another checklist item's ID to nest the item; set to `null` to un-nest
 - **assignee**: User ID to assign the item to (use `find_member_by_name` to resolve names to IDs)
@@ -29,14 +36,14 @@ Checklists allow you to add structured to-do items within a task. Each task can 
 ### Creating a Checklist with Items
 **User Prompt:**
 ```
-Add a "Launch Checklist" to the task "Release v2.0" with items: update docs, run tests, deploy
+Add a "Launch Checklist" to task abc123 with items: update docs, run tests, deploy
 ```
 
 The agent would call:
-1. `create_checklist` with `task: "Release v2.0"`, `name: "Launch Checklist"`
-2. `create_checklist_item` for each item using the returned `checklistId`
+1. `manage_checklists` with `action: "create_checklist"`, `task_id: "abc123"`, `name: "Launch Checklist"`
+2. `manage_checklists` with `action: "create_item"` for each item using the returned `checklist_id`
 
-### Marking Items as Complete
+### Marking an Item as Complete
 **User Prompt:**
 ```
 Mark "update docs" as done on the checklist
@@ -45,9 +52,9 @@ Mark "update docs" as done on the checklist
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "checklistId": "abc-123",
-  "itemId": "item-456",
+  "action": "edit_item",
+  "checklist_id": "abc-123",
+  "checklist_item_id": "item-456",
   "resolved": true
 }
 ```
@@ -61,8 +68,8 @@ Add "Write unit tests" to the Launch Checklist
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "checklistId": "abc-123",
+  "action": "create_item",
+  "checklist_id": "abc-123",
   "name": "Write unit tests"
 }
 ```
@@ -79,8 +86,7 @@ Add "Write unit tests" to the Launch Checklist
         "id": "item-new-001",
         "name": "Write unit tests",
         "resolved": false,
-        "assignee": null,
-        "date_created": "2024-03-16T12:00:00.000Z"
+        "assignee": null
       }
     ]
   }
@@ -96,8 +102,8 @@ Rename the checklist to "Pre-Launch Checklist"
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "checklistId": "abc-123",
+  "action": "edit_checklist",
+  "checklist_id": "abc-123",
   "name": "Pre-Launch Checklist"
 }
 ```
@@ -108,8 +114,7 @@ Rename the checklist to "Pre-Launch Checklist"
   "success": true,
   "checklist": {
     "id": "abc-123",
-    "name": "Pre-Launch Checklist",
-    "date_updated": "2024-03-16T12:15:00.000Z"
+    "name": "Pre-Launch Checklist"
   }
 }
 ```
@@ -117,14 +122,14 @@ Rename the checklist to "Pre-Launch Checklist"
 ### Deleting a Checklist
 **User Prompt:**
 ```
-Delete the "Old Checklist"
+Delete the checklist
 ```
 
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "checklistId": "old-456"
+  "action": "delete_checklist",
+  "checklist_id": "old-456"
 }
 ```
 
@@ -145,9 +150,9 @@ Remove "Deprecated step" from the checklist
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "checklistId": "abc-123",
-  "itemId": "item-789"
+  "action": "delete_item",
+  "checklist_id": "abc-123",
+  "checklist_item_id": "item-789"
 }
 ```
 

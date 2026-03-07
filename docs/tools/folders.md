@@ -1,5 +1,5 @@
-[← Back to Documentation Index](../DOCUMENTATION.md)  
-[← Back to README](../../README.md)  
+[← Back to Documentation Index](../DOCUMENTATION.md)
+[← Back to README](../../README.md)
 
 # Folder Management
 
@@ -9,11 +9,19 @@ Create, update, move, and delete folders to organize lists within your ClickUp s
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| create_folder | Create a new folder | `name` and either `spaceId` or `spaceName` | override_statuses |
-| get_folder | Get folder details | Either `folderId` or `folderName` | `spaceId` or `spaceName` (if using `folderName`) |
-| update_folder | Update folder properties | Either `folderId` or `folderName` | name, override_statuses, `spaceId` or `spaceName` (if using `folderName`) |
-| delete_folder | Delete a folder | Either `folderId` or `folderName` | `spaceId` or `spaceName` (if using `folderName`) |
-| move_folder | Move folder to a different Space (high-integrity move) | Either `folderId` or `folderName`, and `destinationSpaceId` | `allowDestructiveFallback` |
+| manage_folders | Manage folders in a space | `action` | see action table below |
+
+### Actions
+
+| Action | Description | Required | Optional |
+|--------|-------------|----------|---------|
+| `create` | Create a new folder | `name`, `space_id` or `space_name` | `override_statuses`, `team_id` |
+| `get` | Get folder details | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
+| `update` | Update folder properties | `folder_id` or `folder_name`, at least one of `name`/`override_statuses` | `space_id`/`space_name`, `team_id` |
+| `delete` | Delete a folder | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
+| `move` | Move folder to a different space (high-integrity) | `folder_id` or `folder_name`, `space_id` or `space_name` (destination) | `allow_destructive_fallback`, `team_id` |
+
+> **Note on move:** Uses a High-Integrity Move workaround — creates a new folder at destination, migrates all lists and tasks, then deletes the source. The Folder ID will change.
 
 ## Examples
 
@@ -26,8 +34,8 @@ Get details for the "Development Projects" folder
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "folderName": "Development Projects"
+  "action": "get",
+  "folder_name": "Development Projects"
 }
 ```
 
@@ -36,58 +44,11 @@ Get details for the "Development Projects" folder
 {
   "id": "folder_dev",
   "name": "Development Projects",
-  "description": "All development-related projects",
-  "lists": [
-    {
-      "id": "list1",
-      "name": "Sprint Backlog"
-    },
-    {
-      "id": "list2",
-      "name": "In Progress"
-    },
-    {
-      "id": "list3",
-      "name": "Completed"
-    }
-  ],
-  "list_count": 3,
-  "url": "https://app.clickup.com/f/folder_dev",
   "space": {
     "id": "space123",
     "name": "Engineering"
-  }
-}
-```
-
-### Updating a Folder
-**User Prompt:**
-```
-Update the "Development Projects" folder to be named "Active Development Projects"
-```
-
-**Generated Request:**
-```json
-{
-  "team_id": "9876543210",
-  "folderName": "Development Projects",
-  "name": "Active Development Projects"
-}
-```
-
-**Tool Response:**
-```json
-{
-  "id": "folder_dev",
-  "name": "Active Development Projects",
-  "description": "All development-related projects",
-  "url": "https://app.clickup.com/f/folder_dev",
-  "date_updated": "2024-03-16T11:30:00.000Z",
-  "list_count": 3,
-  "space": {
-    "id": "space123",
-    "name": "Engineering"
-  }
+  },
+  "statuses": []
 }
 ```
 
@@ -100,9 +61,9 @@ Create a folder called "Q2 Projects" in the "Engineering" space
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
+  "action": "create",
   "name": "Q2 Projects",
-  "spaceName": "Engineering"
+  "space_name": "Engineering"
 }
 ```
 
@@ -111,14 +72,39 @@ Create a folder called "Q2 Projects" in the "Engineering" space
 {
   "id": "folder_q2",
   "name": "Q2 Projects",
-  "url": "https://app.clickup.com/f/folder_q2",
-  "date_created": "2024-03-16T12:00:00.000Z",
-  "lists": [],
-  "list_count": 0,
   "space": {
     "id": "space123",
     "name": "Engineering"
-  }
+  },
+  "message": "Folder \"Q2 Projects\" created successfully"
+}
+```
+
+### Updating a Folder
+**User Prompt:**
+```
+Rename "Development Projects" to "Active Development Projects"
+```
+
+**Generated Request:**
+```json
+{
+  "action": "update",
+  "folder_name": "Development Projects",
+  "name": "Active Development Projects"
+}
+```
+
+**Tool Response:**
+```json
+{
+  "id": "folder_dev",
+  "name": "Active Development Projects",
+  "space": {
+    "id": "space123",
+    "name": "Engineering"
+  },
+  "message": "Folder \"Active Development Projects\" updated successfully"
 }
 ```
 
@@ -131,9 +117,9 @@ Delete the "Deprecated Projects" folder in the "Engineering" space
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "folderName": "Deprecated Projects",
-  "spaceName": "Engineering"
+  "action": "delete",
+  "folder_name": "Deprecated Projects",
+  "space_name": "Engineering"
 }
 ```
 
@@ -141,7 +127,7 @@ Delete the "Deprecated Projects" folder in the "Engineering" space
 ```json
 {
   "success": true,
-  "message": "Folder 'Deprecated Projects' deleted successfully"
+  "message": "Folder \"Deprecated Projects\" deleted successfully"
 }
 ```
 
@@ -154,24 +140,21 @@ Move "Q2 Projects" to the "Archive" space
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "folderName": "Q2 Projects",
-  "destinationSpaceName": "Archive"
+  "action": "move",
+  "folder_name": "Q2 Projects",
+  "space_name": "Archive"
 }
 ```
 
 **Tool Response:**
 ```json
 {
-  "success": true,
-  "message": "Folder moved successfully",
-  "folder": {
-    "id": "folder_q2",
-    "name": "Q2 Projects",
-    "space": {
-      "id": "space_archive",
-      "name": "Archive"
-    }
-  }
+  "id": "folder_q2_new",
+  "name": "Q2 Projects",
+  "space": {
+    "id": "space_archive",
+    "name": "Archive"
+  },
+  "message": "Folder moved successfully to space space_archive. New Folder ID: folder_q2_new"
 }
 ```
