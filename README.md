@@ -100,19 +100,14 @@ A license (via Polar.sh) grants full, unrestricted access to all features across
 
 <br>
 
-| [**Monthly ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual ($59/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime ($89 w/ code**)](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
+| [**Monthly ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual ($59/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime ($89 w/ code)**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
-| • Pay-as-you-go flexibility<br>• Cancel anytime | • **Save over 45%** ($4.92/mo)<br>• Priority support all year | • **Best Value** — One payment<br>• 🔥 **25% OFF** code: `MAR25` |
+| • Pay-as-you-go flexibility<br>• Cancel anytime | • **Save 45%** ($4.92/mo)<br>• Priority support all year | • **Best Value** — One payment<br>• 🔥 **25% OFF** code: `MAR25` |
+<br>
 
-<table width="100%" border="0">
-  <tr>
-    <td width="33%"><hr></td>
-    <td align="center" style="vertical-align: middle; white-space: nowrap;">
-      &nbsp;&nbsp;<a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme"><img src="https://img.shields.io/badge/PURCHASE%20LICENSE-0069ff?style=for-the-badge&logo=polar&logoColor=white" alt="Purchase License"></a>&nbsp;&nbsp;
-    </td>
-    <td width="33%"><hr></td>
-  </tr>
-</table>
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ &nbsp;&nbsp; <a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme"><img src="https://img.shields.io/badge/PURCHASE%20LICENSE-0069ff?style=for-the-badge&logo=polar&logoColor=white" alt="Purchase License"></a> &nbsp;&nbsp; ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+<br>
 
 **⚡️ Instant Key Delivery** &nbsp; • &nbsp; **3 Device Activations** &nbsp; • &nbsp; **Setup takes < 2 mins**
 
