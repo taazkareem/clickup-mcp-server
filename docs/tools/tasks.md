@@ -87,7 +87,7 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 - **Custom Task Types**: Use `custom_task_type` on `create_task`/`update_task` to set the task type (if your workspace uses custom task types)
 - **@Mention Support**: Use `@username` or `@email` in task comments and chat messages to mention users — they are automatically resolved
 - **Markdown in Comments/Chat**: Comments and chat messages support standard markdown formatting and are automatically converted to ClickUp's rich-text format
-- **High-Integrity Moves (TIML)**: `move_task` uses non-destructive TIML (Tasks in Multiple Lists) by default, preserving the task ID and all history. If TIML is blocked by workspace plan limits, the tool will NOT automatically fall back to a destructive copy-delete move — you must explicitly set `allowDestructiveFallback: true` (with user consent) to allow it. The same pattern applies to `move_list` and `move_folder`
+- **High-Integrity Moves (TIML)**: `move_task` uses non-destructive TIML (Tasks in Multiple Lists) by default, preserving the task ID and all history. If TIML is blocked by workspace plan limits, the tool will NOT automatically fall back to a destructive copy-delete move — you must explicitly set `allowDestructiveFallback: true` (with user consent) to allow it. The same pattern applies to `manage_lists` (move action) and `manage_folders` (move action)
 
 ### Custom Task ID Support
 

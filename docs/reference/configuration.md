@@ -31,7 +31,7 @@ You can control which tools are exposed to the AI agent using `ENABLED_TOOLS` or
 ```json
 {
   "env": {
-    "DISABLED_TOOLS": "delete_task,delete_bulk_tasks,delete_list,delete_folder"
+    "DISABLED_TOOLS": "delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency"
   }
 }
 ```

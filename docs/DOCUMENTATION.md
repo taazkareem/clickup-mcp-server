@@ -2,22 +2,22 @@
 
 # 📄 ClickUp MCP Server Documentation
 
-Complete reference for all 61 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
+Complete reference for all 47 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
 
-> Updated: 2026-03-05
+> Updated: 2026-03-07
 
 ## Tool Categories
 
 | Category | Tools | Description | Link |
 |----------|-------|-------------|------|
-| Task Management | 22 | Create, update, move, delete, query tasks; bulk ops; subtasks; file attachments; task linking; task dependencies | [tasks.md](tools/tasks.md) |
-| Task Checklists | 6 | Add checklists and checklist items to tasks; assign, nest, and resolve items | [task-checklists.md](tools/task-checklists.md) |
+| Task Management | 20 | Create, update, move, delete, query tasks; bulk ops; subtasks; file attachments; task linking; task dependencies; TIML | [tasks.md](tools/tasks.md) |
+| Task Checklists | 1 | Add checklists and checklist items to tasks; assign, nest, and resolve items (consolidated action-based tool) | [task-checklists.md](tools/task-checklists.md) |
 | Custom Fields | 1 | Create/List field definitions and set/remove task values (consolidated action-based tool) | [custom-fields.md](tools/custom-fields.md) |
-| Multi-List (TIML) | 2 | Add/remove tasks from multiple lists without duplicating them | [multi-list.md](tools/multi-list.md) |
+| Multi-List (TIML) | — | Add/remove tasks from multiple lists (tools included in Task Management count) | [multi-list.md](tools/multi-list.md) |
 | Time Tracking | 1 | Timers, manual entries, time reports, tags, and workspace-wide filtering | [time_entries.md](tools/time_entries.md) |
-| List Management | 6 | Create, update, move, and delete lists | [lists.md](tools/lists.md) |
+| List Management | 1 | Create, get, update, move, and delete lists; get folderless lists in a space (consolidated action-based tool) | [lists.md](tools/lists.md) |
 | Space Management | 1 | List, get, create, update, and delete spaces (consolidated action-based tool) | [spaces.md](tools/spaces.md) |
-| Folder Management | 5 | Create, update, move, and delete folders within spaces | [folders.md](tools/folders.md) |
+| Folder Management | 1 | Create, get, update, move, and delete folders within spaces (consolidated action-based tool) | [folders.md](tools/folders.md) |
 | Tag Management | 3 | Consolidated space tag CRUD (manage_space_tags); add/remove tags on tasks; natural language colors | [tags.md](tools/tags.md) |
 | Goal Management | 1 | List, get, create, update, and delete goals; create, update, and delete key results | [goals.md](tools/goals.md) |
 | Views Management | 1 | Consolidated action-based tool for ClickUp Views across all containers | [views.md](tools/views.md) |
