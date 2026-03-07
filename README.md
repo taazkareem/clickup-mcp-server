@@ -539,8 +539,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
-| **Workspace** | `get_workspace` | Get workspace structure |
-| | `get_workspace_members` | Get all workspace members |
+| **Workspace** | `get_workspace` | Get workspace structure and metadata (hierarchy, members, plan, etc.) |
 | | `find_member_by_name` | Find member by name or email |
 | **Tasks** | `create_task` | Create a task |
 | | `get_task` | Get single task details |
@@ -618,12 +617,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes. Includes read access for tasks, structural elements, goals, docs, and chat.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback`
+`X-Enabled-Tools: get_workspace,find_member_by_name,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,find_member_by_name,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback"
 }
 ```
 </details>
@@ -666,12 +665,12 @@ For agents dedicated to logging time and generating timesheets.
 Workspace building and alignment. Creates spaces, folders, lists, and goals. Handles bulk task operations and templates.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
+`X-Enabled-Tools: get_workspace,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
 }
 ```
 </details>

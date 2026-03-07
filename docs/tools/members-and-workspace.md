@@ -11,14 +11,11 @@ Look up workspace members, find users by name or email, and explore the full wor
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| get_workspace_members | Get all members in workspace | None | None |
 | find_member_by_name | Find member by name or email | `nameOrEmail` | None |
 
 ### Workspace Organization
 
-| Tool | Description | Required Parameters | Response |
-|------|-------------|-------------------|----------|
-| get_workspace | Get complete structure | None | Full workspace tree with spaces, folders, and lists |
+| get_workspace | Get complete structure and metadata | None | `include_hierarchy` (default true), `include_members`, `include_plan`, `include_seats`, `include_shared`, `include_custom_items` | Full workspace tree and requested metadata |
 
 ## Examples
 
@@ -93,7 +90,9 @@ Who is in my workspace?
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210"
+  "team_id": "9876543210",
+  "include_hierarchy": false,
+  "include_members": true
 }
 ```
 
@@ -106,24 +105,39 @@ Who is in my workspace?
       "username": "developer1",
       "email": "dev1@example.com",
       "role": 1,
-      "color": "#ff7800"
-    },
-    {
-      "id": 7654321,
-      "username": "manager1",
-      "email": "manager@example.com",
-      "role": 2,
-      "color": "#0080ff"
-    },
-    {
-      "id": 9876543,
-      "username": "sarah_connor",
-      "email": "sarah@example.com",
-      "role": 3,
-      "color": "#28a745"
+      "profilePicture": "https://..."
     }
-  ],
-  "count": 3
+  ]
+}
+```
+
+### Getting Workspace Plan & Usage
+**User Prompt:**
+```
+What is our workspace plan and seat utilization?
+```
+
+**Generated Request:**
+```json
+{
+  "include_hierarchy": false,
+  "include_plan": true,
+  "include_seats": true
+}
+```
+
+**Tool Response:**
+```json
+{
+  "plan": {
+    "name": "Unlimited",
+    "has_trial": false
+  },
+  "seats": {
+    "total": 10,
+    "filled": 5,
+    "available": 5
+  }
 }
 ```
 

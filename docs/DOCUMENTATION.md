@@ -2,7 +2,7 @@
 
 # 📄 ClickUp MCP Server Documentation
 
-Complete reference for all 48 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
+Complete reference for all 47 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
 
 > Updated: 2026-03-07
 
@@ -26,7 +26,7 @@ Complete reference for all 48 tools available in the ClickUp MCP Server. Each ca
 | User Group Management | 1 | List, create, update, and delete workspace user groups | [user-groups.md](tools/user-groups.md) |
 | Chat Management | 2 | Send messages, create channels, browse message history, threaded replies, reactions, member management | [chat.md](tools/chat.md) |
 | Task Templates | 2 | Get templates and create tasks from templates | [task-templates.md](tools/task-templates.md) |
-| Members & Workspace | 3 | Workspace hierarchy, member lookup, find users by name/email | [members-and-workspace.md](tools/members-and-workspace.md) |
+| Members & Workspace | 2 | Workspace hierarchy, members, plan details, and find users by name/email | [members-and-workspace.md](tools/members-and-workspace.md) |
 | Feedback | 1 | Submit bug reports, feature requests, and questions via GitHub | [feedback.md](tools/feedback.md) |
 
 ## Reference
