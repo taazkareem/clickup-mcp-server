@@ -1,5 +1,5 @@
-[← Back to Documentation Index](../DOCUMENTATION.md)  
-[← Back to README](../../README.md)  
+[← Back to Documentation Index](../DOCUMENTATION.md)
+[← Back to README](../../README.md)
 
 # Members & Workspace Organization
 
@@ -7,15 +7,11 @@ Look up workspace members, find users by name or email, and explore the full wor
 
 ## Tool Reference
 
-### Member Management
+### Workspace Organization
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| find_member_by_name | Find member by name or email | `nameOrEmail` | None |
-
-### Workspace Organization
-
-| get_workspace | Get complete structure and metadata | None | `include_hierarchy` (default true), `include_members`, `include_plan`, `include_seats`, `include_shared`, `include_custom_items` | Full workspace tree and requested metadata |
+| get_workspace | Get complete structure and metadata | None | `include_hierarchy` (default true), `include_members`, `search_member`, `include_plan`, `include_seats`, `include_shared`, `include_custom_items` |
 
 ## Examples
 
@@ -150,20 +146,22 @@ Find the user named Sarah
 **Generated Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "nameOrEmail": "Sarah"
+  "include_hierarchy": false,
+  "search_member": "Sarah"
 }
 ```
 
 **Tool Response:**
 ```json
 {
-  "member": {
-    "id": 9876543,
-    "username": "sarah_connor",
-    "email": "sarah@example.com",
-    "role": 3,
-    "color": "#28a745"
-  }
+  "matched_members": [
+    {
+      "id": 9876543,
+      "username": "sarah_connor",
+      "email": "sarah@example.com",
+      "role": 3,
+      "color": "#28a745"
+    }
+  ]
 }
 ```

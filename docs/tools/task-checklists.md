@@ -32,7 +32,7 @@ Checklists allow you to add structured to-do items within a task. Each task can 
 - **checklist_item_id**: Obtained from `create_item` or from `get_task` response
 - **resolved**: `true` = checked/complete, `false` = unchecked
 - **parent**: Set to another checklist item's ID to nest the item; set to `null` to un-nest
-- **assignee**: User ID to assign the item to (use `find_member_by_name` to resolve names to IDs)
+- **assignee**: User ID to assign the item to (use `get_workspace` with `search_member` to resolve names to IDs)
 
 ## Examples
 

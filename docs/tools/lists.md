@@ -30,7 +30,7 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 
 - **priority**: `1` = Urgent, `2` = High, `3` = Normal, `4` = Low
 - **due_date**: Unix timestamp in milliseconds
-- **assignee**: User ID (use `find_member_by_name` to resolve names to IDs)
+- **assignee**: User ID (use `get_workspace` with `search_member` to resolve names to IDs)
 
 ## Examples
 
