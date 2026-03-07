@@ -15,7 +15,7 @@ Checklists allow you to add structured to-do items within a task. Each task can 
 
 | Action | Description | Required | Optional |
 |--------|-------------|----------|---------|
-| `create_checklist` | Add a checklist to a task | `task_id`, `name` | `team_id` |
+| `create_checklist` | Add a checklist to a task | `task_id` or `task_name` | `list_name`, `custom_task_id`, `team_id` |
 | `edit_checklist` | Rename or reorder a checklist | `checklist_id`, `name` or `position` | `team_id` |
 | `delete_checklist` | Delete a checklist and all items | `checklist_id` | `team_id` |
 | `create_item` | Add an item to a checklist | `checklist_id`, `name` | `assignee`, `team_id` |
@@ -25,6 +25,9 @@ Checklists allow you to add structured to-do items within a task. Each task can 
 ## Parameters
 
 - **task_id**: Task ID. Obtain from `get_task` or task URL.
+- **task_name**: Task Name. Use instead of `task_id` for automated resolution.
+- **list_name**: List Name. Recommended when using `task_name` to scope the search.
+- **custom_task_id**: Custom Task ID (if enabled in workspace).
 - **checklist_id**: Obtained from `create_checklist` or from `get_task` response (checklists are included in task details)
 - **checklist_item_id**: Obtained from `create_item` or from `get_task` response
 - **resolved**: `true` = checked/complete, `false` = unchecked
