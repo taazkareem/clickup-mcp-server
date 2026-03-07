@@ -91,23 +91,33 @@ The industry-standard ClickUp integration for AI.
 
 ## <a name="premium-access"></a>💎 Premium Access
 
-**This project operates on a Sponsorware model.** A license grants **full access to all 48 premium tools** with any of the following plans:
-
 <div align="center">
+
+<h3>Unlock 48+ Enterprise-Grade Custom MCP Tools</h3>
+
+This project transitioned from open-source to a paid proprietary model for sustainable full-time development and priority support.
+A license (via Polar.sh) grants full, unrestricted access to all features across your agents—no tiers or limits.
+
+<br>
 
 | [**Monthly ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual ($59/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime ($89 w/ code**)](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
-| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • ONLY $4.92/mo <br>• 3 device activations<br>• Priority bug fixes | • **25% OFF** code: `MAR25` <br>• 3 device activations<br>• **Best Value** (One-time payment)|
+| • Pay-as-you-go flexibility<br>• Cancel anytime | • **Save over 45%** ($4.92/mo)<br>• Priority support all year | • **Best Value** — One payment<br>• 🔥 **25% OFF** code: `MAR25` |
 
-<br>
+<table width="100%" border="0">
+  <tr>
+    <td width="33%"><hr></td>
+    <td align="center" style="vertical-align: middle; white-space: nowrap;">
+      &nbsp;&nbsp;<a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme"><img src="https://img.shields.io/badge/PURCHASE%20LICENSE-0069ff?style=for-the-badge&logo=polar&logoColor=white" alt="Purchase License"></a>&nbsp;&nbsp;
+    </td>
+    <td width="33%"><hr></td>
+  </tr>
+</table>
 
-**⚡️ Instant Delivery:** Your License Key is delivered immediately via **Polar.sh**. Total setup time is under 2 minutes.
-
-<br>
-
-[![Purchase License](https://img.shields.io/badge/Purchase%20License-0069ff?style=for-the-badge&logo=polar&logoColor=white)](https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme)
+**⚡️ Instant Key Delivery** &nbsp; • &nbsp; **3 Device Activations** &nbsp; • &nbsp; **Setup takes < 2 mins**
 
 </div>
+
 
 ---
 
