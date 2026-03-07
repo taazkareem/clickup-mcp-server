@@ -28,6 +28,7 @@ Every request requires the `action` parameter. Depending on the action chosen, d
 | `add_tags` | Add a tag to an entry | `timer_id`, `name` | (None) |
 | `update_tags` | Rename a workspace tag globally | `name`, `new_name` | (None) |
 | `delete_tags` | Remove a tag from an entry | `timer_id`, `name` | (None) |
+| `get_bulk_time_in_status` | Get time-in-status for multiple tasks | `task_ids` | `custom_task_ids` |
 
 ## Quality of Life Features
 
@@ -79,5 +80,14 @@ This tool inherits the powerful "Name Resolution" and "Natural Language" systems
   "action": "add_tags",
   "timer_id": "893902384930238",
   "name": "UrgentFix"
+}
+```
+
+### 5. Bulk Time-in-Status Across Tasks
+
+```json
+{
+  "action": "get_bulk_time_in_status",
+  "task_ids": ["abc123", "def456", "ghi789"]
 }
 ```
