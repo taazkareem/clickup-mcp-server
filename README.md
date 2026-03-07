@@ -96,7 +96,7 @@ The industry-standard ClickUp integration for AI.
 <h3>Unlock 48+ Enterprise-Grade Custom MCP Tools</h3>
 
 This project transitioned from open-source to a paid proprietary model for sustainable full-time development and priority support.
-A license (via Polar.sh) grants full, unrestricted access to all features across your agents—no tiers or limits.
+A license grants full, unrestricted access to all features across your agents⎯no limits.
 
 <br>
 
@@ -109,7 +109,7 @@ A license (via Polar.sh) grants full, unrestricted access to all features across
 
 <br>
 
-**⚡️ Instant Key Delivery** &nbsp; • &nbsp; **3 Device Activations** &nbsp; • &nbsp; **Setup takes < 2 mins**
+**⚡️ Instant Key Delivery via Polar.sh** &nbsp; • &nbsp; **3 Device Activations** &nbsp; • &nbsp; **Setup takes less than 2 mins**
 
 </div>
 
