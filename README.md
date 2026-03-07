@@ -52,7 +52,7 @@ The industry-standard ClickUp integration for AI.
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>⏱️ Time Tracking</strong><br>
-      Start/stop timers, log manual entries, and filter time entries across the entire workspace using natural language dates or date ranges.
+      Start/stop timers, log manual entries, edit existing entries, retrieve timer history, manage time entry tags, and filter time entries across the entire workspace using natural language dates or date ranges.
     </td>
   </tr>
   <tr style="border: none;">
