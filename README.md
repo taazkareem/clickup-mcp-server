@@ -91,7 +91,7 @@ The industry-standard ClickUp integration for AI.
 
 ## <a name="premium-access"></a>💎 Premium Access
 
-**This project operates on a Sponsorware model.** A license grants **full access to all 47 premium tools** with any of the following plans:
+**This project operates on a Sponsorware model.** A license grants **full access to all 48 premium tools** with any of the following plans:
 
 <div align="center">
 
@@ -535,7 +535,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 47 available tools</strong></summary>  
+<summary><strong>👇 Click to view all 48 available tools</strong></summary>  
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -583,6 +583,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | **Chat** | `manage_chat_channels` | List, get, create, update, delete channels; get members/followers; create DMs |
 | | `manage_chat_messages` | Get, create, update, delete messages; threaded replies; reactions; tagged users |
 | **Webhooks** | `manage_webhooks` | Create, get, update, or delete webhooks |
+| **User Groups** | `manage_user_groups` | List, create, update, and delete workspace user groups |
 | **Task Templates** | `get_task_templates` | List available workspace templates |
 | | `create_task_from_template` | Create a task from a template |
 | **Feedback** | `submit_feedback` | Submit feedback or bug reports |
@@ -617,12 +618,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes. Includes read access for tasks, structural elements, goals, docs, and chat.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback"
 }
 ```
 </details>
@@ -633,12 +634,12 @@ Best for agents that need to view data without making any changes. Includes read
 Focused on day-to-day task management. Can create/update/delete tasks, track time, manage checklists, and update goals. Cannot modify workspace structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,find_member_by_name,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
 }
 ```
 </details>
@@ -665,12 +666,12 @@ For agents dedicated to logging time and generating timesheets.
 Workspace building and alignment. Creates spaces, folders, lists, and goals. Handles bulk task operations and templates.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,submit_feedback`
+`X-Enabled-Tools: get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace_hierarchy,get_workspace_members,find_member_by_name,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
 }
 ```
 </details>
@@ -694,7 +695,7 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>  
 
-Enables everything **except** standalone destructive tools. This configuration covers **all 47 tools** by default, only blocking the 4 specific deletion tools listed below. Useful for capable agents that need full access but shouldn't destroy data. Note: consolidated tools (`manage_lists`, `manage_folders`, `manage_checklists`) include delete actions internally — use system prompts to instruct the agent to avoid destructive actions if needed.
+Enables everything **except** standalone destructive tools. This configuration covers **all 48 tools** by default, only blocking the 4 specific deletion tools listed below. Useful for capable agents that need full access but shouldn't destroy data. Note: consolidated tools (`manage_lists`, `manage_folders`, `manage_checklists`) include delete actions internally — use system prompts to instruct the agent to avoid destructive actions if needed.
 
 **HTTP Header:**
 `X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency`
