@@ -22,7 +22,7 @@ You can control which tools are exposed to the AI agent using `ENABLED_TOOLS` or
 ```json
 {
   "env": {
-    "ENABLED_TOOLS": "get_task,create_task,update_task,get_workspace_hierarchy"
+    "ENABLED_TOOLS": "get_task,create_task,update_task,get_workspace"
   }
 }
 ```

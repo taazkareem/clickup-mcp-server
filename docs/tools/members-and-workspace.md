@@ -18,7 +18,7 @@ Look up workspace members, find users by name or email, and explore the full wor
 
 | Tool | Description | Required Parameters | Response |
 |------|-------------|-------------------|----------|
-| get_workspace_hierarchy | Get complete structure | None | Full workspace tree with spaces, folders, and lists |
+| get_workspace | Get complete structure | None | Full workspace tree with spaces, folders, and lists |
 
 ## Examples
 
