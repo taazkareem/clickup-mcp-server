@@ -10,8 +10,8 @@ The `manage_webhooks` tool supports the following actions:
 |--------|---------------------|---------------------|-------------|
 | `list` | None | `team_id` | Lists all webhooks in the workspace. |
 | `create` | `endpoint`, `events` | `space_id`, `folder_id`, `list_id`, `task_id`, `team_id` | Creates a new webhook with optional scope filters. |
-| `update` | `webhook_id` | `endpoint`, `events`, `status`, `team_id` | Updates an existing webhook. |
-| `delete` | `webhook_id` | `team_id` | Deletes a webhook permanently. |
+| `update` | `webhook_id` | `endpoint`, `events`, `status` | Updates an existing webhook. |
+| `delete` | `webhook_id` | None | Deletes a webhook permanently. |
 
 ## Available Event Types
 
