@@ -62,7 +62,7 @@ The industry-standard ClickUp integration for AI.
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>💬 Comments & Chat</strong><br>
-      Post, edit, resolve, and reply to comments on tasks, lists, and views. Create and manage chat channels (including DMs), send messages with threaded replies, reactions, and follower management. Both support rich text and @mentions.
+      Post, edit, resolve, and reply to comments on tasks, lists, and views. Create and manage chat channels (including DMs), send messages with threaded replies, reactions, and follower management. Both support rich text, subtypes, and @mentions.
     </td>
   </tr>
   <tr style="border: none;">

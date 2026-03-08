@@ -10,7 +10,7 @@ Send messages, create channels, and browse message history in ClickUp Chat. Supp
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
 | manage_chat_channels | Manage chat channels (list, get, create, update, delete, get_members, get_followers, create_dm) | `action` | `channel_id`, `channel_name`, `name`, `description`, `topic`, `visibility`, `space_id`, `folder_id`, `list_id`, `member_ids`, `cursor`, `limit` |
-| manage_chat_messages | Manage chat messages (get, create, update, delete, get_replies, create_reply, add_reaction, remove_reaction, get_reactions, get_tagged_users) | `action` | `channel_id`, `channel_name`, `message_id`, `content`, `notify_all`, `resolved`, `reaction`, `cursor`, `limit` |
+| manage_chat_messages | Manage chat messages (get, create, update, delete, get_replies, create_reply, add_reaction, remove_reaction, get_reactions, get_tagged_users, get_subtypes) | `action` | `channel_id`, `channel_name`, `message_id`, `content`, `notify_all`, `resolved`, `reaction`, `cursor`, `limit`, `comment_type`, `type`, `post_title`, `subtype_id` |
 
 ## manage_chat_channels
 
@@ -64,6 +64,7 @@ Send messages, create channels, and browse message history in ClickUp Chat. Supp
 | `remove_reaction` | Remove an emoji reaction | `message_id` + `reaction` |
 | `get_reactions` | Get all reactions on a message | `message_id` |
 | `get_tagged_users` | Get users tagged in a message | `message_id` |
+| `get_subtypes` | Get post subtype IDs for the workspace | `comment_type` (default: "post") |
 
 ### Parameters
 
@@ -77,6 +78,10 @@ Send messages, create channels, and browse message history in ClickUp Chat. Supp
 | `notify_all` | boolean | Notify all channel members. For create |
 | `resolved` | boolean | Mark message as resolved. For update |
 | `reaction` | string | Lowercase emoji name (e.g. `thumbsup`). Required for add_reaction/remove_reaction |
+| `comment_type` | string | Filter by comment type. For 'get_subtypes' action. Values: `post`, `ai`, `syncup`, `ai_via_brain`. |
+| `type` | string | Message type. For 'create' action. Values: `message`, `post`. |
+| `post_title` | string | Title for the post. Required if type is 'post'. |
+| `subtype_id` | string | Subtype ID for the post. Required if type is 'post'. |
 | `cursor` | string | Pagination cursor. For get or get_replies |
 | `limit` | number | Max results (up to 100). For get or get_replies |
 
@@ -308,4 +313,38 @@ What reactions does message 80140022762565 have?
     "user_id": "96055451"
   }
 ]
+```
+
+### Creating a "Post" Message
+**User Prompt:**
+```
+Create a post in the "General" channel titled "Announcement" using the subtype "Announcement" with the content "Hello everyone!"
+```
+
+**First Step (Get Subtypes):**
+```json
+{
+  "action": "get_subtypes",
+  "comment_type": "post"
+}
+```
+
+**Tool Response (Excerpts):**
+```json
+[
+  { "id": "1524389", "name": "Announcement" },
+  { "id": "1524388", "name": "Update" }
+]
+```
+
+**Final Step (Create Post):**
+```json
+{
+  "action": "create",
+  "channel_name": "General",
+  "type": "post",
+  "post_title": "Announcement",
+  "subtype_id": "1524389",
+  "content": "Hello everyone!"
+}
 ```
