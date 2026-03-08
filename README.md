@@ -93,9 +93,9 @@ The industry-standard ClickUp integration for AI.
 
 <div align="center">
 
-<h3>Unlock 40+ Enterprise-Grade Custom MCP Tools</h3>
+<h3>Unlock 40 Enterprise-Grade Custom Tools with 130+ Actions</h3>
 
-This project transitioned from open-source to a paid proprietary model for sustainable full-time development and priority support.
+This project transitioned from open-source to a paid model for sustainable full-time development and priority support.
 A license grants full, unrestricted access to all features across your agents⎯no limits.
 
 <br>
