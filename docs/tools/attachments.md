@@ -25,9 +25,12 @@ List, get, or upload attachments for a Task or File Custom Field using the Click
 | `customFieldId` | string | Conditional | File Custom Field ID. Mutually exclusive with `taskId`. |
 | `attachment_id` | string | For `get` | Attachment ID to fetch. |
 | `file_name` | string | For `upload` (with `file_data`) | File name for the upload. |
-| `file_data` | string | Conditional | Base64-encoded file content. |
+| `file_data` | string | Conditional | Base64-encoded file content. Files >10 MB are automatically chunked. |
 | `file_url` | string | Conditional | Web URL (`http/https`) or absolute local path. |
 | `auth_header` | string | No | Authorization header for authenticated URL downloads. |
+| `chunk_session` | string | For chunk continuation | Session ID returned when a large file upload is initialized. |
+| `chunk_index` | number | For chunk continuation | 0-based index of the current chunk. |
+| `chunk_is_last` | boolean | For chunk continuation | Set `true` on the final chunk to trigger assembly and upload. |
 | `team_id` | string | No | ClickUp Team ID or Workspace Name. |
 
 ## Examples
@@ -83,5 +86,30 @@ List, get, or upload attachments for a Task or File Custom Field using the Click
 {
   "action": "list",
   "customFieldId": "c18c447d-b954-464e-96b1-07f88ea79b62"
+}
+```
+
+### Large file upload (chunked — step 1: initiate)
+Files over 10 MB are automatically split into 5 MB chunks. The first call returns a `chunk_session` token.
+```json
+{
+  "action": "upload",
+  "taskId": "86afua62f",
+  "file_name": "large-video.mp4",
+  "file_data": "<base64-of-entire-file>"
+}
+```
+Response includes `chunk_session`, `chunks_total`, and `chunk_uploaded`.
+
+### Large file upload (chunked — step 2: finalize)
+On the last chunk, set `chunk_is_last: true`. The server assembles and uploads the file.
+```json
+{
+  "action": "upload",
+  "taskId": "86afua62f",
+  "chunk_session": "chunk_session_1234_abc",
+  "chunk_index": 2,
+  "file_data": "<base64-of-last-chunk>",
+  "chunk_is_last": true
 }
 ```

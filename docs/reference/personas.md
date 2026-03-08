@@ -20,7 +20,7 @@ To help AI agents focus on their specific tasks, you can limit the MCP tools the
 | `delete_task` | | ✅ | | | | |
 | `get_workspace_tasks` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | `manage_comments` | ✅ | ✅ | | | ✅ | ✅ |
-| `attach_task_file` | | ✅ | | | | ✅ |
+| `manage_attachments` | | ✅ | | | | ✅ |
 | `add_task_to_list` | | ✅ | | | | ✅ |
 | `remove_task_from_list` | | ✅ | | | | ✅ |
 | `create_bulk_tasks` | | | | ✅ | | ✅ |
@@ -81,7 +81,7 @@ Read-only access across the entire workspace (including goals and docs).
 
 #### 2. Task Worker
 Full task lifecycle management, checklists, time tracking, and tags. No structural changes (spaces) or document editing.
-**Value:** `get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
+**Value:** `get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,manage_attachments,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
 
 #### 3. Time Specialist
 Dedicated to logging time and reviewing timesheets.

@@ -562,7 +562,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `delete_bulk_tasks` | Delete multiple tasks |
 | | `get_workspace_tasks` | Search tasks with Deep Search filtering |
 | | `manage_comments` | Get, create, update, delete comments and replies on tasks, lists, or views |
-| | `attach_task_file` | Attach file to a task |
+| | `manage_attachments` | List, get, or upload attachments for tasks and file custom fields (v3) |
 | | `add_task_link` | Link two tasks together |
 | | `get_task_links` | Get task links |
 | | `delete_task_link` | Remove a task link |
@@ -641,12 +641,12 @@ Best for agents that need to view data without making any changes. Includes read
 Focused on day-to-day task management. Can create/update/delete tasks, track time, manage checklists, and update goals. Cannot modify workspace structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
+`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,manage_attachments,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,attach_task_file,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,manage_attachments,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
 }
 ```
 </details>
