@@ -697,7 +697,7 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>  
 
-Enables everything **except** standalone destructive tools. This configuration covers **all 41 tools** by default, only blocking the 4 specific deletion tools listed below. Useful for capable agents that need full access but shouldn't destroy data. Note: Some consolidated tools (`manage_lists`, `manage_folders`, `manage_checklists`) include delete actions internally.
+Enables everything **except** standalone destructive tools. This configuration covers **all 41 tools** by default, only blocking the 4 specific deletion tools listed below. Useful for capable agents that need full access but shouldn't destroy data. Note: consolidated tools (`manage_lists`, `manage_folders`, `manage_checklists`) include delete actions internally — use system prompts to instruct the agent to avoid destructive actions if needed.
 
 **HTTP Header:**
 `X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency`
