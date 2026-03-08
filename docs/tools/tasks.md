@@ -12,10 +12,10 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 | get_task | Get single task details with global lookup | `task` (Name or ID) | `listName` (disambiguation), `subtasks`, `include_markdown_description` |
 | manage_comments | Full comment lifecycle on tasks, lists, or views: get, create, update, delete, get_replies, create_reply | `action` + action-specific params (see below) | `context_type` (default: `task`), varies by action |
 | manage_attachments | List, get, or upload attachments for a task or file custom field (v3) | `action` + `taskId` or `customFieldId` | `attachment_id`, `attachment_name` (fuzzy), `file_data`, `file_url`, `file_name`, `chunk_*` for large files |
-| create_task | Create a new task | `name` and either `listId` or `listName` | description, status, priority (1-4), dueDate, startDate, parent (ID or Name), assignees, custom_task_type |
-| create_bulk_tasks | Create multiple tasks | `tasks[]` | `listId` or `listName` |
-| update_task | Modify task properties | `task` (Name or ID) | name, description, status, priority, dueDate, startDate, parent (ID or Name), assignees, custom_task_type |
-| update_bulk_tasks | Modify multiple tasks | `tasks[]` with task identifiers | Each task can have: name, description, status, priority, dueDate, startDate, etc. |
+| create_task | Create a new task | `name` and either `listId` or `listName` | description, status, priority (1-4), dueDate, startDate, time_estimate, parent (ID or Name), assignees, custom_task_type |
+| create_bulk_tasks | Create multiple tasks | `tasks[]` | `listId` or `listName`; each task supports: name, description, status, priority, dueDate, startDate, time_estimate, assignees |
+| update_task | Modify task properties | `task` (Name or ID) | name, description, status, priority, dueDate, startDate, time_estimate, parent (ID or Name), assignees, custom_task_type |
+| update_bulk_tasks | Modify multiple tasks | `tasks[]` with task identifiers | Each task can have: name, description, status, priority, dueDate, startDate, time_estimate, etc. |
 | delete_task | Remove a task | `task` (Name or ID) | `listName` |
 | delete_bulk_tasks | Remove multiple tasks | `tasks[]` with task identifiers | None |
 | move_task | Move task to another list (high-integrity TIML by default) | `task` (Name or ID) | `listId`, `listName`, `sourceListName`, `allowDestructiveFallback` |
@@ -72,6 +72,11 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
   - Create subtasks by setting `parent` parameter with parent task ID or Name on `create_task`
   - Convert tasks to subtasks by setting `parent` parameter with parent task ID or Name on `update_task` (parent must be in same list)
   - Multi-level subtasks are supported (subtasks can have their own subtasks)
+- **Time Estimates**:
+  - Accepts natural language: `"2h"`, `"45m"`, `"1h 30m"`, `"2.5h"`
+  - Accepts a plain number (treated as minutes): `"90"` → 90 minutes
+  - On `update_task` / `update_bulk_tasks`, pass `"null"` to clear an existing estimate
+  - Supported on: `create_task`, `create_bulk_tasks`, `update_task`, `update_bulk_tasks`
 - **Date Parameters**:
   - `dueDate`: When the task is due (deadline)
   - `startDate`: When work on the task should begin
