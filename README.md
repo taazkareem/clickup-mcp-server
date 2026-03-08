@@ -106,7 +106,7 @@ A license grants full, unrestricted access to all features across your agents⎯
 <br>
 
 <p align="center">
-  <img src="./assets/images/line.svg" width="150" align="middle">&nbsp;&nbsp;<a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme"><img src="https://img.shields.io/badge/PURCHASE%20LICENSE-0069ff?style=for-the-badge&logo=polar&logoColor=white" alt="Purchase License" align="middle"></a>&nbsp;&nbsp;<img src="./assets/images/line.svg" width="150" align="middle">
+  <img src="./assets/images/line.svg" width="150" alt="" style="vertical-align: middle;">&nbsp;&nbsp;<a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme"><img src="https://img.shields.io/badge/PURCHASE%20LICENSE-0069ff?style=for-the-badge&logo=polar&logoColor=white" alt="Purchase License" style="vertical-align: middle;"></a>&nbsp;&nbsp;<img src="./assets/images/line.svg" width="150" alt="" style="vertical-align: middle;">
 </p>
 
 <br>

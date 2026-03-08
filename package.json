@@ -1,9 +1,10 @@
 {
   "name": "@taazkareem/clickup-mcp-server",
-  "version": "0.12.3",
+  "version": "0.13.1",
   "mcpName": "io.github.taazkareem/clickup",
-  "description": "ClickUp MCP Server - Powering AI Agents (Claude, Gemini, n8n, Cursor) with full ClickUp task, document, and chat management capabilities.",
+  "description": "ClickUp MCP Server - Powering AI Agents with full ClickUp task, document, and chat management capabilities.",
   "type": "module",
+  "homepage": "https://github.com/taazkareem/clickup-mcp-server",
   "main": "build/index.js",
   "bin": {
     "clickup-mcp-server": "build/index.js"
@@ -18,8 +19,9 @@
   "scripts": {
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
     "start": "node build/index.js",
-    "dev": "tsc -w",
-    "prepare": "npm run build"
+    "dev": "tsx watch src/index.ts",
+    "prepare": "npm run build",
+    "sync-docs": "./scripts/sync-public-docs.sh"
   },
   "keywords": [
     "clickup",
@@ -66,19 +68,26 @@
   "bugs": {
     "url": "https://github.com/taazkareem/clickup-mcp-server/issues"
   },
-  "homepage": "https://github.com/taazkareem/clickup-mcp-server#readme",
   "dependencies": {
+    "@modelcontextprotocol/inspector": "^0.20.0",
     "@modelcontextprotocol/sdk": "^1.11.3",
     "axios": "^1.6.7",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
+    "dotenv": "^16.6.1",
     "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "marked": "^17.0.1",
+    "mcp-auth": "^0.2.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/node": "^20.11.16",
+    "node-fetch": "^3.3.2",
+    "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   },
   "engines": {
