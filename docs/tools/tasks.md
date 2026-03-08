@@ -11,7 +11,7 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 |------|-------------|-------------------|-------------------|
 | get_task | Get single task details with global lookup | `task` (Name or ID) | `listName` (disambiguation), `subtasks`, `include_markdown_description` |
 | manage_comments | Full comment lifecycle on tasks, lists, or views: get, create, update, delete, get_replies, create_reply | `action` + action-specific params (see below) | `context_type` (default: `task`), varies by action |
-| manage_attachments | List, get, or upload attachments for a task or file custom field (v3) | `action` + `taskId` or `customFieldId` | `file_data`, `file_url`, `file_name`, `attachment_id`, `chunk_*` for large files |
+| manage_attachments | List, get, or upload attachments for a task or file custom field (v3) | `action` + `taskId` or `customFieldId` | `attachment_id`, `attachment_name` (fuzzy), `file_data`, `file_url`, `file_name`, `chunk_*` for large files |
 | create_task | Create a new task | `name` and either `listId` or `listName` | description, status, priority (1-4), dueDate, startDate, parent (ID or Name), assignees, custom_task_type |
 | create_bulk_tasks | Create multiple tasks | `tasks[]` | `listId` or `listName` |
 | update_task | Modify task properties | `task` (Name or ID) | name, description, status, priority, dueDate, startDate, parent (ID or Name), assignees, custom_task_type |
