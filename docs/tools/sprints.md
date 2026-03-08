@@ -5,17 +5,22 @@ The `manage_sprints` tool allows users to interact with ClickUp's sprint functio
 ## Actions
 
 ### `get_active`
-Finds the currently active sprint in a space and returns its tasks.
-- **space_id** or **space_name**: The space to scan for sprint folders.
+Finds the currently active sprint and returns its tasks.
+- **space_id** or **space_name** (optional): The space to scan. If omitted, the tool will scan **all spaces** in the workspace.
 - **team_id** (optional): Workspace ID override.
 
+**Multi-Sprint Handling:**
+- If **exactly one** active sprint is found across the workspace, the tool returns its tasks directly.
+- If **multiple** active sprints are found (e.g., in different spaces), the tool returns a list of all active sprints and asks you to specify a `space_name` or `space_id` to narrow down the tasks.
+
 **Returns:**
-- Metadata about the active sprint (ID, name, dates, URL).
-- A summarized list of tasks within that sprint (IDs, names, statuses, assignees).
+- Metadata about the active sprint(s) (ID, name, dates, space, URL).
+- (If 1 found) A summarized list of tasks within that sprint (IDs, names, statuses, assignees).
 
 ### `get_sprints`
 Lists all sprints (lists) within a specific folder.
 - **folder_id** or **folder_name**: The folder containing the sprints.
+- **space_id** or **space_name** (optional): If folder_name is used, provides context. If omitted, performs a cross-workspace search for the folder.
 - **team_id** (optional): Workspace ID override.
 
 **Returns:**
