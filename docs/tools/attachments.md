@@ -23,7 +23,8 @@ List, get, or upload attachments for a Task or File Custom Field using the Click
 | `taskName` | string | Conditional | Task name (fallback; use with `listName`). |
 | `listName` | string | No | Narrows task name search. |
 | `customFieldId` | string | Conditional | File Custom Field ID. Mutually exclusive with `taskId`. |
-| `attachment_id` | string | For `get` | Attachment ID to fetch. |
+| `attachment_id` | string | For `get` | Exact attachment ID. Use when ID is known. |
+| `attachment_name` | string | For `get` | Attachment file name (fuzzy matched). Use when ID is unknown — no prior `list` call needed. |
 | `file_name` | string | For `upload` (with `file_data`) | File name for the upload. |
 | `file_data` | string | Conditional | Base64-encoded file content. Files >10 MB are automatically chunked. |
 | `file_url` | string | Conditional | Web URL (`http/https`) or absolute local path. |
@@ -49,6 +50,15 @@ List, get, or upload attachments for a Task or File Custom Field using the Click
   "action": "get",
   "taskId": "86afua62f",
   "attachment_id": "99c59a2a-da85-47a4-8023-542c8d33abd5.txt"
+}
+```
+
+### Get an attachment by name (fuzzy matched — no list call needed)
+```json
+{
+  "action": "get",
+  "taskId": "86afua62f",
+  "attachment_name": "report"
 }
 ```
 
