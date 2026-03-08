@@ -14,22 +14,50 @@ Manage ClickUp spaces — list, get, create, update, and delete spaces in your w
 | manage_spaces | `create` | Create a new space | `action`, `name` | `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features` |
 | manage_spaces | `update` | Update a space | `action` and either `spaceId` or `spaceName` | `name`, `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features` |
 | manage_spaces | `delete` | Delete a space | `action` and either `spaceId` or `spaceName` | None |
+| manage_spaces | `set_permissions` | Update space privacy and sharing (ACLs) | `action`, either `spaceId`/`spaceName`, and `private` | `entries`, `team_id` |
 
 ### Parameters
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| action | string | `list`, `get`, `create`, `update`, or `delete` |
-| spaceId | string | Space ID (preferred for get/update/delete) |
+| action | string | `list`, `get`, `create`, `update`, `delete`, or `set_permissions` |
+| spaceId | string | Space ID (preferred for get/update/delete/set_permissions) |
 | spaceName | string | Space name (resolved via fuzzy matching if spaceId not provided) |
 | name | string | Name for the space (required for create, optional for update) |
 | color | string | Space color hex code (e.g. `#7B68EE`) |
-| private | boolean | Whether the space is private |
+| private | boolean | Whether the space is private (required for `set_permissions`) |
 | admin_can_manage | boolean | Whether admins can manage without being a member |
 | multiple_assignees | boolean | Enable multiple assignees on tasks |
 | features | object | Feature toggles — each key (e.g. `due_dates`, `time_tracking`, `tags`, `checklists`, `custom_fields`, `time_estimates`) maps to an object with `enabled: boolean`. `due_dates` also supports `start_date`, `remap_due_dates`, `remap_closed_due_date`. |
+| entries | array | Array of permission objects `{ id: number, type: string, permission_level?: string }`. Required if making private and sharing with specific entities. |
 
 ## Examples
+
+### Setting Space Permissions
+**User Prompt:**
+```
+Set the "Engineering" space to private and share it with group 777
+```
+
+**Generated Request:**
+```json
+{
+  "action": "set_permissions",
+  "spaceName": "Engineering",
+  "private": true,
+  "entries": [
+    { "id": 777, "type": "team", "permission_level": "read" }
+  ]
+}
+```
+
+**Tool Response:**
+```json
+{
+  "success": true,
+  "message": "Permissions updated successfully for space \"Engineering\"."
+}
+```
 
 ### Listing All Spaces
 **User Prompt:**

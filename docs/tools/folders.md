@@ -20,10 +20,47 @@ Create, update, move, and delete folders to organize lists within your ClickUp s
 | `update` | Update folder properties | `folder_id` or `folder_name`, at least one of `name`/`override_statuses` | `space_id`/`space_name`, `team_id` |
 | `delete` | Delete a folder | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
 | `move` | Move folder to a different space (high-integrity) | `folder_id` or `folder_name`, `space_id` or `space_name` (destination) | `allow_destructive_fallback`, `team_id` |
+| `set_permissions` | Update folder privacy and sharing (ACLs) | `folder_id` or `folder_name`, and `private` | `entries`, `team_id` |
 
 > **Note on move:** Uses a High-Integrity Move workaround — creates a new folder at destination, migrates all lists and tasks, then deletes the source. The Folder ID will change.
 
+> **Note on set_permissions:** Uses the ClickUp v3 API. `private` is a boolean. `entries` is an array of `{ id: number, type: string, permission_level?: string }`. `type` can be `user` or `team` (group).
+
+## Parameters
+
+- **private**: Boolean. Set to `true` to make the object private, `false` for public.
+- **entries**: Array of permission objects. Required if making private and sharing with specific entities.
+  - **id**: User ID or Team (Group) ID
+  - **type**: `user` or `team`
+  - **permission_level**: `read`, `comment`, `edit`, or `create` (optional)
+
 ## Examples
+
+### Setting Folder Permissions
+**User Prompt:**
+```
+Make the "Q2 Projects" folder private and share it with user 12345
+```
+
+**Generated Request:**
+```json
+{
+  "action": "set_permissions",
+  "folder_name": "Q2 Projects",
+  "private": true,
+  "entries": [
+    { "id": 12345, "type": "user", "permission_level": "edit" }
+  ]
+}
+```
+
+**Tool Response:**
+```json
+{
+  "success": true,
+  "message": "Permissions updated successfully for folder \"Q2 Projects\""
+}
+```
 
 ### Getting Folder Details
 **User Prompt:**

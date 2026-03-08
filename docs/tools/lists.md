@@ -21,18 +21,52 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 | `update` | Update list properties | `list_id` or `list_name`, at least one of `name`/`content`/`status` | `team_id` |
 | `delete` | Delete a list | `list_id` or `list_name` | `team_id` |
 | `move` | Move list to a different space or folder (high-integrity) | `list_id` or `list_name`, plus destination `space_id`/`space_name` or `folder_id`/`folder_name` | `allow_destructive_fallback`, `team_id` |
+| `set_permissions` | Update list privacy and sharing (ACLs) | `list_id` or `list_name`, and `private` | `entries`, `team_id` |
 
 > **Note on move:** Uses a High-Integrity Move — creates a new list at destination, moves all tasks via the ClickUp v3 `home_list` endpoint (preserving task IDs), then deletes the source. The List ID will change.
+
+> **Note on set_permissions:** Uses the ClickUp v3 API. `private` is a boolean. `entries` is an array of `{ id: number, type: string, permission_level?: string }`. `type` can be `user` or `team` (group).
 
 > **Note on create:** If both `folder_id`/`folder_name` and `space_id`/`space_name` are provided, folder takes precedence and the list is created inside the folder.
 
 ## Parameters
 
+- **private**: Boolean. Set to `true` to make the object private, `false` for public.
+- **entries**: Array of permission objects. Required if making private and sharing with specific entities.
+  - **id**: User ID or Team (Group) ID
+  - **type**: `user` or `team`
+  - **permission_level**: `read`, `comment`, `edit`, or `create` (optional)
 - **priority**: `1` = Urgent, `2` = High, `3` = Normal, `4` = Low
 - **due_date**: Unix timestamp in milliseconds
 - **assignee**: User ID (use `get_workspace` with `search_member` to resolve names to IDs)
 
 ## Examples
+
+### Setting List Permissions
+**User Prompt:**
+```
+Make the "Sprint Backlog" list private and share it with the "Engineering" group (ID: 999)
+```
+
+**Generated Request:**
+```json
+{
+  "action": "set_permissions",
+  "list_name": "Sprint Backlog",
+  "private": true,
+  "entries": [
+    { "id": 999, "type": "team", "permission_level": "create" }
+  ]
+}
+```
+
+**Tool Response:**
+```json
+{
+  "success": true,
+  "message": "Permissions updated successfully for list \"Sprint Backlog\""
+}
+```
 
 ### Getting List Details
 **User Prompt:**
