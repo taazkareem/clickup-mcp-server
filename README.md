@@ -105,11 +105,13 @@ A license grants full, unrestricted access to all features across your agents⎯
 | • Pay-as-you-go flexibility<br>• Cancel anytime | • **Save 45%** ($4.92/mo)<br>• Priority support all year | • **Best Value** — One payment<br>• 🔥 **25% OFF** code: `MAR25` |
 <br>
 
-⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ &nbsp;&nbsp; <a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme"><img src="https://img.shields.io/badge/PURCHASE%20LICENSE-0069ff?style=for-the-badge&logo=polar&logoColor=white" alt="Purchase License"></a> &nbsp;&nbsp; ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+<p align="center">
+  <img src="./assets/images/line.svg" width="150" align="middle">&nbsp;&nbsp;<a href="https://buy.polar.sh/polar_cl_tZ2q8jRvtaaduurOkQKKJmRgdD43ZiB5K0GZn0aQcur?utm_source=github&utm_medium=readme"><img src="https://img.shields.io/badge/PURCHASE%20LICENSE-0069ff?style=for-the-badge&logo=polar&logoColor=white" alt="Purchase License" align="middle"></a>&nbsp;&nbsp;<img src="./assets/images/line.svg" width="150" align="middle">
+</p>
 
 <br>
 
-**⚡️ Instant Key Delivery via Polar.sh** &nbsp; • &nbsp; **3 Device Activations** &nbsp; • &nbsp; **Setup takes less than 2 mins**
+**⚡️ Instant Key Delivery (Polar.sh)** &nbsp; • &nbsp; **3 Device Activations** &nbsp; • &nbsp; **Setup takes less than 2 mins**
 
 </div>
 
