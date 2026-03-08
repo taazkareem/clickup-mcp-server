@@ -17,7 +17,7 @@
 
 **Properly Connect ClickUp to AI Agents and Agentic Workflows**
 
-*A high-performance Model Context Protocol (MCP) server for managing tasks, checklists, comments, tags, spaces, lists, folders, files, docs, chat, and time using natural language.*
+*A high-performance Model Context Protocol (MCP) server for managing tasks, checklists, sprints, comments, tags, spaces, lists, folders, files, docs, chat, and time using natural language.*
 
 **⭐️ Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads.  
 The industry-standard ClickUp integration for AI.
@@ -48,7 +48,7 @@ The industry-standard ClickUp integration for AI.
   <tr style="border: none;">
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>📝 Task Management</strong><br>
-      Full CRUD, move, duplicate, link, and set dependencies between tasks. Supports bulk operations, nested subtasks, checklists, natural language dates, custom task IDs, custom task types, custom fields, task templates, and file attachments (upload via URL, local path, or base64).
+      Full CRUD, move, duplicate, link, and set dependencies between tasks. Supports bulk operations, nested subtasks, checklists, sprints (active detection), natural language dates, custom task IDs, custom task types, custom fields, task templates, and file attachments (upload via URL, local path, or base64).
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>⏱️ Time Tracking</strong><br>
@@ -93,7 +93,7 @@ The industry-standard ClickUp integration for AI.
 
 <div align="center">
 
-<h3>Unlock 40 Enterprise-Grade Custom Tools with 130+ Actions</h3>
+<h3>Unlock 41 Enterprise-Grade Custom Tools with 130+ Actions</h3>
 
 This project transitioned from open-source to a paid model for sustainable full-time development and priority support.
 A license grants full, unrestricted access to all features across your agents⎯no limits.
@@ -542,7 +542,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 40 available tools</strong></summary>
+<summary><strong>👇 Click to view all 41 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -569,6 +569,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `add_task_dependency` | Set a blocking dependency between tasks |
 | | `delete_task_dependency` | Remove a blocking dependency between tasks |
 | **Checklists** | `manage_checklists` | Create, edit, delete checklists and checklist items on tasks |
+| **Sprints** | `manage_sprints` | Auto-detect active sprints, list sprints in folders, and fetch sprint tasks |
 | **Lists** | `manage_lists` | Create, get, update, delete, move lists; get folderless lists in a space |
 | **Custom Fields** | `manage_custom_fields` | Manage field definitions and task values (consolidated) |
 | **Spaces** | `manage_spaces` | List, get, create, update, or delete spaces |
@@ -635,12 +636,12 @@ Best for agents that need to view data without making any changes. Includes read
 Focused on day-to-day task management. Can create/update/delete tasks, track time, manage checklists, and update goals. Cannot modify workspace structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,manage_attachments,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
+`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,manage_attachments,manage_sprints,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,manage_attachments,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,manage_attachments,manage_sprints,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
 }
 ```
 </details>
@@ -667,12 +668,12 @@ For agents dedicated to logging time and generating timesheets.
 Workspace building and alignment. Creates spaces, folders, lists, and goals. Handles bulk task operations and templates.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
+`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_sprints,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_sprints,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
 }
 ```
 </details>
@@ -696,7 +697,7 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>  
 
-Enables everything **except** standalone destructive tools. This configuration covers **all 40 tools** by default, only blocking the 4 specific deletion tools listed below. Useful for capable agents that need full access but shouldn't destroy data. Note: consolidated tools (`manage_lists`, `manage_folders`, `manage_checklists`) include delete actions internally — use system prompts to instruct the agent to avoid destructive actions if needed.
+Enables everything **except** standalone destructive tools. This configuration covers **all 41 tools** by default, only blocking the 4 specific deletion tools listed below. Useful for capable agents that need full access but shouldn't destroy data. Note: Some consolidated tools (`manage_lists`, `manage_folders`, `manage_checklists`) include delete actions internally.
 
 **HTTP Header:**
 `X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency`

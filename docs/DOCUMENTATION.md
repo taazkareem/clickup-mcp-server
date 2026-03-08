@@ -2,9 +2,9 @@
 
 # 📄 ClickUp MCP Server Documentation
 
-Complete reference for all 40 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
+Complete reference for all 41 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
 
-> Updated: 2026-03-07
+> Updated: 2026-03-08
 
 ## Tool Categories
 
@@ -12,6 +12,7 @@ Complete reference for all 40 tools available in the ClickUp MCP Server. Each ca
 |----------|-------|-------------|------|
 | Task Management | 20 | Create, update, move, delete, query tasks; bulk ops; subtasks; file attachments; task linking; task dependencies; TIML | [tasks.md](tools/tasks.md) |
 | Task Checklists | 1 | Add checklists and checklist items to tasks; assign, nest, and resolve items (consolidated action-based tool) | [task-checklists.md](tools/task-checklists.md) |
+| Sprint Management | 1 | Auto-detect active sprints by date range; list sprints in folders; fetch tasks per sprint | [sprints.md](tools/sprints.md) |
 | Custom Fields | 1 | Create/List field definitions and set/remove task values (consolidated action-based tool) | [custom-fields.md](tools/custom-fields.md) |
 | Multi-List (TIML) | — | Add/remove tasks from multiple lists (tools included in Task Management count) | [multi-list.md](tools/multi-list.md) |
 | Time Tracking | 1 | Timers, manual entries, time reports, tags, and workspace-wide filtering | [time_entries.md](tools/time_entries.md) |
