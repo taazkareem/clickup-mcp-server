@@ -25,6 +25,7 @@ Complete reference for all 46 tools available in the ClickUp MCP Server. Each ca
 | Webhook Management | 1 | List, create, update, and delete webhooks for real-time notifications | [webhooks.md](tools/webhooks.md) |
 | User Group Management | 1 | List, create, update, and delete workspace user groups | [user-groups.md](tools/user-groups.md) |
 | Guest Management | 1 | Invite, edit, remove workspace guests; grant/revoke access to tasks, lists, folders (Enterprise) | [guests.md](tools/guests.md) |
+| Audit Logs | 1 | Retrieve workspace audit logs for security, user, and hierarchy activity (Enterprise) | [audit-logs.md](tools/audit-logs.md) |
 | Chat Management | 2 | Send messages, create channels, browse message history, threaded replies, reactions, member management | [chat.md](tools/chat.md) |
 | Task Templates | 2 | Get templates and create tasks from templates | [task-templates.md](tools/task-templates.md) |
 | Members & Workspace | 1 | Workspace hierarchy, members, plan details, and member lookup (search) | [members-and-workspace.md](tools/members-and-workspace.md) |

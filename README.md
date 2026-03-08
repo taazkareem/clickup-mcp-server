@@ -542,11 +542,12 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 46 available tools</strong></summary>  
+<summary><strong>👇 Click to view all 47 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
 | **Workspace** | `get_workspace` | Get workspace structure and metadata (hierarchy, members, plan, etc.) |
+| | `get_audit_logs` | Retrieve workspace audit logs (Enterprise only) |
 | **Tasks** | `create_task` | Create a task |
 | | `get_task` | Get single task details |
 | | `update_task` | Modify task properties |
