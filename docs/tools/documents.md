@@ -3,298 +3,109 @@
 
 # Document Management
 
-Create, browse, and edit ClickUp documents and their pages. Supports markdown and HTML content formats, nested page hierarchies, and multiple content edit modes.
+Action-based tool for creating, browsing, and editing ClickUp documents and their pages. Supports markdown and HTML content formats, nested page hierarchies, and name resolution for parents and documents.
 
 ## Tool Reference
 
-| Tool | Description | Required Parameters | Optional Parameters |
-|------|-------------|-------------------|-------------------|
-| create_document | Create a document | `name`, `parent` (with `id` and `type`), `visibility`, `create_page` | None |
-| get_document | Get document details | `documentId` or `documentName` | `workspaceId` |
-| list_documents | List documents | None | `id`, `creator`, `deleted`, `archived`, `parent_id`, `parent_type`, `limit`, `next_cursor` |
-| list_document_pages | List document pages | `documentId` or `documentName` | `max_page_depth` (-1 for unlimited) |
-| get_document_pages | Get document pages | `documentId` or `documentName`, `pageIds` | `content_format` ('text/md'/'text/html') |
-| create_document_page | Create a document page | `documentId` or `documentName`, `name` | `content`, `sub_title`, `parent_page_id` |
-| update_document_page | Update a document page | `documentId` or `documentName`, `pageId` | `name`, `sub_title`, `content`, `content_format`, `content_edit_mode` |
+| Tool | Description | Actions |
+|------|-------------|---------|
+| `manage_documents` | Consolidated tool for documents and pages | `get`, `list`, `create`, `list_pages`, `get_page`, `get_pages`, `create_page`, `update_page` |
 
-## Parameters
+## Actions & Parameters
 
-- **Parent Types**:
-  - Space (4)
-  - Folder (5)
-  - List (6)
-  - All (7)
-  - Workspace (12)
+### Shared Parameters
+- `team_id` (string): Optional workspace override.
+- `documentId` (string): ID of the document (required for most page actions).
+- `title` (string): Document title (used for resolution if ID is missing).
+- `parentId`, `parentName`, `parentType`: Used for document resolution or creation context.
 
-- **Visibility Settings**:
-  - PUBLIC: Document is visible to all workspace members
-  - PRIVATE: Document is visible only to specific members
+### 1. `get`
+Retrieve document metadata.
+- **Requires**: `documentId` OR (`title` + `parentId`/`parentName` + `parentType`).
 
-- **Content Formats**:
-  - text/md: Markdown format (default)
-  - text/html: HTML format (for get_document_pages)
-  - text/plain: Plain text format (for update_document_page)
+### 2. `list`
+List documents in a workspace or specific container.
+- **Optional**: `parentId`, `parentType`, `creator`, `archived`, `deleted`, `limit`, `next_cursor`.
 
-- **Content Edit Modes**:
-  - replace: Replace existing content (default)
-  - append: Add content at the end
-  - prepend: Add content at the beginning
+### 3. `create`
+Create a new standalone document.
+- **Requires**: `name`, `parentType` (e.g., "workspace", "space", "list").
+- **Optional**: `parentId`/`parentName` (defaults to current workspace), `visibility` ("PUBLIC"/"PRIVATE"), `create_page` (boolean).
+
+### 4. `list_pages`
+List all pages in a document.
+- **Requires**: `documentId` OR `title` context.
+- **Optional**: `max_page_depth` (-1 for unlimited).
+
+### 5. `get_page`
+Get content for a single page.
+- **Requires**: `documentId`, `pageId`.
+- **Optional**: `content_format` ("text/md", "text/html").
+
+### 6. `get_pages`
+Get content for multiple pages in one call.
+- **Requires**: `documentId`, `pageIds` (array).
+- **Optional**: `content_format`.
+
+### 7. `create_page`
+Add a new page to a document.
+- **Requires**: `documentId`, `name`.
+- **Optional**: `content`, `sub_title`, `parent_page_id`, `content_format`.
+
+### 8. `update_page`
+Modify an existing page.
+- **Requires**: `documentId`, `pageId`.
+- **Optional**: `name`, `sub_title`, `content`, `content_format`, `content_edit_mode` ("replace", "append", "prepend").
+
+---
 
 ## Examples
 
-### Creating a Document with Initial Page
-```json
-{
-  "team_id": "9876543210",
-  "name": "Technical Documentation",
-  "parent": {
-    "id": "123456",
-    "type": 4
-  },
-  "visibility": "PUBLIC",
-  "create_page": true
-}
-```
-
-### Getting Document Details
+### Creating a Document
 **User Prompt:**
 ```
-Get details for the document with id 8cdu22c-13153
+Create a new public document called "API Specs" in the "Development" space.
 ```
 
-**Generated Request:**
+**Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "documentId": "8cdu22c-13153"
+  "action": "create",
+  "name": "API Specs",
+  "parentName": "Development",
+  "parentType": "space",
+  "visibility": "PUBLIC"
 }
 ```
 
-**Tool Response:**
-```json
-{
-  "id": "8cdu22c-13153",
-  "name": "Project Documentation",
-  "parent": {
-    "id": "90130315830",
-    "type": 4
-  },
-  "created": "2025-04-18T20:47:23.611Z",
-  "updated": "2025-04-18T20:47:23.611Z",
-  "creator": 55154194,
-  "public": false,
-  "type": 1,
-  "url": "https://app.clickup.com/docs/8cdu22c-13153"
-}
-```
-
-### Listing Documents
+### Getting a Specific Page
 **User Prompt:**
 ```
-Show me all documents in the workspace
+Read the content of page "Overview" (ID: 8cdu22c-11473) in document 8cdu22c-13153.
 ```
 
-**Generated Request:**
+**Request:**
 ```json
 {
-  "team_id": "9876543210"
-}
-```
-
-**Tool Response:**
-```json
-{
-  "documents": [
-    {
-      "id": "8cdu22c-10153",
-      "name": "Project Planning",
-      "url": "https://app.clickup.com/docs/8cdu22c-10153",
-      "parent": {
-        "id": "90131843402",
-        "type": 5
-      },
-      "created": "2024-08-16T19:30:17.853Z",
-      "updated": "2025-04-02T14:07:42.454Z",
-      "creator": 55158625,
-      "public": false,
-      "type": 1
-    },
-    {
-      "id": "8cdu22c-10173",
-      "name": "API Documentation",
-      "url": "https://app.clickup.com/docs/8cdu22c-10173",
-      "parent": {
-        "id": "90131843402",
-        "type": 5
-      },
-      "created": "2024-09-20T10:15:00.000Z",
-      "updated": "2025-03-25T16:22:11.000Z",
-      "creator": 55158625,
-      "public": true,
-      "type": 1
-    }
-  ]
-}
-```
-
-### Listing Document Pages
-**User Prompt:**
-```
-Show me all pages for the document with id 8cdu22c-13153
-```
-
-**Generated Request:**
-```json
-{
-  "team_id": "9876543210",
-  "documentId": "8cdu22c-13153"
-}
-```
-
-**Tool Response:**
-```json
-{
-  "pages": [
-    {
-      "id": "8cdu22c-11473",
-      "doc_id": "8cdu22c-13153",
-      "workspace_id": 9007073356,
-      "name": "Overview",
-      "date_created": 1745010444340,
-      "date_updated": 1745010454496
-    },
-    {
-      "id": "8cdu22c-13013",
-      "doc_id": "8cdu22c-13153",
-      "workspace_id": 9007073356,
-      "name": "Getting Started",
-      "date_created": 1744980000000,
-      "date_updated": 1745010454496,
-      "pages": [
-        {
-          "id": "8cdu22c-1687",
-          "doc_id": "8cdu22c-13153",
-          "parent_page_id": "8cdu22c-13013",
-          "workspace_id": 9007073356,
-          "name": "Installation",
-          "date_created": 1744990000000,
-          "date_updated": 1745010454496
-        }
-      ]
-    }
-  ]
-}
-```
-
-### Getting Document Page
-**User Prompt:**
-```
-Get details for the page "Milestones" in the document with id 8cdu22c-13153
-
-Obs: you can also ask for more pages at once
-```
-
-**Generated Request:**
-```json
-{
-  "team_id": "9876543210",
+  "action": "get_page",
   "documentId": "8cdu22c-13153",
-  "pageIds": ["8cdu22c-36253"]
+  "pageId": "8cdu22c-11473"
 }
 ```
 
-**Tool Response:**
-```json
-{
-  "pages": [
-    {
-      "id": "8cdu22c-36253",
-      "doc_id": "8cdu22c-13153",
-      "workspace_id": 9007073356,
-      "name": "Milestones",
-      "date_created": 1745010444340,
-      "date_updated": 1745010454496,
-      "content": "# Project Milestones\n\n## Phase 1\n- [ ] Design mockups\n- [ ] Review with stakeholders\n\n## Phase 2\n- [ ] Development\n- [ ] Testing",
-      "creator_id": 55154194,
-      "deleted": false,
-      "date_edited": 1745010454496,
-      "edited_by": 55154194,
-      "archived": false,
-      "protected": false
-    }
-  ]
-}
-```
-
-### Creating Document Page
+### Appending Content to a Page
 **User Prompt:**
 ```
-Create a page at the document 8cdu22c-13133 with ...
-or
-Create a subpage for page 8cdu22c-151232 with ...
+Add a new section to the end of page 8cdu22c-36293 in doc 8cdu22c-13133.
 ```
 
-**Generated Request:**
+**Request:**
 ```json
 {
-  "team_id": "9876543210",
-  "documentId": "8cdu22c-13133",
-  "name": "New Page Title",
-  "content": "Page content in markdown..."
-}
-```
-For a subpage, add `"parent_page_id": "8cdu22c-151232"`.
-
-**Tool Response:**
-```json
-{
-  "id": "8cdu22c-36273",
-  "doc_id": "8cdu22c-13133",
-  "workspace_id": 9007073356,
-  "name": "New Page Title",
-  "date_created": 1745171083589,
-  "date_updated": 1745171083589,
-  "content": "Page content in markdown...",
-  "creator_id": 55154194,
-  "deleted": false,
-  "archived": false,
-  "protected": false,
-  "url": "https://app.clickup.com/docs/8cdu22c-13133/p/8cdu22c-36273"
-}
-```
-
-### Updating / Editing Document Page
-**User Prompt:**
-```
-Edit page 8cdu22c-36293 adding, in the end, another information...
-```
-
-**Generated Request:**
-```json
-{
-  "team_id": "9876543210",
+  "action": "update_page",
   "documentId": "8cdu22c-13133",
   "pageId": "8cdu22c-36293",
-  "content": "Additional information to append...",
+  "content": "\n## New Section\nDetails here...",
   "content_edit_mode": "append"
-}
-```
-
-**Tool Response:**
-```json
-{
-  "id": "8cdu22c-36293",
-  "doc_id": "8cdu22c-13133",
-  "workspace_id": 9007073356,
-  "name": "Updated Page",
-  "date_created": 1745010444340,
-  "date_updated": 1745175600000,
-  "content": "Original page content...\n\nAdditional information to append...",
-  "creator_id": 55154194,
-  "deleted": false,
-  "date_edited": 1745175600000,
-  "edited_by": 55154194,
-  "archived": false,
-  "protected": false
 }
 ```

@@ -58,7 +58,7 @@ The industry-standard ClickUp integration for AI.
   <tr style="border: none;">
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>📄 Document Management</strong><br>
-      Create, read, and append to ClickUp Docs with full markdown text. Manage pages within documents for structured, long-form content.
+      Create, read, and append to ClickUp Docs with full markdown text. Manage pages within documents for structured, long-form content (consolidated action-based tool).
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>💬 Comments & Chat</strong><br>
@@ -93,7 +93,7 @@ The industry-standard ClickUp integration for AI.
 
 <div align="center">
 
-<h3>Unlock 48+ Enterprise-Grade Custom MCP Tools</h3>
+<h3>Unlock 40+ Enterprise-Grade Custom MCP Tools</h3>
 
 This project transitioned from open-source to a paid proprietary model for sustainable full-time development and priority support.
 A license grants full, unrestricted access to all features across your agents⎯no limits.
@@ -542,7 +542,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 47 available tools</strong></summary>
+<summary><strong>👇 Click to view all 40 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -579,13 +579,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `add_tag_to_task` | Add tag to task |
 | | `remove_tag_from_task` | Remove tag from task |
 | **Time Tracking** | `manage_time_entries` | Unified tool for tracking time, log manual entries, and tag timers |
-| **Docs** | `create_document` | Create a document |
-| | `get_document` | Get a document |
-| | `list_documents` | List documents |
-| | `list_document_pages` | List pages in a document |
-| | `get_document_pages` | Get page content |
-| | `create_document_page` | Add page to document |
-| | `update_document_page` | Update page content |
+| **Docs** | `manage_documents` | Consolidated tool for documents and pages (get, list, create, page management) |
 | **Chat** | `manage_chat_channels` | List, get, create, update, delete channels; get members/followers; create DMs |
 | | `manage_chat_messages` | Get, create, update, delete messages; threaded replies; reactions; tagged users |
 | **Webhooks** | `manage_webhooks` | Create, get, update, or delete webhooks |
@@ -625,12 +619,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes. Includes read access for tasks, structural elements, goals, docs, and chat.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback`
+`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,manage_documents,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,get_document,list_documents,list_document_pages,get_document_pages,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,manage_documents,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback"
 }
 ```
 </details>
@@ -689,12 +683,12 @@ Workspace building and alignment. Creates spaces, folders, lists, and goals. Han
 For agents managing documentation and communication.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_comments,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,manage_chat_channels,manage_chat_messages,submit_feedback`
+`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_comments,manage_views,manage_documents,manage_chat_channels,manage_chat_messages,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_comments,manage_views,create_document,get_document,list_documents,list_document_pages,get_document_pages,create_document_page,update_document_page,manage_chat_channels,manage_chat_messages,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_comments,manage_views,manage_documents,manage_chat_channels,manage_chat_messages,submit_feedback"
 }
 ```
 </details>
@@ -702,7 +696,7 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>  
 
-Enables everything **except** standalone destructive tools. This configuration covers **all 47 tools** by default, only blocking the 4 specific deletion tools listed below. Useful for capable agents that need full access but shouldn't destroy data. Note: consolidated tools (`manage_lists`, `manage_folders`, `manage_checklists`) include delete actions internally — use system prompts to instruct the agent to avoid destructive actions if needed.
+Enables everything **except** standalone destructive tools. This configuration covers **all 40 tools** by default, only blocking the 4 specific deletion tools listed below. Useful for capable agents that need full access but shouldn't destroy data. Note: consolidated tools (`manage_lists`, `manage_folders`, `manage_checklists`) include delete actions internally — use system prompts to instruct the agent to avoid destructive actions if needed.
 
 **HTTP Header:**
 `X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency`

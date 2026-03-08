@@ -2,7 +2,7 @@
 
 # 📄 ClickUp MCP Server Documentation
 
-Complete reference for all 46 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
+Complete reference for all 40 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
 
 > Updated: 2026-03-07
 
@@ -21,7 +21,7 @@ Complete reference for all 46 tools available in the ClickUp MCP Server. Each ca
 | Tag Management | 3 | Consolidated space tag CRUD (manage_space_tags); add/remove tags on tasks; natural language colors | [tags.md](tools/tags.md) |
 | Goal Management | 1 | List, get, create, update, and delete goals; create, update, and delete key results | [goals.md](tools/goals.md) |
 | Views Management | 1 | Consolidated action-based tool for ClickUp Views across all containers | [views.md](tools/views.md) |
-| Document Management | 7 | Create/browse/edit ClickUp Docs and pages; markdown and HTML support | [documents.md](tools/documents.md) |
+| Document Management | 1 | Consolidated action-based tool for documents and pages (manage_documents) | [documents.md](tools/documents.md) |
 | Webhook Management | 1 | List, create, update, and delete webhooks for real-time notifications | [webhooks.md](tools/webhooks.md) |
 | User Group Management | 1 | List, create, update, and delete workspace user groups | [user-groups.md](tools/user-groups.md) |
 | Guest Management | 1 | Invite, edit, remove workspace guests; grant/revoke access to tasks, lists, folders (Enterprise) | [guests.md](tools/guests.md) |
