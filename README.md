@@ -589,6 +589,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `manage_chat_messages` | Get, create, update, delete messages; threaded replies; reactions; tagged users |
 | **Webhooks** | `manage_webhooks` | Create, get, update, or delete webhooks |
 | **User Groups** | `manage_user_groups` | List, create, update, and delete workspace user groups |
+| **Guests** | `manage_guests` | Invite, edit, remove workspace guests; grant/revoke access to tasks, lists, folders (Enterprise) |
 | **Task Templates** | `get_task_templates` | List available workspace templates |
 | | `create_task_from_template` | Create a task from a template |
 | **Feedback** | `submit_feedback` | Submit feedback or bug reports |
