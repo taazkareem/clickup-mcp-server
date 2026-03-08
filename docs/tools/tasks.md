@@ -15,7 +15,7 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 | create_task | Create a new task | `name` and either `listId` or `listName` | description, status, priority (1-4), dueDate, startDate, time_estimate, parent (ID or Name), assignees, custom_task_type |
 | create_bulk_tasks | Create multiple tasks | `tasks[]` | `listId` or `listName`; each task supports: name, description, status, priority, dueDate, startDate, time_estimate, assignees |
 | update_task | Modify task properties | `task` (Name or ID) | name, description, status, priority, dueDate, startDate, time_estimate, parent (ID or Name), assignees, custom_task_type |
-| update_bulk_tasks | Modify multiple tasks | `tasks[]` with task identifiers | Each task can have: name, description, status, priority, dueDate, startDate, time_estimate, etc. |
+| update_bulk_tasks | Modify multiple tasks | `tasks[]` with task identifiers | Each task can have: name, description, status, priority, dueDate, startDate, time_estimate, assignees, custom_fields |
 | delete_task | Remove a task | `task` (Name or ID) | `listName` |
 | delete_bulk_tasks | Remove multiple tasks | `tasks[]` with task identifiers | None |
 | move_task | Move task to another list (high-integrity TIML by default) | `task` (Name or ID) | `listId`, `listName`, `sourceListName`, `allowDestructiveFallback` |
