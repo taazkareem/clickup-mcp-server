@@ -48,7 +48,7 @@ The industry-standard ClickUp integration for AI.
   <tr style="border: none;">
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>📝 Task Management</strong><br>
-      Create, update, move, delete, duplicate, link, and set dependencies between tasks. Supports bulk operations, nested subtasks, checklists, natural language dates, custom task IDs, custom task types, custom fields, and task templates.
+      Full CRUD, move, duplicate, link, and set dependencies between tasks. Supports bulk operations, nested subtasks, checklists, natural language dates, custom task IDs, custom task types, custom fields, task templates, and file attachments (upload via URL, local path, or base64).
     </td>
     <td style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>⏱️ Time Tracking</strong><br>
@@ -82,7 +82,7 @@ The industry-standard ClickUp integration for AI.
     </td>
     <td style="vertical-align: top; border: none;">
       <strong>🌳 Workspace Control</strong><br>
-      Full CRUD for spaces, folders, lists, webhooks, and tags across the entire workspace hierarchy. Switch workspaces mid-conversation without reconfiguration.
+      Full CRUD for spaces, folders, lists, webhooks, and tags across the entire workspace hierarchy. Manage access control (ACL) permissions at any level. Switch workspaces mid-conversation without reconfiguration.
     </td>
   </tr>
 </table>
