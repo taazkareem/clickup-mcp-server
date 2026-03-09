@@ -111,7 +111,7 @@ A license grants full, unrestricted access to all features across your agents⎯
 
 <br>
 
-**⚡️ Instant Key Delivery** &nbsp; • &nbsp; **3 Device Activations** &nbsp; • &nbsp; **Setup takes < 2 mins**
+**⚡️ Instant Key Delivery** &nbsp; • &nbsp; **Setup takes < 2 mins**
 
 </div>
 
