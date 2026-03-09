@@ -3,28 +3,22 @@
 
 # Folder Management
 
-Create, update, move, and delete folders to organize lists within your ClickUp spaces.
+Create, update, move, and delete folders to organize lists within your ClickUp spaces. Each operation is its own atomic tool.
 
 ## Tool Reference
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| manage_folders | Manage folders in a space | `action` | see action table below |
+| `get_folder` | Get folder details | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
+| `create_folder` | Create a new folder | `name`, `space_id` or `space_name` | `override_statuses`, `team_id` |
+| `update_folder` | Update folder properties | `folder_id` or `folder_name`, at least one of `name`/`override_statuses` | `space_id`/`space_name`, `team_id` |
+| `delete_folder` | Delete a folder | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
+| `move_folder` | Move folder to a different space (high-integrity) | `folder_id` or `folder_name`, `space_id` or `space_name` (destination) | `allow_destructive_fallback`, `team_id` |
+| `set_folder_permissions` | Update folder privacy and sharing (ACLs) | `folder_id` or `folder_name`, `private` | `entries`, `team_id` |
 
-### Actions
+> **Note on move_folder:** Uses a High-Integrity Move workaround — creates a new folder at destination, migrates all lists and tasks, then deletes the source. The Folder ID will change.
 
-| Action | Description | Required | Optional |
-|--------|-------------|----------|---------|
-| `create` | Create a new folder | `name`, `space_id` or `space_name` | `override_statuses`, `team_id` |
-| `get` | Get folder details | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
-| `update` | Update folder properties | `folder_id` or `folder_name`, at least one of `name`/`override_statuses` | `space_id`/`space_name`, `team_id` |
-| `delete` | Delete a folder | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
-| `move` | Move folder to a different space (high-integrity) | `folder_id` or `folder_name`, `space_id` or `space_name` (destination) | `allow_destructive_fallback`, `team_id` |
-| `set_permissions` | Update folder privacy and sharing (ACLs) | `folder_id` or `folder_name`, and `private` | `entries`, `team_id` |
-
-> **Note on move:** Uses a High-Integrity Move workaround — creates a new folder at destination, migrates all lists and tasks, then deletes the source. The Folder ID will change.
-
-> **Note on set_permissions:** Uses the ClickUp v3 API. `private` is a boolean. `entries` is an array of `{ id: number, type: string, permission_level?: string }`. `type` can be `user` or `team` (group).
+> **Note on set_folder_permissions:** Uses the ClickUp v3 API. `private` is a boolean. `entries` is an array of `{ id: number, type: string, permission_level?: string }`. `type` can be `user` or `team` (group).
 
 ## Parameters
 
@@ -42,10 +36,9 @@ Create, update, move, and delete folders to organize lists within your ClickUp s
 Make the "Q2 Projects" folder private and share it with user 12345
 ```
 
-**Generated Request:**
+**Generated Request (tool: `set_folder_permissions`):**
 ```json
 {
-  "action": "set_permissions",
   "folder_name": "Q2 Projects",
   "private": true,
   "entries": [
@@ -68,10 +61,9 @@ Make the "Q2 Projects" folder private and share it with user 12345
 Get details for the "Development Projects" folder
 ```
 
-**Generated Request:**
+**Generated Request (tool: `get_folder`):**
 ```json
 {
-  "action": "get",
   "folder_name": "Development Projects"
 }
 ```
@@ -95,10 +87,9 @@ Get details for the "Development Projects" folder
 Create a folder called "Q2 Projects" in the "Engineering" space
 ```
 
-**Generated Request:**
+**Generated Request (tool: `create_folder`):**
 ```json
 {
-  "action": "create",
   "name": "Q2 Projects",
   "space_name": "Engineering"
 }
@@ -123,10 +114,9 @@ Create a folder called "Q2 Projects" in the "Engineering" space
 Rename "Development Projects" to "Active Development Projects"
 ```
 
-**Generated Request:**
+**Generated Request (tool: `update_folder`):**
 ```json
 {
-  "action": "update",
   "folder_name": "Development Projects",
   "name": "Active Development Projects"
 }
@@ -151,10 +141,9 @@ Rename "Development Projects" to "Active Development Projects"
 Delete the "Deprecated Projects" folder in the "Engineering" space
 ```
 
-**Generated Request:**
+**Generated Request (tool: `delete_folder`):**
 ```json
 {
-  "action": "delete",
   "folder_name": "Deprecated Projects",
   "space_name": "Engineering"
 }
@@ -174,10 +163,9 @@ Delete the "Deprecated Projects" folder in the "Engineering" space
 Move "Q2 Projects" to the "Archive" space
 ```
 
-**Generated Request:**
+**Generated Request (tool: `move_folder`):**
 ```json
 {
-  "action": "move",
   "folder_name": "Q2 Projects",
   "space_name": "Archive"
 }

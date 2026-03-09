@@ -1,26 +1,25 @@
-[← Back to Documentation Index](../DOCUMENTATION.md)  
-[← Back to README](../../README.md)  
+[← Back to Documentation Index](../DOCUMENTATION.md)
+[← Back to README](../../README.md)
 
 # Space Management
 
-Manage ClickUp spaces — list, get, create, update, and delete spaces in your workspace. All operations are consolidated into a single `manage_spaces` tool using the `action` parameter.
+Manage ClickUp spaces — list, get, create, update, and delete spaces in your workspace. Each operation is its own atomic tool.
 
 ## Tool Reference
 
-| Tool | Action | Description | Required Parameters | Optional Parameters |
-|------|--------|-------------|-------------------|-------------------|
-| manage_spaces | `list` | List all spaces in workspace | `action` | None |
-| manage_spaces | `get` | Get a single space | `action` and either `spaceId` or `spaceName` | None |
-| manage_spaces | `create` | Create a new space | `action`, `name` | `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features` |
-| manage_spaces | `update` | Update a space | `action` and either `spaceId` or `spaceName` | `name`, `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features` |
-| manage_spaces | `delete` | Delete a space | `action` and either `spaceId` or `spaceName` | None |
-| manage_spaces | `set_permissions` | Update space privacy and sharing (ACLs) | `action`, either `spaceId`/`spaceName`, and `private` | `entries`, `team_id` |
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|-------------------|-------------------|
+| `list_spaces` | List all spaces in workspace | — | `team_id` |
+| `get_space` | Get a single space | `spaceId` or `spaceName` | `team_id` |
+| `create_space` | Create a new space | `name` | `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features`, `team_id` |
+| `update_space` | Update a space | `spaceId` or `spaceName` | `name`, `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features`, `team_id` |
+| `delete_space` | Delete a space | `spaceId` or `spaceName` | `team_id` |
+| `set_space_permissions` | Update space privacy and sharing (ACLs) | `spaceId` or `spaceName`, `private`, `entries` | `team_id` |
 
 ### Parameters
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| action | string | `list`, `get`, `create`, `update`, `delete`, or `set_permissions` |
 | spaceId | string | Space ID (preferred for get/update/delete/set_permissions) |
 | spaceName | string | Space name (resolved via fuzzy matching if spaceId not provided) |
 | name | string | Name for the space (required for create, optional for update) |
@@ -39,10 +38,9 @@ Manage ClickUp spaces — list, get, create, update, and delete spaces in your w
 Set the "Engineering" space to private and share it with group 777
 ```
 
-**Generated Request:**
+**Generated Request (tool: `set_space_permissions`):**
 ```json
 {
-  "action": "set_permissions",
   "spaceName": "Engineering",
   "private": true,
   "entries": [
@@ -65,11 +63,9 @@ Set the "Engineering" space to private and share it with group 777
 Show me all spaces in my workspace
 ```
 
-**Generated Request:**
+**Generated Request (tool: `list_spaces`):**
 ```json
-{
-  "action": "list"
-}
+{}
 ```
 
 **Tool Response:**
@@ -101,10 +97,9 @@ Show me all spaces in my workspace
 Get details for the Engineering space
 ```
 
-**Generated Request:**
+**Generated Request (tool: `get_space`):**
 ```json
 {
-  "action": "get",
   "spaceName": "Engineering"
 }
 ```
@@ -137,10 +132,9 @@ Get details for the Engineering space
 Create a private space called "Design" with time tracking enabled
 ```
 
-**Generated Request:**
+**Generated Request (tool: `create_space`):**
 ```json
 {
-  "action": "create",
   "name": "Design",
   "private": true,
   "features": {
@@ -175,10 +169,9 @@ Create a private space called "Design" with time tracking enabled
 Rename the "Design" space to "Design & UX" and enable multiple assignees
 ```
 
-**Generated Request:**
+**Generated Request (tool: `update_space`):**
 ```json
 {
-  "action": "update",
   "spaceName": "Design",
   "name": "Design & UX",
   "multiple_assignees": true
@@ -203,10 +196,9 @@ Rename the "Design" space to "Design & UX" and enable multiple assignees
 Delete the "Old Projects" space
 ```
 
-**Generated Request:**
+**Generated Request (tool: `delete_space`):**
 ```json
 {
-  "action": "delete",
   "spaceName": "Old Projects"
 }
 ```

@@ -1,31 +1,30 @@
-[← Back to Documentation Index](../DOCUMENTATION.md)  
-[← Back to README](../../README.md)  
+[← Back to Documentation Index](../DOCUMENTATION.md)
+[← Back to README](../../README.md)
 
 # Tag Management
 
-Create, update, and manage tags within ClickUp spaces and apply them to tasks. Space-level tag CRUD is consolidated into a single `manage_space_tags` tool using the `action` parameter. Task-level tag operations use separate `add_tag_to_task` and `remove_tag_from_task` tools.
+Create, update, and manage tags within ClickUp spaces and apply them to tasks. Space-level tag CRUD uses 4 atomic tools. Task-level tag operations use separate `add_tag_to_task` and `remove_tag_from_task` tools.
 
 ## Tool Reference
 
-### Space Tags (consolidated)
+### Space Tags
 
-| Tool | Action | Description | Required Parameters | Optional Parameters |
-|------|--------|-------------|-------------------|-------------------|
-| manage_space_tags | `list` | Get all tags in a space | `action` and either `spaceId` or `spaceName` | None |
-| manage_space_tags | `create` | Create a new tag | `action`, `tagName`, and either `spaceId` or `spaceName` | `tagBg`, `tagFg`, `colorCommand` |
-| manage_space_tags | `update` | Update tag name/colors | `action`, `tagName`, and either `spaceId` or `spaceName` | `newTagName`, `tagBg`, `tagFg`, `colorCommand` |
-| manage_space_tags | `delete` | Delete a tag from space | `action`, `tagName`, and either `spaceId` or `spaceName` | None |
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|-------------------|-------------------|
+| `list_space_tags` | Get all tags in a space | `spaceId` or `spaceName` | `team_id` |
+| `create_space_tag` | Create a new tag | `tagName`, `spaceId` or `spaceName` | `tagBg`, `tagFg`, `colorCommand`, `team_id` |
+| `update_space_tag` | Update tag name/colors | `tagName`, `spaceId` or `spaceName` | `newTagName`, `tagBg`, `tagFg`, `colorCommand`, `team_id` |
+| `delete_space_tag` | Delete a tag from space | `tagName`, `spaceId` or `spaceName` | `team_id` |
 
 ### Task Tags
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| add_tag_to_task | Add tag to a task | `tagName` and either `taskId` or (`taskName` + `listName`) | None |
-| remove_tag_from_task | Remove tag from task | `tagName` and either `taskId` or (`taskName` + `listName`) | None |
+| `add_tag_to_task` | Add tag to a task | `tagName` and either `taskId` or (`taskName` + `listName`) | None |
+| `remove_tag_from_task` | Remove tag from task | `tagName` and either `taskId` or (`taskName` + `listName`) | None |
 
 ## Parameters
 
-- **action**: `list`, `create`, `update`, or `delete` (for manage_space_tags)
 - **tagName**: Name of the tag (fuzzy-matched; case-insensitive)
 - **tagBg**: Background color in hex format (e.g., "#FF5733")
 - **tagFg**: Foreground (text) color in hex format (e.g., "#FFFFFF")
@@ -40,10 +39,9 @@ Create, update, and manage tags within ClickUp spaces and apply them to tasks. S
 Show me all tags in the "Development" space
 ```
 
-**Generated Request:**
+**Generated Request (tool: `list_space_tags`):**
 ```json
 {
-  "action": "list",
   "spaceName": "Development"
 }
 ```
@@ -78,10 +76,9 @@ Show me all tags in the "Development" space
 Create a new tag called "priority" in the "Development" space with red background
 ```
 
-**Generated Request:**
+**Generated Request (tool: `create_space_tag`):**
 ```json
 {
-  "action": "create",
   "spaceName": "Development",
   "tagName": "priority",
   "tagBg": "#FF0000",
@@ -108,10 +105,9 @@ Create a new tag called "priority" in the "Development" space with red backgroun
 Create a new tag called "important" in the "Development" space using dark blue color
 ```
 
-**Generated Request:**
+**Generated Request (tool: `create_space_tag`):**
 ```json
 {
-  "action": "create",
   "spaceName": "Development",
   "tagName": "important",
   "colorCommand": "dark blue color"
@@ -137,10 +133,9 @@ Create a new tag called "important" in the "Development" space using dark blue c
 Update the "priority" tag to have a blue background
 ```
 
-**Generated Request:**
+**Generated Request (tool: `update_space_tag`):**
 ```json
 {
-  "action": "update",
   "spaceName": "Development",
   "tagName": "priority",
   "tagBg": "#0000FF"
@@ -166,10 +161,9 @@ Update the "priority" tag to have a blue background
 Delete the "deprecated" tag from "Development"
 ```
 
-**Generated Request:**
+**Generated Request (tool: `delete_space_tag`):**
 ```json
 {
-  "action": "delete",
   "spaceName": "Development",
   "tagName": "deprecated"
 }
@@ -189,7 +183,7 @@ Delete the "deprecated" tag from "Development"
 Add the "feature" tag to the task "Implement Authentication"
 ```
 
-**Generated Request:**
+**Generated Request (tool: `add_tag_to_task`):**
 ```json
 {
   "taskName": "Implement Authentication",
@@ -211,7 +205,7 @@ Add the "feature" tag to the task "Implement Authentication"
 Remove the "bug" tag from "Implement Auth"
 ```
 
-**Generated Request:**
+**Generated Request (tool: `remove_tag_from_task`):**
 ```json
 {
   "taskName": "Implement Auth",
@@ -229,7 +223,7 @@ Remove the "bug" tag from "Implement Auth"
 
 ## Notes
 
-1. **Tag Existence**: Before adding a tag to a task, ensure the tag exists in the space. Use `manage_space_tags` with action `list` to verify, and action `create` to create it if needed.
+1. **Tag Existence**: Before adding a tag to a task, ensure the tag exists in the space. Use `list_space_tags` to verify, and `create_space_tag` to create it if needed.
 
 2. **Color Formats**:
    - **Hex Format**: Colors can be provided in hex format (e.g., "#FF5733", "#fff")

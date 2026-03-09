@@ -1,10 +1,18 @@
-# Manage Sprints Tool
+# Sprint Tools
 
-The `manage_sprints` tool allows users to interact with ClickUp's sprint functionality. Since ClickUp implements sprints as specialized Folders and Lists with date ranges, this tool provides high-level workflows to identify and interact with active, past, and future sprints.
+3 atomic tools for interacting with ClickUp's sprint functionality. Since ClickUp implements sprints as specialized Folders and Lists with date ranges, these tools provide high-level workflows to identify and interact with active, past, and future sprints.
 
-## Actions
+## Tool Reference
 
-### `get_active`
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|---------------------|---------------------|
+| `get_active_sprint` | Find the currently active sprint and return its tasks | — | `space_id`/`space_name`, `team_id` |
+| `list_sprints` | List all sprints (lists) within a specific folder | `folder_id` or `folder_name` | `space_id`/`space_name`, `team_id` |
+| `get_sprint_tasks` | Fetch all tasks for a specific sprint | `list_id` or `list_name` | `team_id` |
+
+## Tool Details
+
+### `get_active_sprint`
 Finds the currently active sprint and returns its tasks.
 - **space_id** or **space_name** (optional): The space to scan. If omitted, the tool will scan **all spaces** in the workspace.
 - **team_id** (optional): Workspace ID override.
@@ -17,45 +25,40 @@ Finds the currently active sprint and returns its tasks.
 - Metadata about the active sprint(s) (ID, name, dates, space, URL).
 - (If 1 found) A summarized list of tasks within that sprint (IDs, names, statuses, assignees).
 
-### `get_sprints`
+### `list_sprints`
 Lists all sprints (lists) within a specific folder.
 - **folder_id** or **folder_name**: The folder containing the sprints.
 - **space_id** or **space_name** (optional): If folder_name is used, provides context. If omitted, performs a cross-workspace search for the folder.
-- **team_id** (optional): Workspace ID override.
 
 **Returns:**
 - A list of sprints with their dates and statuses (active, past, future).
 
-### `get_tasks`
+### `get_sprint_tasks`
 Fetches all tasks for a specific sprint.
 - **list_id** or **list_name**: The ID or name of the sprint list.
-- **team_id** (optional): Workspace ID override.
 
 **Returns:**
 - A list of tasks within the sprint.
 
 ## Usage Examples
 
-### Find tasks in the current sprint
+### Find tasks in the current sprint (tool: `get_active_sprint`)
 ```json
 {
-  "action": "get_active",
   "space_name": "Development"
 }
 ```
 
-### List all sprints in a folder
+### List all sprints in a folder (tool: `list_sprints`)
 ```json
 {
-  "action": "get_sprints",
   "folder_name": "Product Backlog"
 }
 ```
 
-### Get tasks for a specific sprint
+### Get tasks for a specific sprint (tool: `get_sprint_tasks`)
 ```json
 {
-  "action": "get_tasks",
   "list_name": "Sprint 3"
 }
 ```

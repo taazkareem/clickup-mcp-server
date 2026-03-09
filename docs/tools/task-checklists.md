@@ -3,24 +3,18 @@
 
 # Task Checklists
 
-Checklists allow you to add structured to-do items within a task. Each task can have multiple checklists, and each checklist can have multiple items that can be assigned, nested, and marked as resolved.
+Checklists allow you to add structured to-do items within a task. Each task can have multiple checklists, and each checklist can have multiple items that can be assigned, nested, and marked as resolved. Each operation is its own atomic tool.
 
 ## Tool Reference
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| manage_checklists | Manage task checklists and items | `action` | see action table below |
-
-### Actions
-
-| Action | Description | Required | Optional |
-|--------|-------------|----------|---------|
 | `create_checklist` | Add a checklist to a task | `task_id` or `task_name`, `name` | `list_name`, `custom_task_id`, `team_id` |
 | `edit_checklist` | Rename or reorder a checklist | `checklist_id`, `name` or `position` | `team_id` |
 | `delete_checklist` | Delete a checklist and all items | `checklist_id` | `team_id` |
-| `create_item` | Add an item to a checklist | `checklist_id`, `name` | `assignee`, `team_id` |
-| `edit_item` | Update a checklist item | `checklist_id`, `checklist_item_id` | `name`, `resolved`, `assignee`, `parent`, `team_id` |
-| `delete_item` | Remove an item from a checklist | `checklist_id`, `checklist_item_id` | `team_id` |
+| `create_checklist_item` | Add an item to a checklist | `checklist_id`, `name` | `assignee`, `team_id` |
+| `edit_checklist_item` | Update a checklist item | `checklist_id`, `checklist_item_id` | `name`, `resolved`, `assignee`, `parent`, `team_id` |
+| `delete_checklist_item` | Remove an item from a checklist | `checklist_id`, `checklist_item_id` | `team_id` |
 
 ## Parameters
 
@@ -29,7 +23,7 @@ Checklists allow you to add structured to-do items within a task. Each task can 
 - **list_name**: List Name. Recommended when using `task_name` to scope the search.
 - **custom_task_id**: Custom Task ID (if enabled in workspace).
 - **checklist_id**: Obtained from `create_checklist` or from `get_task` response (checklists are included in task details)
-- **checklist_item_id**: Obtained from `create_item` or from `get_task` response
+- **checklist_item_id**: Obtained from `create_checklist_item` or from `get_task` response
 - **resolved**: `true` = checked/complete, `false` = unchecked
 - **parent**: Set to another checklist item's ID to nest the item; set to `null` to un-nest
 - **assignee**: User ID to assign the item to (use `get_workspace` with `search_member` to resolve names to IDs)
@@ -43,8 +37,8 @@ Add a "Launch Checklist" to task abc123 with items: update docs, run tests, depl
 ```
 
 The agent would call:
-1. `manage_checklists` with `action: "create_checklist"`, `task_id: "abc123"`, `name: "Launch Checklist"`
-2. `manage_checklists` with `action: "create_item"` for each item using the returned `checklist_id`
+1. `create_checklist` with `task_id: "abc123"`, `name: "Launch Checklist"`
+2. `create_checklist_item` for each item using the returned `checklist_id`
 
 ### Marking an Item as Complete
 **User Prompt:**
@@ -52,10 +46,9 @@ The agent would call:
 Mark "update docs" as done on the checklist
 ```
 
-**Generated Request:**
+**Generated Request (tool: `edit_checklist_item`):**
 ```json
 {
-  "action": "edit_item",
   "checklist_id": "abc-123",
   "checklist_item_id": "item-456",
   "resolved": true
@@ -68,10 +61,9 @@ Mark "update docs" as done on the checklist
 Add "Write unit tests" to the Launch Checklist
 ```
 
-**Generated Request:**
+**Generated Request (tool: `create_checklist_item`):**
 ```json
 {
-  "action": "create_item",
   "checklist_id": "abc-123",
   "name": "Write unit tests"
 }
@@ -102,10 +94,9 @@ Add "Write unit tests" to the Launch Checklist
 Rename the checklist to "Pre-Launch Checklist"
 ```
 
-**Generated Request:**
+**Generated Request (tool: `edit_checklist`):**
 ```json
 {
-  "action": "edit_checklist",
   "checklist_id": "abc-123",
   "name": "Pre-Launch Checklist"
 }
@@ -128,10 +119,9 @@ Rename the checklist to "Pre-Launch Checklist"
 Delete the checklist
 ```
 
-**Generated Request:**
+**Generated Request (tool: `delete_checklist`):**
 ```json
 {
-  "action": "delete_checklist",
   "checklist_id": "old-456"
 }
 ```
@@ -150,10 +140,9 @@ Delete the checklist
 Remove "Deprecated step" from the checklist
 ```
 
-**Generated Request:**
+**Generated Request (tool: `delete_checklist_item`):**
 ```json
 {
-  "action": "delete_item",
   "checklist_id": "abc-123",
   "checklist_item_id": "item-789"
 }

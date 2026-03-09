@@ -1,17 +1,15 @@
-# manage_webhooks
+# Webhooks
 
-Manage ClickUp webhooks to receive real-time notifications about changes in your workspace.
+4 atomic tools to manage ClickUp webhooks for real-time notifications about changes in your workspace.
 
-## Actions
+## Tool Reference
 
-The `manage_webhooks` tool supports the following actions:
-
-| Action | Required Parameters | Optional Parameters | Description |
-|--------|---------------------|---------------------|-------------|
-| `list` | None | `team_id` | Lists all webhooks in the workspace. |
-| `create` | `endpoint`, `events` | `space_id`, `folder_id`, `list_id`, `task_id`, `team_id` | Creates a new webhook with optional scope filters. |
-| `update` | `webhook_id` | `endpoint`, `events`, `status` | Updates an existing webhook. |
-| `delete` | `webhook_id` | None | Deletes a webhook permanently. |
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|---------------------|---------------------|
+| `list_webhooks` | List all webhooks in the workspace | — | `team_id` |
+| `create_webhook` | Create a new webhook | `endpoint`, `events` | `space_id`, `folder_id`, `list_id`, `task_id`, `team_id` |
+| `update_webhook` | Update an existing webhook | `webhook_id` | `endpoint`, `events`, `status` |
+| `delete_webhook` | Delete a webhook permanently | `webhook_id` | — |
 
 ## Available Event Types
 
@@ -65,20 +63,18 @@ When creating a webhook, you can optionally filter events to a specific level of
 
 ## Example Payloads
 
-### Create a Webhook
+### Create a Webhook (tool: `create_webhook`)
 ```json
 {
-  "action": "create",
   "endpoint": "https://example.com/clickup/webhook",
   "events": ["taskCreated", "taskUpdated"],
   "list_id": "90130000000"
 }
 ```
 
-### Update a Webhook Status
+### Update a Webhook Status (tool: `update_webhook`)
 ```json
 {
-  "action": "update",
   "webhook_id": "b7ed7af0-be32-4dcd-b090-4f2c0af74c54",
   "status": "suspended"
 }

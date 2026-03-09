@@ -1,53 +1,51 @@
 [← Back to Documentation Index](../DOCUMENTATION.md)
 [← Back to README](../../README.md)
 
-# manage_guests
+# Guest Management
 
-Manage workspace guests (Enterprise plan) — invite external users, configure permissions, and grant/revoke access to tasks, lists, and folders.
+10 atomic tools to manage workspace guests (Enterprise plan) — invite external users, configure permissions, and grant/revoke access to tasks, lists, and folders.
 
-## Actions
+## Tool Reference
 
-| Action | Required Parameters | Optional Parameters | Description |
-|--------|---------------------|---------------------|-------------|
-| `invite` | `email` | `can_edit_tags`, `can_see_time_spent`, `can_see_time_estimated`, `can_create_views`, `team_id` | Invite a guest to the workspace |
-| `get` | `guest_id` | `team_id` | Get guest details |
-| `edit` | `guest_id` | `username`, `can_edit_tags`, `can_see_time_spent`, `can_see_time_estimated`, `can_create_views`, `team_id` | Edit guest display name or permissions |
-| `remove` | `guest_id` | `team_id` | Remove a guest from the workspace |
-| `add_to_task` | `guest_id`, `task_id` | `permission_level`, `team_id` | Grant guest access to a task |
-| `remove_from_task` | `guest_id`, `task_id` | `team_id` | Revoke guest access from a task |
-| `add_to_list` | `guest_id`, `list_id` | `permission_level`, `team_id` | Grant guest access to a list |
-| `remove_from_list` | `guest_id`, `list_id` | `team_id` | Revoke guest access from a list |
-| `add_to_folder` | `guest_id`, `folder_id` | `permission_level`, `team_id` | Grant guest access to a folder |
-| `remove_from_folder` | `guest_id`, `folder_id` | `team_id` | Revoke guest access from a folder |
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|---------------------|---------------------|
+| `invite_guest` | Invite a guest to the workspace | `email` | `can_edit_tags`, `can_see_time_spent`, `can_see_time_estimated`, `can_create_views`, `team_id` |
+| `get_guest` | Get guest details | `guest_id` | `team_id` |
+| `edit_guest` | Edit guest display name or permissions | `guest_id` | `username`, `can_edit_tags`, `can_see_time_spent`, `can_see_time_estimated`, `can_create_views`, `team_id` |
+| `remove_guest` | Remove a guest from the workspace | `guest_id` | `team_id` |
+| `add_guest_to_task` | Grant guest access to a task | `guest_id`, `task_id` | `permission_level`, `team_id` |
+| `remove_guest_from_task` | Revoke guest access from a task | `guest_id`, `task_id` | `team_id` |
+| `add_guest_to_list` | Grant guest access to a list | `guest_id`, `list_id` | `permission_level`, `team_id` |
+| `remove_guest_from_list` | Revoke guest access from a list | `guest_id`, `list_id` | `team_id` |
+| `add_guest_to_folder` | Grant guest access to a folder | `guest_id`, `folder_id` | `permission_level`, `team_id` |
+| `remove_guest_from_folder` | Revoke guest access from a folder | `guest_id`, `folder_id` | `team_id` |
 
 ## Parameters
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `action` | string | Action to perform (see table above) |
-| `guest_id` | string | Guest ID. Required for all actions except `invite`. |
-| `email` | string | Guest email address. Required for `invite`. |
-| `username` | string | Display name. For `edit` action. |
-| `can_edit_tags` | boolean | Permission: can edit tags. For `invite`/`edit`. |
-| `can_see_time_spent` | boolean | Permission: can see time spent. For `invite`/`edit`. |
-| `can_see_time_estimated` | boolean | Permission: can see time estimated. For `invite`/`edit`. |
-| `can_create_views` | boolean | Permission: can create views. For `invite`/`edit`. |
-| `task_id` | string | Task ID. Required for `add_to_task`/`remove_from_task`. |
-| `list_id` | string | List ID. Required for `add_to_list`/`remove_from_list`. |
-| `folder_id` | string | Folder ID. Required for `add_to_folder`/`remove_from_folder`. |
-| `permission_level` | string | Access level: `read`, `comment`, `edit`, or `create`. For `add_to_*` actions. |
+| `guest_id` | string | Guest ID. Required for all tools except `invite_guest`. |
+| `email` | string | Guest email address. Required for `invite_guest`. |
+| `username` | string | Display name. For `edit_guest`. |
+| `can_edit_tags` | boolean | Permission: can edit tags. For `invite_guest`/`edit_guest`. |
+| `can_see_time_spent` | boolean | Permission: can see time spent. For `invite_guest`/`edit_guest`. |
+| `can_see_time_estimated` | boolean | Permission: can see time estimated. For `invite_guest`/`edit_guest`. |
+| `can_create_views` | boolean | Permission: can create views. For `invite_guest`/`edit_guest`. |
+| `task_id` | string | Task ID. Required for `add_guest_to_task`/`remove_guest_from_task`. |
+| `list_id` | string | List ID. Required for `add_guest_to_list`/`remove_guest_from_list`. |
+| `folder_id` | string | Folder ID. Required for `add_guest_to_folder`/`remove_guest_from_folder`. |
+| `permission_level` | string | Access level: `read`, `comment`, `edit`, or `create`. For `add_guest_to_*` tools. |
 | `team_id` | string | Optional workspace/team ID override. |
 
 ## Examples
 
-### Invite a guest
+### Invite a guest (tool: `invite_guest`)
 
 **User Prompt:** Invite contractor@example.com as a guest to the workspace.
 
 **Generated Request:**
 ```json
 {
-  "action": "invite",
   "email": "contractor@example.com"
 }
 ```
@@ -62,14 +60,13 @@ Manage workspace guests (Enterprise plan) — invite external users, configure p
 
 ---
 
-### Get guest details
+### Get guest details (tool: `get_guest`)
 
 **User Prompt:** Show me the details for guest 12345.
 
 **Generated Request:**
 ```json
 {
-  "action": "get",
   "guest_id": "12345"
 }
 ```
@@ -83,14 +80,13 @@ Manage workspace guests (Enterprise plan) — invite external users, configure p
 
 ---
 
-### Edit guest permissions
+### Edit guest permissions (tool: `edit_guest`)
 
 **User Prompt:** Update guest 12345 to allow tag editing and rename to "External Dev".
 
 **Generated Request:**
 ```json
 {
-  "action": "edit",
   "guest_id": "12345",
   "username": "External Dev",
   "can_edit_tags": true
@@ -107,14 +103,13 @@ Manage workspace guests (Enterprise plan) — invite external users, configure p
 
 ---
 
-### Add guest to a task
+### Add guest to a task (tool: `add_guest_to_task`)
 
 **User Prompt:** Give guest 12345 edit access to task abc123.
 
 **Generated Request:**
 ```json
 {
-  "action": "add_to_task",
   "guest_id": "12345",
   "task_id": "abc123",
   "permission_level": "edit"
@@ -130,14 +125,13 @@ Manage workspace guests (Enterprise plan) — invite external users, configure p
 
 ---
 
-### Remove guest from workspace
+### Remove guest from workspace (tool: `remove_guest`)
 
 **User Prompt:** Remove guest 12345 from the workspace.
 
 **Generated Request:**
 ```json
 {
-  "action": "remove",
   "guest_id": "12345"
 }
 ```

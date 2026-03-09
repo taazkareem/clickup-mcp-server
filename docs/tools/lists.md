@@ -3,31 +3,25 @@
 
 # List Management
 
-Create, update, move, and delete lists within your ClickUp workspace. Lists can exist directly in a space or inside a folder.
+Create, update, move, and delete lists within your ClickUp workspace. Lists can exist directly in a space or inside a folder. Each operation is its own atomic tool.
 
 ## Tool Reference
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| manage_lists | Manage lists in a space or folder | `action` | see action table below |
+| `list_lists` | Get all folderless lists in a space | `space_id` or `space_name` | `team_id` |
+| `get_list` | Get list details | `list_id` or `list_name` | `include_members`, `team_id` |
+| `create_list` | Create a list in a space or folder | `name`, and one of: `space_id`/`space_name` (folderless) or `folder_id`/`folder_name` (in folder) | `content`, `due_date`, `priority`, `assignee`, `status`, `team_id` |
+| `update_list` | Update list properties | `list_id` or `list_name`, at least one of `name`/`content`/`status` | `team_id` |
+| `delete_list` | Delete a list | `list_id` or `list_name` | `team_id` |
+| `move_list` | Move list to a different space or folder (high-integrity) | `list_id` or `list_name`, plus destination `space_id`/`space_name` or `folder_id`/`folder_name` | `allow_destructive_fallback`, `team_id` |
+| `set_list_permissions` | Update list privacy and sharing (ACLs) | `list_id` or `list_name`, `private` | `entries`, `team_id` |
 
-### Actions
+> **Note on move_list:** Uses a High-Integrity Move — creates a new list at destination, moves all tasks via the ClickUp v3 `home_list` endpoint (preserving task IDs), then deletes the source. The List ID will change.
 
-| Action | Description | Required | Optional |
-|--------|-------------|----------|---------|
-| `create` | Create a list in a space or folder | `name`, and one of: `space_id`/`space_name` (folderless) or `folder_id`/`folder_name` (in folder) | `content`, `due_date`, `priority`, `assignee`, `status`, `team_id` |
-| `get` | Get list details | `list_id` or `list_name` | `team_id` |
-| `get_lists` | Get all folderless lists in a space | `space_id` or `space_name` | `team_id` |
-| `update` | Update list properties | `list_id` or `list_name`, at least one of `name`/`content`/`status` | `team_id` |
-| `delete` | Delete a list | `list_id` or `list_name` | `team_id` |
-| `move` | Move list to a different space or folder (high-integrity) | `list_id` or `list_name`, plus destination `space_id`/`space_name` or `folder_id`/`folder_name` | `allow_destructive_fallback`, `team_id` |
-| `set_permissions` | Update list privacy and sharing (ACLs) | `list_id` or `list_name`, and `private` | `entries`, `team_id` |
+> **Note on set_list_permissions:** Uses the ClickUp v3 API. `private` is a boolean. `entries` is an array of `{ id: number, type: string, permission_level?: string }`. `type` can be `user` or `team` (group).
 
-> **Note on move:** Uses a High-Integrity Move — creates a new list at destination, moves all tasks via the ClickUp v3 `home_list` endpoint (preserving task IDs), then deletes the source. The List ID will change.
-
-> **Note on set_permissions:** Uses the ClickUp v3 API. `private` is a boolean. `entries` is an array of `{ id: number, type: string, permission_level?: string }`. `type` can be `user` or `team` (group).
-
-> **Note on create:** If both `folder_id`/`folder_name` and `space_id`/`space_name` are provided, folder takes precedence and the list is created inside the folder.
+> **Note on create_list:** If both `folder_id`/`folder_name` and `space_id`/`space_name` are provided, folder takes precedence and the list is created inside the folder.
 
 ## Parameters
 
@@ -48,10 +42,9 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 Make the "Sprint Backlog" list private and share it with the "Engineering" group (ID: 999)
 ```
 
-**Generated Request:**
+**Generated Request (tool: `set_list_permissions`):**
 ```json
 {
-  "action": "set_permissions",
   "list_name": "Sprint Backlog",
   "private": true,
   "entries": [
@@ -74,10 +67,9 @@ Make the "Sprint Backlog" list private and share it with the "Engineering" group
 Get details for the "Sprint Backlog" list
 ```
 
-**Generated Request:**
+**Generated Request (tool: `get_list`):**
 ```json
 {
-  "action": "get",
   "list_name": "Sprint Backlog"
 }
 ```
@@ -102,10 +94,9 @@ Get details for the "Sprint Backlog" list
 List all lists in the "Engineering" space
 ```
 
-**Generated Request:**
+**Generated Request (tool: `list_lists`):**
 ```json
 {
-  "action": "get_lists",
   "space_name": "Engineering"
 }
 ```
@@ -127,10 +118,9 @@ List all lists in the "Engineering" space
 Create a list called "Sprint 42" in the "Engineering" space
 ```
 
-**Generated Request:**
+**Generated Request (tool: `create_list`):**
 ```json
 {
-  "action": "create",
   "name": "Sprint 42",
   "space_name": "Engineering"
 }
@@ -152,10 +142,9 @@ Create a list called "Sprint 42" in the "Engineering" space
 Create a "Bug Triage" list in the "QA" folder
 ```
 
-**Generated Request:**
+**Generated Request (tool: `create_list`):**
 ```json
 {
-  "action": "create",
   "name": "Bug Triage",
   "folder_name": "QA"
 }
@@ -178,10 +167,9 @@ Create a "Bug Triage" list in the "QA" folder
 Update "Sprint Backlog" description to "Current sprint planning items and priorities"
 ```
 
-**Generated Request:**
+**Generated Request (tool: `update_list`):**
 ```json
 {
-  "action": "update",
   "list_name": "Sprint Backlog",
   "content": "Current sprint planning items and priorities"
 }
@@ -203,10 +191,9 @@ Update "Sprint Backlog" description to "Current sprint planning items and priori
 Delete the "Archived Items" list
 ```
 
-**Generated Request:**
+**Generated Request (tool: `delete_list`):**
 ```json
 {
-  "action": "delete",
   "list_name": "Archived Items"
 }
 ```
@@ -225,10 +212,9 @@ Delete the "Archived Items" list
 Move "Sprint 42" to the "Product" space
 ```
 
-**Generated Request:**
+**Generated Request (tool: `move_list`):**
 ```json
 {
-  "action": "move",
   "list_name": "Sprint 42",
   "space_name": "Product"
 }

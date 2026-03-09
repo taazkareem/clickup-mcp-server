@@ -93,7 +93,7 @@ The industry-standard ClickUp integration for AI.
 
 <div align="center">
 
-<h3>Unlock 40+ Enterprise-Grade Custom Tools with 130+ Actions</h3>
+<h3>Unlock 137 Enterprise-Grade Atomic Tools</h3>
 
 This project transitioned from open-source to a paid model for sustainable full-time development and priority support.
 A license grants full, unrestricted access to all features across your agents⎯no limits.
@@ -542,7 +542,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 41 available tools</strong></summary>
+<summary><strong>👇 Click to view all 137 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -562,30 +562,124 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `delete_bulk_tasks` | Delete multiple tasks |
 | | `get_workspace_tasks` | Search tasks with Deep Search filtering |
 | | `manage_comments` | Get, create, update, delete comments and replies on tasks, lists, or views |
-| | `manage_attachments` | List, get, or upload attachments for tasks and file custom fields (v3) |
 | | `add_task_link` | Link two tasks together |
 | | `get_task_links` | Get task links |
 | | `delete_task_link` | Remove a task link |
 | | `add_task_dependency` | Set a blocking dependency between tasks |
 | | `delete_task_dependency` | Remove a blocking dependency between tasks |
-| **Checklists** | `manage_checklists` | Create, edit, delete checklists and checklist items on tasks |
-| **Sprints** | `manage_sprints` | Auto-detect active sprints, list sprints in folders, and fetch sprint tasks |
-| **Lists** | `manage_lists` | Create, get, update, delete, move lists; get folderless lists in a space |
-| **Custom Fields** | `manage_custom_fields` | Manage field definitions and task values (consolidated) |
-| **Spaces** | `manage_spaces` | List, get, create, update, or delete spaces |
-| **Goals** | `manage_goals` | List, get, create, update, or delete goals; manage key results |
-| **Views** | `manage_views` | List, get, create, update, or delete views; get tasks from view |
-| **Folders** | `manage_folders` | Create, get, update, delete, move folders in a space |
-| **Tags** | `manage_space_tags` | List, create, update, or delete space tags |
+| **Attachments** | `list_attachments` | List attachments for a task or file custom field (v3) |
+| | `get_attachment` | Get a specific attachment by ID or name (v3) |
+| | `upload_attachment` | Upload a file to a task or file custom field (v3) |
+| **Checklists** | `create_checklist` | Add a checklist to a task |
+| | `edit_checklist` | Rename or reorder a checklist |
+| | `delete_checklist` | Delete a checklist and all its items |
+| | `create_checklist_item` | Add an item to a checklist |
+| | `edit_checklist_item` | Update a checklist item (name, resolved, assignee, nesting) |
+| | `delete_checklist_item` | Remove an item from a checklist |
+| **Sprints** | `get_active_sprint` | Auto-detect the currently active sprint; returns tasks if exactly one found |
+| | `list_sprints` | List all sprints in a folder |
+| | `get_sprint_tasks` | Get tasks for a specific sprint list |
+| **Lists** | `list_lists` | Get all folderless lists in a space |
+| | `get_list` | Get list details |
+| | `create_list` | Create a list in a space or folder |
+| | `update_list` | Update list properties |
+| | `delete_list` | Delete a list |
+| | `move_list` | Move a list to a different space or folder (high-integrity) |
+| | `set_list_permissions` | Update list privacy and sharing (ACLs) |
+| **Custom Fields** | `list_custom_fields` | List field definitions for a list, folder, or space |
+| | `create_custom_field` | Add a new field definition to a list |
+| | `set_custom_field_value` | Set a field value on a task |
+| | `remove_custom_field_value` | Clear a field value from a task |
+| **Spaces** | `list_spaces` | List all spaces in the workspace |
+| | `get_space` | Get space details |
+| | `create_space` | Create a new space |
+| | `update_space` | Update space properties |
+| | `delete_space` | Delete a space |
+| | `set_space_permissions` | Update space privacy and sharing (ACLs) |
+| **Goals** | `list_goals` | List all goals in the workspace |
+| | `get_goal` | Get a goal with its key results |
+| | `create_goal` | Create a new goal |
+| | `update_goal` | Update a goal's properties |
+| | `delete_goal` | Delete a goal |
+| | `create_key_result` | Add a key result to a goal |
+| | `update_key_result` | Update a key result |
+| | `delete_key_result` | Delete a key result |
+| **Views** | `list_views` | List views for a space, folder, list, or workspace |
+| | `get_view` | Get a single view |
+| | `create_view` | Create a new view |
+| | `update_view` | Update a view |
+| | `delete_view` | Delete a view |
+| | `get_view_tasks` | Get tasks in a view |
+| **Folders** | `get_folder` | Get folder details |
+| | `create_folder` | Create a folder in a space |
+| | `update_folder` | Update folder properties |
+| | `delete_folder` | Delete a folder |
+| | `move_folder` | Move a folder to a different space (high-integrity) |
+| | `set_folder_permissions` | Update folder privacy and sharing (ACLs) |
+| **Tags** | `list_space_tags` | List all tags in a space |
+| | `create_space_tag` | Create a new space tag |
+| | `update_space_tag` | Update a space tag's name or colors |
+| | `delete_space_tag` | Delete a tag from a space |
 | | `add_tag_to_task` | Add tag to task |
 | | `remove_tag_from_task` | Remove tag from task |
-| **Time Tracking** | `manage_time_entries` | Unified tool for tracking time, log manual entries, and tag timers |
-| **Docs** | `manage_documents` | Consolidated tool for documents and pages (get, list, create, page management) |
-| **Chat** | `manage_chat_channels` | List, get, create, update, delete channels; get members/followers; create DMs |
-| | `manage_chat_messages` | Get, create, update, delete messages; threaded replies; reactions; tagged users |
-| **Webhooks** | `manage_webhooks` | Create, get, update, or delete webhooks |
-| **User Groups** | `manage_user_groups` | List, create, update, and delete workspace user groups |
-| **Guests** | `manage_guests` | Invite, edit, remove workspace guests; grant/revoke access to tasks, lists, folders (Enterprise) |
+| **Time Tracking** | `get_time_entries` | Fetch historical time entries |
+| | `get_current_time_entry` | Get currently running timer |
+| | `start_time_entry` | Start tracking time for a task |
+| | `stop_time_entry` | Stop the active timer |
+| | `add_time_entry` | Manually log a time entry |
+| | `update_time_entry` | Modify an existing time entry |
+| | `delete_time_entry` | Delete a time entry |
+| | `get_time_entry_tags` | Fetch all workspace time entry tags |
+| | `add_time_entry_tags` | Add a tag to a time entry |
+| | `update_time_entry_tags` | Rename a workspace time entry tag globally |
+| | `delete_time_entry_tags` | Remove a tag from a time entry |
+| | `get_time_entry_history` | View edit history of a time entry |
+| | `get_time_in_status` | Get time-in-status for multiple tasks |
+| **Docs** | `list_documents` | List documents in a workspace or container |
+| | `get_document` | Get document metadata |
+| | `create_document` | Create a new standalone document |
+| | `list_document_pages` | List all pages in a document |
+| | `get_document_page` | Get content for a single page |
+| | `get_document_pages` | Get content for multiple pages in one call |
+| | `create_document_page` | Add a new page to a document |
+| | `update_document_page` | Modify an existing page (replace/append/prepend) |
+| **Chat** | `list_chat_channels` | List all channels in the workspace |
+| | `get_chat_channel` | Get a single channel |
+| | `create_chat_channel` | Create a new channel |
+| | `update_chat_channel` | Update a channel |
+| | `delete_chat_channel` | Delete a channel |
+| | `get_chat_channel_members` | Get members of a channel |
+| | `get_chat_channel_followers` | Get followers of a channel |
+| | `create_chat_dm` | Create a direct message channel |
+| | `get_chat_messages` | Get messages from a channel |
+| | `create_chat_message` | Send a message to a channel |
+| | `update_chat_message` | Edit a message |
+| | `delete_chat_message` | Delete a message |
+| | `get_chat_message_replies` | Get threaded replies to a message |
+| | `create_chat_message_reply` | Reply to a message in a thread |
+| | `add_chat_reaction` | Add an emoji reaction to a message |
+| | `remove_chat_reaction` | Remove an emoji reaction |
+| | `get_chat_reactions` | Get all reactions on a message |
+| | `get_chat_tagged_users` | Get users tagged in a message |
+| | `get_chat_message_subtypes` | Get post subtype IDs for the workspace |
+| **Webhooks** | `list_webhooks` | List all webhooks in the workspace |
+| | `create_webhook` | Create a new webhook |
+| | `update_webhook` | Update an existing webhook |
+| | `delete_webhook` | Delete a webhook permanently |
+| **User Groups** | `list_user_groups` | List all user groups in the workspace |
+| | `create_user_group` | Create a new user group |
+| | `update_user_group` | Rename a group or add/remove members |
+| | `delete_user_group` | Delete a user group |
+| **Guests** | `invite_guest` | Invite a guest to the workspace (Enterprise) |
+| | `get_guest` | Get guest details (Enterprise) |
+| | `edit_guest` | Edit guest display name or permissions (Enterprise) |
+| | `remove_guest` | Remove a guest from the workspace (Enterprise) |
+| | `add_guest_to_task` | Grant guest access to a task (Enterprise) |
+| | `remove_guest_from_task` | Revoke guest access from a task (Enterprise) |
+| | `add_guest_to_list` | Grant guest access to a list (Enterprise) |
+| | `remove_guest_from_list` | Revoke guest access from a list (Enterprise) |
+| | `add_guest_to_folder` | Grant guest access to a folder (Enterprise) |
+| | `remove_guest_from_folder` | Revoke guest access from a folder (Enterprise) |
 | **Task Templates** | `get_task_templates` | List available workspace templates |
 | | `create_task_from_template` | Create a task from a template |
 | **Feedback** | `submit_feedback` | Submit feedback or bug reports |
@@ -620,12 +714,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes. Includes read access for tasks, structural elements, goals, docs, and chat.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,manage_documents,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback`
+`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_comments,get_task_links,list_lists,get_list,list_custom_fields,list_spaces,get_space,list_goals,get_goal,list_views,get_view,get_view_tasks,get_folder,get_time_entries,get_current_time_entry,get_time_entry_tags,get_time_entry_history,get_time_in_status,list_documents,get_document,list_document_pages,get_document_page,get_document_pages,list_chat_channels,get_chat_channel,get_chat_channel_members,get_chat_channel_followers,get_chat_messages,get_chat_message_replies,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,list_user_groups,get_task_templates,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_comments,get_task_links,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_time_entries,manage_documents,manage_chat_channels,manage_chat_messages,get_task_templates,manage_user_groups,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_comments,get_task_links,list_lists,get_list,list_custom_fields,list_spaces,get_space,list_goals,get_goal,list_views,get_view,get_view_tasks,get_folder,get_time_entries,get_current_time_entry,get_time_entry_tags,get_time_entry_history,get_time_in_status,list_documents,get_document,list_document_pages,get_document_page,get_document_pages,list_chat_channels,get_chat_channel,get_chat_channel_members,get_chat_channel_followers,get_chat_messages,get_chat_message_replies,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,list_user_groups,get_task_templates,submit_feedback"
 }
 ```
 </details>
@@ -636,12 +730,12 @@ Best for agents that need to view data without making any changes. Includes read
 Focused on day-to-day task management. Can create/update/delete tasks, track time, manage checklists, and update goals. Cannot modify workspace structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,manage_attachments,manage_sprints,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
+`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,list_attachments,get_attachment,upload_attachment,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_active_sprint,list_sprints,get_sprint_tasks,list_lists,get_list,create_list,update_list,delete_list,move_list,set_list_permissions,list_custom_fields,create_custom_field,set_custom_field_value,remove_custom_field_value,list_goals,get_goal,create_goal,update_goal,delete_goal,create_key_result,update_key_result,delete_key_result,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,get_folder,create_folder,update_folder,delete_folder,move_folder,set_folder_permissions,add_tag_to_task,remove_tag_from_task,get_time_entries,get_current_time_entry,start_time_entry,stop_time_entry,add_time_entry,update_time_entry,delete_time_entry,get_time_entry_tags,add_time_entry_tags,update_time_entry_tags,delete_time_entry_tags,get_time_entry_history,get_time_in_status,list_webhooks,create_webhook,update_webhook,delete_webhook,list_user_groups,create_user_group,update_user_group,delete_user_group,get_task_templates,create_task_from_template,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,manage_custom_fields,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,manage_attachments,manage_sprints,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,manage_checklists,manage_lists,manage_goals,manage_views,manage_folders,add_tag_to_task,remove_tag_from_task,manage_time_entries,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,list_attachments,get_attachment,upload_attachment,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_active_sprint,list_sprints,get_sprint_tasks,list_lists,get_list,create_list,update_list,delete_list,move_list,set_list_permissions,list_custom_fields,create_custom_field,set_custom_field_value,remove_custom_field_value,list_goals,get_goal,create_goal,update_goal,delete_goal,create_key_result,update_key_result,delete_key_result,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,get_folder,create_folder,update_folder,delete_folder,move_folder,set_folder_permissions,add_tag_to_task,remove_tag_from_task,get_time_entries,get_current_time_entry,start_time_entry,stop_time_entry,add_time_entry,update_time_entry,delete_time_entry,get_time_entry_tags,add_time_entry_tags,update_time_entry_tags,delete_time_entry_tags,get_time_entry_history,get_time_in_status,list_webhooks,create_webhook,update_webhook,delete_webhook,list_user_groups,create_user_group,update_user_group,delete_user_group,get_task_templates,create_task_from_template,submit_feedback"
 }
 ```
 </details>
@@ -652,12 +746,12 @@ Focused on day-to-day task management. Can create/update/delete tasks, track tim
 For agents dedicated to logging time and generating timesheets.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_time_entries,submit_feedback`
+`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,get_time_entries,get_current_time_entry,start_time_entry,stop_time_entry,add_time_entry,update_time_entry,delete_time_entry,get_time_entry_tags,add_time_entry_tags,update_time_entry_tags,delete_time_entry_tags,get_time_entry_history,get_time_in_status,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_time_entries,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,get_time_entries,get_current_time_entry,start_time_entry,stop_time_entry,add_time_entry,update_time_entry,delete_time_entry,get_time_entry_tags,add_time_entry_tags,update_time_entry_tags,delete_time_entry_tags,get_time_entry_history,get_time_in_status,submit_feedback"
 }
 ```
 </details>
@@ -668,12 +762,12 @@ For agents dedicated to logging time and generating timesheets.
 Workspace building and alignment. Creates spaces, folders, lists, and goals. Handles bulk task operations and templates.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_sprints,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback`
+`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,add_task_dependency,delete_task_dependency,get_active_sprint,list_sprints,get_sprint_tasks,list_lists,get_list,create_list,update_list,delete_list,move_list,set_list_permissions,list_custom_fields,create_custom_field,set_custom_field_value,remove_custom_field_value,list_spaces,get_space,create_space,update_space,delete_space,set_space_permissions,list_goals,get_goal,create_goal,update_goal,delete_goal,create_key_result,update_key_result,delete_key_result,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,get_folder,create_folder,update_folder,delete_folder,move_folder,set_folder_permissions,list_space_tags,create_space_tag,update_space_tag,delete_space_tag,list_webhooks,create_webhook,update_webhook,delete_webhook,list_user_groups,create_user_group,update_user_group,delete_user_group,get_task_templates,create_task_from_template,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,manage_lists,manage_custom_fields,manage_spaces,manage_goals,manage_views,manage_folders,manage_sprints,manage_space_tags,add_task_dependency,delete_task_dependency,get_task_templates,create_task_from_template,manage_webhooks,manage_user_groups,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,add_task_dependency,delete_task_dependency,get_active_sprint,list_sprints,get_sprint_tasks,list_lists,get_list,create_list,update_list,delete_list,move_list,set_list_permissions,list_custom_fields,create_custom_field,set_custom_field_value,remove_custom_field_value,list_spaces,get_space,create_space,update_space,delete_space,set_space_permissions,list_goals,get_goal,create_goal,update_goal,delete_goal,create_key_result,update_key_result,delete_key_result,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,get_folder,create_folder,update_folder,delete_folder,move_folder,set_folder_permissions,list_space_tags,create_space_tag,update_space_tag,delete_space_tag,list_webhooks,create_webhook,update_webhook,delete_webhook,list_user_groups,create_user_group,update_user_group,delete_user_group,get_task_templates,create_task_from_template,submit_feedback"
 }
 ```
 </details>
@@ -684,12 +778,12 @@ Workspace building and alignment. Creates spaces, folders, lists, and goals. Han
 For agents managing documentation and communication.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_comments,manage_views,manage_documents,manage_chat_channels,manage_chat_messages,submit_feedback`
+`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_comments,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,list_documents,get_document,create_document,list_document_pages,get_document_page,get_document_pages,create_document_page,update_document_page,list_chat_channels,get_chat_channel,create_chat_channel,update_chat_channel,delete_chat_channel,get_chat_channel_members,get_chat_channel_followers,create_chat_dm,get_chat_messages,create_chat_message,update_chat_message,delete_chat_message,get_chat_message_replies,create_chat_message_reply,add_chat_reaction,remove_chat_reaction,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_comments,manage_views,manage_documents,manage_chat_channels,manage_chat_messages,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_comments,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,list_documents,get_document,create_document,list_document_pages,get_document_page,get_document_pages,create_document_page,update_document_page,list_chat_channels,get_chat_channel,create_chat_channel,update_chat_channel,delete_chat_channel,get_chat_channel_members,get_chat_channel_followers,create_chat_dm,get_chat_messages,create_chat_message,update_chat_message,delete_chat_message,get_chat_message_replies,create_chat_message_reply,add_chat_reaction,remove_chat_reaction,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,submit_feedback"
 }
 ```
 </details>
@@ -697,7 +791,7 @@ For agents managing documentation and communication.
 <details>
 <summary><strong>🛡️ Safe Power User</strong></summary>  
 
-Enables everything **except** standalone destructive tools. This configuration covers **all 41 tools** by default, only blocking the 4 specific deletion tools listed below. Useful for capable agents that need full access but shouldn't destroy data. Note: consolidated tools (`manage_lists`, `manage_folders`, `manage_checklists`) include delete actions internally — use system prompts to instruct the agent to avoid destructive actions if needed.
+Enables everything **except** standalone destructive tools. This configuration covers **all 137 tools** by default, only blocking the 4 specific deletion tools listed below. Useful for capable agents that need full access but shouldn't destroy data.
 
 **HTTP Header:**
 `X-Disabled-Tools: delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency`

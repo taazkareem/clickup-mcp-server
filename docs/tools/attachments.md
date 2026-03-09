@@ -1,31 +1,26 @@
-# Attachments Tool
+# Attachments
 
-## Tool Name
-`manage_attachments`
+3 atomic tools to list, get, or upload attachments for a Task or File Custom Field using the ClickUp v3 API.
 
-## Description
-List, get, or upload attachments for a Task or File Custom Field using the ClickUp v3 API. Supports tasks (by `taskId` or `taskName`) and file-type custom fields (by `customFieldId`).
+## Tool Reference
 
-## Actions
-
-| Action | Endpoint | Required Params |
-|--------|----------|-----------------|
-| `list` | `GET /v3/workspaces/{wid}/{entity_type}/{eid}/attachments` | `taskId` or `customFieldId` |
-| `get` | `GET /v3/workspaces/{wid}/{entity_type}/{eid}/attachments` (filtered) | `taskId` or `customFieldId`, `attachment_id` |
-| `upload` | `POST /v3/workspaces/{wid}/{entity_type}/{eid}/attachments` | `taskId` or `customFieldId`, `file_data` or `file_url` |
+| Tool | Description | Required Parameters |
+|------|-------------|---------------------|
+| `list_attachments` | List all attachments for a task or custom field | `taskId` or `customFieldId` |
+| `get_attachment` | Get a specific attachment by ID or name | `taskId` or `customFieldId`, `attachment_id` or `attachment_name` |
+| `upload_attachment` | Upload a file to a task or custom field | `taskId` or `customFieldId`, `file_data` or `file_url` |
 
 ## Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `action` | string (enum) | **Yes** | `list`, `get`, or `upload`. |
 | `taskId` | string | Conditional | Task ID (preferred). Mutually exclusive with `customFieldId`. |
 | `taskName` | string | Conditional | Task name (fallback; use with `listName`). |
 | `listName` | string | No | Narrows task name search. |
 | `customFieldId` | string | Conditional | File Custom Field ID. Mutually exclusive with `taskId`. |
-| `attachment_id` | string | For `get` | Exact attachment ID. Use when ID is known. |
-| `attachment_name` | string | For `get` | Attachment file name (fuzzy matched). Use when ID is unknown — no prior `list` call needed. |
-| `file_name` | string | For `upload` (with `file_data`) | File name for the upload. |
+| `attachment_id` | string | For `get_attachment` | Exact attachment ID. Use when ID is known. |
+| `attachment_name` | string | For `get_attachment` | Attachment file name (fuzzy matched). Use when ID is unknown — no prior list call needed. |
+| `file_name` | string | For `upload_attachment` (with `file_data`) | File name for the upload. |
 | `file_data` | string | Conditional | Base64-encoded file content. Files >10 MB are automatically chunked. |
 | `file_url` | string | Conditional | Web URL (`http/https`) or absolute local path. |
 | `auth_header` | string | No | Authorization header for authenticated URL downloads. |
@@ -36,74 +31,66 @@ List, get, or upload attachments for a Task or File Custom Field using the Click
 
 ## Examples
 
-### List all attachments on a task
+### List all attachments on a task (tool: `list_attachments`)
 ```json
 {
-  "action": "list",
   "taskId": "86afua62f"
 }
 ```
 
-### Get a specific attachment by ID
+### Get a specific attachment by ID (tool: `get_attachment`)
 ```json
 {
-  "action": "get",
   "taskId": "86afua62f",
   "attachment_id": "99c59a2a-da85-47a4-8023-542c8d33abd5.txt"
 }
 ```
 
-### Get an attachment by name (fuzzy matched — no list call needed)
+### Get an attachment by name — fuzzy matched (tool: `get_attachment`)
 ```json
 {
-  "action": "get",
   "taskId": "86afua62f",
   "attachment_name": "report"
 }
 ```
 
-### Upload a base64 file to a task
+### Upload a base64 file to a task (tool: `upload_attachment`)
 ```json
 {
-  "action": "upload",
   "taskId": "86afua62f",
   "file_name": "report.pdf",
   "file_data": "<base64-encoded-content>"
 }
 ```
 
-### Upload a file from a URL to a task
+### Upload a file from a URL to a task (tool: `upload_attachment`)
 ```json
 {
-  "action": "upload",
   "taskId": "86afua62f",
   "file_url": "https://example.com/report.pdf",
   "file_name": "report.pdf"
 }
 ```
 
-### Upload a local file to a task
+### Upload a local file to a task (tool: `upload_attachment`)
 ```json
 {
-  "action": "upload",
   "taskId": "86afua62f",
   "file_url": "/Users/me/Documents/report.pdf"
 }
 ```
 
-### List attachments on a File Custom Field
+### List attachments on a File Custom Field (tool: `list_attachments`)
 ```json
 {
-  "action": "list",
   "customFieldId": "c18c447d-b954-464e-96b1-07f88ea79b62"
 }
 ```
 
-### Large file upload (chunked — step 1: initiate)
+### Large file upload (chunked — step 1: initiate) (tool: `upload_attachment`)
 Files over 10 MB are automatically split into 5 MB chunks. The first call returns a `chunk_session` token.
 ```json
 {
-  "action": "upload",
   "taskId": "86afua62f",
   "file_name": "large-video.mp4",
   "file_data": "<base64-of-entire-file>"
@@ -111,11 +98,10 @@ Files over 10 MB are automatically split into 5 MB chunks. The first call return
 ```
 Response includes `chunk_session`, `chunks_total`, and `chunk_uploaded`.
 
-### Large file upload (chunked — step 2: finalize)
+### Large file upload (chunked — step 2: finalize) (tool: `upload_attachment`)
 On the last chunk, set `chunk_is_last: true`. The server assembles and uploads the file.
 ```json
 {
-  "action": "upload",
   "taskId": "86afua62f",
   "chunk_session": "chunk_session_1234_abc",
   "chunk_index": 2,

@@ -1,67 +1,44 @@
-[← Back to Documentation Index](../DOCUMENTATION.md)  
-[← Back to README](../../README.md)  
+[← Back to Documentation Index](../DOCUMENTATION.md)
+[← Back to README](../../README.md)
 
 # Document Management
 
-Action-based tool for creating, browsing, and editing ClickUp documents and their pages. Supports markdown and HTML content formats, nested page hierarchies, and name resolution for parents and documents.
+8 atomic tools for creating, browsing, and editing ClickUp documents and their pages. Supports markdown and HTML content formats, nested page hierarchies, and name resolution for parents and documents.
 
 ## Tool Reference
 
-| Tool | Description | Actions |
-|------|-------------|---------|
-| `manage_documents` | Consolidated tool for documents and pages | `get`, `list`, `create`, `list_pages`, `get_page`, `get_pages`, `create_page`, `update_page` |
-
-## Actions & Parameters
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|---------------------|---------------------|
+| `list_documents` | List documents in a workspace or container | — | `parentId`, `parentType`, `creator`, `archived`, `deleted`, `limit`, `next_cursor`, `team_id` |
+| `get_document` | Get document metadata | `documentId` OR (`title` + `parentId`/`parentName` + `parentType`) | `team_id` |
+| `create_document` | Create a new standalone document | `name`, `parentType` | `parentId`/`parentName`, `visibility`, `create_page`, `team_id` |
+| `list_document_pages` | List all pages in a document | `documentId` OR `title` context | `max_page_depth`, `team_id` |
+| `get_document_page` | Get content for a single page | `documentId`, `pageId` | `content_format`, `team_id` |
+| `get_document_pages` | Get content for multiple pages in one call | `documentId`, `pageIds` | `content_format`, `team_id` |
+| `create_document_page` | Add a new page to a document | `documentId`, `name` | `content`, `sub_title`, `parent_page_id`, `content_format`, `team_id` |
+| `update_document_page` | Modify an existing page | `documentId`, `pageId` | `name`, `sub_title`, `content`, `content_format`, `content_edit_mode`, `team_id` |
 
 ### Shared Parameters
 - `team_id` (string): Optional workspace override.
-- `documentId` (string): ID of the document (required for most page actions).
+- `documentId` (string): ID of the document (required for most page tools).
 - `title` (string): Document title (used for resolution if ID is missing).
 - `parentId`, `parentName`, `parentType`: Used for document resolution or creation context.
 
-### 1. `get`
-Retrieve document metadata.
-- **Requires**: `documentId` OR (`title` + `parentId`/`parentName` + `parentType`).
+### Tool-Specific Notes
 
-### 2. `list`
-List documents in a workspace or specific container.
-- **Optional**: `parentId`, `parentType`, `creator`, `archived`, `deleted`, `limit`, `next_cursor`.
+**`list_documents`**: Optional `parentType` values include `"workspace"`, `"space"`, `"list"`, etc.
 
-### 3. `create`
-Create a new standalone document.
-- **Requires**: `name`, `parentType` (e.g., "workspace", "space", "list").
-- **Optional**: `parentId`/`parentName` (defaults to current workspace), `visibility` ("PUBLIC"/"PRIVATE"), `create_page` (boolean).
+**`create_document`**: `parentType` required (e.g., `"workspace"`, `"space"`, `"list"`). Defaults to current workspace if `parentId`/`parentName` omitted. `visibility` accepts `"PUBLIC"` or `"PRIVATE"`.
 
-### 4. `list_pages`
-List all pages in a document.
-- **Requires**: `documentId` OR `title` context.
-- **Optional**: `max_page_depth` (-1 for unlimited).
+**`update_document_page`**: `content_edit_mode` accepts `"replace"` (default), `"append"`, or `"prepend"`.
 
-### 5. `get_page`
-Get content for a single page.
-- **Requires**: `documentId`, `pageId`.
-- **Optional**: `content_format` ("text/md", "text/html").
-
-### 6. `get_pages`
-Get content for multiple pages in one call.
-- **Requires**: `documentId`, `pageIds` (array).
-- **Optional**: `content_format`.
-
-### 7. `create_page`
-Add a new page to a document.
-- **Requires**: `documentId`, `name`.
-- **Optional**: `content`, `sub_title`, `parent_page_id`, `content_format`.
-
-### 8. `update_page`
-Modify an existing page.
-- **Requires**: `documentId`, `pageId`.
-- **Optional**: `name`, `sub_title`, `content`, `content_format`, `content_edit_mode` ("replace", "append", "prepend").
+**`get_document_page` / `get_document_pages`**: `content_format` accepts `"text/md"` or `"text/html"`.
 
 ---
 
 ## Examples
 
-### Creating a Document
+### Creating a Document (tool: `create_document`)
 **User Prompt:**
 ```
 Create a new public document called "API Specs" in the "Development" space.
@@ -70,7 +47,6 @@ Create a new public document called "API Specs" in the "Development" space.
 **Request:**
 ```json
 {
-  "action": "create",
   "name": "API Specs",
   "parentName": "Development",
   "parentType": "space",
@@ -78,7 +54,7 @@ Create a new public document called "API Specs" in the "Development" space.
 }
 ```
 
-### Getting a Specific Page
+### Getting a Specific Page (tool: `get_document_page`)
 **User Prompt:**
 ```
 Read the content of page "Overview" (ID: 8cdu22c-11473) in document 8cdu22c-13153.
@@ -87,13 +63,12 @@ Read the content of page "Overview" (ID: 8cdu22c-11473) in document 8cdu22c-1315
 **Request:**
 ```json
 {
-  "action": "get_page",
   "documentId": "8cdu22c-13153",
   "pageId": "8cdu22c-11473"
 }
 ```
 
-### Appending Content to a Page
+### Appending Content to a Page (tool: `update_document_page`)
 **User Prompt:**
 ```
 Add a new section to the end of page 8cdu22c-36293 in doc 8cdu22c-13133.
@@ -102,7 +77,6 @@ Add a new section to the end of page 8cdu22c-36293 in doc 8cdu22c-13133.
 **Request:**
 ```json
 {
-  "action": "update_page",
   "documentId": "8cdu22c-13133",
   "pageId": "8cdu22c-36293",
   "content": "\n## New Section\nDetails here...",

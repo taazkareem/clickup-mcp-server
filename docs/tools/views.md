@@ -1,95 +1,93 @@
-[← Back to Documentation](../DOCUMENTATION.md)  
+[← Back to Documentation](../DOCUMENTATION.md)
 
 # 🖼️ Views
 
-The `manage_views` tool provides consolidated CRUD for ClickUp views across Workspaces, Spaces, Folders, and Lists — 12 API endpoints in one tool.
+6 atomic tools for managing ClickUp views across Workspaces, Spaces, Folders, and Lists.
 
 ## Tool Reference
 
-| Tool | Actions | Description |
-|------|---------|-------------|
-| `manage_views` | `list`, `get`, `create`, `update`, `delete`, `get_tasks` | Manage views and retrieve tasks from views in your ClickUp workspace |
+| Tool | Description | Required Parameters |
+|------|-------------|---------------------|
+| `list_views` | List views for a space, folder, list, or workspace | `spaceId`, `folderId`, `listId`, or `teamId` (one required) |
+| `get_view` | Get a single view | `viewId` |
+| `create_view` | Create a new view | `name`, `type`, and `spaceId`/`folderId`/`listId`/`teamId` (one required) |
+| `update_view` | Update a view | `viewId` |
+| `delete_view` | Delete a view | `viewId` |
+| `get_view_tasks` | Get tasks in a view | `viewId` |
 
 ## Parameters
 
-| Parameter | Type | Required | Actions | Description |
-|-----------|------|----------|---------|-------------|
-| `action` | enum | ✅ Always | all | `list`, `get`, `create`, `update`, `delete`, `get_tasks` |
-| `viewId` | string | ✅ | `get`, `update`, `delete`, `get_tasks` | ClickUp view ID |
-| `spaceId` | string | | `list`, `create` | ClickUp space ID |
-| `folderId` | string | | `list`, `create` | ClickUp folder ID |
-| `listId` | string | | `list`, `create` | ClickUp list ID |
-| `teamId` | string | | `list`, `create` | ClickUp team ID (for workspace-level views) |
-| `name` | string | ✅ for `create` | `create`, `update` | View name |
-| `type` | enum | ✅ for `create` | `create`, `update` | `list`, `board`, `calendar`, `gantt`, `timeline`, `table`, `mind_map`, `workload`, `activity`, `map`. Highly recommended for `update` to ensure correct resource targeting. |
-| `grouping` | object | | `create`, `update` | View grouping settings |
-| `sorting` | object | | `create`, `update` | View sorting settings |
-| `filters` | object | | `create`, `update` | View filter settings |
-| `columns` | object | | `create`, `update` | View column settings |
-| `teamSidebar` | object | | `create`, `update` | Team sidebar settings |
-| `settings` | object | | `create`, `update` | View settings (e.g., `show_task_locations`, `show_subtasks`) |
-| `visibility` | string | | `update` | `public` or `private` |
-| `protected` | boolean | | `update` | Whether the view is protected |
-| `protectedNote`| string | | `update` | Note for protected view |
-| `protectedBy` | number | | `update` | User ID of person who protected the view |
-| `page` | number | | `get_tasks` | Page number for pagination |
+| Parameter | Type | Tools | Description |
+|-----------|------|-------|-------------|
+| `viewId` | string | `get_view`, `update_view`, `delete_view`, `get_view_tasks` | ClickUp view ID |
+| `spaceId` | string | `list_views`, `create_view` | ClickUp space ID |
+| `folderId` | string | `list_views`, `create_view` | ClickUp folder ID |
+| `listId` | string | `list_views`, `create_view` | ClickUp list ID |
+| `teamId` | string | `list_views`, `create_view` | ClickUp team ID (for workspace-level views) |
+| `name` | string | `create_view`, `update_view` | View name |
+| `type` | enum | `create_view`, `update_view` | `list`, `board`, `calendar`, `gantt`, `timeline`, `table`, `mind_map`, `workload`, `activity`, `map`. Highly recommended for `update_view` to ensure correct resource targeting. |
+| `grouping` | object | `create_view`, `update_view` | View grouping settings |
+| `sorting` | object | `create_view`, `update_view` | View sorting settings |
+| `filters` | object | `create_view`, `update_view` | View filter settings |
+| `columns` | object | `create_view`, `update_view` | View column settings |
+| `teamSidebar` | object | `create_view`, `update_view` | Team sidebar settings |
+| `settings` | object | `create_view`, `update_view` | View settings (e.g., `show_task_locations`, `show_subtasks`) |
+| `visibility` | string | `update_view` | `public` or `private` |
+| `protected` | boolean | `update_view` | Whether the view is protected |
+| `protectedNote`| string | `update_view` | Note for protected view |
+| `protectedBy` | number | `update_view` | User ID of person who protected the view |
+| `page` | number | `get_view_tasks` | Page number for pagination |
 
 ## Examples
 
-### List views for a List
+### List views for a List (tool: `list_views`)
 
 ```json
 {
-  "action": "list",
   "listId": "123456789"
 }
 ```
 
-### List views for a Space
+### List views for a Space (tool: `list_views`)
 
 ```json
 {
-  "action": "list",
   "spaceId": "987654321"
 }
 ```
 
-### Get a single view
+### Get a single view (tool: `get_view`)
 
 ```json
 {
-  "action": "get",
   "viewId": "3b2a1c"
 }
 ```
 
-### Create a new List view on a Space
+### Create a new Board view on a Space (tool: `create_view`)
 
 ```json
 {
-  "action": "create",
   "spaceId": "987654321",
   "name": "Team Tasks Board",
   "type": "board"
 }
 ```
 
-### Create a new List view on a Workspace (Everything level)
+### Create a new List view on a Workspace (Everything level) (tool: `create_view`)
 
 ```json
 {
-  "action": "create",
   "teamId": "12345678",
   "name": "Global Everything View",
   "type": "list"
 }
 ```
 
-### Update a view's name and protection
+### Update a view's name and protection (tool: `update_view`)
 
 ```json
 {
-  "action": "update",
   "viewId": "3b2a1c",
   "name": "Updated Board Name",
   "protected": true,
@@ -97,21 +95,19 @@ The `manage_views` tool provides consolidated CRUD for ClickUp views across Work
 }
 ```
 
-### Get tasks for a view
+### Get tasks for a view (tool: `get_view_tasks`)
 
 ```json
 {
-  "action": "get_tasks",
   "viewId": "3b2a1c",
   "page": 0
 }
 ```
 
-### Delete a view
+### Delete a view (tool: `delete_view`)
 
 ```json
 {
-  "action": "delete",
   "viewId": "3b2a1c"
 }
 ```

@@ -11,7 +11,9 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 |------|-------------|-------------------|-------------------|
 | get_task | Get single task details with global lookup | `task` (Name or ID) | `listName` (disambiguation), `subtasks`, `include_markdown_description` |
 | manage_comments | Full comment lifecycle on tasks, lists, or views: get, create, update, delete, get_replies, create_reply, add_reaction, remove_reaction | `action` + action-specific params (see below) | `context_type` (default: `task`), varies by action |
-| manage_attachments | List, get, or upload attachments for a task or file custom field (v3) | `action` + `taskId` or `customFieldId` | `attachment_id`, `attachment_name` (fuzzy), `file_data`, `file_url`, `file_name`, `chunk_*` for large files |
+| list_attachments | List attachments for a task or file custom field (v3) | `taskId` or `customFieldId` | `team_id` |
+| get_attachment | Get a specific attachment by ID or name (v3) | `taskId` or `customFieldId`, `attachment_id` or `attachment_name` | `team_id` |
+| upload_attachment | Upload a file to a task or custom field (v3) | `taskId` or `customFieldId`, `file_data` or `file_url` | `file_name`, `chunk_*` for large files, `team_id` |
 | create_task | Create a new task | `name` and either `listId` or `listName` | description, status, priority (1-4), dueDate, startDate, time_estimate, parent (ID or Name), assignees, custom_task_type |
 | create_bulk_tasks | Create multiple tasks | `tasks[]` | `listId` or `listName`; each task supports: name, description, status, priority, dueDate, startDate, time_estimate, assignees |
 | update_task | Modify task properties | `task` (Name or ID) | name, description, status, priority, dueDate, startDate, time_estimate, parent (ID or Name), assignees, custom_task_type |
@@ -95,7 +97,7 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 - **Custom Task Types**: Use `custom_task_type` on `create_task`/`update_task` to set the task type (if your workspace uses custom task types)
 - **@Mention Support**: Use `@username` or `@email` in task comments and chat messages to mention users — they are automatically resolved
 - **Markdown in Comments/Chat**: Comments and chat messages support standard markdown formatting and are automatically converted to ClickUp's rich-text format
-- **High-Integrity Moves (TIML)**: `move_task` uses non-destructive TIML (Tasks in Multiple Lists) by default, preserving the task ID and all history. If TIML is blocked by workspace plan limits, the tool will NOT automatically fall back to a destructive copy-delete move — you must explicitly set `allowDestructiveFallback: true` (with user consent) to allow it. The same pattern applies to `manage_lists` (move action) and `manage_folders` (move action)
+- **High-Integrity Moves (TIML)**: `move_task` uses non-destructive TIML (Tasks in Multiple Lists) by default, preserving the task ID and all history. If TIML is blocked by workspace plan limits, the tool will NOT automatically fall back to a destructive copy-delete move — you must explicitly set `allowDestructiveFallback: true` (with user consent) to allow it. The same pattern applies to `move_list` and `move_folder`
 
 ### Custom Task ID Support
 

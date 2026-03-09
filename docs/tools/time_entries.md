@@ -1,70 +1,62 @@
 ---
 id: time-entries
-title: Manage Time Entries
-description: Unified tool for managing time tracking and tags
+title: Time Entries
+description: Atomic tools for managing time tracking
 ---
 
-# Manage Time Entries Tool
+# Time Tracking Tools
 
-The `manage_time_entries` tool acts as a unified hub for all time tracking operations in ClickUp, consolidating 7 fragmented endpoint tools into one action-driven interface.
+13 atomic tools covering all time tracking operations in ClickUp — fetching tracked time, managing your running timer, creating/updating/deleting time entries, and managing workspace-level time entry tags.
 
-It handles fetching tracked time, managing your currently running timer, creating/updating/deleting time entries, and managing workspace-level time entry tags.
+## Tool Reference
 
-## Usage Overview
-
-Every request requires the `action` parameter. Depending on the action chosen, different parameters become required or optional.
-
-| Action | Description | Required Parameters | Optional Parameters |
-|--------|-------------|---------------------|---------------------|
-| `get_entries` | Fetch historical time entries | (None) | `taskName`, `startDate`, `endDate`, `assigneeNames`, etc. |
-| `get_current` | Fetch currently running timer | (None) | (None) |
-| `start_timer` | Start tracking time for a task | `task` (Task ID/Name) | `listName`, `description`, `billable`, `tags` |
-| `stop_timer` | Stop the active timer | (None) | `description`, `tags` |
-| `add_entry` | Manually log a time entry | `task`, `start_time`, `duration` | `listName`, `description`, `billable`, `tags` |
-| `update_entry` | Modify an existing time entry | `timer_id`, `task` | `start_time`, `end_time`, `duration`, `description`, `tags` |
-| `delete_entry` | Delete an existing entry | `timer_id` | (None) |
-| `get_history` | View history of edits to an entry | `timer_id` | (None) |
-| `get_tags` | Fetch all workspace time entry tags| (None) | (None) |
-| `add_tags` | Add a tag to an entry | `timer_id`, `name` | (None) |
-| `update_tags` | Rename a workspace tag globally | `name`, `new_name` | (None) |
-| `delete_tags` | Remove a tag from an entry | `timer_id`, `name` | (None) |
-| `get_bulk_time_in_status` | Get time-in-status for multiple tasks | `task_ids` | `custom_task_ids` |
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|---------------------|---------------------|
+| `get_time_entries` | Fetch historical time entries | — | `taskName`, `startDate`, `endDate`, `assigneeNames`, `spaceName`, `folderName`, etc. |
+| `get_current_time_entry` | Get currently running timer | — | — |
+| `start_time_entry` | Start tracking time for a task | `task` (Task ID/Name) | `listName`, `description`, `billable`, `tags` |
+| `stop_time_entry` | Stop the active timer | — | `description`, `tags` |
+| `add_time_entry` | Manually log a time entry | `task`, `start_time`, `duration` | `listName`, `description`, `billable`, `tags` |
+| `update_time_entry` | Modify an existing time entry | `timer_id`, `task` | `start_time`, `end_time`, `duration`, `description`, `tags` |
+| `delete_time_entry` | Delete an existing entry | `timer_id` | — |
+| `get_time_entry_history` | View edit history of an entry | `timer_id` | — |
+| `get_time_entry_tags` | Fetch all workspace time entry tags | — | — |
+| `add_time_entry_tags` | Add a tag to an entry | `timer_id`, `name` | — |
+| `update_time_entry_tags` | Rename a workspace tag globally | `name`, `new_name` | — |
+| `delete_time_entry_tags` | Remove a tag from an entry | `timer_id`, `name` | — |
+| `get_time_in_status` | Get time-in-status for multiple tasks | `task_ids` | `custom_task_ids` |
 
 ## Quality of Life Features
 
-This tool inherits the powerful "Name Resolution" and "Natural Language" systems of the ClickUp MCP server:
-- **`task` resolution**: Instead of raw Task IDs, you can pass `"task": "Design Homepage", "listName": "Sprint 1"`.
-- **`startDate` / `start_time` natural dates**: You can pass Unix timestamps OR plain English like `"yesterday"`, `"3 hours ago"`, or `"last week"`.
-- **`duration` human formats**: Instead of calculating milliseconds, simply pass `"1h 30m"` or `"45m"`.
-- **Location Filtering (`get_entries`)**: You can filter by `spaceName: "Engineering"`, `folderName: "Q1"`, or `assigneeNames: ["John Doe", "Jane"]`.
+- **`task` resolution**: Instead of raw Task IDs, pass `"task": "Design Homepage", "listName": "Sprint 1"`.
+- **`startDate` / `start_time` natural dates**: Pass Unix timestamps OR plain English like `"yesterday"`, `"3 hours ago"`, or `"last week"`.
+- **`duration` human formats**: Instead of calculating milliseconds, pass `"1h 30m"` or `"45m"`.
+- **Location Filtering (`get_time_entries`)**: Filter by `spaceName: "Engineering"`, `folderName: "Q1"`, or `assigneeNames: ["John Doe", "Jane"]`.
 
 ## Examples
 
-### 1. View My Logged Time This Week
+### 1. View My Logged Time This Week (tool: `get_time_entries`)
 
 ```json
 {
-  "action": "get_entries",
   "startDate": "start of week",
   "endDate": "now"
 }
 ```
 
-### 2. Start a Timer
+### 2. Start a Timer (tool: `start_time_entry`)
 
 ```json
 {
-  "action": "start_timer",
   "task": "Update README",
   "description": "Porting API specs"
 }
 ```
 
-### 3. Log a Manual Time Entry
+### 3. Log a Manual Time Entry (tool: `add_time_entry`)
 
 ```json
 {
-  "action": "add_entry",
   "task": "Daily Standup",
   "start_time": "9:00 AM today",
   "duration": "30m",
@@ -73,21 +65,19 @@ This tool inherits the powerful "Name Resolution" and "Natural Language" systems
 }
 ```
 
-### 4. Tag existing time entries
+### 4. Tag an existing time entry (tool: `add_time_entry_tags`)
 
 ```json
 {
-  "action": "add_tags",
   "timer_id": "893902384930238",
   "name": "UrgentFix"
 }
 ```
 
-### 5. Bulk Time-in-Status Across Tasks
+### 5. Get time-in-status across tasks (tool: `get_time_in_status`)
 
 ```json
 {
-  "action": "get_bulk_time_in_status",
   "task_ids": ["abc123", "def456", "ghi789"]
 }
 ```
