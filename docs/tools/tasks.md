@@ -10,7 +10,15 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
 | get_task | Get single task details with global lookup | `task` (Name or ID) | `listName` (disambiguation), `subtasks`, `include_markdown_description` |
-| manage_comments | Full comment lifecycle on tasks, lists, or views: get, create, update, delete, get_replies, create_reply, add_reaction, remove_reaction | `action` + action-specific params (see below) | `context_type` (default: `task`), varies by action |
+| `get_comments` | Get comments on a task, list, or view | `task`/`list_id`/`view_id` depending on `context_type` | `context_type`, `start`, `startId`, `include_replies` |
+| `create_comment` | Create a comment on a task, list, or view | `task`/`list_id`/`view_id` + `commentText` or `formattedComment` | `context_type`, `notifyAll`, `assignee` |
+| `update_comment` | Edit or resolve a comment | `comment_id` | `commentText`, `formattedComment`, `resolved` |
+| `delete_comment` | Delete a comment | `comment_id` | — |
+| `get_comment_replies` | Get threaded replies for a comment | `comment_id` | — |
+| `create_comment_reply` | Reply to a comment in a thread | `comment_id`, `commentText` or `formattedComment` | `notifyAll`, `assignee` |
+| `add_comment_reaction` | Add an emoji reaction to a comment | `comment_id`, `reaction` | — |
+| `remove_comment_reaction` | Remove an emoji reaction from a comment | `comment_id`, `reaction` | — |
+| `get_comment_subtypes` | Get post subtype IDs for the workspace | — | `comment_type` |
 | list_attachments | List attachments for a task or file custom field (v3) | `taskId` or `customFieldId` | `team_id` |
 | get_attachment | Get a specific attachment by ID or name (v3) | `taskId` or `customFieldId`, `attachment_id` or `attachment_name` | `team_id` |
 | upload_attachment | Upload a file to a task or custom field (v3) | `taskId` or `customFieldId`, `file_data` or `file_url` | `file_name`, `chunk_*` for large files, `team_id` |

@@ -93,7 +93,7 @@ The industry-standard ClickUp integration for AI.
 
 <div align="center">
 
-<h3>Unlock 137 Enterprise-Grade Atomic Tools</h3>
+<h3>Unlock 145 Enterprise-Grade Atomic Tools</h3>
 
 This project transitioned from open-source to a paid model for sustainable full-time development and priority support.
 A license grants full, unrestricted access to all features across your agents⎯no limits.
@@ -542,7 +542,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 137 available tools</strong></summary>
+<summary><strong>👇 Click to view all 145 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -561,7 +561,15 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `move_bulk_tasks` | Move multiple tasks |
 | | `delete_bulk_tasks` | Delete multiple tasks |
 | | `get_workspace_tasks` | Search tasks with Deep Search filtering |
-| | `manage_comments` | Get, create, update, delete comments and replies on tasks, lists, or views |
+| | `get_comments` | Get comments on a task, list, or view |
+| | `create_comment` | Create a comment on a task, list, or view |
+| | `update_comment` | Edit or resolve a comment |
+| | `delete_comment` | Delete a comment |
+| | `get_comment_replies` | Get threaded replies for a comment |
+| | `create_comment_reply` | Reply to a comment in a thread |
+| | `add_comment_reaction` | Add an emoji reaction to a comment |
+| | `remove_comment_reaction` | Remove an emoji reaction from a comment |
+| | `get_comment_subtypes` | Get post subtype IDs for the workspace |
 | | `add_task_link` | Link two tasks together |
 | | `get_task_links` | Get task links |
 | | `delete_task_link` | Remove a task link |
@@ -714,12 +722,12 @@ Here are copy-pasteable recommended configurations for common agent personas. Yo
 Best for agents that need to view data without making any changes. Includes read access for tasks, structural elements, goals, docs, and chat.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_comments,get_task_links,list_lists,get_list,list_custom_fields,list_spaces,get_space,list_goals,get_goal,list_views,get_view,get_view_tasks,get_folder,get_time_entries,get_current_time_entry,get_time_entry_tags,get_time_entry_history,get_time_in_status,list_documents,get_document,list_document_pages,get_document_page,get_document_pages,list_chat_channels,get_chat_channel,get_chat_channel_members,get_chat_channel_followers,get_chat_messages,get_chat_message_replies,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,list_user_groups,get_task_templates,submit_feedback`
+`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,get_comments,get_comment_replies,get_comment_subtypes,get_task_links,list_lists,get_list,list_custom_fields,list_spaces,get_space,list_goals,get_goal,list_views,get_view,get_view_tasks,get_folder,get_time_entries,get_current_time_entry,get_time_entry_tags,get_time_entry_history,get_time_in_status,list_documents,get_document,list_document_pages,get_document_page,get_document_pages,list_chat_channels,get_chat_channel,get_chat_channel_members,get_chat_channel_followers,get_chat_messages,get_chat_message_replies,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,list_user_groups,get_task_templates,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_comments,get_task_links,list_lists,get_list,list_custom_fields,list_spaces,get_space,list_goals,get_goal,list_views,get_view,get_view_tasks,get_folder,get_time_entries,get_current_time_entry,get_time_entry_tags,get_time_entry_history,get_time_in_status,list_documents,get_document,list_document_pages,get_document_page,get_document_pages,list_chat_channels,get_chat_channel,get_chat_channel_members,get_chat_channel_followers,get_chat_messages,get_chat_message_replies,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,list_user_groups,get_task_templates,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,get_comments,get_comment_replies,get_comment_subtypes,get_task_links,list_lists,get_list,list_custom_fields,list_spaces,get_space,list_goals,get_goal,list_views,get_view,get_view_tasks,get_folder,get_time_entries,get_current_time_entry,get_time_entry_tags,get_time_entry_history,get_time_in_status,list_documents,get_document,list_document_pages,get_document_page,get_document_pages,list_chat_channels,get_chat_channel,get_chat_channel_members,get_chat_channel_followers,get_chat_messages,get_chat_message_replies,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,list_user_groups,get_task_templates,submit_feedback"
 }
 ```
 </details>
@@ -730,12 +738,12 @@ Best for agents that need to view data without making any changes. Includes read
 Focused on day-to-day task management. Can create/update/delete tasks, track time, manage checklists, and update goals. Cannot modify workspace structure (Lists/Folders).
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,list_attachments,get_attachment,upload_attachment,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_active_sprint,list_sprints,get_sprint_tasks,list_lists,get_list,create_list,update_list,delete_list,move_list,set_list_permissions,list_custom_fields,create_custom_field,set_custom_field_value,remove_custom_field_value,list_goals,get_goal,create_goal,update_goal,delete_goal,create_key_result,update_key_result,delete_key_result,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,get_folder,create_folder,update_folder,delete_folder,move_folder,set_folder_permissions,add_tag_to_task,remove_tag_from_task,get_time_entries,get_current_time_entry,start_time_entry,stop_time_entry,add_time_entry,update_time_entry,delete_time_entry,get_time_entry_tags,add_time_entry_tags,update_time_entry_tags,delete_time_entry_tags,get_time_entry_history,get_time_in_status,list_webhooks,create_webhook,update_webhook,delete_webhook,list_user_groups,create_user_group,update_user_group,delete_user_group,get_task_templates,create_task_from_template,submit_feedback`
+`X-Enabled-Tools: get_workspace,create_task,get_task,update_task,move_task,duplicate_task,delete_task,get_workspace_tasks,get_comments,create_comment,update_comment,delete_comment,get_comment_replies,create_comment_reply,add_comment_reaction,remove_comment_reaction,get_comment_subtypes,list_attachments,get_attachment,upload_attachment,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_active_sprint,list_sprints,get_sprint_tasks,list_lists,get_list,create_list,update_list,delete_list,move_list,set_list_permissions,list_custom_fields,create_custom_field,set_custom_field_value,remove_custom_field_value,list_goals,get_goal,create_goal,update_goal,delete_goal,create_key_result,update_key_result,delete_key_result,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,get_folder,create_folder,update_folder,delete_folder,move_folder,set_folder_permissions,add_tag_to_task,remove_tag_from_task,get_time_entries,get_current_time_entry,start_time_entry,stop_time_entry,add_time_entry,update_time_entry,delete_time_entry,get_time_entry_tags,add_time_entry_tags,update_time_entry_tags,delete_time_entry_tags,get_time_entry_history,get_time_in_status,list_webhooks,create_webhook,update_webhook,delete_webhook,list_user_groups,create_user_group,update_user_group,delete_user_group,get_task_templates,create_task_from_template,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,move_task,duplicate_task,delete_task,get_workspace_tasks,manage_comments,list_attachments,get_attachment,upload_attachment,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_active_sprint,list_sprints,get_sprint_tasks,list_lists,get_list,create_list,update_list,delete_list,move_list,set_list_permissions,list_custom_fields,create_custom_field,set_custom_field_value,remove_custom_field_value,list_goals,get_goal,create_goal,update_goal,delete_goal,create_key_result,update_key_result,delete_key_result,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,get_folder,create_folder,update_folder,delete_folder,move_folder,set_folder_permissions,add_tag_to_task,remove_tag_from_task,get_time_entries,get_current_time_entry,start_time_entry,stop_time_entry,add_time_entry,update_time_entry,delete_time_entry,get_time_entry_tags,add_time_entry_tags,update_time_entry_tags,delete_time_entry_tags,get_time_entry_history,get_time_in_status,list_webhooks,create_webhook,update_webhook,delete_webhook,list_user_groups,create_user_group,update_user_group,delete_user_group,get_task_templates,create_task_from_template,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,create_task,get_task,update_task,move_task,duplicate_task,delete_task,get_workspace_tasks,get_comments,create_comment,update_comment,delete_comment,get_comment_replies,create_comment_reply,add_comment_reaction,remove_comment_reaction,get_comment_subtypes,list_attachments,get_attachment,upload_attachment,add_task_to_list,remove_task_from_list,add_task_link,get_task_links,delete_task_link,add_task_dependency,delete_task_dependency,create_checklist,edit_checklist,delete_checklist,create_checklist_item,edit_checklist_item,delete_checklist_item,get_active_sprint,list_sprints,get_sprint_tasks,list_lists,get_list,create_list,update_list,delete_list,move_list,set_list_permissions,list_custom_fields,create_custom_field,set_custom_field_value,remove_custom_field_value,list_goals,get_goal,create_goal,update_goal,delete_goal,create_key_result,update_key_result,delete_key_result,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,get_folder,create_folder,update_folder,delete_folder,move_folder,set_folder_permissions,add_tag_to_task,remove_tag_from_task,get_time_entries,get_current_time_entry,start_time_entry,stop_time_entry,add_time_entry,update_time_entry,delete_time_entry,get_time_entry_tags,add_time_entry_tags,update_time_entry_tags,delete_time_entry_tags,get_time_entry_history,get_time_in_status,list_webhooks,create_webhook,update_webhook,delete_webhook,list_user_groups,create_user_group,update_user_group,delete_user_group,get_task_templates,create_task_from_template,submit_feedback"
 }
 ```
 </details>
@@ -778,12 +786,12 @@ Workspace building and alignment. Creates spaces, folders, lists, and goals. Han
 For agents managing documentation and communication.
 
 **HTTP Header:**
-`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,manage_comments,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,list_documents,get_document,create_document,list_document_pages,get_document_page,get_document_pages,create_document_page,update_document_page,list_chat_channels,get_chat_channel,create_chat_channel,update_chat_channel,delete_chat_channel,get_chat_channel_members,get_chat_channel_followers,create_chat_dm,get_chat_messages,create_chat_message,update_chat_message,delete_chat_message,get_chat_message_replies,create_chat_message_reply,add_chat_reaction,remove_chat_reaction,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,submit_feedback`
+`X-Enabled-Tools: get_workspace,get_task,get_workspace_tasks,get_comments,create_comment,update_comment,delete_comment,get_comment_replies,create_comment_reply,add_comment_reaction,remove_comment_reaction,get_comment_subtypes,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,list_documents,get_document,create_document,list_document_pages,get_document_page,get_document_pages,create_document_page,update_document_page,list_chat_channels,get_chat_channel,create_chat_channel,update_chat_channel,delete_chat_channel,get_chat_channel_members,get_chat_channel_followers,create_chat_dm,get_chat_messages,create_chat_message,update_chat_message,delete_chat_message,get_chat_message_replies,create_chat_message_reply,add_chat_reaction,remove_chat_reaction,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,submit_feedback`
 
 **JSON / Env:**
 ```json
 "env": {
-  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,manage_comments,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,list_documents,get_document,create_document,list_document_pages,get_document_page,get_document_pages,create_document_page,update_document_page,list_chat_channels,get_chat_channel,create_chat_channel,update_chat_channel,delete_chat_channel,get_chat_channel_members,get_chat_channel_followers,create_chat_dm,get_chat_messages,create_chat_message,update_chat_message,delete_chat_message,get_chat_message_replies,create_chat_message_reply,add_chat_reaction,remove_chat_reaction,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,submit_feedback"
+  "ENABLED_TOOLS": "get_workspace,get_task,get_workspace_tasks,get_comments,create_comment,update_comment,delete_comment,get_comment_replies,create_comment_reply,add_comment_reaction,remove_comment_reaction,get_comment_subtypes,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,list_documents,get_document,create_document,list_document_pages,get_document_page,get_document_pages,create_document_page,update_document_page,list_chat_channels,get_chat_channel,create_chat_channel,update_chat_channel,delete_chat_channel,get_chat_channel_members,get_chat_channel_followers,create_chat_dm,get_chat_messages,create_chat_message,update_chat_message,delete_chat_message,get_chat_message_replies,create_chat_message_reply,add_chat_reaction,remove_chat_reaction,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,submit_feedback"
 }
 ```
 </details>

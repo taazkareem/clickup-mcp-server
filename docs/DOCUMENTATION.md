@@ -2,7 +2,7 @@
 
 # 📄 ClickUp MCP Server Documentation
 
-Complete reference for all 137 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
+Complete reference for all 145 tools available in the ClickUp MCP Server. Each category page includes tool reference tables, parameter documentation, and usage examples (User Prompt → Generated Request → Tool Response).
 
 > Updated: 2026-03-09
 
@@ -10,7 +10,7 @@ Complete reference for all 137 tools available in the ClickUp MCP Server. Each c
 
 | Category | Tools | Description | Link |
 |----------|-------|-------------|------|
-| Task Management | 20 | Create, update, move, delete, query tasks; bulk ops; subtasks; file attachments; task linking; task dependencies; TIML | [tasks.md](tools/tasks.md) |
+| Task Management | 28 | Create, update, move, delete, query tasks; bulk ops; subtasks; comments; file attachments; task linking; task dependencies; TIML | [tasks.md](tools/tasks.md) |
 | Task Checklists | 6 | Add checklists and checklist items to tasks; assign, nest, and resolve items | [task-checklists.md](tools/task-checklists.md) |
 | Sprint Management | 3 | Auto-detect active sprints by date range; list sprints in folders; fetch tasks per sprint | [sprints.md](tools/sprints.md) |
 | Custom Fields | 4 | Create/list field definitions and set/remove task values | [custom-fields.md](tools/custom-fields.md) |
