@@ -10,7 +10,7 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
 | get_task | Get single task details with global lookup | `task` (Name or ID) | `listName` (disambiguation), `subtasks`, `include_markdown_description` |
-| manage_comments | Full comment lifecycle on tasks, lists, or views: get, create, update, delete, get_replies, create_reply | `action` + action-specific params (see below) | `context_type` (default: `task`), varies by action |
+| manage_comments | Full comment lifecycle on tasks, lists, or views: get, create, update, delete, get_replies, create_reply, add_reaction, remove_reaction | `action` + action-specific params (see below) | `context_type` (default: `task`), varies by action |
 | manage_attachments | List, get, or upload attachments for a task or file custom field (v3) | `action` + `taskId` or `customFieldId` | `attachment_id`, `attachment_name` (fuzzy), `file_data`, `file_url`, `file_name`, `chunk_*` for large files |
 | create_task | Create a new task | `name` and either `listId` or `listName` | description, status, priority (1-4), dueDate, startDate, time_estimate, parent (ID or Name), assignees, custom_task_type |
 | create_bulk_tasks | Create multiple tasks | `tasks[]` | `listId` or `listName`; each task supports: name, description, status, priority, dueDate, startDate, time_estimate, assignees |
@@ -44,20 +44,23 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 | `delete` | any | Permanently delete a comment | `comment_id` | — |
 | `get_replies` | any | Get threaded replies for a comment | `comment_id` | — |
 | `create_reply` | any | Reply to a comment thread | `comment_id`, `commentText` or `formattedComment` | `notifyAll`, `assignee` |
+| `add_reaction` | any | Add an emoji reaction to a comment | `comment_id`, `reaction` | — |
+| `remove_reaction` | any | Remove an emoji reaction from a comment | `comment_id`, `reaction` | — |
 
 **Parameters:**
-- `context_type` — `task` (default), `list`, or `view`. Determines where get/create operate. Ignored for update, delete, get_replies, create_reply.
+- `context_type` — `task` (default), `list`, or `view`. Determines where get/create operate. Ignored for update, delete, get_replies, create_reply, add_reaction, remove_reaction.
 - `task` — Task Name (auto-resolved) or Task ID. Required for `get`/`create` when `context_type` is `task`.
 - `list_id` — List ID. Required for `get`/`create` when `context_type` is `list`.
 - `list_name` — List name (auto-resolved). Used when `context_type` is `list` and `list_id` is not provided.
 - `view_id` — View ID. Required for `get`/`create` when `context_type` is `view`.
 - `listName` — Disambiguates tasks when multiple share the same name (task context only).
-- `comment_id` — The ClickUp comment ID. Required for `update`, `delete`, `get_replies`, `create_reply`.
+- `comment_id` — The ClickUp comment ID. Required for `update`, `delete`, `get_replies`, `create_reply`, `add_reaction`, `remove_reaction`.
 - `commentText` — Plain text / markdown (`**bold**`, `_italic_`, `` `code` ``, `- lists`). Automatically converted to ClickUp rich text.
 - `formattedComment` — Rich text array with text blocks, `{type:'tag', user:{id}}` for @mentions, `{type:'emoji', unicode}` for emoji.
 - `notifyAll` — Boolean. Notify all assignees (applies to `create`, `create_reply`).
 - `assignee` — User ID number to assign the comment to.
 - `resolved` — Boolean. Mark a comment resolved (`true`) or unresolved (`false`). Applies to `update`.
+- `reaction` — Lowercase emoji name (e.g. `+1`, `-1`, `joy`, `heart`, `tada`). Required for `add_reaction`/`remove_reaction`.
 - `include_replies` — Boolean. Fetch threaded replies inline for each comment. Applies to `get` (task context).
 
 ## Parameters
