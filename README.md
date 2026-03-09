@@ -458,46 +458,34 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 
 <a name="openclaw-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/openclaw-logo.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong></summary>  
+<summary>&nbsp;<img src="./assets/logos/openclaw-logo.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong></summary>
 
-**1. Enable** the mcporter skill in `~/.openclaw/openclaw.json`:
+**1. Enable** mcporter in `~/.openclaw/openclaw.json`:
 ```json
 {"skills": {"allowBundled": ["mcporter"]}}
 ```
 
-**2. Configure**
+**2. Configure & Auth**
+Connect the server and authorize via browser (tokens are cached):
 
-The fastest way to configure the server is using the `mcporter` CLI. Run one of the following commands in your terminal:
-
-**Option A: Local (Recommended)**
-*Saves to `<project-root>/config/mcporter.json`*
 ```bash
-mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp \
-  --auth oauth \
-  --header "X-License-Key=your-license-key"
-```
+# Add ClickUp as a remote server
+mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp --auth oauth --header "X-License-Key=your-license-key"
 
-**Option B: Global**
-*Saves to `~/.mcporter/mcporter.json`*
-```bash
-mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp \
-  --scope home \
-  --auth oauth \
-  --header "X-License-Key=your-license-key"
-```
-
-**3. Authenticate** — run once to authorize via browser (tokens are cached):
-```bash
+# Authenticate session
 mcporter auth ClickUp
 ```
 
-**4. Use:**
+**3. Use**
 ```bash
+# List available tools
+mcporter list ClickUp --schema
+
+# Call a tool directly
 mcporter call ClickUp.get_workspace team_id=0123456789
 ```
 
-> **Tip:** Since mcporter is a one-shot CLI client, if using multiple workspaces, always pass `team_id` to target the correct workspace.
-
+> **Tip:** Use `mcporter --help` to see all commands, daemon management, and codegen options.
 </details>
 
 <a name="other-setup"></a>
