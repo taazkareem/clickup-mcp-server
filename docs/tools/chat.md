@@ -77,7 +77,7 @@ Send messages, create channels, and browse message history in ClickUp Chat. Supp
 | `content` | string | Message text (Markdown supported). Required for create and create_reply. For update, required only when modifying message text (omit if only changing resolved status) |
 | `notify_all` | boolean | Notify all channel members. For create |
 | `resolved` | boolean | Mark message as resolved. For update |
-| `reaction` | string | Lowercase emoji name (e.g. `thumbsup`). Required for add_reaction/remove_reaction |
+| `reaction` | string | Lowercase emoji name (e.g. `+1`, `-1`, `joy`, `heart`, `tada`). Required for add_reaction/remove_reaction |
 | `comment_type` | string | Filter by comment type. For 'get_subtypes' action. Values: `post`, `ai`, `syncup`, `ai_via_brain`. |
 | `type` | string | Message type. For 'create' action. Values: `message`, `post`. |
 | `post_title` | string | Title for the post. Required if type is 'post'. |
