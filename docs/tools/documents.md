@@ -5,6 +5,8 @@
 
 8 atomic tools for creating, browsing, and editing ClickUp documents and their pages. Supports markdown and HTML content formats, nested page hierarchies, and name resolution for parents and documents.
 
+> **Note**: Permanently deleting documents or individual pages is currently not supported via the MCP tools. Please use the ClickUp UI for deletion operations.
+
 ## Tool Reference
 
 | Tool | Description | Required Parameters | Optional Parameters |

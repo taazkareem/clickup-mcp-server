@@ -12,19 +12,19 @@ description: Atomic tools for managing time tracking
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|---------------------|---------------------|
-| `get_time_entries` | Fetch historical time entries | — | `taskName`, `startDate`, `endDate`, `assigneeNames`, `spaceName`, `folderName`, etc. |
-| `get_current_time_entry` | Get currently running timer | — | — |
-| `start_time_entry` | Start tracking time for a task | `task` (Task ID/Name) | `listName`, `description`, `billable`, `tags` |
-| `stop_time_entry` | Stop the active timer | — | `description`, `tags` |
-| `add_time_entry` | Manually log a time entry | `task`, `start_time`, `duration` | `listName`, `description`, `billable`, `tags` |
-| `update_time_entry` | Modify an existing time entry | `timer_id`, `task` | `start_time`, `end_time`, `duration`, `description`, `tags` |
-| `delete_time_entry` | Delete an existing entry | `timer_id` | — |
-| `get_time_entry_history` | View edit history of an entry | `timer_id` | — |
-| `get_time_entry_tags` | Fetch all workspace time entry tags | — | — |
-| `add_time_entry_tags` | Add a tag to an entry | `timer_id`, `name` | — |
-| `update_time_entry_tags` | Rename a workspace tag globally | `name`, `new_name` | — |
-| `delete_time_entry_tags` | Remove a tag from an entry | `timer_id`, `name` | — |
-| `get_time_in_status` | Get time-in-status for multiple tasks | `task_ids` | `custom_task_ids` |
+| `get_time_entries` | Fetch historical time entries | — | `taskName`, `startDate`, `endDate`, `assigneeNames`, `spaceName`, `folderName`, `team_id`, etc. |
+| `get_current_time_entry` | Get currently running timer | — | `team_id` |
+| `start_time_entry` | Start tracking time for a task | `task` (Task ID/Name) | `listName`, `description`, `billable`, `tags`, `team_id` |
+| `stop_time_entry` | Stop the active timer | — | `description`, `tags`, `team_id` |
+| `add_time_entry` | Manually log a time entry | `task`, `start_time`, `duration` | `listName`, `description`, `billable`, `tags`, `team_id` |
+| `update_time_entry` | Modify an existing time entry | `timer_id` | `task`, `start_time`, `end_time`, `duration`, `description`, `tags`, `team_id` |
+| `delete_time_entry` | Delete an existing entry | `timer_id` | `team_id` |
+| `get_time_entry_history` | View edit history of an entry | `timer_id` | `team_id` |
+| `get_time_entry_tags` | Fetch all workspace time entry tags | — | `team_id` |
+| `add_time_entry_tags` | Add a tag to an entry | `timer_id`, `name` | `team_id` |
+| `update_time_entry_tags` | Rename a workspace tag globally | `name`, `new_name` | `team_id` |
+| `delete_time_entry_tags` | Remove a tag from an entry | `timer_id`, `name` | `team_id` |
+| `get_time_in_status` | Get time-in-status for multiple tasks | `task_ids` | `custom_task_ids`, `team_id` |
 
 ## Quality of Life Features
 

@@ -9,69 +9,36 @@ The core of ClickUp MCP Server — create, update, move, delete, and query tasks
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| get_task | Get single task details with global lookup | `task` (Name or ID) | `listName` (disambiguation), `subtasks`, `include_markdown_description` |
-| `get_comments` | Get comments on a task, list, or view | `task`/`list_id`/`view_id` depending on `context_type` | `context_type`, `start`, `startId`, `include_replies` |
-| `create_comment` | Create a comment on a task, list, or view | `task`/`list_id`/`view_id` + `commentText` or `formattedComment` | `context_type`, `notifyAll`, `assignee` |
-| `update_comment` | Edit or resolve a comment | `comment_id` | `commentText`, `formattedComment`, `resolved` |
-| `delete_comment` | Delete a comment | `comment_id` | — |
-| `get_comment_replies` | Get threaded replies for a comment | `comment_id` | — |
-| `create_comment_reply` | Reply to a comment in a thread | `comment_id`, `commentText` or `formattedComment` | `notifyAll`, `assignee` |
-| `add_comment_reaction` | Add an emoji reaction to a comment | `comment_id`, `reaction` | — |
-| `remove_comment_reaction` | Remove an emoji reaction from a comment | `comment_id`, `reaction` | — |
-| `get_comment_subtypes` | Get post subtype IDs for the workspace | — | `comment_type` |
-| list_attachments | List attachments for a task or file custom field (v3) | `taskId` or `customFieldId` | `team_id` |
-| get_attachment | Get a specific attachment by ID or name (v3) | `taskId` or `customFieldId`, `attachment_id` or `attachment_name` | `team_id` |
-| upload_attachment | Upload a file to a task or custom field (v3) | `taskId` or `customFieldId`, `file_data` or `file_url` | `file_name`, `chunk_*` for large files, `team_id` |
-| create_task | Create a new task | `name` and either `listId` or `listName` | description, status, priority (1-4), dueDate, startDate, time_estimate, parent (ID or Name), assignees, custom_task_type |
-| create_bulk_tasks | Create multiple tasks | `tasks[]` | `listId` or `listName`; each task supports: name, description, status, priority, dueDate, startDate, time_estimate, assignees |
-| update_task | Modify task properties | `task` (Name or ID) | name, description, status, priority, dueDate, startDate, time_estimate, parent (ID or Name), assignees, custom_task_type |
-| update_bulk_tasks | Modify multiple tasks | `tasks[]` with task identifiers | Each task can have: name, description, status, priority, dueDate, startDate, time_estimate, assignees, custom_fields |
-| delete_task | Remove a task | `task` (Name or ID) | `listName` |
-| delete_bulk_tasks | Remove multiple tasks | `tasks[]` with task identifiers | None |
-| move_task | Move task to another list (high-integrity TIML by default) | `task` (Name or ID) | `listId`, `listName`, `sourceListName`, `allowDestructiveFallback` |
-| move_bulk_tasks | Move multiple tasks | `tasks[]` with task identifiers, and target list | `allowDestructiveFallback` |
-| duplicate_task | Full-fidelity task duplication (copies tags, custom fields, checklists, subtasks; attachments are NOT copied — ClickUp API limitation) | `task` (Name or ID) | `listId`, `listName`, `sourceListName` |
-| add_task_to_list | Add task to an additional list (TIML) | `task` (Name or ID) | `listId`, `listName`, `taskListName` |
-| remove_task_from_list | Remove task from a list without deleting it (TIML) | `task` (Name or ID) | `listId`, `listName`, `taskListName` |
-| get_workspace_tasks | Retrieve tasks across the workspace with enhanced filtering | At least one filter parameter (tags, list_ids, folder_ids, space_ids, statuses, assignees, or date filters) | page, order_by, reverse, detail_level, subtasks |
-| add_task_link | Link two tasks together | `task` (Name or ID), `targetTask` (Name or ID) | `listName`, `targetListName` |
-| get_task_links | Get all links for a task | `task` (Name or ID) | `listName` |
-| delete_task_link | Remove a task link | `task` (Name or ID), `linkId` (target task Name or ID) | `listName`, `targetListName` |
-| add_task_dependency | Add a blocking dependency between tasks | `task` (Name or ID), and exactly one of `depends_on` or `dependency_of` | `listName`, `depends_on_list`, `dependency_of_list` |
-| delete_task_dependency | Remove a blocking dependency between tasks | `task` (Name or ID), and exactly one of `depends_on` or `dependency_of` | `listName`, `depends_on_list`, `dependency_of_list` |
-
-## manage_comments Actions
-
-| Action | Context | Description | Required Params | Optional Params |
-|--------|---------|-------------|-----------------|-----------------|
-| `get` | `task` | List all comments on a task | `task` | `listName`, `start`, `startId`, `include_replies` |
-| `get` | `list` | List all comments on a list | `list_id` or `list_name` | — |
-| `get` | `view` | List all comments on a view | `view_id` | — |
-| `create` | `task` | Add a comment to a task | `task`, `commentText` or `formattedComment` | `listName`, `notifyAll`, `assignee` |
-| `create` | `list` | Add a comment to a list | `list_id` or `list_name`, `commentText` or `formattedComment` | `notifyAll`, `assignee` |
-| `create` | `view` | Add a comment to a view | `view_id`, `commentText` or `formattedComment` | `notifyAll`, `assignee` |
-| `update` | any | Edit comment text or resolve/unresolve | `comment_id`, at least one of: `commentText`, `formattedComment`, `resolved` | — |
-| `delete` | any | Permanently delete a comment | `comment_id` | — |
-| `get_replies` | any | Get threaded replies for a comment | `comment_id` | — |
-| `create_reply` | any | Reply to a comment thread | `comment_id`, `commentText` or `formattedComment` | `notifyAll`, `assignee` |
-| `add_reaction` | any | Add an emoji reaction to a comment | `comment_id`, `reaction` | — |
-| `remove_reaction` | any | Remove an emoji reaction from a comment | `comment_id`, `reaction` | — |
-
-**Parameters:**
-- `context_type` — `task` (default), `list`, or `view`. Determines where get/create operate. Ignored for update, delete, get_replies, create_reply, add_reaction, remove_reaction.
-- `task` — Task Name (auto-resolved) or Task ID. Required for `get`/`create` when `context_type` is `task`.
-- `list_id` — List ID. Required for `get`/`create` when `context_type` is `list`.
-- `list_name` — List name (auto-resolved). Used when `context_type` is `list` and `list_id` is not provided.
-- `view_id` — View ID. Required for `get`/`create` when `context_type` is `view`.
-- `listName` — Disambiguates tasks when multiple share the same name (task context only).
-- `comment_id` — The ClickUp comment ID. Required for `update`, `delete`, `get_replies`, `create_reply`, `add_reaction`, `remove_reaction`.
-- `commentText` — Plain text / markdown (`**bold**`, `_italic_`, `` `code` ``, `- lists`). Automatically converted to ClickUp rich text.
-- `formattedComment` — Rich text array with text blocks, `{type:'tag', user:{id}}` for @mentions, `{type:'emoji', unicode}` for emoji.
-- `notifyAll` — Boolean. Notify all assignees (applies to `create`, `create_reply`).
-- `assignee` — User ID number to assign the comment to.
-- `resolved` — Boolean. Mark a comment resolved (`true`) or unresolved (`false`). Applies to `update`.
-- `reaction` — Lowercase emoji name (e.g. `+1`, `-1`, `joy`, `heart`, `tada`). Required for `add_reaction`/`remove_reaction`.
-- `include_replies` — Boolean. Fetch threaded replies inline for each comment. Applies to `get` (task context).
+| `get_task` | Get single task details with global lookup | `task` (Name or ID) | `listName` (disambiguation), `subtasks`, `include_markdown_description`, `team_id` |
+| `get_comments` | Get comments on a task, list, or view | `task` (if task context) OR `list_id`/`list_name` OR `view_id` | `context_type`, `listName`, `include_replies`, `start`, `startId`, `team_id` |
+| `create_comment` | Create a comment on a task, list, or view | `task`/`list_id`/`list_name`/`view_id` + `commentText` or `formattedComment` | `context_type`, `listName`, `notifyAll`, `assignee`, `team_id` |
+| `update_comment` | Edit or resolve a comment | `comment_id` | `commentText`, `formattedComment`, `resolved`, `team_id` |
+| `delete_comment` | Delete a comment | `comment_id` | `team_id` |
+| `get_comment_replies` | Get threaded replies for a comment | `comment_id` | `team_id` |
+| `create_comment_reply` | Reply to a comment in a thread | `comment_id`, `commentText` or `formattedComment` | `notifyAll`, `assignee`, `team_id` |
+| `add_comment_reaction` | Add an emoji reaction to a comment | `comment_id`, `reaction` | `team_id` |
+| `remove_comment_reaction` | Remove an emoji reaction from a comment | `comment_id`, `reaction` | `team_id` |
+| `get_comment_subtypes` | Get post subtype IDs for the workspace | — | `comment_type`, `team_id` |
+| `list_attachments` | List attachments for a task or file custom field | `taskId` or `taskName` or `customFieldId` | `listName`, `team_id` |
+| `get_attachment` | Get a specific attachment by ID or name | `taskId`/`taskName` or `customFieldId`, plus `attachment_id` or `attachment_name` | `listName`, `team_id` |
+| `upload_attachment` | Upload a file to a task or custom field | `taskId`/`taskName` or `customFieldId`, plus `file_data` or `file_url` | `file_name`, `listName`, `chunk_index`, `chunk_is_last`, `chunk_session`, `team_id` |
+| `create_task` | Create a new task | `name` and either `listId` or `listName` | `description`, `markdown_description`, `status`, `priority`, `dueDate`, `startDate`, `time_estimate`, `parent`, `assignees`, `tags`, `custom_fields`, `team_id` |
+| `create_bulk_tasks` | Create multiple tasks in one list | `tasks[]`, `listId` or `listName` | `options`, `team_id` |
+| `update_task` | Modify task properties | `task` (Name or ID) | `name`, `description`, `markdown_description`, `status`, `priority`, `dueDate`, `startDate`, `time_estimate`, `parent`, `assignees`, `custom_task_type`, `team_id` |
+| `update_bulk_tasks` | Modify multiple tasks | `tasks[]` | `options`, `team_id` |
+| `delete_task` | Remove a task permanently | `task` (Name or ID) | `listName`, `team_id` |
+| `delete_bulk_tasks` | Remove multiple tasks permanently | `tasks[]` | `options`, `team_id` |
+| `move_task` | Move task to another list | `task` (Name or ID), `listId` or `listName` | `sourceListName`, `allowDestructiveFallback`, `team_id` |
+| `move_bulk_tasks` | Move multiple tasks to one list | `tasks[]`, `targetListId` or `targetListName` | `allowDestructiveFallback`, `options`, `team_id` |
+| `duplicate_task` | Full-fidelity task duplication | `task` (Name or ID) | `listId`, `listName`, `sourceListName`, `team_id` |
+| `add_task_to_list` | Add task to an additional list (TIML) | `task` (Name or ID), `listId` or `listName` | `taskListName`, `team_id` |
+| `remove_task_from_list` | Remove task from a specific list (TIML) | `task` (Name or ID), `listId` or `listName` | `taskListName`, `team_id` |
+| `get_workspace_tasks` | Deep search tasks across the workspace | — | `search_query`, `tags`, `list_ids`, `folder_ids`, `space_ids`, `statuses`, `assignees`, `detail_level`, `subtasks`, `team_id` |
+| `add_task_link` | Link two tasks together | `task` (Name or ID), `targetTask` (Name or ID) | `listName`, `targetListName`, `team_id` |
+| `get_task_links` | Get all links for a task | `task` (Name or ID) | `listName`, `team_id` |
+| `delete_task_link` | Remove a task link | `task` (Name or ID), `linkId` (target task ID/name) | `listName`, `targetListName`, `team_id` |
+| `add_task_dependency` | Add a blocking dependency | `task` (Name or ID) | `depends_on`, `dependency_of`, `listName`, `depends_on_list`, `dependency_of_list`, `team_id` |
+| `delete_task_dependency` | Remove a blocking dependency | `task` (Name or ID) | `depends_on`, `dependency_of`, `listName`, `depends_on_list`, `dependency_of_list`, `team_id` |
 
 ## Parameters
 

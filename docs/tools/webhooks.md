@@ -8,8 +8,8 @@
 |------|-------------|---------------------|---------------------|
 | `list_webhooks` | List all webhooks in the workspace | — | `team_id` |
 | `create_webhook` | Create a new webhook | `endpoint`, `events` | `space_id`, `folder_id`, `list_id`, `task_id`, `team_id` |
-| `update_webhook` | Update an existing webhook | `webhook_id` | `endpoint`, `events`, `status` |
-| `delete_webhook` | Delete a webhook permanently | `webhook_id` | — |
+| `update_webhook` | Update an existing webhook | `webhook_id` | `endpoint`, `events`, `status`, `team_id` |
+| `delete_webhook` | Delete a webhook permanently | `webhook_id` | `team_id` |
 
 ## Available Event Types
 

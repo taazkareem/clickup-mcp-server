@@ -6,16 +6,16 @@
 
 ## Tool Reference
 
-| Tool | Description | Required Parameters |
-|------|-------------|---------------------|
-| `list_goals` | List all goals in the workspace | — |
-| `get_goal` | Get a goal with its key results | `goalId` |
-| `create_goal` | Create a new goal | `name` |
-| `update_goal` | Update a goal's properties | `goalId` |
-| `delete_goal` | Delete a goal | `goalId` |
-| `create_key_result` | Add a key result to a goal | `goalId`, `name` |
-| `update_key_result` | Update a key result | `keyResultId` |
-| `delete_key_result` | Delete a key result | `keyResultId` |
+| Tool | Description | Required Parameters | Optional Parameters |
+|------|-------------|---------------------|---------------------|
+| `list_goals` | List all goals in the workspace | — | `includeCompleted`, `team_id` |
+| `get_goal` | Get a goal with its key results | `goalId` or `goalName` | `team_id` |
+| `create_goal` | Create a new goal | `name` | `description`, `dueDate`, `color`, `multipleOwners`, `owners`, `team_id` |
+| `update_goal` | Update a goal's properties | `goalId` or `goalName` | `name`, `description`, `dueDate`, `color`, `addOwners`, `remOwners`, `team_id` |
+| `delete_goal` | Delete a goal | `goalId` or `goalName` | `team_id` |
+| `create_key_result` | Add a key result to a goal | `goalId` or `goalName`, `name`, `type` | `stepsStart`, `stepsEnd`, `unit`, `taskIds`, `listIds`, `team_id` |
+| `update_key_result` | Update a key result | `keyResultId` | `keyResultName`, `goalId`, `goalName`, `name`, `type`, `stepsStart`, `stepsEnd`, `unit`, `taskIds`, `listIds`, `team_id` |
+| `delete_key_result` | Delete a key result | `keyResultId` | `keyResultName`, `goalId`, `goalName`, `team_id` |
 
 ## Parameters
 
