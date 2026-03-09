@@ -38,7 +38,7 @@ get_workspace,create_task,get_task,update_task,move_task,duplicate_task,delete_t
 ```
 
 ### 5. Content Manager
-Managing text, wikis, and team communications in Docs and Chat.
+Managing text, wikis, team communications, and attachments in Docs, Chat, and Tasks.
 **Value:**
 ```text
 get_workspace,get_task,get_workspace_tasks,get_comments,create_comment,update_comment,delete_comment,get_comment_replies,create_comment_reply,add_comment_reaction,remove_comment_reaction,get_comment_subtypes,list_attachments,get_attachment,upload_attachment,list_views,get_view,create_view,update_view,delete_view,get_view_tasks,list_documents,get_document,create_document,list_document_pages,get_document_page,get_document_pages,create_document_page,update_document_page,list_chat_channels,get_chat_channel,create_chat_channel,update_chat_channel,delete_chat_channel,get_chat_channel_members,get_chat_channel_followers,create_chat_dm,get_chat_messages,create_chat_message,update_chat_message,delete_chat_message,get_chat_message_replies,create_chat_message_reply,add_chat_reaction,remove_chat_reaction,get_chat_reactions,get_chat_tagged_users,get_chat_message_subtypes,submit_feedback

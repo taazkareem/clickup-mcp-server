@@ -713,19 +713,19 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
 | 👷 `task_worker` | Daily management | Creating/updating tasks, time tracking, checklists. |
 | ⏱️ `time_specialist` | Time tracking focus | Logging time, timesheets, and entry history. |
 | 🏗️ `project_manager` | High-level control | Structural management, spaces, folders, bulk operations. |
-| 📚 `content_manager` | Communication focus | Docs, chat, messaging, and comments. |
+| 📚 `content_manager` | Communication & Files | Docs, chat, messaging, comments, and attachments. |
 | 🏢 `workspace_admin` | Administrative control | Permissions, guest management, and audit logs. |
 | 💻 `developer` | Programmatic focus | Webhooks, custom fields, and bulk automation. |
 | 🛡️ `safe_power_user` | Full access (Filtered) | All tools EXCEPT destructive ones (deletes/removals). |
 
 **Local (Environment Variable):**
 ```json
-"CLICKUP_MCP_PERSONA": "auditor"
+"CLICKUP_MCP_PERSONA": "task_worker"
 ```
 
 -or- **Remote (Header):**
 ```json
-"X-Persona": "auditor"
+"X-Persona": "task_worker"
 ```
 
 > **💡 Need to customize?** To view the exact tools included in each preset or to build a custom list based on a persona, see the [Personas Reference Guide](./docs/reference/personas.md).
