@@ -93,7 +93,7 @@ The industry-standard ClickUp integration for AI.
 
 <div align="center">
 
-<h3>Unlock 145 Enterprise-Grade Atomic Tools</h3>
+<h3>Unlock 145 Enterprise-Grade Custom Tools</h3>
 
 This project transitioned from open-source to a paid model for sustainable full-time development and priority support.
 A license grants full, unrestricted access to all features across your agents⎯no limits.
@@ -102,7 +102,7 @@ A license grants full, unrestricted access to all features across your agents⎯
 
 | [**Monthly ($9/mo)**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) | [**Annual ($59/yr)**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) | [**Lifetime ($89 w/ code)**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) |
 | :--- | :--- | :--- |
-| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • **Save 45%** ($4.92/mo)<br>• 3 device activations<br>• Priority support all year | • **Best Value** — One payment<br>• 3 device activations<br>• 🔥 **25% OFF** code: `MAR25` |
+| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • **Save 45%** ($4.92/mo)<br>• 3 device activations<br>• Priority support all year | • **Best Value** — One payment<br>• 3 device activations<br>• **25% OFF** code: `MAR25` |
 <br>
 
 <p align="center">
@@ -111,7 +111,7 @@ A license grants full, unrestricted access to all features across your agents⎯
 
 <br>
 
-**⚡️ Instant Key Delivery** &nbsp; • &nbsp; **Setup takes < 2 mins**
+**⚡️ Instant Key Delivery (Polar.sh)** &nbsp; • &nbsp; **Setup takes less than 2 mins** &nbsp; &nbsp; &nbsp;
 
 </div>
 
