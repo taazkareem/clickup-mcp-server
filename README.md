@@ -485,7 +485,8 @@ mcporter list ClickUp --schema
 mcporter call ClickUp.get_workspace team_id=0123456789
 ```
 
-> **Tip:** Use `mcporter --help` to see all commands, daemon management, and codegen options.
+> **Tip:** Since mcporter is a one-shot CLI client, if using multiple workspaces, always pass `team_id` to target the correct workspace.
+
 </details>
 
 <a name="other-setup"></a>
