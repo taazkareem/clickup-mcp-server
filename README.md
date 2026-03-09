@@ -476,16 +476,28 @@ mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp --auth oauth 
 mcporter auth ClickUp
 ```
 
-**3. Use**
-```bash
-# List available tools
-mcporter list ClickUp --schema
+**3. Use & Persona Switching**
+The server supports **on-the-fly persona switching** via the `X-Persona` header. Since `mcporter` is a one-shot CLI, the best way to switch is to update the config and call in a single command:
 
-# Call a tool directly
-mcporter call ClickUp.get_workspace team_id=0123456789
+```bash
+# Switch to Auditor (Read-only) and call
+mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp \
+  --header "X-Persona=auditor" \
+  --header "X-License-Key=your-key" \
+  --header "X-ClickUp-Key=your-api-key" \
+  --header "X-ClickUp-Team-Id=your-team-id" && \
+mcporter call ClickUp.get_workspace
+
+# Switch to Task Worker (Daily CRUD) and call
+mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp \
+  --header "X-Persona=task_worker" \
+  --header "X-License-Key=your-key" \
+  --header "X-ClickUp-Key=your-api-key" \
+  --header "X-ClickUp-Team-Id=your-team-id" && \
+mcporter call ClickUp.create_task name="New Task" listId=123
 ```
 
-> **Tip:** Since mcporter is a one-shot CLI client, if using multiple workspaces, always pass `team_id` to target the correct workspace.
+To see all available personas and what they do, see the [Preset Configurations](#advanced-configuration) section below.
 
 </details>
 

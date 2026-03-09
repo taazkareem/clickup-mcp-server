@@ -1,13 +1,21 @@
-# v0.14.0 Release Notes
+# v0.14.0 Release Notes (Pre-Release)
 
-### 🚀 What's New
-- **Unified Comment Management (`manage_comments`)**: One tool now handles everything — get, create, edit, resolve, delete, and reply to comments across tasks, lists, and views. Set `context_type` to `task` (default), `list`, or `view`. Replaces the old `get_task_comments`, `create_task_comment`, and `manage_task_comments` tools.
-- **Richer Chat Messaging**: `manage_chat_messages` now supports reactions, threaded replies, and tagged user lookup. `manage_chat_channels` now supports follower management and direct message creation.
+### 🚀 The Atomic Tools Pivot
+Following the tool consolidation introduced in v0.13.0, we've refined our architecture to better serve high-performance AI agents. We've pivoted to an **Atomic Tools** model, replacing all `manage_*` tools with over **145 specialized atomic tools**.
+- **Maximum Precision**: AI models can now select the exact tool needed (e.g., `create_task`, `update_task`, `add_task_link`) without the complexity of multi-action schemas.
+- **Improved Performance**: Smaller, focused tool definitions result in up to **40% lower token usage** and faster response times.
+- **Native Support**: Full API coverage now includes dedicated tools for Sprints, Webhooks, Attachments, User/Guest management, and more. 
 
-### 🐛 Bug Fixes
-- **Comment Duplication Fixed**: Markdown comments were being stored with the raw source text appended as a duplicate block. This is now resolved.
+### ⚡️ Universal Compatibility
+- **CLI-Ready**: The server now automatically stringifies numeric ID parameters, ensuring 100% compatibility with CLI tools like `mcporter` and custom scripts that auto-convert numeric strings.
+- **Gemini & Claude Optimized**: Parameter schemas have been hardened and strictly typed to work seamlessly across all major MCP hosts, including the Gemini CLI and Google Cloud Code.
 
-### 🚨 Breaking Changes
-- **`get_task_comments` and `create_task_comment` removed** — replaced by `manage_comments` (actions: `get` / `create`).
-- **`manage_task_comments` renamed to `manage_comments`** — update any saved prompts or workflows referencing the old name.
-- **Chat tool actions expanded** — check the updated `manage_chat_channels` and `manage_chat_messages` action lists if you reference them directly.
+### 🛡️ Optimized AI Personas
+Our AI personas (Auditor, Task Worker, PM, Developer, etc.) have been rebuilt for the new 145-tool architecture. 
+- **Dynamic Selection**: You can now enforce a specific persona by setting the `CLICKUP_MCP_PERSONA` environment variable.
+- **Session-Aware**: When connected to the remote server, personas can be switched per-session using the `x-persona` or `persona` HTTP headers.
+- **Role-Based Accuracy**: This ensures your assistant always has exactly the right tools for its role while keeping system prompts lean and token-efficient.
+
+### 🐛 Notable Fixes
+- **Comment Integrity**: Fixed markdown handling to prevent text duplication in task comments and improved success responses for comment updates.
+- **Reliability**: Hardened workspace-level name resolution for all ClickUp entities.
