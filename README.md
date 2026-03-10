@@ -164,8 +164,8 @@ mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Audi
   --header "X-ClickUp-Key=your-api-key" \
   --header "X-ClickUp-Team-Id=your-team-id"
 
-# Define a Task Worker persona (Daily CRUD)
-mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Worker https://clickup-mcp.taazkareem.com/mcp \
+# Define a Task Worker persona (Daily CRUD) in the same or different workspace 
+mcporter --config <agent-workspace-2>/config/mcporter.json config add ClickUp-Worker https://clickup-mcp.taazkareem.com/mcp \
   --header "X-Persona=task_worker" \
   --header "X-License-Key=your-license-key" \
   --header "X-ClickUp-Key=your-api-key" \
