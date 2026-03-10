@@ -154,7 +154,7 @@ mcporter auth ClickUp
 ```
 
 **3. Optional: Multiple Personas**
-The most robust and flexible way to manage personas is to define multiple named servers in your **agent-specific** `mcporter.json` configuration. This isolates credentials and policies per-agent.
+The most robust and flexible way to manage personas is to define multiple named configurations in your **agent-specific** `mcporter.json` file. This isolates credentials and policies per-agent.
 
 ```bash
 # Define an Auditor persona (Read-only) in your workspace config
