@@ -476,26 +476,34 @@ mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp --auth oauth 
 mcporter auth ClickUp
 ```
 
-**3. Use & Persona Switching**
-The server supports **on-the-fly persona switching** via the `X-Persona` header. Since `mcporter` is a one-shot CLI, the best way to switch is to update the config and call in a single command:
+**3. Optional: Multiple Personas**
+The most robust and flexible way to manage personas is to define multiple named servers in your **agent-specific** `mcporter.json` configuration. This isolates credentials and policies per-agent.
 
 ```bash
-# Switch to Auditor (Read-only) and call
-mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp \
+# Define an Auditor persona (Read-only) in your workspace config
+mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Auditor https://clickup-mcp.taazkareem.com/mcp \
   --header "X-Persona=auditor" \
-  --header "X-License-Key=your-key" \
-  --header "X-ClickUp-Key=your-api-key" \
-  --header "X-ClickUp-Team-Id=your-team-id" && \
-mcporter call ClickUp.get_workspace
+  --header "X-License-Key=your-license-key" \
+  --header "X-ClickUp-Key=api-key" \
+  --header "X-ClickUp-Team-Id=your-team-id"
 
-# Switch to Task Worker (Daily CRUD) and call
-mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp \
+# Define a Task Worker persona (Daily CRUD)
+mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Worker https://clickup-mcp.taazkareem.com/mcp \
   --header "X-Persona=task_worker" \
-  --header "X-License-Key=your-key" \
-  --header "X-ClickUp-Key=your-api-key" \
-  --header "X-ClickUp-Team-Id=your-team-id" && \
-mcporter call ClickUp.create_task name="New Task" listId=123
+  --header "X-License-Key=your-license-key" \
+  --header "X-ClickUp-Key=api-key-2" \
+  --header "X-ClickUp-Team-Id=your-team-id"
+
+# Now the OpenClaw sub-agent can see the optimized schema and call its focused tools like:
+mcporter list ClickUp-Auditor --schema 
+mcporter call ClickUp-Auditor.get_workspace
+
+mcporter list ClickUp-Worker --schema
+mcporter call ClickUp-Worker.create_task listId="123456789" name="New Task"
 ```
+
+>
+> **Isolation**:You can add X-Enabled-Tools or X-Disabled-Tools to mix and match tools and personas, or perhaps enable just a single tool. You can assign different ClickUp API Keys, Team IDs, or even different License Keys to each persona. Since the agent only reads the tool definitions and not the sensitive headers directly, this is the most secure way to handle multi-agent ClickUp configurations.
 
 To see all available personas and what they do, see the [Preset Configurations](#advanced-configuration) section below.
 
