@@ -153,7 +153,7 @@ mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp --auth oauth 
 mcporter auth ClickUp
 ```
 
-**3. Optional: Multiple Personas**
+**Optional: Multiple Personas**
 The most robust and flexible way to manage personas is to define multiple named configurations in your **agent-specific** `mcporter.json` file. This isolates credentials and policies per-agent.
 
 ```bash
