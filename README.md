@@ -28,7 +28,7 @@ The industry-standard ClickUp integration for AI.
 
 | Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Quick&nbsp;Start&nbsp;&&nbsp;Installation |
 | :--- | :--- |
-| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td st yle="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[Other](#other-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
+| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td st yle="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[Other](#other-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
 
 ---
 
@@ -133,42 +133,57 @@ A license grants full, unrestricted access to all features across your agents⎯
 
 ### 2. Choose your MCP Host & Transport
 
-<a name="cursor-setup"></a>
+<a name="openclaw-setup"></a>
 <details open>
-<summary>&nbsp;<img src="./assets/logos/cursor-white.svg" height="22" align="center"> <strong>Cursor</strong></summary>  
+<summary>&nbsp;<img src="./assets/logos/openclaw-logo.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong> <sub>&nbsp;FEATURED</sub></summary>
 
-**Configuration Path:** `<project-root>/.cursor/mcp.json`
-
-**Option A: Remote / Streamable HTTP (Easiest)**
+**1. Enable** mcporter in `~/.openclaw/openclaw.json`:
 ```json
-{
-  "mcpServers": {
-    "ClickUp": {
-      "url": "https://clickup-mcp.taazkareem.com/mcp",
-      "headers": {
-        "X-License-Key": "your-license-key"
-      }
-    }
-  }
-}
+{"skills": {"allowBundled": ["mcporter"]}}
 ```
 
-**Option B: Local / STDIO**
-```json
-{
-  "mcpServers": {
-    "ClickUp": {
-      "command": "npx",
-      "args": ["-y", "@taazkareem/clickup-mcp-server@latest"],
-      "env": {
-        "CLICKUP_API_KEY": "your-api-key",
-        "CLICKUP_TEAM_ID": "your-team-id",
-        "CLICKUP_MCP_LICENSE_KEY": "your-license-key"
-      }
-    }
-  }
-}
+**2. Configure & Auth**
+Connect the server and authorize via browser (tokens are cached):
+
+```bash
+# Add ClickUp as a remote server
+mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp --auth oauth --header "X-License-Key=your-license-key"
+
+# Authenticate session
+mcporter auth ClickUp
 ```
+
+**3. Optional: Multiple Personas**
+The most robust and flexible way to manage personas is to define multiple named servers in your **agent-specific** `mcporter.json` configuration. This isolates credentials and policies per-agent.
+
+```bash
+# Define an Auditor persona (Read-only) in your workspace config
+mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Auditor https://clickup-mcp.taazkareem.com/mcp \
+  --header "X-Persona=auditor" \
+  --header "X-License-Key=your-license-key" \
+  --header "X-ClickUp-Key=api-key" \
+  --header "X-ClickUp-Team-Id=your-team-id"
+
+# Define a Task Worker persona (Daily CRUD)
+mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Worker https://clickup-mcp.taazkareem.com/mcp \
+  --header "X-Persona=task_worker" \
+  --header "X-License-Key=your-license-key" \
+  --header "X-ClickUp-Key=api-key-2" \
+  --header "X-ClickUp-Team-Id=your-team-id"
+
+# Now the OpenClaw sub-agent can see the optimized schema and call its focused tools like:
+mcporter list ClickUp-Auditor --schema
+mcporter call ClickUp-Auditor.get_workspace
+
+mcporter list ClickUp-Worker --schema
+mcporter call ClickUp-Worker.create_task listId="123456789" name="New Task"
+```
+
+>
+> **Isolation**: You can add X-Enabled-Tools or X-Disabled-Tools to mix and match tools and personas, or perhaps enable just a single tool. You can assign different ClickUp API Keys, Team IDs, or even different License Keys to each persona. Since the agent only reads the tool definitions and not the sensitive headers directly, this is the most secure way to handle multi-agent ClickUp configurations.
+
+To see all available personas and what they do, see the [Advanced Configuration](#advanced-configuration) section below.
+
 </details>
 
 <a name="windsurf-setup"></a>
@@ -456,57 +471,42 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 ```
 </details>
 
-<a name="openclaw-setup"></a>
+<a name="cursor-setup"></a>
 <details>
-<summary>&nbsp;<img src="./assets/logos/openclaw-logo.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong></summary>
+<summary>&nbsp;<img src="./assets/logos/cursor-white.svg" height="22" align="center"> <strong>Cursor</strong></summary>
 
-**1. Enable** mcporter in `~/.openclaw/openclaw.json`:
+**Configuration Path:** `<project-root>/.cursor/mcp.json`
+
+**Option A: Remote / Streamable HTTP (Easiest)**
 ```json
-{"skills": {"allowBundled": ["mcporter"]}}
+{
+  "mcpServers": {
+    "ClickUp": {
+      "url": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": {
+        "X-License-Key": "your-license-key"
+      }
+    }
+  }
+}
 ```
 
-**2. Configure & Auth**
-Connect the server and authorize via browser (tokens are cached):
-
-```bash
-# Add ClickUp as a remote server
-mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp --auth oauth --header "X-License-Key=your-license-key"
-
-# Authenticate session
-mcporter auth ClickUp
+**Option B: Local / STDIO**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "command": "npx",
+      "args": ["-y", "@taazkareem/clickup-mcp-server@latest"],
+      "env": {
+        "CLICKUP_API_KEY": "your-api-key",
+        "CLICKUP_TEAM_ID": "your-team-id",
+        "CLICKUP_MCP_LICENSE_KEY": "your-license-key"
+      }
+    }
+  }
+}
 ```
-
-**3. Optional: Multiple Personas**
-The most robust and flexible way to manage personas is to define multiple named servers in your **agent-specific** `mcporter.json` configuration. This isolates credentials and policies per-agent.
-
-```bash
-# Define an Auditor persona (Read-only) in your workspace config
-mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Auditor https://clickup-mcp.taazkareem.com/mcp \
-  --header "X-Persona=auditor" \
-  --header "X-License-Key=your-license-key" \
-  --header "X-ClickUp-Key=api-key" \
-  --header "X-ClickUp-Team-Id=your-team-id"
-
-# Define a Task Worker persona (Daily CRUD)
-mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Worker https://clickup-mcp.taazkareem.com/mcp \
-  --header "X-Persona=task_worker" \
-  --header "X-License-Key=your-license-key" \
-  --header "X-ClickUp-Key=api-key-2" \
-  --header "X-ClickUp-Team-Id=your-team-id"
-
-# Now the OpenClaw sub-agent can see the optimized schema and call its focused tools like:
-mcporter list ClickUp-Auditor --schema 
-mcporter call ClickUp-Auditor.get_workspace
-
-mcporter list ClickUp-Worker --schema
-mcporter call ClickUp-Worker.create_task listId="123456789" name="New Task"
-```
-
->
-> **Isolation**:You can add X-Enabled-Tools or X-Disabled-Tools to mix and match tools and personas, or perhaps enable just a single tool. You can assign different ClickUp API Keys, Team IDs, or even different License Keys to each persona. Since the agent only reads the tool definitions and not the sensitive headers directly, this is the most secure way to handle multi-agent ClickUp configurations.
-
-To see all available personas and what they do, see the [Preset Configurations](#advanced-configuration) section below.
-
 </details>
 
 <a name="other-setup"></a>
