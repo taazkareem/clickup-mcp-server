@@ -161,14 +161,14 @@ The most robust and flexible way to manage personas is to define multiple named 
 mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Auditor https://clickup-mcp.taazkareem.com/mcp \
   --header "X-Persona=auditor" \
   --header "X-License-Key=your-license-key" \
-  --header "X-ClickUp-Key=api-key" \
+  --header "X-ClickUp-Key=your-api-key" \
   --header "X-ClickUp-Team-Id=your-team-id"
 
 # Define a Task Worker persona (Daily CRUD)
 mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Worker https://clickup-mcp.taazkareem.com/mcp \
   --header "X-Persona=task_worker" \
   --header "X-License-Key=your-license-key" \
-  --header "X-ClickUp-Key=api-key-2" \
+  --header "X-ClickUp-Key=your-api-key" \
   --header "X-ClickUp-Team-Id=your-team-id"
 
 # Now the OpenClaw sub-agent can see the optimized schema and call its focused tools like:
