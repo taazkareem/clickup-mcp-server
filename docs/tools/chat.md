@@ -11,7 +11,7 @@
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|---------------------|---------------------|
-| `list_chat_channels` | List all channels in the workspace | — | `cursor`, `limit`, `team_id` |
+| `list_chat_channels` | List all channels in the workspace | — | `cursor`, `limit`, `detail_level`, `team_id` |
 | `get_chat_channel` | Get a single channel | `channel_id` or `channel_name` | `team_id` |
 | `create_chat_channel` | Create a new channel | `name` | `description`, `topic`, `visibility`, `space_id`/`spaceName`, `folder_id`/`folderName`, `list_id`/`listName`, `team_id` |
 | `update_chat_channel` | Update a channel | `channel_id` or `channel_name` | `name`, `description`, `topic`, `visibility`, `team_id` |
@@ -55,6 +55,7 @@
 | `member_ids` | integer[] | Array of member user IDs. Required for `create_chat_dm` |
 | `cursor` | string | Pagination cursor. For list, get_members, or get_followers |
 | `limit` | number | Max results (up to 100). For list, get_members, or get_followers |
+| `detail_level` | string | `"names"` returns `{id, name}` only. `"detailed"` (default) returns full channel metadata. For `list_chat_channels`. |
 
 ## Message Parameters
 

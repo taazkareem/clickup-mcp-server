@@ -9,7 +9,7 @@
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|---------------------|---------------------|
-| `list_user_groups` | List all user groups in the workspace | — | `team_id` |
+| `list_user_groups` | List all user groups in the workspace | — | `detail_level`, `team_id` |
 | `create_user_group` | Create a new user group with initial members | `group_name`, `member_ids` | `team_id` |
 | `update_user_group` | Rename a group or add/remove members | `group_id` | `group_name`, `members_to_add`, `members_to_remove`, `team_id` |
 | `delete_user_group` | Delete a user group | `group_id` | `team_id` |
@@ -18,6 +18,7 @@
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| `detail_level` | string | `"names"` returns `{id, name}` only. `"detailed"` (default) returns full group metadata including members. For `list_user_groups`. |
 | `group_id` | string | Group ID. Required for `update_user_group` and `delete_user_group`. |
 | `group_name` | string | Group name. Required for `create_user_group`; optional for `update_user_group` (to rename). |
 | `member_ids` | integer[] | User IDs to set as initial members. Required for `create_user_group`. |

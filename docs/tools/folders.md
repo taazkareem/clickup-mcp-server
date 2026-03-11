@@ -9,7 +9,7 @@ Create, update, move, and delete folders to organize lists within your ClickUp s
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| `list_folders` | List all folders in a space | `space_id` or `space_name` | `archived`, `team_id` |
+| `list_folders` | List all folders in a space | `space_id` or `space_name` | `archived`, `detail_level`, `team_id` |
 | `get_folder` | Get folder details | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
 | `create_folder` | Create a new folder | `name`, `space_id` or `space_name` | `override_statuses`, `team_id` |
 | `update_folder` | Update folder properties | `folder_id` or `folder_name`, at least one of `name`/`override_statuses` | `space_id`/`space_name`, `team_id` |
@@ -28,6 +28,7 @@ Create, update, move, and delete folders to organize lists within your ClickUp s
 - **space_id**: Space ID (preferred over space_name).
 - **space_name**: Space name (alternative to space_id).
 - **archived**: Boolean. If `true`, returns archived folders. Default: `false`.
+- **detail_level**: `"names"` returns `{id, name, task_count}` only for efficient navigation. `"detailed"` (default) returns full metadata.
 
 ### set_folder_permissions
 

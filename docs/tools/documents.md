@@ -11,10 +11,10 @@
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|---------------------|---------------------|
-| `list_documents` | List documents in a workspace or container | — | `parentId`, `parentType`, `creator`, `archived`, `deleted`, `limit`, `next_cursor`, `team_id` |
+| `list_documents` | List documents in a workspace or container | — | `parentId`, `parentType`, `creator`, `archived`, `deleted`, `limit`, `next_cursor`, `detail_level`, `team_id` |
 | `get_document` | Get document metadata | `documentId` OR (`title` + `parentId`/`parentName` + `parentType`) | `team_id` |
 | `create_document` | Create a new standalone document | `name`, `parentType` | `parentId`/`parentName`, `visibility`, `create_page`, `team_id` |
-| `list_document_pages` | List all pages in a document | `documentId` OR `title` context | `max_page_depth`, `team_id` |
+| `list_document_pages` | List all pages in a document | `documentId` OR `title` context | `max_page_depth`, `detail_level`, `team_id` |
 | `get_document_page` | Get content for a single page | `documentId`, `pageId` | `content_format`, `team_id` |
 | `get_document_pages` | Get content for multiple pages in one call | `documentId`, `pageIds` | `content_format`, `team_id` |
 | `create_document_page` | Add a new page to a document | `documentId`, `name` | `content`, `sub_title`, `parent_page_id`, `content_format`, `team_id` |
@@ -28,7 +28,9 @@
 
 ### Tool-Specific Notes
 
-**`list_documents`**: Optional `parentType` values include `"workspace"`, `"space"`, `"list"`, etc.
+**`list_documents`**: Optional `parentType` values include `"workspace"`, `"space"`, `"list"`, etc. Use `detail_level="names"` to return only `{id, name, url}` per document.
+
+**`list_document_pages`**: Use `detail_level="names"` to return a flat list of `{id, name}` for all pages (children flattened). `"detailed"` (default) returns the full nested page tree.
 
 **`create_document`**: `parentType` required (e.g., `"workspace"`, `"space"`, `"list"`). Defaults to current workspace if `parentId`/`parentName` omitted. `visibility` accepts `"PUBLIC"` or `"PRIVATE"`.
 

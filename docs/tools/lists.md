@@ -9,7 +9,7 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| `list_lists` | Get all folderless lists in a space | `space_id` or `space_name` | `team_id` |
+| `list_lists` | Get all folderless lists in a space | `space_id` or `space_name` | `detail_level`, `team_id` |
 | `get_list` | Get list details | `list_id` or `list_name` | `include_members`, `team_id` |
 | `create_list` | Create a list in a space or folder | `name`, and one of: `space_id`/`space_name` (folderless) or `folder_id`/`folder_name` (in folder) | `content`, `due_date`, `priority`, `assignee`, `status`, `team_id` |
 | `update_list` | Update list properties | `list_id` or `list_name`, at least one of `name`/`content`/`status` | `team_id` |
@@ -24,6 +24,12 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 > **Note on create_list:** If both `folder_id`/`folder_name` and `space_id`/`space_name` are provided, folder takes precedence and the list is created inside the folder.
 
 ## Parameters
+
+### list_lists
+
+- **space_id**: Space ID (preferred over space_name).
+- **space_name**: Space name (alternative to space_id).
+- **detail_level**: `"names"` returns `{id, name}` only for efficient navigation. `"detailed"` (default) returns full metadata including `content` and `status`.
 
 - **private**: Boolean. Set to `true` to make the object private, `false` for public.
 - **entries**: Array of permission objects. Required if making private and sharing with specific entities.
