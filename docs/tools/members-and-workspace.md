@@ -12,7 +12,7 @@ Look up workspace members, find users by name or email, and explore the full wor
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
 | get_workspace | Get complete structure and metadata | None | `include_hierarchy` (default true), `include_members`, `search_member`, `include_plan`, `include_seats`, `include_shared`, `include_custom_items` |
-| get_workspace_seats | Get member and guest seat utilization (used, total, available) | None | `team_id` |
+| get_workspace_seats | Get member and guest seat utilization (filled, total, empty) | None | `team_id` |
 | get_workspace_plan | Get plan details for the workspace (plan_name, plan_id) | None | `team_id` |
 
 ## Examples
