@@ -9,6 +9,7 @@ Create, update, move, and delete folders to organize lists within your ClickUp s
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
+| `list_folders` | List all folders in a space | `space_id` or `space_name` | `archived`, `team_id` |
 | `get_folder` | Get folder details | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
 | `create_folder` | Create a new folder | `name`, `space_id` or `space_name` | `override_statuses`, `team_id` |
 | `update_folder` | Update folder properties | `folder_id` or `folder_name`, at least one of `name`/`override_statuses` | `space_id`/`space_name`, `team_id` |
@@ -22,6 +23,14 @@ Create, update, move, and delete folders to organize lists within your ClickUp s
 
 ## Parameters
 
+### list_folders
+
+- **space_id**: Space ID (preferred over space_name).
+- **space_name**: Space name (alternative to space_id).
+- **archived**: Boolean. If `true`, returns archived folders. Default: `false`.
+
+### set_folder_permissions
+
 - **private**: Boolean. Set to `true` to make the object private, `false` for public.
 - **entries**: Array of permission objects. Required if making private and sharing with specific entities.
   - **id**: User ID or Team (Group) ID
@@ -29,6 +38,34 @@ Create, update, move, and delete folders to organize lists within your ClickUp s
   - **permission_level**: `read`, `comment`, `edit`, or `create` (optional)
 
 ## Examples
+
+### Listing Folders in a Space
+**User Prompt:**
+```
+List all folders in the "Engineering" space
+```
+
+**Generated Request (tool: `list_folders`):**
+```json
+{
+  "space_name": "Engineering"
+}
+```
+
+**Tool Response:**
+```json
+{
+  "folders": [
+    {
+      "id": "folder_dev",
+      "name": "Development Projects",
+      "task_count": "42",
+      "hidden": false,
+      "space": { "id": "space123", "name": "Engineering" }
+    }
+  ]
+}
+```
 
 ### Setting Folder Permissions
 **User Prompt:**
