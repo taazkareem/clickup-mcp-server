@@ -12,6 +12,7 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 | `list_lists` | Get all folderless lists in a space | `space_id` or `space_name` | `detail_level`, `team_id` |
 | `get_list` | Get list details | `list_id` or `list_name` | `include_members`, `team_id` |
 | `create_list` | Create a list in a space or folder | `name`, and one of: `space_id`/`space_name` (folderless) or `folder_id`/`folder_name` (in folder) | `content`, `due_date`, `priority`, `assignee`, `status`, `team_id` |
+| `create_list_from_template` | Create a list from a template | `name`, `template_id`/`template_name`, and one of: `space_id`/`space_name` or `folder_id`/`folder_name` | `team_id` |
 | `update_list` | Update list properties | `list_id` or `list_name`, at least one of `name`/`content`/`status` | `team_id` |
 | `delete_list` | Delete a list | `list_id` or `list_name` | `team_id` |
 | `move_list` | Move list to a different space or folder (high-integrity) | `list_id` or `list_name`, plus destination `space_id`/`space_name` or `folder_id`/`folder_name` | `allow_destructive_fallback`, `team_id` |
@@ -233,5 +234,29 @@ Move "Sprint 42" to the "Product" space
   "name": "Sprint 42",
   "space": { "id": "space_product", "name": "Product" },
   "message": "List moved successfully to space space_product. New List ID: list_sprint42_new"
+}
+```
+
+### Creating a List from a Template
+**User Prompt:**
+```
+Create a new list called "Campaign Launch" using the "Marketing Campaign" template in the "Marketing" space
+```
+
+**Generated Request (tool: `create_list_from_template`):**
+```json
+{
+  "name": "Campaign Launch",
+  "template_name": "Marketing Campaign",
+  "space_name": "Marketing"
+}
+```
+
+**Tool Response:**
+```json
+{
+  "id": "list_campaign123",
+  "name": "Campaign Launch",
+  "message": "List \"Campaign Launch\" created from template successfully"
 }
 ```

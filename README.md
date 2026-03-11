@@ -551,7 +551,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 148 available tools</strong></summary>
+<summary><strong>👇 Click to view all 150 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -601,6 +601,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | **Lists** | `list_lists` | Get all folderless lists in a space |
 | | `get_list` | Get list details |
 | | `create_list` | Create a list in a space or folder |
+| | `create_list_from_template` | Create a new list from a template |
 | | `update_list` | Update list properties |
 | | `delete_list` | Delete a list |
 | | `move_list` | Move a list to a different space or folder (high-integrity) |
