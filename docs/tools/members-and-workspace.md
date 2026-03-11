@@ -12,6 +12,7 @@ Look up workspace members, find users by name or email, and explore the full wor
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
 | get_workspace | Get complete structure and metadata | None | `include_hierarchy` (default true), `include_members`, `search_member`, `include_plan`, `include_seats`, `include_shared`, `include_custom_items` |
+| get_workspace_seats | Get member and guest seat utilization (used, total, available) | None | `team_id` |
 
 ## Examples
 
@@ -104,6 +105,33 @@ Who is in my workspace?
       "profilePicture": "https://..."
     }
   ]
+}
+```
+
+### Getting Seat Utilization
+**User Prompt:**
+```
+How many seats are we using?
+```
+
+**Generated Request:**
+```json
+{}
+```
+
+**Tool Response:**
+```json
+{
+  "members": {
+    "filled_members_seats": 9,
+    "total_member_seats": 10,
+    "empty_member_seats": 1
+  },
+  "guests": {
+    "filled_guest_seats": 2,
+    "total_guest_seats": "Infinity",
+    "empty_guest_seats": "Infinity"
+  }
 }
 ```
 
