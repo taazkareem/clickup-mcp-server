@@ -13,7 +13,7 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 | `get_list` | Get list details | `list_id` or `list_name` | `include_members`, `team_id` |
 | `create_list` | Create a list in a space or folder | `name`, and one of: `space_id`/`space_name` (folderless) or `folder_id`/`folder_name` (in folder) | `content`, `markdown_content`, `due_date`, `due_date_time`, `priority`, `assignee`, `status`, `team_id` |
 | `create_list_from_template` | Create a list from a template | `name`, `template_id`/`template_name`, and one of: `space_id`/`space_name` or `folder_id`/`folder_name` | `return_immediately`, date remapping, content import filters, `team_id` |
-| `update_list` | Update list properties (name, content, description, due date, priority, status/color, assignee). Supports removing color with `unset_status`. | `list_id` or `list_name`, at least one of: `name`/`content`/`markdown_content`/`status`/`unset_status`/`due_date`/`priority`/`assignee` | `due_date_time`, `team_id` |
+| `update_list` | Update list properties (name, content, due date, priority, status/color, assignee). Supports removing color with `unset_status`. | `list_id` or `list_name`, at least one of: `name`/`content`/`markdown_content`/`status`/`unset_status`/`due_date`/`priority`/`assignee` | `due_date_time`, `team_id` |
 | `delete_list` | Delete a list | `list_id` or `list_name` | `team_id` |
 | `move_list` | Move list to a different space or folder (high-integrity) | `list_id` or `list_name`, plus destination `space_id`/`space_name` or `folder_id`/`folder_name` | `allow_destructive_fallback`, `team_id` |
 | `set_list_permissions` | Update list privacy and sharing (ACLs) | `list_id` or `list_name`, `private` | `entries`, `team_id` |
