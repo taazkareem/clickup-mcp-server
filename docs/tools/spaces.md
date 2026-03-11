@@ -28,7 +28,7 @@ Manage ClickUp spaces — list, get, create, update, and delete spaces in your w
 | private | boolean | Whether the space is private (required for `set_permissions`) |
 | admin_can_manage | boolean | Whether admins can manage without being a member |
 | multiple_assignees | boolean | Enable multiple assignees on tasks |
-| features | object | Feature toggles — each key (e.g. `due_dates`, `time_tracking`, `tags`, `checklists`, `custom_fields`, `time_estimates`) maps to an object with `enabled: boolean`. `due_dates` also supports `start_date`, `remap_due_dates`, `remap_closed_due_date`. |
+| features | object | Feature toggles — each key maps to an object with at least `enabled: boolean`. Supported keys: `due_dates` (also supports `start_date`, `remap_due_dates`, `remap_closed_due_date`), `time_tracking`, `tags`, `time_estimates`, `checklists`, `custom_fields`, `remap_dependencies`, `dependency_warning`, `portfolios`, `sprints`, `points`, `milestones`, `emails`, `zoom`. |
 | entries | array | Array of permission objects `{ id: number, type: string, permission_level?: string }`. Required if making private and sharing with specific entities. |
 
 ## Examples
