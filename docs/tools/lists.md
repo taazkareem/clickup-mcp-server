@@ -12,7 +12,7 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 | `list_lists` | Get all folderless lists in a space | `space_id` or `space_name` | `detail_level`, `team_id` |
 | `get_list` | Get list details | `list_id` or `list_name` | `include_members`, `team_id` |
 | `create_list` | Create a list in a space or folder | `name`, and one of: `space_id`/`space_name` (folderless) or `folder_id`/`folder_name` (in folder) | `content`, `due_date`, `priority`, `assignee`, `status`, `team_id` |
-| `create_list_from_template` | Create a list from a template | `name`, `template_id`/`template_name`, and one of: `space_id`/`space_name` or `folder_id`/`folder_name` | `team_id` |
+| `create_list_from_template` | Create a list from a template | `name`, `template_id`/`template_name`, and one of: `space_id`/`space_name` or `folder_id`/`folder_name` | `return_immediately`, date remapping, content import filters, `team_id` |
 | `update_list` | Update list properties | `list_id` or `list_name`, at least one of `name`/`content`/`status` | `team_id` |
 | `delete_list` | Delete a list | `list_id` or `list_name` | `team_id` |
 | `move_list` | Move list to a different space or folder (high-integrity) | `list_id` or `list_name`, plus destination `space_id`/`space_name` or `folder_id`/`folder_name` | `allow_destructive_fallback`, `team_id` |
@@ -40,6 +40,9 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 - **priority**: `1` = Urgent, `2` = High, `3` = Normal, `4` = Low
 - **due_date**: Unix timestamp in milliseconds
 - **assignee**: User ID (use `get_workspace` with `search_member` to resolve names to IDs)
+- **return_immediately**: Boolean. If `true` (default), returns the job status/ID immediately. If `false`, waits for the full list creation.
+- **Content Filters**: `subtasks`, `custom_fields`, `priority`, `automation`, `include_views`, `attachments`, `comment`, `relationships`, etc. (Boolean)
+- **Date Remapping**: `start_date`, `due_date` (ISO strings), `remap_start_date`, `skip_weekends` (Boolean)
 
 ## Examples
 
