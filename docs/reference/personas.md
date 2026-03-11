@@ -58,16 +58,16 @@ Programmatic focus. Manages webhooks, custom fields, bulk automation, audit logs
 get_workspace,get_task,create_task,update_task,delete_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,list_custom_fields,create_custom_field,set_custom_field_value,remove_custom_field_value,list_webhooks,create_webhook,update_webhook,delete_webhook,get_audit_logs,upload_attachment,submit_feedback
 ```
 
-### 8. Safe Power User
-Enables all functionality except destructive operations. Protects against accidental deletion of tasks, spaces, folders, lists, documents, and other structural data.
-**Disabled Value:**
-```text
-delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency,delete_space,delete_folder,delete_list,delete_goal,delete_key_result,delete_view,delete_space_tag,delete_chat_channel,delete_user_group,delete_webhook,delete_checklist,delete_checklist_item,delete_comment,delete_chat_message,delete_time_entry,delete_time_entry_tags,remove_guest,remove_guest_from_task,remove_guest_from_list,remove_guest_from_folder
-```
-
-### 9. Most Popular
+### 8. Most Popular
 A curated selection of the most frequently used tools mapped from top ClickUp API endpoints.
 **Value:**
 ```text
 get_workspace,get_task,get_workspace_tasks,get_comments,list_spaces,get_space,get_time_in_status,list_folders,get_folder,list_lists,get_list,create_list,update_task,get_time_entries,create_checklist,edit_checklist_item,create_checklist_item,delete_checklist,list_custom_fields,set_custom_field_value,submit_feedback
+```
+
+### 9. Safe Power User
+Enables all functionality except destructive operations. Protects against accidental deletion of tasks, spaces, folders, lists, documents, and other structural data.
+**Disabled Value:**
+```text
+delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency,delete_space,delete_folder,delete_list,delete_goal,delete_key_result,delete_view,delete_space_tag,delete_chat_channel,delete_user_group,delete_webhook,delete_checklist,delete_checklist_item,delete_comment,delete_chat_message,delete_time_entry,delete_time_entry_tags,remove_guest,remove_guest_from_task,remove_guest_from_list,remove_guest_from_folder
 ```
