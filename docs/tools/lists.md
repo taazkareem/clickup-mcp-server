@@ -9,7 +9,7 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| `list_lists` | Get all folderless lists in a space | `space_id` or `space_name` | `detail_level`, `team_id` |
+| `list_lists` | Get lists in a space (folderless) or in a folder | `space_id`/`space_name` OR `folder_id`/`folder_name` | `archived`, `detail_level`, `team_id` |
 | `get_list` | Get list details | `list_id` or `list_name` | `include_members`, `team_id` |
 | `create_list` | Create a list in a space or folder | `name`, and one of: `space_id`/`space_name` (folderless) or `folder_id`/`folder_name` (in folder) | `content`, `due_date`, `priority`, `assignee`, `status`, `team_id` |
 | `create_list_from_template` | Create a list from a template | `name`, `template_id`/`template_name`, and one of: `space_id`/`space_name` or `folder_id`/`folder_name` | `return_immediately`, date remapping, content import filters, `team_id` |
@@ -28,9 +28,12 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 
 ### list_lists
 
-- **space_id**: Space ID (preferred over space_name).
+- **space_id**: Space ID — returns folderless lists in this space (preferred over space_name).
 - **space_name**: Space name (alternative to space_id).
-- **detail_level**: `"names"` returns `{id, name}` only for efficient navigation. `"detailed"` (default) returns full metadata including `content` and `status`.
+- **folder_id**: Folder ID — returns lists inside this folder (preferred over folder_name).
+- **folder_name**: Folder name (alternative to folder_id; requires space_id or space_name to resolve).
+- **archived**: Boolean. Include archived lists. Default: `false`.
+- **detail_level**: `"names"` returns `{id, name}` only for efficient navigation. `"detailed"` (default) returns full metadata including `content`, `status`, `task_count`, `due_date`, `start_date`, and `archived`.
 
 - **private**: Boolean. Set to `true` to make the object private, `false` for public.
 - **entries**: Array of permission objects. Required if making private and sharing with specific entities.
@@ -115,10 +118,34 @@ List all lists in the "Engineering" space
 ```json
 {
   "lists": [
-    { "id": "list1", "name": "Backlog" },
-    { "id": "list2", "name": "Roadmap" }
+    { "id": "list1", "name": "Backlog", "content": "", "status": null, "task_count": 12, "due_date": null, "start_date": null, "archived": false },
+    { "id": "list2", "name": "Roadmap", "content": "Q2 roadmap items", "status": null, "task_count": 5, "due_date": null, "start_date": null, "archived": false }
   ],
   "count": 2
+}
+```
+
+### Getting All Lists in a Folder
+**User Prompt:**
+```
+Show me all lists in the "Q1 Goals" folder
+```
+
+**Generated Request (tool: `list_lists`):**
+```json
+{
+  "folder_name": "Q1 Goals",
+  "space_name": "Engineering"
+}
+```
+
+**Tool Response:**
+```json
+{
+  "lists": [
+    { "id": "list3", "name": "Goals List", "content": "", "status": null, "task_count": 16, "due_date": null, "start_date": null, "archived": false }
+  ],
+  "count": 1
 }
 ```
 
