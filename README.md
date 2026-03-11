@@ -629,7 +629,8 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `update_view` | Update a view |
 | | `delete_view` | Delete a view |
 | | `get_view_tasks` | Get tasks in a view |
-| **Folders** | `get_folder` | Get folder details |
+| **Folders** | `list_folders` | List all folders in a space |
+| | `get_folder` | Get folder details |
 | | `create_folder` | Create a folder in a space |
 | | `update_folder` | Update folder properties |
 | | `delete_folder` | Delete a folder |
