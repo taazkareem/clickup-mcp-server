@@ -93,7 +93,7 @@ The industry-standard ClickUp integration for AI.
 
 <div align="center">
 
-<h3>Unlock 147 Enterprise-Grade Custom Tools</h3>
+<h3>Unlock 148 Enterprise-Grade Custom Tools</h3>
 
 This project transitioned from open-source to a paid model for sustainable full-time development and priority support.
 A license grants full, unrestricted access to all features across your agents⎯no limits.
@@ -551,7 +551,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="available-tools"></a>🛠️ Available Tools
 
 <details>
-<summary><strong>👇 Click to view all 147 available tools</strong></summary>
+<summary><strong>👇 Click to view all 148 available tools</strong></summary>
 
 | Category | Tool | Description |
 | :--- | :--- | :--- |
@@ -636,6 +636,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `delete_folder` | Delete a folder |
 | | `move_folder` | Move a folder to a different space (high-integrity) |
 | | `set_folder_permissions` | Update folder privacy and sharing (ACLs) |
+| | `create_folder_from_template` | Create a folder from a template in a space |
 | **Tags** | `list_space_tags` | List all tags in a space |
 | | `create_space_tag` | Create a new space tag |
 | | `update_space_tag` | Update a space tag's name or colors |
