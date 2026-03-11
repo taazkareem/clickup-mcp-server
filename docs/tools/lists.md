@@ -13,7 +13,7 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 | `get_list` | Get list details | `list_id` or `list_name` | `include_members`, `team_id` |
 | `create_list` | Create a list in a space or folder | `name`, and one of: `space_id`/`space_name` (folderless) or `folder_id`/`folder_name` (in folder) | `content`, `markdown_content`, `due_date`, `due_date_time`, `priority`, `assignee`, `status`, `team_id` |
 | `create_list_from_template` | Create a list from a template | `name`, `template_id`/`template_name`, and one of: `space_id`/`space_name` or `folder_id`/`folder_name` | `return_immediately`, date remapping, content import filters, `team_id` |
-| `update_list` | Update list properties | `list_id` or `list_name`, at least one of `name`/`content`/`status` | `team_id` |
+| `update_list` | Update list properties (name, content, description, due date, priority, status/color, assignee). Supports removing color with `unset_status`. | `list_id` or `list_name`, at least one of: `name`/`content`/`markdown_content`/`status`/`unset_status`/`due_date`/`priority`/`assignee` | `due_date_time`, `team_id` |
 | `delete_list` | Delete a list | `list_id` or `list_name` | `team_id` |
 | `move_list` | Move list to a different space or folder (high-integrity) | `list_id` or `list_name`, plus destination `space_id`/`space_name` or `folder_id`/`folder_name` | `allow_destructive_fallback`, `team_id` |
 | `set_list_permissions` | Update list privacy and sharing (ACLs) | `list_id` or `list_name`, `private` | `entries`, `team_id` |
@@ -34,6 +34,20 @@ Create, update, move, and delete lists within your ClickUp workspace. Lists can 
 - **folder_name**: Folder name (alternative to folder_id; requires space_id or space_name to resolve).
 - **archived**: Boolean. Include archived lists. Default: `false`.
 - **detail_level**: `"names"` returns `{id, name}` only for efficient navigation. `"detailed"` (default) returns full metadata including `content`, `status`, `task_count`, `due_date`, `start_date`, and `archived`.
+
+### update_list
+
+- **name**: New list name.
+- **content**: List description (plain text). Use instead of `markdown_content` for plain text.
+- **markdown_content**: List description in markdown format. Use instead of `content` for formatted descriptions.
+- **status**: List color/status (e.g., `red`, `blue`, `green`). Refers to the list's display color, not task statuses.
+- **unset_status**: Boolean. Set to `true` to remove the list color. Cannot be used with `status` simultaneously.
+- **due_date**: Due date (Unix timestamp in ms or natural language string like `"2025-12-31"`).
+- **due_date_time**: Boolean. Whether the due date includes a time component. Default: `false`.
+- **priority**: Priority 1 (urgent) – 4 (low).
+- **assignee**: User ID (number) or `"none"` (string) to unset the assignee. Use `get_workspace` with `search_member` to resolve names to IDs.
+
+### Shared Parameters
 
 - **private**: Boolean. Set to `true` to make the object private, `false` for public.
 - **entries**: Array of permission objects. Required if making private and sharing with specific entities.
@@ -203,14 +217,17 @@ Create a "Bug Triage" list in the "QA" folder
 ### Updating a List
 **User Prompt:**
 ```
-Update "Sprint Backlog" description to "Current sprint planning items and priorities"
+Update "Sprint Backlog" — set the description, change priority to High, set red status color, and assign to user 12345
 ```
 
 **Generated Request (tool: `update_list`):**
 ```json
 {
   "list_name": "Sprint Backlog",
-  "content": "Current sprint planning items and priorities"
+  "content": "Current sprint planning items and priorities",
+  "priority": 2,
+  "status": "red",
+  "assignee": 12345
 }
 ```
 
@@ -220,7 +237,17 @@ Update "Sprint Backlog" description to "Current sprint planning items and priori
   "id": "list_backlog",
   "name": "Sprint Backlog",
   "content": "Current sprint planning items and priorities",
+  "space": { "id": "space123", "name": "Engineering" },
+  "url": "https://app.clickup.com/9014370478/v/l/list_backlog",
   "message": "List \"Sprint Backlog\" updated successfully"
+}
+```
+
+**Alternative: Removing the List Color**
+```json
+{
+  "list_name": "Sprint Backlog",
+  "unset_status": true
 }
 ```
 
