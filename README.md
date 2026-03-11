@@ -741,6 +741,7 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
 | 📚 `content_manager` | Communication & Files | Docs, chat, messaging, comments, and attachments. |
 | 🏢 `workspace_admin` | Administrative control | Permissions, guest management, and audit logs. |
 | 💻 `developer` | Programmatic focus | Webhooks, custom fields, and bulk automation. |
+| 🌟 `most_popular` | Most frequently called tools | Curated selection of the most commonly used endpoints. |
 | 🛡️ `safe_power_user` | Full access (Filtered) | All tools EXCEPT destructive ones (deletes/removals). |
 
 **Local (Environment Variable):**

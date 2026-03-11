@@ -64,3 +64,10 @@ Enables all functionality except destructive operations. Protects against accide
 ```text
 delete_task,delete_bulk_tasks,delete_task_link,delete_task_dependency,delete_space,delete_folder,delete_list,delete_goal,delete_key_result,delete_view,delete_space_tag,delete_chat_channel,delete_user_group,delete_webhook,delete_checklist,delete_checklist_item,delete_comment,delete_chat_message,delete_time_entry,delete_time_entry_tags,remove_guest,remove_guest_from_task,remove_guest_from_list,remove_guest_from_folder
 ```
+
+### 9. Most Popular
+A curated selection of the most frequently used tools mapped from top ClickUp API endpoints.
+**Value:**
+```text
+get_workspace,get_task,get_workspace_tasks,get_comments,list_spaces,get_space,get_time_in_status,list_folders,get_folder,list_lists,get_list,create_list,update_task,get_time_entries,create_checklist,edit_checklist_item,create_checklist_item,delete_checklist,list_custom_fields,set_custom_field_value,submit_feedback
+```
