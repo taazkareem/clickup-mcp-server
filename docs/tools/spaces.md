@@ -9,7 +9,7 @@ Manage ClickUp spaces — list, get, create, update, and delete spaces in your w
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
-| `list_spaces` | List all spaces in workspace | — | `team_id` |
+| `list_spaces` | List all spaces in workspace | — | `archived`, `team_id` |
 | `get_space` | Get a single space | `spaceId` or `spaceName` | `team_id` |
 | `create_space` | Create a new space | `name` | `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features`, `team_id` |
 | `update_space` | Update a space | `spaceId` or `spaceName` | `name`, `color`, `private`, `admin_can_manage`, `multiple_assignees`, `features`, `team_id` |
@@ -20,6 +20,7 @@ Manage ClickUp spaces — list, get, create, update, and delete spaces in your w
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
+| archived | boolean | Filter for archived spaces only (`list_spaces`). Defaults to false (active spaces). |
 | spaceId | string | Space ID (preferred for get/update/delete/set_permissions) |
 | spaceName | string | Space name (resolved via fuzzy matching if spaceId not provided) |
 | name | string | Name for the space (required for create, optional for update) |
