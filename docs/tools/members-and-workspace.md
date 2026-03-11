@@ -13,6 +13,7 @@ Look up workspace members, find users by name or email, and explore the full wor
 |------|-------------|-------------------|-------------------|
 | get_workspace | Get complete structure and metadata | None | `include_hierarchy` (default true), `include_members`, `search_member`, `include_plan`, `include_seats`, `include_shared`, `include_custom_items` |
 | get_workspace_seats | Get member and guest seat utilization (used, total, available) | None | `team_id` |
+| get_workspace_plan | Get plan details for the workspace (plan_name, plan_id) | None | `team_id` |
 
 ## Examples
 
@@ -162,6 +163,25 @@ What is our workspace plan and seat utilization?
     "filled": 5,
     "available": 5
   }
+}
+```
+
+### Getting Workspace Plan Directly
+**User Prompt:**
+```
+What plan is my workspace on?
+```
+
+**Generated Request:**
+```json
+{}
+```
+
+**Tool Response:**
+```json
+{
+  "plan_name": "Unlimited",
+  "plan_id": 5
 }
 ```
 
