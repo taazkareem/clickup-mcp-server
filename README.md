@@ -93,7 +93,7 @@ The industry-standard ClickUp integration for AI.
 
 <div align="center">
 
-<h3>Unlock 145 Enterprise-Grade Custom Tools</h3>
+<h3>Unlock 147 Enterprise-Grade Custom Tools</h3>
 
 This project transitioned from open-source to a paid model for sustainable full-time development and priority support.
 A license grants full, unrestricted access to all features across your agents⎯no limits.
