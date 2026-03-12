@@ -736,7 +736,7 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
   <thead>
     <tr style="border-bottom: 1px solid #ddd;">
       <th align="left" width="200" style="padding: 10px; white-space: nowrap;">Persona</th>
-      <th align="left" style="padding: 10px;">Description</th>
+      <th align="left" width="180" style="padding: 10px;">Description</th>
       <th align="left" style="padding: 10px;">Target Use Case</th>
     </tr>
   </thead>
@@ -744,47 +744,47 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">📋 <code>auditor</code></td>
       <td style="padding: 10px;">Read-only access</td>
-      <td style="padding: 10px;">Viewing tasks, goals, docs, and chat without modification.</td>
+      <td style="padding: 10px;">View tasks, goals, docs, and chat (Read-only).</td>
     </tr>
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">👷 <code>task_worker</code></td>
       <td style="padding: 10px;">Daily management</td>
-      <td style="padding: 10px;">Creating/updating tasks, time tracking, checklists.</td>
+      <td style="padding: 10px;">Task CRUD, time tracking, and checklists.</td>
     </tr>
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">⏱️ <code>time_specialist</code></td>
       <td style="padding: 10px;">Time tracking focus</td>
-      <td style="padding: 10px;">Logging time, timesheets, and entry history.</td>
+      <td style="padding: 10px;">Time logs, timesheets, and entry history.</td>
     </tr>
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">🏗️ <code>project_manager</code></td>
       <td style="padding: 10px;">High-level control</td>
-      <td style="padding: 10px;">Structural management, spaces, folders, bulk operations.</td>
+      <td style="padding: 10px;">Spaces, folders, and bulk operations.</td>
     </tr>
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">📚 <code>content_manager</code></td>
-      <td style="padding: 10px;">Communication & Files</td>
-      <td style="padding: 10px;">Docs, chat, messaging, comments, and attachments.</td>
+      <td style="padding: 10px;">Communication</td>
+      <td style="padding: 10px;">Docs, chat, comments, and attachments.</td>
     </tr>
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">🏢 <code>workspace_admin</code></td>
-      <td style="padding: 10px;">Administrative control</td>
-      <td style="padding: 10px;">Permissions, guest management, and audit logs.</td>
+      <td style="padding: 10px;">Admin control</td>
+      <td style="padding: 10px;">Permissions, guests, and audit logs.</td>
     </tr>
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">💻 <code>developer</code></td>
-      <td style="padding: 10px;">Programmatic focus</td>
-      <td style="padding: 10px;">Webhooks, custom fields, and bulk automation.</td>
+      <td style="padding: 10px;">Programmatic</td>
+      <td style="padding: 10px;">Webhooks, custom fields, bulk automation.</td>
     </tr>
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">🌟 <code>most_popular</code></td>
-      <td style="padding: 10px;">Most frequently called tools</td>
-      <td style="padding: 10px;">Curated selection of the most commonly used endpoints.</td>
+      <td style="padding: 10px;">Common tools</td>
+      <td style="padding: 10px;">Most frequently called endpoints.</td>
     </tr>
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">🛡️ <code>safe_power_user</code></td>
-      <td style="padding: 10px;">Full access (Filtered)</td>
-      <td style="padding: 10px;">All tools EXCEPT destructive ones (deletes/removals).</td>
+      <td style="padding: 10px;">Full access</td>
+      <td style="padding: 10px;">All tools except destructive deletes/removals.</td>
     </tr>
   </tbody>
 </table>
