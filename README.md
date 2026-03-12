@@ -732,7 +732,7 @@ Simplify setup by using **Personas**. You can set a persona via the `CLICKUP_MCP
 
 Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_specialist"`).
 
-| Persona | Description | Target Use Case |
+| Persona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description | Target Use Case |
 |---------|-------------|-----------------|
 | 📋 `auditor` | Read-only access | Viewing tasks, goals, docs, and chat without modification. |
 | 👷 `task_worker` | Daily management | Creating/updating tasks, time tracking, checklists. |
