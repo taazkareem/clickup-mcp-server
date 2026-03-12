@@ -153,7 +153,7 @@ mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp --auth oauth 
 mcporter auth ClickUp
 ```
 
-**3. Optional: Multiple Personas**
+**Optional: Multiple Personas**
 The most robust and flexible way to manage personas is to define multiple named configurations in your **agent-specific** `mcporter.json` file. This isolates credentials and policies per-agent.
 
 ```bash
@@ -161,14 +161,14 @@ The most robust and flexible way to manage personas is to define multiple named 
 mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Auditor https://clickup-mcp.taazkareem.com/mcp \
   --header "X-Persona=auditor" \
   --header "X-License-Key=your-license-key" \
-  --header "X-ClickUp-Key=api-key" \
+  --header "X-ClickUp-Key=your-api-key" \
   --header "X-ClickUp-Team-Id=your-team-id"
 
-# Define a Task Worker persona (Daily CRUD)
-mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Worker https://clickup-mcp.taazkareem.com/mcp \
+# Define a Task Worker persona (Daily CRUD) in the same or different workspace 
+mcporter --config <agent-workspace-2>/config/mcporter.json config add ClickUp-Worker https://clickup-mcp.taazkareem.com/mcp \
   --header "X-Persona=task_worker" \
   --header "X-License-Key=your-license-key" \
-  --header "X-ClickUp-Key=api-key-2" \
+  --header "X-ClickUp-Key=your-api-key" \
   --header "X-ClickUp-Team-Id=your-team-id"
 
 # Now the OpenClaw sub-agent can see the optimized schema and call its focused tools like:
@@ -180,7 +180,7 @@ mcporter call ClickUp-Worker.create_task listId="123456789" name="New Task"
 ```
 
 >
-> **Isolation**: You can add X-Enabled-Tools or X-Disabled-Tools to mix and match tools and personas, or perhaps enable just a single tool. You can assign different ClickUp API Keys, Team IDs, or even different License Keys to each persona. Since the agent only reads the tool definitions and not the sensitive headers directly, this is the most secure way to handle multi-agent ClickUp configurations.
+> **Isolation**: You can add X-Enabled-Tools or X-Disabled-Tools to mix and match tools and personas, or perhaps enable just a single tool. You can assign different ClickUp API Keys, Team IDs, or even different License Keys to each config/persona. Since the agent only reads the tool definitions and not the sensitive headers directly, this is the most secure way to handle multi-agent ClickUp configurations.
 
 To see all available personas and what they do, see the [Advanced Configuration](#advanced-configuration) section below.
 
