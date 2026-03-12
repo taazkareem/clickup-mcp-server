@@ -759,7 +759,7 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">🏗️ <code>project_manager</code></td>
       <td style="padding: 10px;">High-level control</td>
-      <td style="padding: 10px;">Spaces, folders, and bulk operations.</td>
+      <td style="padding: 10px;">Spaces, folders, lists, and bulk operations.</td>
     </tr>
     <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">📚 <code>content_manager</code></td>
