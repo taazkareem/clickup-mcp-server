@@ -732,17 +732,62 @@ Simplify setup by using **Personas**. You can set a persona via the `CLICKUP_MCP
 
 Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_specialist"`).
 
-| Persona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description | Target Use Case |
-|---------|-------------|-----------------|
-| 📋 `auditor` | Read-only access | Viewing tasks, goals, docs, and chat without modification. |
-| 👷 `task_worker` | Daily management | Creating/updating tasks, time tracking, checklists. |
-| ⏱️ `time_specialist` | Time tracking focus | Logging time, timesheets, and entry history. |
-| 🏗️ `project_manager` | High-level control | Structural management, spaces, folders, bulk operations. |
-| 📚 `content_manager` | Communication & Files | Docs, chat, messaging, comments, and attachments. |
-| 🏢 `workspace_admin` | Administrative control | Permissions, guest management, and audit logs. |
-| 💻 `developer` | Programmatic focus | Webhooks, custom fields, and bulk automation. |
-| 🌟 `most_popular` | Most frequently called tools | Curated selection of the most commonly used endpoints. |
-| 🛡️ `safe_power_user` | Full access (Filtered) | All tools EXCEPT destructive ones (deletes/removals). |
+<table border="0" style="width: 100%; border-collapse: collapse;">
+  <thead>
+    <tr style="border-bottom: 1px solid #ddd;">
+      <th align="left" width="200" style="padding: 10px; white-space: nowrap;">Persona</th>
+      <th align="left" style="padding: 10px;">Description</th>
+      <th align="left" style="padding: 10px;">Target Use Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; white-space: nowrap;">📋 <code>auditor</code></td>
+      <td style="padding: 10px;">Read-only access</td>
+      <td style="padding: 10px;">Viewing tasks, goals, docs, and chat without modification.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; white-space: nowrap;">👷 <code>task_worker</code></td>
+      <td style="padding: 10px;">Daily management</td>
+      <td style="padding: 10px;">Creating/updating tasks, time tracking, checklists.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; white-space: nowrap;">⏱️ <code>time_specialist</code></td>
+      <td style="padding: 10px;">Time tracking focus</td>
+      <td style="padding: 10px;">Logging time, timesheets, and entry history.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; white-space: nowrap;">🏗️ <code>project_manager</code></td>
+      <td style="padding: 10px;">High-level control</td>
+      <td style="padding: 10px;">Structural management, spaces, folders, bulk operations.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; white-space: nowrap;">📚 <code>content_manager</code></td>
+      <td style="padding: 10px;">Communication & Files</td>
+      <td style="padding: 10px;">Docs, chat, messaging, comments, and attachments.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; white-space: nowrap;">🏢 <code>workspace_admin</code></td>
+      <td style="padding: 10px;">Administrative control</td>
+      <td style="padding: 10px;">Permissions, guest management, and audit logs.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; white-space: nowrap;">💻 <code>developer</code></td>
+      <td style="padding: 10px;">Programmatic focus</td>
+      <td style="padding: 10px;">Webhooks, custom fields, and bulk automation.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; white-space: nowrap;">🌟 <code>most_popular</code></td>
+      <td style="padding: 10px;">Most frequently called tools</td>
+      <td style="padding: 10px;">Curated selection of the most commonly used endpoints.</td>
+    </tr>
+    <tr style="border-bottom: 1px solid #eee;">
+      <td style="padding: 10px; white-space: nowrap;">🛡️ <code>safe_power_user</code></td>
+      <td style="padding: 10px;">Full access (Filtered)</td>
+      <td style="padding: 10px;">All tools EXCEPT destructive ones (deletes/removals).</td>
+    </tr>
+  </tbody>
+</table>
 
 **Local (Environment Variable):**
 ```json
