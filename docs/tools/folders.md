@@ -10,7 +10,7 @@ Create, update, move, and delete folders to organize lists within your ClickUp s
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|-------------------|-------------------|
 | `list_folders` | List all folders in a space | `space_id` or `space_name` | `archived`, `detail_level`, `team_id` |
-| `get_folder` | Get folder details | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
+| `get_folder` | Get folder details and its contained lists | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |
 | `create_folder` | Create a new folder | `name`, `space_id` or `space_name` | `override_statuses`, `team_id` |
 | `update_folder` | Update folder properties | `folder_id` or `folder_name`, at least one of `name`/`override_statuses` | `space_id`/`space_name`, `team_id` |
 | `delete_folder` | Delete a folder | `folder_id` or `folder_name` | `space_id`/`space_name` (for name lookup), `team_id` |

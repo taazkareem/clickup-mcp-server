@@ -598,7 +598,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | **Sprints** | `get_active_sprint` | Auto-detect the currently active sprint; returns tasks if exactly one found |
 | | `list_sprints` | List all sprints in a folder |
 | | `get_sprint_tasks` | Get tasks for a specific sprint list |
-| **Lists** | `list_lists` | Get all folderless lists in a space |
+| **Lists** | `list_lists` | Retrieve lists in a space (folderless) or in a folder |
 | | `get_list` | Get list details |
 | | `create_list` | Create a list in a space or folder |
 | | `create_list_from_template` | Create a new list from a template |
@@ -631,7 +631,7 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 | | `delete_view` | Delete a view |
 | | `get_view_tasks` | Get tasks in a view |
 | **Folders** | `list_folders` | List all folders in a space |
-| | `get_folder` | Get folder details |
+| | `get_folder` | Get folder details and its contained lists |
 | | `create_folder` | Create a folder in a space |
 | | `update_folder` | Update folder properties |
 | | `delete_folder` | Delete a folder |
