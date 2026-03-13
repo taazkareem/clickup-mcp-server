@@ -10,7 +10,7 @@
 | `CLICKUP_MCP_LICENSE_KEY` | Your Polar.sh license key | Required |
 | `CLICKUP_API_KEY` | ClickUp API token (primary) | Required (STDIO mode) |
 | `CLICKUP_TEAM_ID` | Default workspace/team ID (primary) | Required |
-| `CLICKUP_ADDITIONAL_API_KEYS` | Comma-separated list of additional API keys | `""` |
+| `CLICKUP_ADDITIONAL_API_KEYS` | Comma-separated list of additional API keys for Multi-Account support | `""` |
 | `CLICKUP_MCP_PERSONA` | Comma-separated list of tool personas | `""` |
 | `ENABLED_TOOLS` | Comma-separated list of tool names to enable (all others disabled) | All tools enabled |
 | `DISABLED_TOOLS` | Comma-separated list of tool names to disable (all others enabled) | None disabled |
@@ -87,7 +87,7 @@ Simultaneously federates multiple API keys with autonomous routing to ensure the
         "X-License-Key": "your-license-key",
         "X-ClickUp-Key": "your-api-key",
         "X-ClickUp-Team-Id": "your-team-id",
-        "X-ClickUp-Additional-Keys": "apiKey2"
+        "X-ClickUp-Additional-Keys": "apiKey2,apiKey3"
       }
     }
   }
