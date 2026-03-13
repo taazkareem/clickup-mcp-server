@@ -77,7 +77,7 @@ Bypasses OAuth entirely. The AI agent uses this key for all requests.
 ```
 
 ### Configuration C: Multi-Account Federated Mode
-Uses a primary token but also loads additional API keys. Workspaces for all provided keys will be mapped internally, and requests will be automatically routed to the correct token based on the `team_id` tool parameter.
+Simultaneously federates multiple API keys with autonomous routing to ensure the AI can discover and manage tasks across all authorized accounts automatically.
 ```json
 {
   "mcpServers": {
@@ -96,7 +96,7 @@ Uses a primary token but also loads additional API keys. Workspaces for all prov
 ```
 
 ### Configuration D: Hybrid Mode (OAuth Primary + Explicit Secondary Keys)
-Triggers OAuth for the primary user authentication, but seamlessly federates additional Service Account / Admin API Keys in the background. The agent can bridge tasks between the user's OAuth workspaces and the configured secondary workspaces.
+Triggers user OAuth while federating background API keys to enable seamless, zero-config task bridging between all connected workspaces.
 ```json
 {
   "mcpServers": {

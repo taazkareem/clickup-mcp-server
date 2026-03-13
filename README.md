@@ -34,13 +34,13 @@ The industry-standard ClickUp integration for AI.
 
 ## <a name="features"></a>✨ Features
 
-**🔥 Multi-Account Support:** Manage multiple authorized workspaces seamlessly in a single session.
+**🔥 Multi-Account Support:** Manage multiple authorized workspaces seamlessly in a single session. See [Configurations](docs/reference/configurations.md).
 
 <table border="0" style="width: 100%; border-collapse: collapse;">
   <tr style="border: none;">
     <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>🔐 Hybrid Authentication</strong><br>
-      MCP spec-compliant OAuth 2.1 with advanced security hardening and session-isolated caching for fast, secure multi-tenant operation. Backwards compatible with API Key/Team ID.
+      MCP spec-compliant OAuth 2.1 with advanced security hardening and session-isolated caching for fast, secure multi-tenant operation. Backwards compatible with API Key/Team ID(s).
     </td>
     <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
       <strong>🔍 Intelligent Search & Resolution</strong><br>
