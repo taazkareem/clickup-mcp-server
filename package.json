@@ -72,6 +72,7 @@
     "@modelcontextprotocol/inspector": "^0.20.0",
     "@modelcontextprotocol/sdk": "^1.11.3",
     "axios": "^1.6.7",
+    "chrono-node": "^2.9.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
