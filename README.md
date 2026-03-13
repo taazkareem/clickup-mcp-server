@@ -34,7 +34,7 @@ The industry-standard ClickUp integration for AI.
 
 ## <a name="features"></a>✨ Features
 
-**🔥 Multi-Account Support:** Manage multiple authorized workspaces seamlessly in a single session. See [Configurations](docs/reference/configurations.md).
+**🔥 Multi-Account Support:** Manage multiple authorized workspaces seamlessly in a single session. [See setup](#multi-workspace-support)  
 
 <table border="0" style="width: 100%; border-collapse: collapse;">
   <tr style="border: none;">
@@ -802,6 +802,28 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
 ```
 
 > **💡 Need to customize?** To view the exact tools included in each preset or to build a custom list based on a persona, see the [Personas Reference Guide](./docs/reference/personas.md).
+---
+
+### <a name="multi-workspace-support"></a>🌍 Multi-Workspace Support
+
+Simultaneously federate multiple API keys to manage tasks across different authorized ClickUp accounts/workspaces in a single session.
+
+**Remote (Headers):**
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "url": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": {
+        "X-License-Key": "your-license-key",
+        "X-ClickUp-Key": "primary-api-key",
+        "X-ClickUp-Team-Id": "primary-team-id",
+        "X-ClickUp-Additional-Keys": "api_key_2,api_key_3"
+      }
+    }
+  }
+}
+```
 
 ---
 
