@@ -14,7 +14,6 @@
 | `CLICKUP_MCP_PERSONA` | Comma-separated list of tool personas | `""` |
 | `ENABLED_TOOLS` | Comma-separated list of tool names to enable (all others disabled) | All tools enabled |
 | `DISABLED_TOOLS` | Comma-separated list of tool names to disable (all others enabled) | None disabled |
-| `DOCUMENT_SUPPORT` | Enable document management tools | `false` |
 
 ## Tool Filtering
 
