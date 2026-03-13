@@ -806,7 +806,7 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
 
 ### <a name="multi-workspace-support"></a>🌍 Multi-Workspace Support
 
-Simultaneously federate multiple API keys to manage tasks across different authorized ClickUp accounts/workspaces in a single session.
+Simultaneously federate OAuth and multiple API keys to manage tasks across different authorized ClickUp accounts/workspaces in a single session. Easily move or duplicate tasks between workspaces, configure AI Agents for cross-workspace automation, and more.
 
 **Remote (Headers):**
 ```json
