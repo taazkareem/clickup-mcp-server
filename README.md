@@ -34,6 +34,8 @@ The industry-standard ClickUp integration for AI.
 
 ## <a name="features"></a>✨ Features
 
+**🔥 Multi-Account Support:** Manage multiple authorized workspaces seamlessly in a single session.
+
 <table border="0" style="width: 100%; border-collapse: collapse;">
   <tr style="border: none;">
     <td width="50%" style="vertical-align: top; border: none; padding-bottom: 20px;">
