@@ -816,9 +816,7 @@ Simultaneously federate OAuth and multiple API keys to manage tasks across diffe
       "url": "https://clickup-mcp.taazkareem.com/mcp",
       "headers": {
         "X-License-Key": "your-license-key",
-        "X-ClickUp-Key": "primary-api-key",
-        "X-ClickUp-Team-Id": "primary-team-id",
-        "X-ClickUp-Additional-Keys": "api_key_2,api_key_3"
+        "X-ClickUp-Additional-Keys": "shared_ws_api_key1,shared_ws_api_key2"
       }
     }
   }
