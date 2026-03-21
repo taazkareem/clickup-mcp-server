@@ -63,7 +63,7 @@ description: Atomic tools for managing time tracking
 }
 ```
 
-### 3. Log a Manual Time Entry (tool: `add_time_entry`)
+### 4. Log a Manual Time Entry (tool: `add_time_entry`)
 
 ```json
 {
@@ -75,7 +75,7 @@ description: Atomic tools for managing time tracking
 }
 ```
 
-### 4. Tag an existing time entry (tool: `add_time_entry_tags`)
+### 5. Tag an existing time entry (tool: `add_time_entry_tags`)
 
 ```json
 {
@@ -84,7 +84,7 @@ description: Atomic tools for managing time tracking
 }
 ```
 
-### 5. Get time-in-status across tasks (tool: `get_time_in_status`)
+### 6. Get time-in-status across tasks (tool: `get_time_in_status`)
 
 ```json
 {
