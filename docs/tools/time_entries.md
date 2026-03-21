@@ -12,7 +12,7 @@ description: Atomic tools for managing time tracking
 
 | Tool | Description | Required Parameters | Optional Parameters |
 |------|-------------|---------------------|---------------------|
-| `get_time_entries` | Fetch historical time entries | — | `taskName`, `startDate`, `endDate`, `assigneeNames`, `spaceName`, `folderName`, `team_id`, etc. |
+| `get_time_entries` | Fetch historical time entries | — | `taskName`, `listIds`, `listNames`, `startDate`, `endDate`, `assigneeNames`, `spaceName`, `folderName`, `team_id`, etc. |
 | `get_current_time_entry` | Get currently running timer | — | `team_id` |
 | `start_time_entry` | Start tracking time for a task | `task` (Task ID/Name) | `listName`, `description`, `billable`, `tags`, `team_id` |
 | `stop_time_entry` | Stop the active timer | — | `description`, `tags`, `team_id` |
@@ -31,7 +31,8 @@ description: Atomic tools for managing time tracking
 - **`task` resolution**: Instead of raw Task IDs, pass `"task": "Design Homepage", "listName": "Sprint 1"`.
 - **`startDate` / `start_time` natural dates**: Pass Unix timestamps OR plain English like `"yesterday"`, `"3 hours ago"`, or `"last week"`.
 - **`duration` human formats**: Instead of calculating milliseconds, pass `"1h 30m"` or `"45m"`.
-- **Location Filtering (`get_time_entries`)**: Filter by `spaceName: "Engineering"`, `folderName: "Q1"`, or `assigneeNames: ["John Doe", "Jane"]`.
+- **Location Filtering (`get_time_entries`)**: Filter by `spaceName: "Engineering"`, `folderName: "Q1"`, `listNames: ["Frontend", "Backend"]`, or `assigneeNames: ["John Doe", "Jane"]`.
+- **Parallel Multi-List Query**: Pass `listIds` or `listNames` as arrays to query multiple lists simultaneously. Results are automatically merged and deduplicated.
 
 ## Examples
 
@@ -44,7 +45,16 @@ description: Atomic tools for managing time tracking
 }
 ```
 
-### 2. Start a Timer (tool: `start_time_entry`)
+### 2. View Time Across Multiple Lists (tool: `get_time_entries`)
+
+```json
+{
+  "listNames": ["Sprint 1", "Bug Backlog"],
+  "startDate": "1 month ago"
+}
+```
+
+### 3. Start a Timer (tool: `start_time_entry`)
 
 ```json
 {
