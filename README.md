@@ -779,11 +779,6 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
       <td style="padding: 10px;">Webhooks, custom fields, bulk automation.</td>
     </tr>
     <tr style="border-bottom: 1px solid #eee;">
-      <td style="padding: 10px; white-space: nowrap;">🌟 <code>most_popular</code></td>
-      <td style="padding: 10px;">Common tools</td>
-      <td style="padding: 10px;">Most frequently called endpoints.</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #eee;">
       <td style="padding: 10px; white-space: nowrap;">🛡️ <code>safe_power_user</code></td>
       <td style="padding: 10px;">Full access</td>
       <td style="padding: 10px;">All tools except destructive deletes/removals.</td>
