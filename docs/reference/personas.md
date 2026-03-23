@@ -58,14 +58,7 @@ Programmatic focus. Manages webhooks, custom fields, bulk automation, audit logs
 get_workspace,get_task,create_task,update_task,delete_task,get_workspace_tasks,create_bulk_tasks,update_bulk_tasks,move_bulk_tasks,delete_bulk_tasks,list_custom_fields,create_custom_field,set_custom_field_value,remove_custom_field_value,list_webhooks,create_webhook,update_webhook,delete_webhook,get_audit_logs,upload_attachment,submit_feedback
 ```
 
-### 8. Most Popular
-A curated selection of the most frequently used tools mapped from top ClickUp API endpoints.
-**Value:**
-```text
-get_workspace,get_task,get_workspace_tasks,get_comments,list_spaces,get_space,get_time_in_status,list_folders,get_folder,list_lists,get_list,create_list,update_task,get_time_entries,create_checklist,edit_checklist_item,create_checklist_item,delete_checklist,list_custom_fields,set_custom_field_value,submit_feedback
-```
-
-### 9. Safe Power User
+### 8. Safe Power User
 Enables all functionality except destructive operations. Protects against accidental deletion of tasks, spaces, folders, lists, documents, and other structural data.
 **Disabled Value:**
 ```text
