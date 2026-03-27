@@ -102,9 +102,9 @@ A license grants full, unrestricted access to all features across your agents⎯
 
 <br>
 
-| [**Monthly**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) $9/mo | [**Annual**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) $59/yr | [**Lifetime**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) $89 w/ code |
+| [**Monthly**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) $9/mo | [**Annual**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) $59/yr | [**Lifetime**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) <!--LIFETIME_HEADER-->$89 w/ code<!--/LIFETIME_HEADER--> |
 | :--- | :--- | :--- |
-| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • **Save 45%** ($4.92/mo)<br>• 3 device activations<br>• Priority support all year | • **Best Value** — One payment<br>• 3 device activations<br>• **25% OFF** code: `MAR25` |
+| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • **Save 45%** ($4.92/mo)<br>• 3 device activations<br>• Priority support all year | • **Best Value** — One payment<br>• 3 device activations<br>• <!--LIFETIME_DETAIL-->**25% OFF** code: `MAR26` (<!--TIMER_START-->4D 8H<!--/TIMER_END--> left)<!--/LIFETIME_DETAIL--> |
 <br>
 
 <p align="center">
