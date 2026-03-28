@@ -17,7 +17,7 @@
 
 **Properly Connect ClickUp to AI Agents and Agentic Workflows**
 
-*A high-performance Model Context Protocol (MCP) server for managing tasks, checklists, sprints, comments, tags, spaces, lists, folders, files, docs, chat, and time using natural language.*
+_A high-performance Model Context Protocol (MCP) server for managing tasks, checklists, sprints, comments, tags, spaces, lists, folders, files, docs, chat, and time using natural language._
 
 **⭐️ Proven Performance:** 460+ Stars (from previous public repo) & thousands of weekly NPM downloads.  
 The industry-standard ClickUp integration for AI.
@@ -26,15 +26,15 @@ The industry-standard ClickUp integration for AI.
 
 ## 📚 Table of Contents
 
-| Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Quick&nbsp;Start&nbsp;&&nbsp;Installation |
-| :--- | :--- |
+| Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                                                                                                                                            | Quick&nbsp;Start&nbsp;&&nbsp;Installation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td st yle="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[Other](#other-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
 
 ---
 
 ## <a name="features"></a>✨ Features
 
-**🔥 Multi-Account Support:** Manage multiple authorized workspaces seamlessly in a single session. [See setup](#multi-workspace-support)  
+**🔥 Multi-Account Support:** Manage multiple authorized workspaces seamlessly in a single session. [See setup](#multi-workspace-support)
 
 <table border="0" style="width: 100%; border-collapse: collapse;">
   <tr style="border: none;">
@@ -103,8 +103,9 @@ A license grants full, unrestricted access to all features across your agents⎯
 <br>
 
 | [**Monthly**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) $9/mo | [**Annual**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) $59/yr | [**Lifetime**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) <!--LIFETIME_HEADER-->$89 w/ code<!--/LIFETIME_HEADER--> |
-| :--- | :--- | :--- |
-| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime | • **Save 45%** ($4.92/mo)<br>• 3 device activations<br>• Priority support all year | • **Best Value** — One payment<br>• 3 device activations<br>• <!--LIFETIME_DETAIL-->**25% OFF** code: `MAR26` (<!--TIMER_START-->4D 8H<!--/TIMER_END--> left)<!--/LIFETIME_DETAIL--> |
+| :--------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime                                                          | • **Save 45%** ($4.92/mo)<br>• 3 device activations<br>• Priority support all year                                                 | • **Best Value** — One payment<br>• 3 device activations<br>• <!--LIFETIME_DETAIL-->**25% OFF** code: `MAR25` (<!--TIMER_START-->3D 22H<!--/TIMER_END--> left)<!--/LIFETIME_DETAIL-->  |
+
 <br>
 
 <p align="center">
@@ -117,18 +118,18 @@ A license grants full, unrestricted access to all features across your agents⎯
 
 </div>
 
-
 ---
 
 ## 🚀 Quick Start
 
 ### 1. Prerequisites
-* **License Key:** See above
-* **ClickUp API Key** (Optional - not needed for Remote MCP)
+
+- **License Key:** See above
+- **ClickUp API Key** (Optional - not needed for Remote MCP)
   - Log into ClickUp and go to [ClickUp Settings → Apps](https://app.clickup.com/settings/apps).
   - Click **Generate** under "API Token" (or copy your existing one).
 
-* **ClickUp Team ID** (Optional - not needed for Remote MCP)
+- **ClickUp Team ID** (Optional - not needed for Remote MCP)
   - Open ClickUp in your browser.
   - Look at the URL: `https://app.clickup.com/1234567/v/li/987654321`.
   - The first number (`1234567`) directly after `clickup.com/` is your **Team ID** (Workspace ID).
@@ -136,12 +137,14 @@ A license grants full, unrestricted access to all features across your agents⎯
 ### 2. Choose your MCP Host & Transport
 
 <a name="openclaw-setup"></a>
+
 <details>
 <summary>&nbsp;<img src="./assets/logos/openclaw-logo.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong> <sub>&nbsp;FEATURED</sub></summary>
 
 **1. Enable** mcporter in `~/.openclaw/openclaw.json`:
+
 ```json
-{"skills": {"allowBundled": ["mcporter"]}}
+{ "skills": { "allowBundled": ["mcporter"] } }
 ```
 
 **2. Configure & Auth**
@@ -166,7 +169,7 @@ mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Audi
   --header "X-ClickUp-Key=your-api-key" \
   --header "X-ClickUp-Team-Id=your-team-id"
 
-# Define a Task Worker persona (Daily CRUD) in the same or different workspace 
+# Define a Task Worker persona (Daily CRUD) in the same or different workspace
 mcporter --config <agent-workspace-2>/config/mcporter.json config add ClickUp-Worker https://clickup-mcp.taazkareem.com/mcp \
   --header "X-Persona=task_worker" \
   --header "X-License-Key=your-license-key" \
@@ -181,7 +184,6 @@ mcporter list ClickUp-Worker --schema
 mcporter call ClickUp-Worker.create_task listId="123456789" name="New Task"
 ```
 
->
 > **Isolation**: You can add X-Enabled-Tools or X-Disabled-Tools to mix and match tools and personas, or perhaps enable just a single tool. You can assign different ClickUp API Keys, Team IDs, or even different License Keys to each config/persona. Since the agent only reads the tool definitions and not the sensitive headers directly, this is the most secure way to handle multi-agent ClickUp configurations.
 
 To see all available personas and what they do, see the [Advanced Configuration](#advanced-configuration) section below.
@@ -189,12 +191,14 @@ To see all available personas and what they do, see the [Advanced Configuration]
 </details>
 
 <a name="cursor-setup"></a>
+
 <details>
 <summary>&nbsp;<img src="./assets/logos/cursor-white.svg" height="22" align="center"> <strong>Cursor</strong></summary>
 
 **Configuration Path:** `<project-root>/.cursor/mcp.json`
 
 **Option A: Remote / Streamable HTTP (Easiest)**
+
 ```json
 {
   "mcpServers": {
@@ -209,6 +213,7 @@ To see all available personas and what they do, see the [Advanced Configuration]
 ```
 
 **Option B: Local / STDIO**
+
 ```json
 {
   "mcpServers": {
@@ -224,17 +229,21 @@ To see all available personas and what they do, see the [Advanced Configuration]
   }
 }
 ```
+
 </details>
 
 <a name="vscode-setup"></a>
+
 <details>
-<summary>&nbsp;<img src="./assets/logos/visual-studio-code.svg" height="22" align="center"> <strong>VS Code</strong></summary>  
+<summary>&nbsp;<img src="./assets/logos/visual-studio-code.svg" height="22" align="center"> <strong>VS Code</strong></summary>
 
 **Configuration Paths:**
+
 - **Global:** `~/Library/Application Support/Code/User/mcp.json`
 - **Local:** `<project-root>/.vscode/mcp.json`
 
 **Option A: Remote / Streamable HTTP (Easiest)**
+
 ```json
 {
   "mcpServers": {
@@ -249,6 +258,7 @@ To see all available personas and what they do, see the [Advanced Configuration]
 ```
 
 **Option B: Local / STDIO**
+
 ```json
 {
   "mcpServers": {
@@ -264,15 +274,18 @@ To see all available personas and what they do, see the [Advanced Configuration]
   }
 }
 ```
+
 </details>
 
 <a name="roocode-setup"></a>
+
 <details>
-<summary>&nbsp;<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="22" align="center" style="border-radius: 4px;"> <strong>Roo Code</strong></summary>  
+<summary>&nbsp;<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="22" align="center" style="border-radius: 4px;"> <strong>Roo Code</strong></summary>
 
 **Configuration Path:** `<project-root>/.roo/mcp.json`
 
 **Option A: Remote / Streamable HTTP (Easiest)**
+
 ```json
 {
   "mcpServers": {
@@ -287,6 +300,7 @@ To see all available personas and what they do, see the [Advanced Configuration]
 ```
 
 **Option B: Local / STDIO**
+
 ```json
 {
   "mcpServers": {
@@ -302,47 +316,58 @@ To see all available personas and what they do, see the [Advanced Configuration]
   }
 }
 ```
+
 </details>
 
 <a name="claude-desktop-setup"></a>
+
 <details>
-<summary>&nbsp;<img src="./assets/logos/claude.svg" height="22" align="center"> <strong>Claude Desktop</strong></summary>  
+<summary>&nbsp;<img src="./assets/logos/claude.svg" height="22" align="center"> <strong>Claude Desktop</strong></summary>
 
 **Configuration Path:** `~/Library/Application Support/Claude/claude_desktop_config.json`
 
 **Remote Setup (Requires `mcp-remote` adapter):**
+
 ```json
 {
   "mcpServers": {
     "ClickUp": {
       "command": "npx",
       "args": [
-        "-y", "mcp-remote",
+        "-y",
+        "mcp-remote",
         "https://clickup-mcp.taazkareem.com/mcp",
-        "--header", "X-License-Key: your-license-key"
+        "--header",
+        "X-License-Key: your-license-key"
       ]
     }
   }
 }
 ```
+
 </details>
 
 <a name="claude-code-setup"></a>
+
 <details>
-<summary>&nbsp;<img src="https://cdn.simpleicons.org/anthropic/D97757" height="22" align="center"> <strong>Claude Code (CLI)</strong></summary>  
+<summary>&nbsp;<img src="https://cdn.simpleicons.org/anthropic/D97757" height="22" align="center"> <strong>Claude Code (CLI)</strong></summary>
 
 Run this command in your terminal:
+
 ```bash
 claude mcp add --transport http ClickUp https://clickup-mcp.taazkareem.com/mcp \
   --header "X-License-Key: your-license-key"
 ```
+
 </details>
 
 <a name="n8n-setup"></a>
+
 <details>
-<summary>&nbsp;<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="22" align="center"> <strong>n8n</strong></summary>  
+<summary>&nbsp;<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="22" align="center"> <strong>n8n</strong></summary>
 
 **Option A: Remote / Streamable HTTP (Recommended)**
+
 1. In n8n, add an **"MCP Client"** node.
 2. Set Connection Type to `Streamable HTTP`.
 3. Auth Type: `Multiple Headers Auth`.
@@ -351,17 +376,22 @@ claude mcp add --transport http ClickUp https://clickup-mcp.taazkareem.com/mcp \
 
 **Option B: Self-Hosted Docker**
 Run the container:
+
 ```bash
 docker run -d -p 3231:3231 ghcr.io/taazkareem/clickup-mcp-server:latest
 ```
+
 In n8n, use URL: `http://host.docker.internal:3231/mcp`
+
 </details>
 
 <a name="gemini-setup"></a>
+
 <details>
-<summary>&nbsp;<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="22" align="center"> <strong>Gemini CLI</strong></summary>  
+<summary>&nbsp;<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="22" align="center"> <strong>Gemini CLI</strong></summary>
 
 **Configuration Path:** `~/.gemini/settings.json`
+
 ```json
 {
   "mcpServers": {
@@ -372,13 +402,16 @@ In n8n, use URL: `http://host.docker.internal:3231/mcp`
   }
 }
 ```
+
 </details>
 
 <a name="antigravity-setup"></a>
+
 <details>
-<summary>&nbsp;<img src="./assets/logos/antigravity.svg" height="22" align="center"> <strong>Antigravity</strong></summary>  
+<summary>&nbsp;<img src="./assets/logos/antigravity.svg" height="22" align="center"> <strong>Antigravity</strong></summary>
 
 **Configuration Path:** `~/.gemini/antigravity/mcp_config.json`
+
 ```json
 {
   "mcpServers": {
@@ -389,19 +422,23 @@ In n8n, use URL: `http://host.docker.internal:3231/mcp`
   }
 }
 ```
+
 </details>
 
 <a name="codex-setup"></a>
+
 <details>
-<summary>&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>Codex (CLI, Desktop, IDE)</strong></summary>  
+<summary>&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>Codex (CLI, Desktop, IDE)</strong></summary>
 
 Codex clients (CLI, Desktop App, and VS Code extension) share a single source of truth for configuration.
 
 **Configuration Paths:**
+
 - **Global:** `~/.codex/config.toml`
 - **Local:** `<project-root>/.codex/config.toml`
 
 **Option A: Remote / Streamable HTTP (Easiest)**
+
 ```toml
 [mcp_servers.ClickUp]
 url = "https://clickup-mcp.taazkareem.com/mcp"
@@ -409,6 +446,7 @@ http_headers = { "X-License-Key" = "your-license-key" }
 ```
 
 **Option B: Local / STDIO**
+
 ```toml
 [mcp_servers.ClickUp]
 command = "npx"
@@ -421,16 +459,18 @@ env = {
 ```
 
 **Quick Tips:**
+
 - **Codex CLI:** Run `codex mcp list` to verify. Use `codex mcp add ...` as a CLI alternative to editing the file.
 - **VS Code Extension:** Click **⚙ → MCP settings → Open config.toml**.
 - **Desktop App:** Go to **Settings → Integrations & MCP**.
 </details>
 
 <a name="chatgpt-setup"></a>
-<details>
-<summary>&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>ChatGPT (Developer Mode)</strong></summary>  
 
-*Note: Requires a Business, Enterprise, or Edu workspace with Developer Mode enabled.*
+<details>
+<summary>&nbsp;<img src="./assets/logos/openai-icon.svg" height="22" align="center"> <strong>ChatGPT (Developer Mode)</strong></summary>
+
+_Note: Requires a Business, Enterprise, or Edu workspace with Developer Mode enabled._
 
 1. **Enable Developer Mode:** Ask your workspace admin to enable this under **Workspace Settings → Permissions & Roles → Connected Data**.
 2. **Connect MCP:** Go to **Settings → Connectors** and toggle **Developer Mode** on.
@@ -444,10 +484,12 @@ env = {
 </details>
 
 <a name="augment-setup"></a>
+
 <details>
-<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Augment Code</strong></summary>  
+<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Augment Code</strong></summary>
 
 **Configuration Path:** `<project-root>/.augment/settings.json`
+
 ```json
 {
   "mcpServers": {
@@ -460,26 +502,32 @@ env = {
   }
 }
 ```
+
 </details>
 
 <a name="auggierun-setup"></a>
+
 <details>
-<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Auggie CLI</strong></summary>  
+<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Auggie CLI</strong></summary>
 
 Run this command in your terminal:
+
 ```bash
 auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
   --header "X-License-Key: your-license-key"
 ```
+
 </details>
 
 <a name="windsurf-setup"></a>
+
 <details>
 <summary>&nbsp;<img src="./assets/logos/windsurf-white.svg" height="22" align="center"> <strong>Windsurf</strong></summary>
 
 **Configuration Path:** `<project-root>/.codeium/windsurf/mcp_config.json`
 
 **Option A: Remote / Streamable HTTP (Easiest)**
+
 ```json
 {
   "mcpServers": {
@@ -494,6 +542,7 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 ```
 
 **Option B: Local / STDIO**
+
 ```json
 {
   "mcpServers": {
@@ -509,15 +558,18 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
   }
 }
 ```
+
 </details>
 
 <a name="other-setup"></a>
+
 <details>
-<summary>&nbsp;<strong>Other (Custom Agents, etc.)</strong></summary>  
+<summary>&nbsp;<strong>Other (Custom Agents, etc.)</strong></summary>
 
 For most MCP-compliant hosts (e.g. Smithery, MCP Inspector, custom GUIs):
-*   **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
-*   **Auth Header:** `X-License-Key: your-license-key` (Required for HTTP/SSE connections)
+
+- **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
+- **Auth Header:** `X-License-Key: your-license-key` (Required for HTTP/SSE connections)
 
 ---
 
@@ -525,6 +577,7 @@ For most MCP-compliant hosts (e.g. Smithery, MCP Inspector, custom GUIs):
 For developers building custom agents.
 
 **Python SDK:**
+
 ```python
 from agents import Agent, Runner
 from agents.mcp import MCPServerStreamableHttp
@@ -543,9 +596,11 @@ async with MCPServerStreamableHttp(
     )
     result = await Runner.run(agent, "List my workspaces.")
 ```
+
 </details>
 
 ### 3. Restart
+
 Restart your MCP Host (e.g., Cursor IDE). The server will validate your License Key and start automatically.
 
 ---
@@ -555,160 +610,161 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 <details>
 <summary><strong>👇 Click to view all 150 available tools</strong></summary>
 
-| Category | Tool | Description |
-| :--- | :--- | :--- |
-| **Workspace** | `get_workspace` | Get workspace structure and metadata (hierarchy, members, plan, seats, shared items, custom task types) |
-| | `get_workspace_seats` | Get member and guest seat utilization (used, total, available) |
-| | `get_workspace_plan` | Get plan details for the workspace (plan_name, plan_id) |
-| | `get_audit_logs` | Retrieve workspace audit logs (Enterprise only) |
-| **Tasks** | `create_task` | Create a task |
-| | `get_task` | Get single task details |
-| | `update_task` | Modify task properties |
-| | `move_task` | Move task to new list |
-| | `duplicate_task` | Copy task |
-| | `delete_task` | Remove task |
-| | `add_task_to_list` | Associate task with additional list (TIML) |
-| | `remove_task_from_list` | Remove task list association (TIML) |
-| | `create_bulk_tasks` | Create multiple tasks |
-| | `update_bulk_tasks` | Update multiple tasks |
-| | `move_bulk_tasks` | Move multiple tasks |
-| | `delete_bulk_tasks` | Delete multiple tasks |
-| | `get_workspace_tasks` | Search tasks with Deep Search filtering |
-| | `get_comments` | Get comments on a task, list, or view |
-| | `create_comment` | Create a comment on a task, list, or view |
-| | `update_comment` | Edit or resolve a comment |
-| | `delete_comment` | Delete a comment |
-| | `get_comment_replies` | Get threaded replies for a comment |
-| | `create_comment_reply` | Reply to a comment in a thread |
-| | `add_comment_reaction` | Add an emoji reaction to a comment |
-| | `remove_comment_reaction` | Remove an emoji reaction from a comment |
-| | `get_comment_subtypes` | Get post subtype IDs for the workspace |
-| | `add_task_link` | Link two tasks together |
-| | `get_task_links` | Get task links |
-| | `delete_task_link` | Remove a task link |
-| | `add_task_dependency` | Set a blocking dependency between tasks |
-| | `delete_task_dependency` | Remove a blocking dependency between tasks |
-| **Attachments** | `list_attachments` | List attachments for a task or file custom field (v3) |
-| | `get_attachment` | Get a specific attachment by ID or name (v3) |
-| | `upload_attachment` | Upload a file to a task or file custom field (v3) |
-| **Checklists** | `create_checklist` | Add a checklist to a task |
-| | `edit_checklist` | Rename or reorder a checklist |
-| | `delete_checklist` | Delete a checklist and all its items |
-| | `create_checklist_item` | Add an item to a checklist |
-| | `edit_checklist_item` | Update a checklist item (name, resolved, assignee, nesting) |
-| | `delete_checklist_item` | Remove an item from a checklist |
-| **Sprints** | `get_active_sprint` | Auto-detect the currently active sprint; returns tasks if exactly one found |
-| | `list_sprints` | List all sprints in a folder |
-| | `get_sprint_tasks` | Get tasks for a specific sprint list |
-| **Lists** | `list_lists` | Retrieve lists in a space (folderless) or in a folder |
-| | `get_list` | Get list details |
-| | `create_list` | Create a list in a space or folder |
-| | `create_list_from_template` | Create a new list from a template |
-| | `update_list` | Update list properties |
-| | `delete_list` | Delete a list |
-| | `move_list` | Move a list to a different space or folder (high-integrity) |
-| | `set_list_permissions` | Update list privacy and sharing (ACLs) |
-| **Custom Fields** | `list_custom_fields` | List field definitions for a list, folder, or space |
-| | `create_custom_field` | Add a new field definition to a list |
-| | `set_custom_field_value` | Set a field value on a task |
-| | `remove_custom_field_value` | Clear a field value from a task |
-| **Spaces** | `list_spaces` | List all spaces in the workspace |
-| | `get_space` | Get space details |
-| | `create_space` | Create a new space |
-| | `update_space` | Update space properties |
-| | `delete_space` | Delete a space |
-| | `set_space_permissions` | Update space privacy and sharing (ACLs) |
-| **Goals** | `list_goals` | List all goals in the workspace |
-| | `get_goal` | Get a goal with its key results |
-| | `create_goal` | Create a new goal |
-| | `update_goal` | Update a goal's properties |
-| | `delete_goal` | Delete a goal |
-| | `create_key_result` | Add a key result to a goal |
-| | `update_key_result` | Update a key result |
-| | `delete_key_result` | Delete a key result |
-| **Views** | `list_views` | List views for a space, folder, list, or workspace |
-| | `get_view` | Get a single view |
-| | `create_view` | Create a new view |
-| | `update_view` | Update a view |
-| | `delete_view` | Delete a view |
-| | `get_view_tasks` | Get tasks in a view |
-| **Folders** | `list_folders` | List all folders in a space |
-| | `get_folder` | Get folder details and its contained lists |
-| | `create_folder` | Create a folder in a space |
-| | `update_folder` | Update folder properties |
-| | `delete_folder` | Delete a folder |
-| | `move_folder` | Move a folder to a different space (high-integrity) |
-| | `set_folder_permissions` | Update folder privacy and sharing (ACLs) |
-| | `create_folder_from_template` | Create a folder from a template in a space |
-| **Tags** | `list_space_tags` | List all tags in a space |
-| | `create_space_tag` | Create a new space tag |
-| | `update_space_tag` | Update a space tag's name or colors |
-| | `delete_space_tag` | Delete a tag from a space |
-| | `add_tag_to_task` | Add tag to task |
-| | `remove_tag_from_task` | Remove tag from task |
-| **Time Tracking** | `get_time_entries` | Fetch historical time entries |
-| | `get_current_time_entry` | Get currently running timer |
-| | `start_time_entry` | Start tracking time for a task |
-| | `stop_time_entry` | Stop the active timer |
-| | `add_time_entry` | Manually log a time entry |
-| | `update_time_entry` | Modify an existing time entry |
-| | `delete_time_entry` | Delete a time entry |
-| | `get_time_entry_tags` | Fetch all workspace time entry tags |
-| | `add_time_entry_tags` | Add a tag to a time entry |
-| | `update_time_entry_tags` | Rename a workspace time entry tag globally |
-| | `delete_time_entry_tags` | Remove a tag from a time entry |
-| | `get_time_entry_history` | View edit history of a time entry |
-| | `get_time_in_status` | Get time-in-status for multiple tasks |
-| **Docs** | `list_documents` | List documents in a workspace or container |
-| | `get_document` | Get document metadata |
-| | `create_document` | Create a new standalone document |
-| | `list_document_pages` | List all pages in a document |
-| | `get_document_page` | Get content for a single page |
-| | `get_document_pages` | Get content for multiple pages in one call |
-| | `create_document_page` | Add a new page to a document |
-| | `update_document_page` | Modify an existing page (replace/append/prepend) |
-| **Chat** | `list_chat_channels` | List all channels in the workspace |
-| | `get_chat_channel` | Get a single channel |
-| | `create_chat_channel` | Create a new channel |
-| | `update_chat_channel` | Update a channel |
-| | `delete_chat_channel` | Delete a channel |
-| | `get_chat_channel_members` | Get members of a channel |
-| | `get_chat_channel_followers` | Get followers of a channel |
-| | `create_chat_dm` | Create a direct message channel |
-| | `get_chat_messages` | Get messages from a channel |
-| | `create_chat_message` | Send a message to a channel |
-| | `update_chat_message` | Edit a message |
-| | `delete_chat_message` | Delete a message |
-| | `get_chat_message_replies` | Get threaded replies to a message |
-| | `create_chat_message_reply` | Reply to a message in a thread |
-| | `add_chat_reaction` | Add an emoji reaction to a message |
-| | `remove_chat_reaction` | Remove an emoji reaction |
-| | `get_chat_reactions` | Get all reactions on a message |
-| | `get_chat_tagged_users` | Get users tagged in a message |
-| | `get_chat_message_subtypes` | Get post subtype IDs for the workspace |
-| **Webhooks** | `list_webhooks` | List all webhooks in the workspace |
-| | `create_webhook` | Create a new webhook |
-| | `update_webhook` | Update an existing webhook |
-| | `delete_webhook` | Delete a webhook permanently |
-| **User Groups** | `list_user_groups` | List all user groups in the workspace |
-| | `create_user_group` | Create a new user group |
-| | `update_user_group` | Rename a group or add/remove members |
-| | `delete_user_group` | Delete a user group |
-| **Guests** | `invite_guest` | Invite a guest to the workspace (Enterprise) |
-| | `get_guest` | Get guest details (Enterprise) |
-| | `edit_guest` | Edit guest display name or permissions (Enterprise) |
-| | `remove_guest` | Remove a guest from the workspace (Enterprise) |
-| | `add_guest_to_task` | Grant guest access to a task (Enterprise) |
-| | `remove_guest_from_task` | Revoke guest access from a task (Enterprise) |
-| | `add_guest_to_list` | Grant guest access to a list (Enterprise) |
-| | `remove_guest_from_list` | Revoke guest access from a list (Enterprise) |
-| | `add_guest_to_folder` | Grant guest access to a folder (Enterprise) |
-| | `remove_guest_from_folder` | Revoke guest access from a folder (Enterprise) |
-| **Task Templates** | `get_task_templates` | List available workspace templates |
-| | `create_task_from_template` | Create a task from a template |
-| **Feedback** | `submit_feedback` | Submit feedback or bug reports |
+| Category           | Tool                          | Description                                                                                             |
+| :----------------- | :---------------------------- | :------------------------------------------------------------------------------------------------------ |
+| **Workspace**      | `get_workspace`               | Get workspace structure and metadata (hierarchy, members, plan, seats, shared items, custom task types) |
+|                    | `get_workspace_seats`         | Get member and guest seat utilization (used, total, available)                                          |
+|                    | `get_workspace_plan`          | Get plan details for the workspace (plan_name, plan_id)                                                 |
+|                    | `get_audit_logs`              | Retrieve workspace audit logs (Enterprise only)                                                         |
+| **Tasks**          | `create_task`                 | Create a task                                                                                           |
+|                    | `get_task`                    | Get single task details                                                                                 |
+|                    | `update_task`                 | Modify task properties                                                                                  |
+|                    | `move_task`                   | Move task to new list                                                                                   |
+|                    | `duplicate_task`              | Copy task                                                                                               |
+|                    | `delete_task`                 | Remove task                                                                                             |
+|                    | `add_task_to_list`            | Associate task with additional list (TIML)                                                              |
+|                    | `remove_task_from_list`       | Remove task list association (TIML)                                                                     |
+|                    | `create_bulk_tasks`           | Create multiple tasks                                                                                   |
+|                    | `update_bulk_tasks`           | Update multiple tasks                                                                                   |
+|                    | `move_bulk_tasks`             | Move multiple tasks                                                                                     |
+|                    | `delete_bulk_tasks`           | Delete multiple tasks                                                                                   |
+|                    | `get_workspace_tasks`         | Search tasks with Deep Search filtering                                                                 |
+|                    | `get_comments`                | Get comments on a task, list, or view                                                                   |
+|                    | `create_comment`              | Create a comment on a task, list, or view                                                               |
+|                    | `update_comment`              | Edit or resolve a comment                                                                               |
+|                    | `delete_comment`              | Delete a comment                                                                                        |
+|                    | `get_comment_replies`         | Get threaded replies for a comment                                                                      |
+|                    | `create_comment_reply`        | Reply to a comment in a thread                                                                          |
+|                    | `add_comment_reaction`        | Add an emoji reaction to a comment                                                                      |
+|                    | `remove_comment_reaction`     | Remove an emoji reaction from a comment                                                                 |
+|                    | `get_comment_subtypes`        | Get post subtype IDs for the workspace                                                                  |
+|                    | `add_task_link`               | Link two tasks together                                                                                 |
+|                    | `get_task_links`              | Get task links                                                                                          |
+|                    | `delete_task_link`            | Remove a task link                                                                                      |
+|                    | `add_task_dependency`         | Set a blocking dependency between tasks                                                                 |
+|                    | `delete_task_dependency`      | Remove a blocking dependency between tasks                                                              |
+| **Attachments**    | `list_attachments`            | List attachments for a task or file custom field (v3)                                                   |
+|                    | `get_attachment`              | Get a specific attachment by ID or name (v3)                                                            |
+|                    | `upload_attachment`           | Upload a file to a task or file custom field (v3)                                                       |
+| **Checklists**     | `create_checklist`            | Add a checklist to a task                                                                               |
+|                    | `edit_checklist`              | Rename or reorder a checklist                                                                           |
+|                    | `delete_checklist`            | Delete a checklist and all its items                                                                    |
+|                    | `create_checklist_item`       | Add an item to a checklist                                                                              |
+|                    | `edit_checklist_item`         | Update a checklist item (name, resolved, assignee, nesting)                                             |
+|                    | `delete_checklist_item`       | Remove an item from a checklist                                                                         |
+| **Sprints**        | `get_active_sprint`           | Auto-detect the currently active sprint; returns tasks if exactly one found                             |
+|                    | `list_sprints`                | List all sprints in a folder                                                                            |
+|                    | `get_sprint_tasks`            | Get tasks for a specific sprint list                                                                    |
+| **Lists**          | `list_lists`                  | Retrieve lists in a space (folderless) or in a folder                                                   |
+|                    | `get_list`                    | Get list details                                                                                        |
+|                    | `create_list`                 | Create a list in a space or folder                                                                      |
+|                    | `create_list_from_template`   | Create a new list from a template                                                                       |
+|                    | `update_list`                 | Update list properties                                                                                  |
+|                    | `delete_list`                 | Delete a list                                                                                           |
+|                    | `move_list`                   | Move a list to a different space or folder (high-integrity)                                             |
+|                    | `set_list_permissions`        | Update list privacy and sharing (ACLs)                                                                  |
+| **Custom Fields**  | `list_custom_fields`          | List field definitions for a list, folder, or space                                                     |
+|                    | `create_custom_field`         | Add a new field definition to a list                                                                    |
+|                    | `set_custom_field_value`      | Set a field value on a task                                                                             |
+|                    | `remove_custom_field_value`   | Clear a field value from a task                                                                         |
+| **Spaces**         | `list_spaces`                 | List all spaces in the workspace                                                                        |
+|                    | `get_space`                   | Get space details                                                                                       |
+|                    | `create_space`                | Create a new space                                                                                      |
+|                    | `update_space`                | Update space properties                                                                                 |
+|                    | `delete_space`                | Delete a space                                                                                          |
+|                    | `set_space_permissions`       | Update space privacy and sharing (ACLs)                                                                 |
+| **Goals**          | `list_goals`                  | List all goals in the workspace                                                                         |
+|                    | `get_goal`                    | Get a goal with its key results                                                                         |
+|                    | `create_goal`                 | Create a new goal                                                                                       |
+|                    | `update_goal`                 | Update a goal's properties                                                                              |
+|                    | `delete_goal`                 | Delete a goal                                                                                           |
+|                    | `create_key_result`           | Add a key result to a goal                                                                              |
+|                    | `update_key_result`           | Update a key result                                                                                     |
+|                    | `delete_key_result`           | Delete a key result                                                                                     |
+| **Views**          | `list_views`                  | List views for a space, folder, list, or workspace                                                      |
+|                    | `get_view`                    | Get a single view                                                                                       |
+|                    | `create_view`                 | Create a new view                                                                                       |
+|                    | `update_view`                 | Update a view                                                                                           |
+|                    | `delete_view`                 | Delete a view                                                                                           |
+|                    | `get_view_tasks`              | Get tasks in a view                                                                                     |
+| **Folders**        | `list_folders`                | List all folders in a space                                                                             |
+|                    | `get_folder`                  | Get folder details and its contained lists                                                              |
+|                    | `create_folder`               | Create a folder in a space                                                                              |
+|                    | `update_folder`               | Update folder properties                                                                                |
+|                    | `delete_folder`               | Delete a folder                                                                                         |
+|                    | `move_folder`                 | Move a folder to a different space (high-integrity)                                                     |
+|                    | `set_folder_permissions`      | Update folder privacy and sharing (ACLs)                                                                |
+|                    | `create_folder_from_template` | Create a folder from a template in a space                                                              |
+| **Tags**           | `list_space_tags`             | List all tags in a space                                                                                |
+|                    | `create_space_tag`            | Create a new space tag                                                                                  |
+|                    | `update_space_tag`            | Update a space tag's name or colors                                                                     |
+|                    | `delete_space_tag`            | Delete a tag from a space                                                                               |
+|                    | `add_tag_to_task`             | Add tag to task                                                                                         |
+|                    | `remove_tag_from_task`        | Remove tag from task                                                                                    |
+| **Time Tracking**  | `get_time_entries`            | Fetch historical time entries                                                                           |
+|                    | `get_current_time_entry`      | Get currently running timer                                                                             |
+|                    | `start_time_entry`            | Start tracking time for a task                                                                          |
+|                    | `stop_time_entry`             | Stop the active timer                                                                                   |
+|                    | `add_time_entry`              | Manually log a time entry                                                                               |
+|                    | `update_time_entry`           | Modify an existing time entry                                                                           |
+|                    | `delete_time_entry`           | Delete a time entry                                                                                     |
+|                    | `get_time_entry_tags`         | Fetch all workspace time entry tags                                                                     |
+|                    | `add_time_entry_tags`         | Add a tag to a time entry                                                                               |
+|                    | `update_time_entry_tags`      | Rename a workspace time entry tag globally                                                              |
+|                    | `delete_time_entry_tags`      | Remove a tag from a time entry                                                                          |
+|                    | `get_time_entry_history`      | View edit history of a time entry                                                                       |
+|                    | `get_time_in_status`          | Get time-in-status for multiple tasks                                                                   |
+| **Docs**           | `list_documents`              | List documents in a workspace or container                                                              |
+|                    | `get_document`                | Get document metadata                                                                                   |
+|                    | `create_document`             | Create a new standalone document                                                                        |
+|                    | `list_document_pages`         | List all pages in a document                                                                            |
+|                    | `get_document_page`           | Get content for a single page                                                                           |
+|                    | `get_document_pages`          | Get content for multiple pages in one call                                                              |
+|                    | `create_document_page`        | Add a new page to a document                                                                            |
+|                    | `update_document_page`        | Modify an existing page (replace/append/prepend)                                                        |
+| **Chat**           | `list_chat_channels`          | List all channels in the workspace                                                                      |
+|                    | `get_chat_channel`            | Get a single channel                                                                                    |
+|                    | `create_chat_channel`         | Create a new channel                                                                                    |
+|                    | `update_chat_channel`         | Update a channel                                                                                        |
+|                    | `delete_chat_channel`         | Delete a channel                                                                                        |
+|                    | `get_chat_channel_members`    | Get members of a channel                                                                                |
+|                    | `get_chat_channel_followers`  | Get followers of a channel                                                                              |
+|                    | `create_chat_dm`              | Create a direct message channel                                                                         |
+|                    | `get_chat_messages`           | Get messages from a channel                                                                             |
+|                    | `create_chat_message`         | Send a message to a channel                                                                             |
+|                    | `update_chat_message`         | Edit a message                                                                                          |
+|                    | `delete_chat_message`         | Delete a message                                                                                        |
+|                    | `get_chat_message_replies`    | Get threaded replies to a message                                                                       |
+|                    | `create_chat_message_reply`   | Reply to a message in a thread                                                                          |
+|                    | `add_chat_reaction`           | Add an emoji reaction to a message                                                                      |
+|                    | `remove_chat_reaction`        | Remove an emoji reaction                                                                                |
+|                    | `get_chat_reactions`          | Get all reactions on a message                                                                          |
+|                    | `get_chat_tagged_users`       | Get users tagged in a message                                                                           |
+|                    | `get_chat_message_subtypes`   | Get post subtype IDs for the workspace                                                                  |
+| **Webhooks**       | `list_webhooks`               | List all webhooks in the workspace                                                                      |
+|                    | `create_webhook`              | Create a new webhook                                                                                    |
+|                    | `update_webhook`              | Update an existing webhook                                                                              |
+|                    | `delete_webhook`              | Delete a webhook permanently                                                                            |
+| **User Groups**    | `list_user_groups`            | List all user groups in the workspace                                                                   |
+|                    | `create_user_group`           | Create a new user group                                                                                 |
+|                    | `update_user_group`           | Rename a group or add/remove members                                                                    |
+|                    | `delete_user_group`           | Delete a user group                                                                                     |
+| **Guests**         | `invite_guest`                | Invite a guest to the workspace (Enterprise)                                                            |
+|                    | `get_guest`                   | Get guest details (Enterprise)                                                                          |
+|                    | `edit_guest`                  | Edit guest display name or permissions (Enterprise)                                                     |
+|                    | `remove_guest`                | Remove a guest from the workspace (Enterprise)                                                          |
+|                    | `add_guest_to_task`           | Grant guest access to a task (Enterprise)                                                               |
+|                    | `remove_guest_from_task`      | Revoke guest access from a task (Enterprise)                                                            |
+|                    | `add_guest_to_list`           | Grant guest access to a list (Enterprise)                                                               |
+|                    | `remove_guest_from_list`      | Revoke guest access from a list (Enterprise)                                                            |
+|                    | `add_guest_to_folder`         | Grant guest access to a folder (Enterprise)                                                             |
+|                    | `remove_guest_from_folder`    | Revoke guest access from a folder (Enterprise)                                                          |
+| **Task Templates** | `get_task_templates`          | List available workspace templates                                                                      |
+|                    | `create_task_from_template`   | Create a task from a template                                                                           |
+| **Feedback**       | `submit_feedback`             | Submit feedback or bug reports                                                                          |
 
-*See [full documentation](docs/DOCUMENTATION.md) for parameters and advanced usage.*
+_See [full documentation](docs/DOCUMENTATION.md) for parameters and advanced usage._
+
 </details>
 
 ---
@@ -716,21 +772,24 @@ Restart your MCP Host (e.g., Cursor IDE). The server will validate your License 
 ## <a name="advanced-configuration"></a>⚙️ Advanced Configuration
 
 ### Filter Available Tools
+
 💡 **Pro Tip!** Reduce context noise for the AI by limiting available tools.
 
 **Local (Environment Variable):**
+
 ```json
 "ENABLED_TOOLS": "tool_1,tool_2,tool_3"
 ```
 
 -or- **Remote (Header):**
+
 ```json
 "X-Enabled-Tools": "tool_1,tool_2,tool_3"
 ```
 
 ### Preset Configurations
 
-Simplify setup by using **Personas**. You can set a persona via the `CLICKUP_MCP_PERSONA` environment variable or the `X-Persona` HTTP header to automatically filter a set of tools. 
+Simplify setup by using **Personas**. You can set a persona via the `CLICKUP_MCP_PERSONA` environment variable or the `X-Persona` HTTP header to automatically filter a set of tools.
 
 Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_specialist"`).
 
@@ -787,16 +846,19 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
 </table>
 
 **Local (Environment Variable):**
+
 ```json
 "CLICKUP_MCP_PERSONA": "task_worker"
 ```
 
 -or- **Remote (Header):**
+
 ```json
 "X-Persona": "task_worker"
 ```
 
 > **💡 Need to customize?** To view the exact tools included in each preset or to build a custom list based on a persona, see the [Personas Reference Guide](./docs/reference/personas.md).
+
 ---
 
 ### <a name="multi-workspace-support"></a>🌍 Multi-Workspace Support
@@ -804,6 +866,7 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
 Simultaneously federate OAuth and multiple API keys to manage tasks across different authorized ClickUp accounts/workspaces in a single session. Easily move or duplicate tasks between workspaces, configure AI Agents for cross-workspace automation, and more.
 
 **Remote (Headers):**
+
 ```json
 {
   "mcpServers": {
