@@ -2,6 +2,7 @@
 
 ### ⚡️ Improvements
 
+- **Happy Easter**: Added a festive Easter egg to the release notes 🐣
 - **Beautiful JSON Responses**: JSON tool output is now perfectly formatted inside markdown code blocks, making agent responses much easier to read in your chat window.
 - **Enhanced Task Search**: Expanded our task tools so your AI agent can better find and identify tasks that exist across multiple lists.
 
