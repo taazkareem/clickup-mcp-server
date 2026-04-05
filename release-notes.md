@@ -7,5 +7,5 @@
 
 ### 🐛 Bug Fixes
 
-- **Smarter Date Understanding**: You can now use natural business language like "EOB," "COB," "EOD," and "morning." We also fixed an issue where relative dates like "in 3 hours" could calculate incorrectly when the server was hosted in the cloud.
-- **Secure Logging**: We've added strict redaction for your API keys in server logs to keep your credentials private and secure.
+- **Smarter Date Understanding**: Dramatically expanded natural language date support — boundary expressions like "end of month," "start of next week," "next quarter," "end of Q2 at 3pm," and "in 3 business days at 4:30pm" now all work correctly. Dates without a specified time (e.g. "tomorrow," "end of month") now display as date-only in ClickUp instead of showing "11:59 PM."
+- **Secure Logging**: We've improved logging security to prevent any possibility of the exposure of any sensitive information.
