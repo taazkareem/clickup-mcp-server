@@ -1,10 +1,11 @@
-# v0.14.2 Release Notes
-
-### 🐛 Bug Fixes
-- **Stability & Crash Prevention**: Fixed a critical "Maximum call stack size exceeded" crash that occurred when MCP sessions were closed or upgraded. 
-- **Smoother OAuth Setup**: Root redirect URIs are now correctly recognized during client registration, making it easier to connect from standard host applications without manual configuration.
+# v0.14.3 Release Notes
 
 ### ⚡️ Improvements
-- **Beautiful Workspace Trees**: The workspace hierarchy tool now outputs beautifully formatted trees that maintain their structure in all chat and documentation views.
-- **Transparent License Status**: License errors now include clear next steps and diagnostic info, so you never have to guess why a premium tool is locked.
-- **Advanced Debug Logging**: New diagnostic logs make it trivial to debug OAuth allowlist rejections.
+
+- **Beautiful JSON Responses**: JSON tool output is now perfectly formatted inside markdown code blocks, making agent responses much easier to read in your chat window.
+- **Enhanced Task Search**: Expanded our task tools so your AI agent can better find and identify tasks that exist across multiple lists.
+
+### 🐛 Bug Fixes
+
+- **Smarter Date Understanding**: You can now use natural business language like "EOB," "COB," "EOD," and "morning." We also fixed an issue where relative dates like "in 3 hours" could calculate incorrectly when the server was hosted in the cloud.
+- **Secure Logging**: We've added strict redaction for your API keys in server logs to keep your credentials private and secure.
