@@ -1,6 +1,6 @@
 {
   "name": "@taazkareem/clickup-mcp-server",
-  "version": "0.14.3",
+  "version": "0.14.2",
   "mcpName": "io.github.taazkareem/clickup",
   "description": "ClickUp MCP Server - Powering AI Agents with full ClickUp task, document, and chat management capabilities.",
   "type": "module",
