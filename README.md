@@ -103,8 +103,8 @@ A license grants full, unrestricted access to all features across your agents⎯
 <br>
 
 | [**Monthly**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) $9/mo | [**Annual**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) $59/yr | [**Lifetime**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) <!--LIFETIME_HEADER-->$119<!--/LIFETIME_HEADER--> |
-| :--------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime                                                          | • **Save 45%** ($4.92/mo)<br>• 3 device activations<br>• Priority support all year                                                 | • **Best Value** — One payment<br>• 3 device activations<br>• <!--LIFETIME_DETAIL-->Unlocked Forever<!--/LIFETIME_DETAIL-->                                                     |
+| :--------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime                                                          | • **Save 45%** ($4.92/mo)<br>• 3 device activations<br>• Priority support all year                                                 | • **Best Value** — One payment<br>• 3 device activations<br>• <!--LIFETIME_DETAIL-->Unlocked Forever<!--/LIFETIME_DETAIL-->  |
 
 <br>
 
@@ -773,20 +773,18 @@ _See [full documentation](docs/DOCUMENTATION.md) for parameters and advanced usa
 
 ### Filter Available Tools
 
-💡 **Pro Tip!** Reduce context noise for the AI by limiting available tools. You can filter by exact tool name or by tool category (e.g., `task`, `workspace`, `time_tracking`).
+💡 **Pro Tip!** Reduce context noise for the AI by limiting available tools.
 
 **Local (Environment Variable):**
 
 ```json
-"ENABLED_TOOLS": "tool_1,tool_2,tool_3",
-"ENABLED_CATEGORIES": "task,time_tracking,workspace"
+"ENABLED_TOOLS": "tool_1,tool_2,tool_3"
 ```
 
 -or- **Remote (Header):**
 
 ```json
-"X-Enabled-Tools": "tool_1,tool_2,tool_3",
-"X-Enabled-Categories": "task,time_tracking,workspace"
+"X-Enabled-Tools": "tool_1,tool_2,tool_3"
 ```
 
 ### Preset Configurations

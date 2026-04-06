@@ -1,45 +1,34 @@
 [← Back to Documentation Index](../DOCUMENTATION.md)  
-[← Back to README](../../README.md)
+[← Back to README](../../README.md)  
 
 # Configuration
 
 ## Environment Variables
 
-| Variable                      | Description                                                           | Default                |
-| ----------------------------- | --------------------------------------------------------------------- | ---------------------- |
-| `CLICKUP_MCP_LICENSE_KEY`     | Your Polar.sh license key                                             | Required               |
-| `CLICKUP_API_KEY`             | ClickUp API token (primary)                                           | Required (STDIO mode)  |
-| `CLICKUP_TEAM_ID`             | Default workspace/team ID (primary)                                   | Required               |
-| `CLICKUP_ADDITIONAL_API_KEYS` | Comma-separated list of additional API keys for Multi-Account support | `""`                   |
-| `CLICKUP_MCP_PERSONA`         | Comma-separated list of tool personas                                 | `""`                   |
-| `ENABLED_TOOLS`               | Comma-separated list of tool names to enable (all others disabled)    | All tools enabled      |
-| `DISABLED_TOOLS`              | Comma-separated list of tool names to disable (all others enabled)    | None disabled          |
-| `ENABLED_CATEGORIES`          | Comma-separated list of categories to enable (all others disabled)    | All categories enabled |
-| `DISABLED_CATEGORIES`         | Comma-separated list of categories to disable (all others enabled)    | None disabled          |
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `CLICKUP_MCP_LICENSE_KEY` | Your Polar.sh license key | Required |
+| `CLICKUP_API_KEY` | ClickUp API token (primary) | Required (STDIO mode) |
+| `CLICKUP_TEAM_ID` | Default workspace/team ID (primary) | Required |
+| `CLICKUP_ADDITIONAL_API_KEYS` | Comma-separated list of additional API keys for Multi-Account support | `""` |
+| `CLICKUP_MCP_PERSONA` | Comma-separated list of tool personas | `""` |
+| `ENABLED_TOOLS` | Comma-separated list of tool names to enable (all others disabled) | All tools enabled |
+| `DISABLED_TOOLS` | Comma-separated list of tool names to disable (all others enabled) | None disabled |
 
 ## Tool Filtering
 
-You can control which tools are exposed to the AI agent using the following environment variables (which can also be passed as HTTP headers like `X-Enabled-Categories`):
+You can control which tools are exposed to the AI agent using `ENABLED_TOOLS` or `DISABLED_TOOLS` (mutually exclusive — do not use both):
 
-- `CLICKUP_MCP_PERSONA`: Filter tools based on pre-defined job roles (e.g., `developer`, `project_manager`). See [Personas](personas.md) for more details on available personas.
-- `ENABLED_TOOLS` / `DISABLED_TOOLS`: Filter by specific tool names (e.g., `create_task`).
-- `ENABLED_CATEGORIES` / `DISABLED_CATEGORIES`: Filter by tool categories (e.g., `workspace`, `task`, `time_tracking`).
-
-**Note on Categories:**
-Categories follow the groupings in the "Available Tools" section (using lower `snake_case`). Available categories: `workspace`, `task`, `attachment`, `checklist`, `sprint`, `list`, `custom_field`, `space`, `goal`, `view`, `folder`, `tag`, `time_tracking`, `document`, `chat`, `webhook`, `user_group`, `guest`, `task_template`, `feedback`.
-
-**Allow only specific categories:**
-
+**Allow only specific tools:**
 ```json
 {
   "env": {
-    "ENABLED_CATEGORIES": "task,workspace,time_tracking"
+    "ENABLED_TOOLS": "get_task,create_task,update_task,get_workspace"
   }
 }
 ```
 
 **Disable specific tools:**
-
 ```json
 {
   "env": {
@@ -55,9 +44,7 @@ The server supports managing multiple accounts (OAuth + multiple API keys) in a 
 Below are different configurations that illustrate this feature:
 
 ### Configuration A: OAuth Flow (No explicit API Keys)
-
 The server initializes in unauthenticated mode and prompts the MCP client to start the OAuth flow.
-
 ```json
 {
   "mcpServers": {
@@ -72,9 +59,7 @@ The server initializes in unauthenticated mode and prompts the MCP client to sta
 ```
 
 ### Configuration B: Standard Single-Account (Personal Access Token)
-
 Bypasses OAuth entirely. The AI agent uses this key for all requests.
-
 ```json
 {
   "mcpServers": {
@@ -91,9 +76,7 @@ Bypasses OAuth entirely. The AI agent uses this key for all requests.
 ```
 
 ### Configuration C: Multi-Account Federated Mode
-
-Simultaneously federates multiple API keys with autonomous routing to ensure the AI can discover and manage tasks across all authorized accounts automatically. Also Bypasses OAuth entirely.
-
+Simultaneously federates multiple API keys with autonomous routing to ensure the AI can discover and manage tasks across all authorized accounts automatically.
 ```json
 {
   "mcpServers": {
@@ -111,9 +94,7 @@ Simultaneously federates multiple API keys with autonomous routing to ensure the
 ```
 
 ### Configuration D: Hybrid Mode (OAuth Primary + Explicit Secondary Keys)
-
 Triggers user OAuth while federating background API keys to enable seamless, zero-config task bridging between all connected workspaces.
-
 ```json
 {
   "mcpServers": {
