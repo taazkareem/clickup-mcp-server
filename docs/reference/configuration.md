@@ -21,6 +21,7 @@
 
 You can control which tools are exposed to the AI agent using the following environment variables (which can also be passed as HTTP headers like `X-Enabled-Categories`):
 
+- `CLICKUP_MCP_PERSONA`: Filter tools based on pre-defined job roles (e.g., `developer`, `project_manager`). See [Personas](personas.md) for more details on available personas.
 - `ENABLED_TOOLS` / `DISABLED_TOOLS`: Filter by specific tool names (e.g., `create_task`).
 - `ENABLED_CATEGORIES` / `DISABLED_CATEGORIES`: Filter by tool categories (e.g., `workspace`, `task`, `time_tracking`).
 
