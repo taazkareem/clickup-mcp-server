@@ -92,7 +92,7 @@ Bypasses OAuth entirely. The AI agent uses this key for all requests.
 
 ### Configuration C: Multi-Account Federated Mode
 
-Simultaneously federates multiple API keys with autonomous routing to ensure the AI can discover and manage tasks across all authorized accounts automatically.
+Simultaneously federates multiple API keys with autonomous routing to ensure the AI can discover and manage tasks across all authorized accounts automatically. Also Bypasses OAuth entirely.
 
 ```json
 {
