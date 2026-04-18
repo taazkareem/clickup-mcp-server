@@ -33,6 +33,9 @@ COPY --from=builder /app/node_modules ./node_modules
 # Copy the entrypoint script if necessary
 COPY --from=builder /app/package.json ./
 
+# Copy static assets
+COPY public ./public
+
 # Expose the desired port (if the server binds to a port)
 EXPOSE 8080
 
