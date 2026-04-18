@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/inspector": "^0.20.0",
-    "@modelcontextprotocol/sdk": "^1.11.3",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "axios": "^1.6.7",
     "chrono-node": "^2.9.0",
     "cookie-parser": "^1.4.7",
