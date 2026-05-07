@@ -174,10 +174,10 @@ mcp_servers:
 ---
 
 **Other (Custom Agents, etc.)**
-For most MCP-compliant hosts (e.g. Smithery, MCP Inspector, custom GUIs):
+For most MCP-compliant hosts:
 
 - **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
-- **Auth Header:** `X-License-Key: your-license-key` (Required for HTTP/SSE connections)
+- **Auth Header:** `X-License-Key: your-license-key`
 
 </details>
 
