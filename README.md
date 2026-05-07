@@ -28,7 +28,8 @@ The industry-standard ClickUp integration for AI.
 
 | Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                                                                                                                                            | Quick&nbsp;Start&nbsp;&&nbsp;Installation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td st yle="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[Other](#other-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
+| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/hermes-logo.png" height="16" style="vertical-align: middle;"> Hermes](#hermes-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td st yle="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
+
 
 ---
 
@@ -136,10 +137,54 @@ A license grants full, unrestricted access to all features across your agents⎯
 
 ### 2. Choose your MCP Host & Transport
 
+<a name="hermes-setup"></a>
+
+<details open>
+<summary>&nbsp;<img src="./assets/logos/hermes-logo.png" height="22" align="center"> <strong>Hermes Agent</strong> <sub>&nbsp;FEATURED</sub></summary>
+
+**Configuration Path:** `~/.hermes/config.yaml`
+
+**Option A: Remote / Streamable HTTP (Easiest)**
+
+```yaml
+mcp_servers:
+  clickup:
+    url: "https://clickup-mcp.taazkareem.com/mcp"
+    auth: oauth
+    headers:
+      X-License-Key: "your-license-key"
+```
+
+**Option B: Local / STDIO**
+
+```yaml
+mcp_servers:
+  clickup:
+    command: "npx"
+    args: ["-y", "@taazkareem/clickup-mcp-server@latest"]
+    env:
+      CLICKUP_API_KEY: "your-api-key"
+      CLICKUP_TEAM_ID: "your-team-id"
+      CLICKUP_MCP_LICENSE_KEY: "your-license-key"
+```
+
+> **Auth Note:** When using the Remote URL, Hermes will automatically initiate a browser-based OAuth 2.1 flow to connect your ClickUp workspace.
+
+---
+
+**Other (Custom Agents, etc.)**
+For most MCP-compliant hosts (e.g. Smithery, MCP Inspector, custom GUIs):
+
+- **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
+- **Auth Header:** `X-License-Key: your-license-key` (Required for HTTP/SSE connections)
+
+</details>
+
+
 <a name="openclaw-setup"></a>
 
 <details>
-<summary>&nbsp;<img src="./assets/logos/openclaw-logo.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong> <sub>&nbsp;FEATURED</sub></summary>
+<summary>&nbsp;<img src="./assets/logos/openclaw-logo.svg" height="22" align="center"> <strong>OpenClaw (via mcporter) </strong></summary>
 
 **1. Enable** mcporter in `~/.openclaw/openclaw.json`:
 
@@ -148,7 +193,6 @@ A license grants full, unrestricted access to all features across your agents⎯
 ```
 
 **2. Configure & Auth**
-Connect the server and authorize via browser (tokens are cached):
 
 ```bash
 # Add ClickUp as a remote server
@@ -158,35 +202,7 @@ mcporter config add ClickUp https://clickup-mcp.taazkareem.com/mcp --auth oauth 
 mcporter auth ClickUp
 ```
 
-**Optional: Multiple Personas**
-The most robust and flexible way to manage personas is to define multiple named configurations in your **agent-specific** `mcporter.json` file. This isolates credentials and policies per-agent.
-
-```bash
-# Define an Auditor persona (Read-only) in your workspace config
-mcporter --config <agent-workspace>/config/mcporter.json config add ClickUp-Auditor https://clickup-mcp.taazkareem.com/mcp \
-  --header "X-Persona=auditor" \
-  --header "X-License-Key=your-license-key" \
-  --header "X-ClickUp-Key=your-api-key" \
-  --header "X-ClickUp-Team-Id=your-team-id"
-
-# Define a Task Worker persona (Daily CRUD) in the same or different workspace
-mcporter --config <agent-workspace-2>/config/mcporter.json config add ClickUp-Worker https://clickup-mcp.taazkareem.com/mcp \
-  --header "X-Persona=task_worker" \
-  --header "X-License-Key=your-license-key" \
-  --header "X-ClickUp-Key=your-api-key" \
-  --header "X-ClickUp-Team-Id=your-team-id"
-
-# Now the OpenClaw sub-agent can see the optimized schema and call its focused tools like:
-mcporter list ClickUp-Auditor --schema
-mcporter call ClickUp-Auditor.get_workspace
-
-mcporter list ClickUp-Worker --schema
-mcporter call ClickUp-Worker.create_task listId="123456789" name="New Task"
-```
-
-> **Isolation**: You can add X-Enabled-Tools or X-Disabled-Tools to mix and match tools and personas, or perhaps enable just a single tool. You can assign different ClickUp API Keys, Team IDs, or even different License Keys to each config/persona. Since the agent only reads the tool definitions and not the sensitive headers directly, this is the most secure way to handle multi-agent ClickUp configurations.
-
-To see all available personas and what they do, see the [Advanced Configuration](#advanced-configuration) section below.
+> **Pro Tip:** Use [Personas](#advanced-configuration) to define multiple isolated configurations (e.g., Auditor vs. Worker) in your agent's `mcporter.json`.
 
 </details>
 
@@ -561,44 +577,6 @@ auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
 
 </details>
 
-<a name="other-setup"></a>
-
-<details>
-<summary>&nbsp;<strong>Other (Custom Agents, etc.)</strong></summary>
-
-For most MCP-compliant hosts (e.g. Smithery, MCP Inspector, custom GUIs):
-
-- **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
-- **Auth Header:** `X-License-Key: your-license-key` (Required for HTTP/SSE connections)
-
----
-
-**Advanced: OpenAI Agents SDK**
-For developers building custom agents.
-
-**Python SDK:**
-
-```python
-from agents import Agent, Runner
-from agents.mcp import MCPServerStreamableHttp
-
-async with MCPServerStreamableHttp(
-    name="clickup",
-    params={
-        "url": "https://clickup-mcp.taazkareem.com/mcp",
-        "headers": {"X-License-Key": "your-license-key"},
-    },
-) as server:
-    agent = Agent(
-        name="Assistant",
-        instructions="Use the ClickUp MCP tools when helpful.",
-        mcp_servers=[server],
-    )
-    result = await Runner.run(agent, "List my workspaces.")
-```
-
-</details>
-
 ### 3. Restart
 
 Restart your MCP Host (e.g., Cursor IDE). The server will validate your License Key and start automatically.
@@ -782,6 +760,16 @@ _See [full documentation](docs/DOCUMENTATION.md) for parameters and advanced usa
 "ENABLED_CATEGORIES": "task,time_tracking,workspace"
 ```
 
+-or- **Hermes (YAML):**
+
+```yaml
+mcp_servers:
+  clickup:
+    env:
+      ENABLED_TOOLS: "tool_1,tool_2,tool_3"
+      ENABLED_CATEGORIES: "task,time_tracking,workspace"
+```
+
 -or- **Remote (Header):**
 
 ```json
@@ -851,6 +839,15 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
 
 ```json
 "CLICKUP_MCP_PERSONA": "task_worker"
+```
+
+-or- **Hermes (YAML):**
+
+```yaml
+mcp_servers:
+  clickup:
+    env:
+      CLICKUP_MCP_PERSONA: "task_worker"
 ```
 
 -or- **Remote (Header):**
