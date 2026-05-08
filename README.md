@@ -147,29 +147,26 @@ A license grants full, unrestricted access to all features across your agents⎯
 
 **Option A: Remote / Streamable HTTP (Easiest)**
 
-```yaml
-mcp_servers:
-  clickup:
-    url: "https://clickup-mcp.taazkareem.com/mcp"
-    auth: oauth
-    headers:
-      X-License-Key: "your-license-key"
+```bash
+hermes mcp add clickup \
+  --url https://clickup-mcp.taazkareem.com/mcp \
+  --auth oauth
+
+hermes config set mcp_servers.clickup.headers.X-License-Key "your-license-key"
 ```
 
 **Option B: Local / STDIO**
 
-```yaml
-mcp_servers:
-  clickup:
-    command: "npx"
-    args: ["-y", "@taazkareem/clickup-mcp-server@latest"]
-    env:
-      CLICKUP_API_KEY: "your-api-key"
-      CLICKUP_TEAM_ID: "your-team-id"
-      CLICKUP_MCP_LICENSE_KEY: "your-license-key"
+```bash
+hermes mcp add clickup \
+  --command npx \
+  --args -y @taazkareem/clickup-mcp-server@latest \
+  --env CLICKUP_API_KEY="your-api-key" \
+        CLICKUP_TEAM_ID="your-team-id" \
+        CLICKUP_MCP_LICENSE_KEY="your-license-key"
 ```
 
-> **Auth Note:** When using the Remote URL, Hermes will automatically initiate a browser-based OAuth 2.1 flow to connect your ClickUp workspace.
+> **Auth Note:** When using the Remote URL without the ClickUp API key or Team ID set, Hermes-Agent will automatically the browser-based OAuth 2.1 flow to connect your ClickUp workspace.
 
 ---
 
