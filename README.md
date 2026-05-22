@@ -28,7 +28,7 @@ The industry-standard ClickUp integration for AI.
 
 | Links | Quick Start & Installation |
 | :--- | :--- |
-| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/hermes-logo.png" height="16" style="vertical-align: middle;"> Hermes](#hermes-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td st yle="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
+| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/hermes-logo.png" height="16" style="vertical-align: middle;"> Hermes](#hermes-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
 
 
 
@@ -143,15 +143,14 @@ A license grants full, unrestricted access to all features across your agents⎯
 <details open>
 <summary>&nbsp;<img src="./assets/images/hermes-logo.png" height="22" align="center"> <strong>Hermes Agent</strong> <sub>&nbsp;FEATURED</sub></summary>
 
-**Configuration Path:** `~/.hermes/config.yaml`
+**Single Agent Configuration Path:** `~/.hermes/config.yaml`
 
-**Option A: Remote / Streamable HTTP (Easiest)**
+**Option A: Remote / Streamable HTTP**
 
 ```bash
 hermes mcp add clickup \
   --url https://clickup-mcp.taazkareem.com/mcp \
-  --auth oauth
-
+  --auth oauth && \
 hermes config set mcp_servers.clickup.headers.X-License-Key "your-license-key"
 ```
 
@@ -166,12 +165,63 @@ hermes mcp add clickup \
         CLICKUP_MCP_LICENSE_KEY="your-license-key"
 ```
 
-> **Auth Note:** When using the Remote URL without the ClickUp API key or Team ID set, Hermes-Agent will automatically the browser-based OAuth 2.1 flow to connect your ClickUp workspace.
+- Run it: `hermes`
+
+---
+
+#### Multi-Agent Setup (Profiles + Personas)
+
+Run a **team of specialized agents** on the same workspace (or separate). Each Hermes **profile** is an isolated agent with its own config and `SOUL.md` instructions. Configure each profile to match a **persona** (`X-Persona`) as needed. This will scope which ClickUp tools is in its context. **Guide with examples:** 
+
+ **1. Create the profiles**
+
+```bash
+hermes profile create project_manager
+hermes profile create task_worker
+hermes profile create auditor
+```
+
+> Optional: Use `--clone` to copy the existing config.yaml/.env/SOUL.md, or re-run the commands from above. 
+
+**2. Set each profile's persona.** The profile has the MCP config now, so just add the matching persona:
+
+```bash
+project_manager config set mcp_servers.clickup.headers.X-Persona "project_manager"
+task_worker     config set mcp_servers.clickup.headers.X-Persona "task_worker"
+auditor         config set mcp_servers.clickup.headers.X-Persona "auditor"
+```
+> See [→ Advanced Configuration ](#advanced-configuration) for more customized filtering options.
+
+**3. Give each agent its instructions** in `~/.hermes/profiles/<name>/SOUL.md` (`auditor` shown):
+
+```markdown
+# ClickUp Auditor
+
+You are a read-only project auditor. Observe and report — never change anything.
+- Summarize task status, overdue items, and blockers concisely.
+- Surface risks and recommend actions, but never execute them.
+- If asked to create or modify a task, decline and explain you are read-only.
+```
+
+**Run any agent query by its profile (call by User or Agent):**
+
+```bash
+project_manager chat -q "Break the Q3 launch into a list with subtasks and owners"
+auditor         chat -q "Audit the Sprint board and report what's at risk"
+```
+-OR- 
+
+**Run a TUI or Gateway called by User:**
+
+```bash
+project_manager gateway start
+auditor         chat
+```
 
 ---
 
 **Other (Custom Agents, etc.)**
-For most MCP-compliant hosts:
+For most other MCP-compliant hosts:
 
 - **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
 - **Auth Header:** `X-License-Key: your-license-key`
@@ -837,15 +887,6 @@ Multiple personas can be combined (e.g., `"X-Persona": "task_worker,time_special
 
 ```json
 "CLICKUP_MCP_PERSONA": "task_worker"
-```
-
--or- **Hermes (YAML):**
-
-```yaml
-mcp_servers:
-  clickup:
-    env:
-      CLICKUP_MCP_PERSONA: "task_worker"
 ```
 
 -or- **Remote (Header):**
