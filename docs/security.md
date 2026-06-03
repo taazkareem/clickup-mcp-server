@@ -45,11 +45,13 @@ You can limit which tools the AI agent is allowed to use, following the principl
 
 Disabled tools are completely absent from the AI's tool list — the LLM never sees them and cannot select them. A secondary call-time check also blocks any attempt to invoke a disabled tool directly.
 
-## Logging & Privacy
+## Logging & Audit Trails
 
-- **Zero Content Logging** — Your ClickUp data is **never** logged.
+- **Zero Content Logging** — Your ClickUp data is **never** logged. We employ automated redaction mechanisms to strip sensitive personal information.
 - **Anonymous Auditing** — Every session uses a unique, randomized ID to maintain an audit trail without tracking your personal identity.
 - **Protocol Isolation** — Logs are strictly separated from your communication stream to ensure they never impact connection speed or reliability.
+
+> **Note:** For formal legal disclosures regarding data handling, please refer to our [Privacy Policy](../PRIVACY.md) and [Terms of Service](../TERMS_OF_SERVICE.md).
 
 ## Responsible Disclosure
 

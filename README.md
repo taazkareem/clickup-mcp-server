@@ -940,6 +940,10 @@ Originally developed as open source and refined during a consultancy with ClickU
 
 This software makes use of third-party APIs and may reference trademarks or brands owned by third parties. The use of such APIs or references does not imply any affiliation with or endorsement by the respective companies. All trademarks and brand names are the property of their respective owners. This project is an independent work and is not officially associated with or sponsored by any third-party company mentioned.
 
+## <a name="legal"></a>📜 Legal & Compliance
+
+By using this software, you agree to our [Terms of Service](TERMS_OF_SERVICE.md) and acknowledge our [Privacy Policy](PRIVACY.md). Please review these documents to ensure compliance with your organization's policies.
+
 <div align="center">
   <sub>Created by <a href="https://github.com/taazkareem">taazkareem</a></sub>
 </div>
