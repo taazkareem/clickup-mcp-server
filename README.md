@@ -28,7 +28,7 @@ The industry-standard ClickUp integration for AI.
 
 | Links | Quick Start & Installation |
 | :--- | :--- |
-| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/hermes-logo.png" height="16" style="vertical-align: middle;"> Hermes](#hermes-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="16" style="vertical-align: middle;"> Gemini&nbsp;CLI](#gemini-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
+| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Agy&nbsp;CLI](#antigravity-cli-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/hermes-logo.png" height="16" style="vertical-align: middle;"> Hermes](#hermes-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> Claude&nbsp;Code](#claude-code-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
 
 
 
@@ -137,6 +137,98 @@ A license grants full, unrestricted access to all features across your agents⎯
   - The first number (`1234567`) directly after `clickup.com/` is your **Team ID** (Workspace ID).
 
 ### 2. Choose your MCP Host & Transport
+
+<a name="antigravity-setup"></a>
+
+<details>
+<summary>&nbsp;<img src="./assets/logos/antigravity.svg" height="22" align="center"> <strong>Antigravity (IDE &amp; 2.0)</strong></summary>
+
+Download from [antigravity.google](https://antigravity.google). Covers **Antigravity IDE** (VS Code-based agentic editor) and **Antigravity 2.0** (standalone desktop agent orchestration app). Both share the same configuration file.
+
+**Configuration Path:** `~/.gemini/config/mcp_config.json`
+
+> **Tip:** Open the Agent Panel → **...** → **Manage MCP Servers** → **View raw config** to open this file directly. Or type `/mcp` in the prompt panel.
+
+**Option A: Remote / Streamable HTTP (Recommended)**
+
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "serverUrl": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": { "X-License-Key": "your-license-key" }
+    }
+  }
+}
+```
+
+**Option B: Local / STDIO**
+
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "command": "npx",
+      "args": ["-y", "@taazkareem/clickup-mcp-server@latest"],
+      "env": {
+        "CLICKUP_API_KEY": "your-api-key",
+        "CLICKUP_TEAM_ID": "your-team-id",
+        "CLICKUP_MCP_LICENSE_KEY": "your-license-key"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<a name="antigravity-cli-setup"></a>
+
+<details>
+<summary>&nbsp;<img src="./assets/logos/antigravity.svg" height="22" align="center"> <strong>Antigravity CLI (agy)</strong></summary>
+
+A lightweight terminal-based interface (TUI) for Antigravity agents. Install with:
+
+```bash
+curl -fsSL https://antigravity.google/cli/install.sh | bash
+```
+
+**Configuration Path:** `~/.gemini/antigravity-cli/mcp_config.json`
+
+> **Tip:** Run `agy` and type `/mcp` in the interactive session to manage servers from within the TUI.
+
+**Option A: Remote / Streamable HTTP (Recommended)**
+
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "serverUrl": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": { "X-License-Key": "your-license-key" }
+    }
+  }
+}
+```
+
+**Option B: Local / STDIO**
+
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "command": "npx",
+      "args": ["-y", "@taazkareem/clickup-mcp-server@latest"],
+      "env": {
+        "CLICKUP_API_KEY": "your-api-key",
+        "CLICKUP_TEAM_ID": "your-team-id",
+        "CLICKUP_MCP_LICENSE_KEY": "your-license-key"
+      }
+    }
+  }
+}
+```
+
+</details>
 
 <a name="hermes-setup"></a>
 
@@ -446,46 +538,6 @@ docker run -d -p 3231:3231 ghcr.io/taazkareem/clickup-mcp-server:latest
 ```
 
 In n8n, use URL: `http://host.docker.internal:3231/mcp`
-
-</details>
-
-<a name="gemini-setup"></a>
-
-<details>
-<summary>&nbsp;<img src="https://cdn.simpleicons.org/googlegemini/8E75C2" height="22" align="center"> <strong>Gemini CLI</strong></summary>
-
-**Configuration Path:** `~/.gemini/settings.json`
-
-```json
-{
-  "mcpServers": {
-    "ClickUp": {
-      "httpUrl": "https://clickup-mcp.taazkareem.com/mcp",
-      "headers": { "X-License-Key": "your-license-key" }
-    }
-  }
-}
-```
-
-</details>
-
-<a name="antigravity-setup"></a>
-
-<details>
-<summary>&nbsp;<img src="./assets/logos/antigravity.svg" height="22" align="center"> <strong>Antigravity</strong></summary>
-
-**Configuration Path:** `~/.gemini/antigravity/mcp_config.json`
-
-```json
-{
-  "mcpServers": {
-    "ClickUp": {
-      "serverUrl": "https://clickup-mcp.taazkareem.com/mcp",
-      "headers": { "X-License-Key": "your-license-key" }
-    }
-  }
-}
-```
 
 </details>
 
