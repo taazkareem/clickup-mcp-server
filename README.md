@@ -1,3 +1,5 @@
+[![MCP Toplist](https://mcptoplist.com/badge/io.github.taazkareem%2Fclickup.svg)](https://mcptoplist.com/server/io.github.taazkareem%2Fclickup)
+
 <h1 align="center">ClickUp MCP Server — Premium</h1>
 
 <p align="center">
