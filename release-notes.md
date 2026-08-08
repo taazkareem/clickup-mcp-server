@@ -1,10 +1,10 @@
-# v0.14.4 Release Notes
+# v0.14.5 Release Notes
 
 ### 🐛 Bug Fixes
 
-- **Bulletproof Shutdown**: We've added smarter detection for when your AI client disconnects, ensuring the server shuts down cleanly every time.
-- **Critical Memory & Process Fix**: Fixed a significant memory leak and an issue where "orphaned" background processes could keep running after use. Your server will now be lighter on resources and more reliable for long-term use.
+- **Automated Flow Compatibility**: Fixed an issue where automated background agents could get stuck waiting for you to pick a workspace. The server now correctly respects your default workspace settings without interrupting.
 
 ### ⚡️ Improvements
 
-- **Smooth Exit**: Improved the stability of the shutdown sequence to handle multiple exit signals gracefully without errors.
+- **Cleaner Output**: We've removed the "Premium Active" footer from raw JSON responses, making it much easier for downstream code and bots to parse the tool outputs.
+- **Enhanced Security**: Added stricter safeguards to ensure sensitive files like certificates and `.env` files are never accidentally included in the package.
