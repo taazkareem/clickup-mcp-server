@@ -28,7 +28,7 @@ The industry-standard ClickUp integration for AI.
 
 | Links | Quick Start & Installation |
 | :--- | :--- |
-| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Agy&nbsp;CLI](#antigravity-cli-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/hermes-logo.png" height="16" style="vertical-align: middle;"> Hermes](#hermes-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> ClaudeCode](#claude-code-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/grok-bot.svg" height="16" style="vertical-align: middle;"> Grok&nbsp;Bot](#grok-bot-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/meta-muse.svg" height="16" style="vertical-align: middle;"> Meta&nbsp;Muse](#meta-muse-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-blossom.svg" height="16" style="vertical-align: middle;"> Dots](#dots-setup)</td> </tr> </table><div align="right" style="margin-top: 6px; font-size: 13px;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request) &nbsp;•&nbsp; <em>CLI harnesses like [Auggie](#auggierun-setup) also documented below</em></div> |
+| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Agy&nbsp;CLI](#antigravity-cli-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/hermes-logo.png" height="16" style="vertical-align: middle;"> Hermes](#hermes-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> ClaudeCode](#claude-code-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Auggie](#auggierun-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="16" style="vertical-align: middle; border-radius: 4px;"> Roo&nbsp;Code](#roocode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</td> </tr> </table> |
 
 
 
@@ -106,7 +106,7 @@ A license grants full, unrestricted access to all features across your agents⎯
 
 | [**Monthly**](https://buy.polar.sh/polar_cl_3xQojQLgzQXKCLzsxc49YfL6z8hzSBBqh9ivy1qZdwW?utm_source=github&utm_medium=readme) $9/mo | [**Annual**](https://buy.polar.sh/polar_cl_3a8a3055T4CHIoVlSQPsNshOJLUwsM8AHAiIR3y9wTZ?utm_source=github&utm_medium=readme) $59/yr | [**Lifetime**](https://buy.polar.sh/polar_cl_4ha3uVyJTu4iPZJS1QbBYNTI1MKTvaXXCkZTb45vPPF?utm_source=github&utm_medium=readme) <!--LIFETIME_HEADER-->$89 w/ code<!--/LIFETIME_HEADER--> |
 | :--------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime                                                          | • **Save 45%** ($4.92/mo)<br>• 3 device activations<br>• Priority support all year                                                 | • **Best Value** — One payment<br>• 3 device activations<br>• <!--LIFETIME_DETAIL-->**25% OFF** code: `OCT25` (<!--TIMER_START-->3D 6H<!--/TIMER_END--> left)<!--/LIFETIME_DETAIL-->                                                     |
+| • Pay-as-you-go flexibility<br>• 3 device activations<br>• Cancel anytime                                                          | • **Save 45%** ($4.92/mo)<br>• 3 device activations<br>• Priority support all year                                                 | • **Best Value** — One payment<br>• 3 device activations<br>• <!--LIFETIME_DETAIL-->**25% OFF** code: `OCT25` (<!--TIMER_START-->3D 0H<!--/TIMER_END--> left)<!--/LIFETIME_DETAIL-->                                                     |
 
 <br>
 
@@ -388,32 +388,6 @@ mcporter auth ClickUp
 
 </details>
 
-<a name="grok-bot-setup"></a>
-
-<details>
-<summary>&nbsp;<img src="./assets/logos/grok-bot.svg" height="22" align="center"> <strong>Grok Bot</strong></summary>
-
-Grok Bot is the Cursor / xAI cloud agent harness. Custom MCP servers connect to Grok Bot conversationally via remote public HTTPS endpoints.
-
-> **Note:** This configuration is specifically for the Grok Bot agent harness (Cursor / xAI), distinct from grok.com web connectors.
-
-**Remote MCP Endpoint:** `https://clickup-mcp.taazkareem.com/mcp` (Streamable HTTP)
-
-1. **Add via Chat:** Grok Bot typically has no manual settings form for custom MCP servers. Instruct the Bot directly in chat:
-   ```text
-   Add a custom MCP server named ClickUp at https://clickup-mcp.taazkareem.com/mcp using streamable HTTP.
-   ```
-2. **Public HTTPS Requirement:** The endpoint must be public HTTPS (`https://clickup-mcp.taazkareem.com/mcp`). Localhost or stdio running on your local machine will not work because Grok Bot runs in the cloud.
-3. **Authentication:** Connectors authenticate via **MCP OAuth 2.1** (preferred). If a license header is supported by the client prompt, provide `X-License-Key: your-license-key`. Never paste secret license keys directly into the chat transcript—only provide them if prompted by a dedicated secure secret dialog.
-4. **Cloud Computer Stdio (Alternative):** You can optionally run stdio directly on the Bot's cloud computer (not your local Mac) using:
-   ```bash
-   npx -y @taazkareem/clickup-mcp-server@latest
-   ```
-   *(Do not store credentials in command arguments on shared or team bots).*
-5. **Usage:** Once connected, attach the server in chat with `@ClickUp` or reference tasks directly. Built-in catalog plugins can also be managed in the **Connect Apps** sidebar (formerly Marketplace).
-
-</details>
-
 <a name="vscode-setup"></a>
 
 <details>
@@ -423,6 +397,48 @@ Grok Bot is the Cursor / xAI cloud agent harness. Custom MCP servers connect to 
 
 - **Global:** `~/Library/Application Support/Code/User/mcp.json`
 - **Local:** `<project-root>/.vscode/mcp.json`
+
+**Option A: Remote / Streamable HTTP (Easiest)**
+
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "url": "https://clickup-mcp.taazkareem.com/mcp",
+      "headers": {
+        "X-License-Key": "your-license-key"
+      }
+    }
+  }
+}
+```
+
+**Option B: Local / STDIO**
+
+```json
+{
+  "mcpServers": {
+    "ClickUp": {
+      "command": "npx",
+      "args": ["-y", "@taazkareem/clickup-mcp-server@latest"],
+      "env": {
+        "CLICKUP_API_KEY": "your-api-key",
+        "CLICKUP_TEAM_ID": "your-team-id",
+        "CLICKUP_MCP_LICENSE_KEY": "your-license-key"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<a name="roocode-setup"></a>
+
+<details>
+<summary>&nbsp;<img src="https://avatars.githubusercontent.com/u/211522643?s=200&v=4" height="22" align="center" style="border-radius: 4px;"> <strong>Roo Code</strong></summary>
+
+**Configuration Path:** `<project-root>/.roo/mcp.json`
 
 **Option A: Remote / Streamable HTTP (Easiest)**
 
@@ -581,60 +597,6 @@ _Note: Requires a Business, Enterprise, or Edu workspace with Developer Mode ena
    - **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
    - **Authentication:** Add HTTP header `X-License-Key: your-license-key`.
 5. **Use:** Start a Developer Mode chat and select your ClickUp connector via **Add sources**.
-
-> **Tip for OpenAI Dots:** To use ClickUp with autonomous background agents in ChatGPT, see the [Dots Setup](#dots-setup) section below.
-</details>
-
-<a name="dots-setup"></a>
-
-<details>
-<summary>&nbsp;<img src="./assets/logos/openai-blossom.svg" height="22" align="center"> <strong>Dots (OpenAI Agents in ChatGPT)</strong></summary>
-
-Dots are OpenAI's always-on autonomous agents operating within ChatGPT. Rather than configuring MCP servers directly inside an individual Dot's settings, Dots execute through **supported plugins and custom MCP connectors installed and enabled on your ChatGPT account**.
-
-> **Note:** This section covers OpenAI's native ChatGPT Dots agent feature (not the unrelated GetDot analytics product). For standard ChatGPT setup, see [ChatGPT (Developer Mode)](#chatgpt-setup).
-
-**Remote MCP Endpoint:** `https://clickup-mcp.taazkareem.com/mcp` (Streamable HTTP)
-
-1. **Add Custom MCP Server in ChatGPT:**
-   - In ChatGPT on the web, navigate to **Plugins** → **+** → **Add custom MCP server** (or via **Settings → Connectors**).
-   - Set **Name:** `ClickUp`
-   - Set **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
-2. **Authentication:**
-   - Configure authentication using **OAuth 2.1** (preferred) or add HTTP header `X-License-Key: your-license-key` when the form allows.
-   - Acknowledge the risk warning and click **Create as a plugin**.
-3. **Account & Workspace Requirements:**
-   - Install and enable the plugin on your ChatGPT account.
-   - Developer Mode and workspace administrative permissions apply (typically requires a ChatGPT Business, Enterprise, or Edu workspace for full read/write MCP capability; Pro accounts may have limited access).
-4. **Enable & Verify with your Dot:**
-   - Prompt your Dot in chat to access ClickUp (e.g. *"Review active sprint tasks on ClickUp"*).
-   - _Documentation Gap Note:_ OpenAI documentation states that Dots utilize supported plugins on the account, but does not explicitly document whether every custom third-party MCP connector is universally recognized as "supported" across all Dot capabilities. Verify tool availability directly in your Dot chat session to confirm ClickUp actions trigger properly.
-
-</details>
-
-<a name="meta-muse-setup"></a>
-<a name="muse-setup"></a>
-
-<details>
-<summary>&nbsp;<img src="./assets/logos/meta-muse.svg" height="22" align="center"> <strong>Meta Muse</strong></summary>
-
-Meta Muse is Meta's cloud AI assistant supporting tool integrations via Model Context Protocol connectors.
-
-**Remote MCP Endpoint:** `https://clickup-mcp.taazkareem.com/mcp` (Streamable HTTP)
-
-> **Important:** The MCP server must be hosted on a public HTTPS endpoint because Muse executes in Meta's cloud infrastructure. Meta does not review custom connectors—grant permissions with caution.
-
-1. **Create Custom Connector via Chat:** While built-in connectors can be found in **Settings → Connectors**, custom MCP connectors are created conversationally. Send Muse the following request in chat:
-   ```text
-   Create a Custom Connector for ClickUp MCP.
-   Transport: remote streamable HTTP
-   URL: https://clickup-mcp.taazkareem.com/mcp
-   Auth: OAuth (preferred) or license key via Secure Credentials as header X-License-Key
-   ```
-   *(Alternatively, if your client interface exposes it, navigate to **Settings → Connectors → Add custom connector** and paste the server URL).*
-2. **Authentication & Credentials:** Connect via **OAuth 2.1** (preferred). If configuring a license key header (`X-License-Key: your-license-key`), store it in Muse's **Secure Credentials Store** when prompted—never post raw secret keys into conversational chat.
-3. **Usage:** Ask Muse to interact with your ClickUp workspace (e.g. *"List all high-priority tasks in my Sprint"*).
-
 </details>
 
 <a name="augment-setup"></a>
