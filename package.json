@@ -21,6 +21,7 @@
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
     "start": "node build/index.js",
     "dev": "tsx watch src/index.ts",
+    "test:sessions": "tsx scripts/test_session_tracker.ts",
     "prepare": "npm run build",
     "sync-docs": "./scripts/sync-public-docs.sh"
   },

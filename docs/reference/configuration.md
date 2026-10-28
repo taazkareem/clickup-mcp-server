@@ -127,3 +127,15 @@ Triggers user OAuth while federating background API keys to enable seamless, zer
   }
 }
 ```
+
+## HTTP session memory
+
+Streamable and legacy SSE sessions keep a ClickUp service stack in memory until the client disconnects cleanly. Abandoned sessions are closed automatically.
+
+| Variable | Description | Default |
+| --- | --- | --- |
+| `MCP_SESSION_IDLE_TTL_MS` | Close a session after this many milliseconds without a request | `1800000` (30 min) |
+| `MCP_MAX_SESSIONS` | Maximum retained streamable + SSE sessions | `48` |
+| `MCP_SESSION_SWEEP_INTERVAL_MS` | How often idle sessions are swept | `60000` |
+
+`/health` includes `sessions.streamable` and `sessions.sse`. The periodic `Heap usage` log includes `streamableSessions` and `sseSessions`.
