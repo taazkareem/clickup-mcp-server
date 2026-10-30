@@ -22,6 +22,7 @@
     "start": "node build/index.js",
     "dev": "tsx watch src/index.ts",
     "test:sessions": "tsx scripts/test_session_tracker.ts",
+    "test:polar-webhook": "tsx scripts/test_polar_webhook.ts",
     "prepare": "npm run build",
     "sync-docs": "./scripts/sync-public-docs.sh"
   },
@@ -75,6 +76,7 @@
   "dependencies": {
     "@modelcontextprotocol/inspector": "^0.20.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
+    "@polar-sh/sdk": "^1.0.2",
     "axios": "^1.6.7",
     "chrono-node": "^2.9.0",
     "cookie-parser": "^1.4.7",

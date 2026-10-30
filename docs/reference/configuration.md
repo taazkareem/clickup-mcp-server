@@ -139,3 +139,17 @@ Streamable and legacy SSE sessions keep a ClickUp service stack in memory until 
 | `MCP_SESSION_SWEEP_INTERVAL_MS` | How often idle sessions are swept | `60000` |
 
 `/health` includes `sessions.streamable` and `sessions.sse`. The periodic `Heap usage` log includes `streamableSessions` and `sseSessions`.
+
+## Polar → Brevo welcome webhook
+
+The `/webhooks/polar` endpoint receives `order.paid` webhooks from Polar.sh and synchronizes paying customers into a Brevo contact list for onboarding and welcome emails.
+
+If any of these environment variables are missing or empty, the route is disabled and returns `503 { "error": "disabled" }` (a warning is logged once per process).
+
+| Variable | Description | Default |
+| --- | --- | --- |
+| `POLAR_WEBHOOK_SECRET` | Secret key used to verify Standard Webhooks HMAC-SHA256 signatures (`whsec_...`) from the Polar Dashboard (Settings → Webhooks) | Unset (route disabled) |
+| `BREVO_API_KEY` | Brevo API v3 key (`xkeysib-...`) used to look up and upsert contacts from Brevo (SMTP & API → API Keys) | Unset (route disabled) |
+| `BREVO_LIST_ID` | Numeric Brevo contact list ID where newly paying customers will be enrolled from Brevo (Contacts → Lists) | Unset (route disabled) |
+| `CLICKUP_PRODUCT_IDS` | Comma-separated list of Polar product IDs eligible for welcome onboarding emails from Polar Dashboard (Products) | Unset (route disabled) |
+
