@@ -142,7 +142,9 @@ Streamable and legacy SSE sessions keep a ClickUp service stack in memory until 
 
 ## Polar → Brevo welcome webhook
 
-The `/webhooks/polar` endpoint receives `order.paid` webhooks from Polar.sh and synchronizes paying customers into a Brevo contact list for onboarding and welcome emails.
+The `/webhooks/polar` endpoint receives webhooks from Polar.sh and synchronizes paying customers and their subscription lifecycle statuses into Brevo.
+
+For new customers (`order.paid` with billing reason `purchase` or `subscription_create`), it adds the contact to the configured Brevo list (`BREVO_LIST_ID`), triggering the onboarding/welcome automation. Subsequent events (renewal cycles and subscription lifecycle transitions) perform attribute-only updates without modifying contact list memberships or re-triggering list welcome automations.
 
 If any of these environment variables are missing or empty, the route is disabled and returns `503 { "error": "disabled" }` (a warning is logged once per process).
 
@@ -152,4 +154,42 @@ If any of these environment variables are missing or empty, the route is disable
 | `BREVO_API_KEY` | Brevo API v3 key (`xkeysib-...`) used to look up and upsert contacts from Brevo (SMTP & API → API Keys) | Unset (route disabled) |
 | `BREVO_LIST_ID` | Numeric Brevo contact list ID where newly paying customers will be enrolled from Brevo (Contacts → Lists) | Unset (route disabled) |
 | `CLICKUP_PRODUCT_IDS` | Comma-separated list of Polar product IDs eligible for welcome onboarding emails from Polar Dashboard (Products) | Unset (route disabled) |
+
+### Webhook Events to Enable in Polar
+
+Configure your Polar webhook endpoint to send the following exact events:
+- `order.paid`: Initial purchase, new subscription creation, and renewal cycles (`subscription_cycle`).
+- `subscription.active`: Subscription activated or payment recovered.
+- `subscription.canceled`: Subscription set to cancel at period end (no Brevo write is performed; customer remains active until access is revoked).
+- `subscription.uncanceled`: Customer undoes pending cancellation before period end.
+- `subscription.revoked`: Subscription canceled immediately or expired at end of period.
+- `subscription.past_due`: Subscription payment is past due.
+- `subscription.updated`: Subscription status changed (e.g. active, trialing, past_due, unpaid, canceled, incomplete_expired).
+
+### Brevo Contact Attributes
+
+The following Brevo contact attributes are synchronized:
+- `PLAN`: Human-readable product name and billing interval (e.g., `ClickUp MCP Pro (one-time)`, `ClickUp Unlimited Subscription (monthly)`).
+- `POLAR_CUSTOMER_ID`: Polar customer ID (`cust_...`).
+- `POLAR_ORDER_ID`: Polar order ID used for durable deduplication (`ord_...`).
+- `PURCHASED_AT`: Purchase date (`YYYY-MM-DD`).
+- `CUSTOMER_STATUS`: Customer account/subscription lifecycle state (see below).
+- `FIRSTNAME`: First name token extracted from Polar customer name.
+- `LASTNAME`: Remaining name tokens extracted from Polar customer name (only set if non-empty).
+- `EXT_ID`: Polar customer ID stored as a Brevo contact attribute.
+
+### `CUSTOMER_STATUS` Values and Behavior
+
+| Status | Value | Description & Lifecycle Behavior |
+| --- | --- | --- |
+| **Lifetime** | `lifetime` | Assigned on one-time purchase (`order.paid` with `billing_reason: purchase`). **Lifetime protection**: Contacts with `CUSTOMER_STATUS` set to `lifetime` are never downgraded by subscription events, renewal cycles, or subsequent `subscription_create` orders. |
+| **Active** | `active` | Assigned on new subscriptions (`subscription_create`), recurring subscription renewal cycles (`order.paid` with `subscription_cycle`), and active subscription events (`subscription.active`, `subscription.uncanceled`, `subscription.updated` with `active` or `trialing`). |
+| **Past Due** | `past_due` | Assigned when a subscription payment is overdue (`subscription.past_due` or `subscription.updated` with `past_due` or `unpaid`). |
+| **Canceled** | `canceled` | Assigned when subscription access is terminated (`subscription.revoked` or `subscription.updated` with `canceled` or `incomplete_expired`). |
+
+**Notes on status updates:**
+- When `subscription.canceled` is received, Polar indicates cancel-at-period-end; Brevo is not updated so the customer stays active until revocation.
+- For attribute-only updates (`subscription_cycle` and subscription lifecycle events), contacts that do not exist in Brevo return `202 { "status": "skipped", "reason": "not_in_brevo" }` and are never created.
+- Attribute-only updates send `{ attributes: { CUSTOMER_STATUS: <status> } }` only; they never contain `listIds` or `updateEnabled`.
+
 
