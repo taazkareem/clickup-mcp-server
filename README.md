@@ -28,7 +28,7 @@ The industry-standard ClickUp integration for AI.
 
 | Links | Quick Start & Installation |
 | :--- | :--- |
-| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/grok-bot.svg" height="16" style="vertical-align: middle;"> Grok&nbsp;Bot](#grok-bot-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/meta-muse.svg" height="16" style="vertical-align: middle;"> Meta&nbsp;Muse](#meta-muse-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-blossom.svg" height="16" style="vertical-align: middle;"> Dots](#dots-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Agy&nbsp;CLI](#antigravity-cli-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/hermes-logo.png" height="16" style="vertical-align: middle;"> Hermes](#hermes-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> ClaudeCode](#claude-code-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/windsurf-white.svg" height="16" style="vertical-align: middle;"> Windsurf](#windsurf-setup)</td> </tr> </table><div align="right" style="margin-top: 6px; font-size: 13px;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</div> |
+| •&nbsp;[Features](#features)<br>•&nbsp;[Premium&nbsp;Access](#premium-access)<br>•&nbsp;[Available&nbsp;Tools](#available-tools)<br>•&nbsp;[Adv.&nbsp;Config](#advanced-configuration)<br>•&nbsp;[FAQ](#faq)<br>•&nbsp;[Disclaimer](#disclaimer) | <table border="0" style="border: none; border-collapse: collapse; width: 575px;"> <tr style="border: none;"> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/grok-bot.png" height="16" style="vertical-align: middle;"> Grok&nbsp;Bot](#grok-bot-setup)</td> <td width="155" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/meta-muse.svg" height="16" style="vertical-align: middle;"> Meta&nbsp;Muse](#meta-muse-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/dots.png" height="16" style="vertical-align: middle;"> Dots](#dots-setup)</td> <td width="140" style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/claude-duet.png" height="16" style="vertical-align: middle;"> Claude&nbsp;Duet](#claude-duet-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Antigravity](#antigravity-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/antigravity.svg" height="16" style="vertical-align: middle;"> Agy&nbsp;CLI](#antigravity-cli-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/images/hermes-logo.png" height="16" style="vertical-align: middle;"> Hermes](#hermes-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openclaw-logo.svg" height="16" style="vertical-align: middle;"> OpenClaw](#openclaw-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/cursor-white.svg" height="16" style="vertical-align: middle;"> Cursor](#cursor-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/visual-studio-code.svg" height="16" style="vertical-align: middle;"> VS&nbsp;Code](#vscode-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/claude.svg" height="16" style="vertical-align: middle;"> Claude](#claude-desktop-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/anthropic/D97757" height="16" style="vertical-align: middle;"> ClaudeCode](#claude-code-setup)</td> </tr> <tr style="border: none;"> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="https://cdn.simpleicons.org/n8n/FF6D5A" height="16" style="vertical-align: middle;"> n8n](#n8n-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> Codex](#codex-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/openai-icon.svg" height="16" style="vertical-align: middle;"> ChatGPT](#chatgpt-setup)</td> <td style="border: none; vertical-align: middle; white-space: nowrap;">[<img src="./assets/logos/augment-code.svg" height="16" style="vertical-align: middle;"> Augment](#augment-setup)</td> </tr> </table><div align="right" style="margin-top: 6px; font-size: 13px;">[➕ Add Agent](mailto:info@taazkareem.com?subject=Redirect%20URI%20Whitelist%20Request)</div> |
 
 
 
@@ -141,7 +141,7 @@ A license grants full, unrestricted access to all features across your agents⎯
 <a name="grok-bot-setup"></a>
 
 <details>
-<summary>&nbsp;<img src="./assets/logos/grok-bot.svg" height="22" align="center"> <strong>Grok Bot</strong></summary>
+<summary>&nbsp;<img src="./assets/images/grok-bot.png" height="22" align="center"> <strong>Grok Bot</strong></summary>
 
 Grok Bot is the Cursor / xAI cloud agent harness. Custom MCP servers connect to Grok Bot conversationally via remote public HTTPS endpoints.
 
@@ -192,7 +192,7 @@ Meta Muse is Meta's cloud AI assistant supporting tool integrations via Model Co
 <a name="dots-setup"></a>
 
 <details>
-<summary>&nbsp;<img src="./assets/logos/openai-blossom.svg" height="22" align="center"> <strong>Dots (OpenAI Agents in ChatGPT)</strong></summary>
+<summary>&nbsp;<img src="./assets/images/dots.png" height="22" align="center"> <strong>Dots (OpenAI Agents in ChatGPT)</strong></summary>
 
 Dots are OpenAI's always-on autonomous agents operating within ChatGPT. Rather than configuring MCP servers directly inside an individual Dot's settings, Dots execute through **supported plugins and custom MCP connectors installed and enabled on your ChatGPT account**.
 
@@ -213,6 +213,33 @@ Dots are OpenAI's always-on autonomous agents operating within ChatGPT. Rather t
 4. **Enable & Verify with your Dot:**
    - Prompt your Dot in chat to access ClickUp (e.g. *"Review active sprint tasks on ClickUp"*).
    - _Documentation Gap Note:_ OpenAI documentation states that Dots utilize supported plugins on the account, but does not explicitly document whether every custom third-party MCP connector is universally recognized as "supported" across all Dot capabilities. Verify tool availability directly in your Dot chat session to confirm ClickUp actions trigger properly.
+
+</details>
+
+<a name="claude-duet-setup"></a>
+<a name="duet-setup"></a>
+
+<details>
+<summary>&nbsp;<img src="./assets/images/claude-duet.png" height="22" align="center"> <strong>Claude Duet</strong></summary>
+
+Claude Duet is Anthropic's proactive, always-on personal AI agent (research preview for Pro/Max users). Operating continuously in the cloud, Duet surfaces morning briefs, triages incoming items, and coordinates workflows across integrated apps without requiring synchronous chat prompting. Because Claude Duet inherits its connected apps, memory, and skills directly from your Claude account, adding the ClickUp MCP connector equips Duet to monitor and manage your tasks, sprints, docs, and comments.
+
+**Remote MCP Endpoint:** `https://clickup-mcp.taazkareem.com/mcp` (Streamable HTTP)
+
+> **Important:** The MCP server must be hosted on a public HTTPS endpoint because Claude Duet executes in Anthropic's cloud environment. Duet incorporates built-in confirmation safeguards: it proactively organizes and drafts updates, but pauses for your explicit sign-off before executing high-impact modifications.
+
+1. **Add Custom Connector in Claude:**
+   - In Claude on the web or desktop, click your profile / customize menu and navigate to **Customize → Connectors** (or click the **`+`** icon in any active chat and choose **Manage connectors**).
+   - Click **`+`** next to Connectors and select **Add custom connector**.
+   - Set **Name:** `ClickUp`
+   - Set **Server URL:** `https://clickup-mcp.taazkareem.com/mcp`
+2. **Authentication & Permissions:**
+   - Configure authentication using **OAuth 2.1** (preferred) or supply your license key via HTTP header `X-License-Key: your-license-key`.
+   - Click **Add** to complete registration.
+   *(For Claude Team and Enterprise workspaces, custom connectors are added and approved by an Owner/Admin in Organization Settings before team members enable them).*
+3. **Usage & Proactive Routines:**
+   - Instruct Claude Duet in chat to track ClickUp activity (e.g. *"Include high-priority ClickUp tasks in my daily morning brief"* or *"Alert me when blocked sprint dependencies clear"*).
+   - Verify tool availability directly in your Duet session to ensure proactive ClickUp actions execute with proper approval prompts.
 
 </details>
 
@@ -537,6 +564,8 @@ mcporter auth ClickUp
 }
 ```
 
+> **Tip for Claude Duet:** To use ClickUp with Anthropic's autonomous background agent, see the [Claude Duet Setup](#claude-duet-setup) section.
+
 </details>
 
 <a name="claude-code-setup"></a>
@@ -638,9 +667,12 @@ _Note: Requires a Business, Enterprise, or Edu workspace with Developer Mode ena
 </details>
 
 <a name="augment-setup"></a>
+<a name="auggierun-setup"></a>
 
 <details>
-<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Augment Code</strong></summary>
+<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Augment Code &amp; Auggie CLI</strong></summary>
+
+**Option A: IDE Settings (VS Code / JetBrains)**
 
 **Configuration Path:** `<project-root>/.augment/settings.json`
 
@@ -657,60 +689,13 @@ _Note: Requires a Business, Enterprise, or Edu workspace with Developer Mode ena
 }
 ```
 
-</details>
-
-<a name="auggierun-setup"></a>
-
-<details>
-<summary>&nbsp;<img src="./assets/logos/augment-code.svg" height="22" align="center"> <strong>Auggie CLI</strong></summary>
+**Option B: Auggie CLI (Terminal)**
 
 Run this command in your terminal:
 
 ```bash
 auggie mcp add ClickUp --url https://clickup-mcp.taazkareem.com/mcp \
   --header "X-License-Key: your-license-key"
-```
-
-</details>
-
-<a name="windsurf-setup"></a>
-
-<details>
-<summary>&nbsp;<img src="./assets/logos/windsurf-white.svg" height="22" align="center"> <strong>Windsurf</strong></summary>
-
-**Configuration Path:** `<project-root>/.codeium/windsurf/mcp_config.json`
-
-**Option A: Remote / Streamable HTTP (Easiest)**
-
-```json
-{
-  "mcpServers": {
-    "ClickUp": {
-      "url": "https://clickup-mcp.taazkareem.com/mcp",
-      "headers": {
-        "X-License-Key": "your-license-key"
-      }
-    }
-  }
-}
-```
-
-**Option B: Local / STDIO**
-
-```json
-{
-  "mcpServers": {
-    "ClickUp": {
-      "command": "npx",
-      "args": ["-y", "@taazkareem/clickup-mcp-server@latest"],
-      "env": {
-        "CLICKUP_API_KEY": "your-api-key",
-        "CLICKUP_TEAM_ID": "your-team-id",
-        "CLICKUP_MCP_LICENSE_KEY": "your-license-key"
-      }
-    }
-  }
-}
 ```
 
 </details>
