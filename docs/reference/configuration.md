@@ -179,7 +179,7 @@ The following Brevo contact attributes are synchronized:
 - `EXT_ID`: Polar customer ID stored as a Brevo contact attribute.
 - `ANNUAL_OFFER_URL`: Signed personal `/annual-offer` link written when a Monthly subscription is created or activated (when `ANNUAL_OFFER_SECRET` is configured; see below).
 - `ANNUAL_OFFER_REDEEMED_AT`: Date (`YYYY-MM-DD`) when the customer switched from Monthly to Annual via `/annual-offer`.
-- `ANNUAL_OFFER_PRICE`: Effective recurring annual price recorded on switch as a number (Brevo float attribute, e.g. `59` at list price or `47.2` when an optional 20% discount is configured), preferring `subscription.amount` from Polar's `PATCH` response and falling back to the computed listed price.
+- `ANNUAL_OFFER_PRICE`: Effective recurring annual price recorded on switch as a two-decimal string (e.g., `'59.00'` at list price or `'47.20'` when an optional 20% discount is configured), preferring `subscription.amount` from Polar's `PATCH` response and falling back to the computed listed price.
 
 ### `CUSTOMER_STATUS` Values and Behavior
 
@@ -248,7 +248,7 @@ Every `switched` log event records `price` (two-decimal string preferring `subsc
 | --- | --- | --- |
 | `ANNUAL_OFFER_URL` | Full signed HTTPS URL | Written by `/webhooks/polar` on Monthly `order.paid` (`subscription_create`) and `subscription.active` with `exp = start + 42 days` (day-35 email + 7-day window) when `ANNUAL_OFFER_SECRET` is set, or by `scripts/annual-offer-links.js --write` with `exp = now + 7 days`. Contacts with `CUSTOMER_STATUS = lifetime` are never modified. |
 | `ANNUAL_OFFER_REDEEMED_AT` | `YYYY-MM-DD` | Written on successful `POST /annual-offer` switch (source of truth alongside structured server logs; when a discount is configured, Polar's proration invoice folds the discount into the line price and reports `discount_amount = 0`). |
-| `ANNUAL_OFFER_PRICE` | Number / Brevo float (e.g. `59`, `47.2`) | Written alongside `ANNUAL_OFFER_REDEEMED_AT` on successful `POST /annual-offer` switch, using `subscription.amount` from Polar's `PATCH` response (falling back to the computed listed price). |
+| `ANNUAL_OFFER_PRICE` | Two-decimal string (e.g. `'59.00'`, `'47.20'`) | Written alongside `ANNUAL_OFFER_REDEEMED_AT` on successful `POST /annual-offer` switch, using `subscription.amount` from Polar's `PATCH` response (falling back to the computed listed price). |
 
 ### Backfill / One-Time Campaign Script (`scripts/annual-offer-links.js`)
 
