@@ -177,6 +177,9 @@ The following Brevo contact attributes are synchronized:
 - `FIRSTNAME`: First name token extracted from Polar customer name.
 - `LASTNAME`: Remaining name tokens extracted from Polar customer name (only set if non-empty).
 - `EXT_ID`: Polar customer ID stored as a Brevo contact attribute.
+- `ANNUAL_OFFER_URL`: Signed personal `/annual-offer` link written when a Monthly subscription is created or activated (only when the Annual-switch offer is enabled; see below).
+- `ANNUAL_OFFER_REDEEMED_AT`: Date (`YYYY-MM-DD`) when the customer switched from Monthly to Annual via `/annual-offer`.
+- `ANNUAL_OFFER_PRICE`: Discounted first-year annual price recorded on switch (`47.20`).
 
 ### `CUSTOMER_STATUS` Values and Behavior
 
@@ -190,6 +193,57 @@ The following Brevo contact attributes are synchronized:
 **Notes on status updates:**
 - When `subscription.canceled` is received, Polar indicates cancel-at-period-end; Brevo is not updated so the customer stays active until revocation.
 - For attribute-only updates (`subscription_cycle` and subscription lifecycle events), contacts that do not exist in Brevo return `202 { "status": "skipped", "reason": "not_in_brevo" }` and are never created.
-- Attribute-only updates send `{ attributes: { CUSTOMER_STATUS: <status> } }` only; they never contain `listIds` or `updateEnabled`.
+- Attribute-only updates send `{ attributes: { CUSTOMER_STATUS: <status> } }` only (plus `ANNUAL_OFFER_URL` on `subscription.active` for the Monthly product when the annual-switch offer is enabled); they never contain `listIds` or `updateEnabled`.
+
+## Annual-switch offer (`/annual-offer`)
+
+The public `/annual-offer` endpoints allow active Monthly subscribers to switch to the Annual plan in one click with a 20% first-year discount (`$47.20` for year one, renewing at `$59/yr`, with unused time on the current month automatically credited via Polar's `proration_behavior: 'invoice'`).
+
+Each subscriber receives a personal HMAC-SHA256-signed link:
+
+```text
+${ANNUAL_OFFER_BASE_URL}/annual-offer?sub=<subscription_id>&exp=<unix_seconds>&sig=<hex_hmac_sha256>
+```
+
+- `GET /annual-offer` verifies the signature and expiration, checks the subscription via the Polar API, and renders a dark branded confirmation page (or a friendly status page if already on annual, expired, or ineligible).
+- `POST /annual-offer` re-verifies the signed form fields, re-checks the subscription (idempotent if already switched), executes a single `PATCH /v1/subscriptions/{id}` request to Polar with `{ product_id, discount_id, proration_behavior: "invoice" }`, logs a structured `annual_offer` redemption event, and records `ANNUAL_OFFER_REDEEMED_AT` and `ANNUAL_OFFER_PRICE` on the Brevo contact.
+
+### Environment Variables
+
+If `ANNUAL_OFFER_SECRET`, `ANNUAL_OFFER_DISCOUNT_ID`, or `POLAR_ACCESS_TOKEN` is missing or empty, both `GET /annual-offer` and `POST /annual-offer` are disabled and return `404`. Webhook `ANNUAL_OFFER_URL` provisioning in `/webhooks/polar` is enabled whenever `ANNUAL_OFFER_SECRET` and `ANNUAL_OFFER_DISCOUNT_ID` are set.
+
+| Variable | Description | Default |
+| --- | --- | --- |
+| `ANNUAL_OFFER_SECRET` | HMAC-SHA256 signing secret used to sign and verify `${sub}.${exp}` offer links | Unset (feature disabled) |
+| `ANNUAL_OFFER_DISCOUNT_ID` | Polar discount ID (20% first-year discount) applied when switching a Monthly subscription to Annual | Unset (feature disabled) |
+| `POLAR_ACCESS_TOKEN` | Polar organization access token (`Bearer`) required by `/annual-offer` routes and `scripts/annual-offer-links.js` to read/update subscriptions | Unset (routes disabled) |
+| `POLAR_MONTHLY_PRODUCT_ID` | Polar product UUID for the Monthly subscription plan | `e33f10cf-8178-4609-8897-cbde652fe46b` |
+| `POLAR_ANNUAL_PRODUCT_ID` | Polar product UUID for the Annual subscription plan | `82676a2c-d3ed-469c-8ff3-d1845810dd3f` |
+| `POLAR_API_BASE` | Polar API base URL (e.g. `https://api.polar.sh` or `https://sandbox-api.polar.sh`; accepts with or without trailing `/v1` and normalizes) | `https://api.polar.sh` |
+| `ANNUAL_OFFER_BASE_URL` | Public base URL used when building signed `/annual-offer` links | `https://clickup-mcp.taazkareem.com` |
+| `BREVO_API_KEY` | Brevo API v3 key used to record `ANNUAL_OFFER_REDEEMED_AT` and `ANNUAL_OFFER_PRICE` on switch (optional on `/annual-offer` — logged and skipped if unset; required for `scripts/annual-offer-links.js --write`) | Unset |
+
+### Annual-Offer Brevo Contact Attributes
+
+| Attribute | Format / Value | When Written |
+| --- | --- | --- |
+| `ANNUAL_OFFER_URL` | Full signed HTTPS URL | Written by `/webhooks/polar` on Monthly `order.paid` (`subscription_create`) and `subscription.active` with `exp = start + 42 days` (day-35 email + 7-day window), or by `scripts/annual-offer-links.js --write` with `exp = now + 7 days`. Contacts with `CUSTOMER_STATUS = lifetime` are never modified. |
+| `ANNUAL_OFFER_REDEEMED_AT` | `YYYY-MM-DD` | Written on successful `POST /annual-offer` switch (source of truth alongside structured server logs, since Polar's proration invoice folds the discount into the line price and reports `discount_amount = 0`). |
+| `ANNUAL_OFFER_PRICE` | `'47.20'` | Written alongside `ANNUAL_OFFER_REDEEMED_AT` on successful `POST /annual-offer` switch. |
+
+### Backfill / One-Time Campaign Script (`scripts/annual-offer-links.js`)
+
+To generate 7-day signed links for existing active Monthly subscribers (e.g., one-time campaign):
+
+```bash
+# 1. Build compiled helpers in build/ first
+npm run build
+
+# 2. Dry-run (default): fetches active Monthly subscriptions from Polar and prints masked preview table
+node scripts/annual-offer-links.js
+
+# 3. Write ANNUAL_OFFER_URL to Brevo contacts (skips lifetime contacts and reports 404s)
+node scripts/annual-offer-links.js --write
+```
 
 
